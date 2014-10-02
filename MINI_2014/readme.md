@@ -1,45 +1,50 @@
-'''Zakres:'''
-->Rozpoczniemy od kilku spotka&#324; (+- trzech) po&#347;wi&#281;conych tworzeniu wykresów z pakietem ggplot2. Nast&#281;pnie omówimy pakiet ggvis (na jednym lub dwóch spotkaniach) oraz pakiet shiny (na dwóch spotkaniach). 
+Zakres:
+-------
+Rozpoczniemy od kilku spotka&#324; (+- trzech) po&#347;wi&#281;conych tworzeniu wykresów z pakietem ggplot2. Nast&#281;pnie omówimy pakiet ggvis (na jednym lub dwóch spotkaniach) oraz pakiet shiny (na dwóch spotkaniach). 
 
-->Cz&#281;&#347;&#263; techniczn&#261; b&#281;dziemy przeplata&#263; teori&#261; percepcji obrazu oraz percepcji grafiki statystycznej na bazie esejów o prezentacji danych.
+Cz&#281;&#347;&#263; techniczn&#261; b&#281;dziemy przeplata&#263; teori&#261; percepcji obrazu oraz percepcji grafiki statystycznej na bazie esejów o prezentacji danych.
 
-->Plan ten mo&#380;e ulec urozmaiceniu na wniosek prowadz&#261;cego lub studentów. Pomys&#322;y mile widziane.
+Plan ten mo&#380;e ulec urozmaiceniu na wniosek prowadz&#261;cego lub studentów. Pomys&#322;y mile widziane.
 
-'''Materia&#322;y:'''
--> Materia&#322;y s&#261; równie&#380; dost&#281;pne na githubie [[https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_2014]]. Klonuj&#261;c to repozytorium mo&#380;na &#322;atwo uzyska&#263; dost&#281;p do niezb&#281;dnych plików.
+Materia&#322;y:
+---------------
+
+* Materia&#322;y s&#261; równie&#380; dost&#281;pne na githubie [[https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_2014]]. Klonuj&#261;c to repozytorium mo&#380;na &#322;atwo uzyska&#263; dost&#281;p do niezb&#281;dnych plików.
 
 * Przygotowanie danych
--> http://biecek.pl/MIMUW/TWD2014/przygtowanieDanych.html
--> http://biecek.pl/MIMUW/TWD2014/przygtowanieDanych.Rmd
--> Projekt PISA na portalu OECD http://pisa2012.acer.edu.au/
--> Pe&#322;ne dane w formacie R https://github.com/pbiecek/PISA2012lite
--> Kwestionariusz studenta http://biecek.pl/MIMUW/TWD2014/studentQuestionnaire.pdf
--> Kwestionariusz szko&#322;y http://biecek.pl/MIMUW/TWD2014/schoolQuestionnaire.pdf
+** http://biecek.pl/MIMUW/TWD2014/przygtowanieDanych.html
+** http://biecek.pl/MIMUW/TWD2014/przygtowanieDanych.Rmd
+** Projekt PISA na portalu OECD http://pisa2012.acer.edu.au/
+** Pe&#322;ne dane w formacie R https://github.com/pbiecek/PISA2012lite
+** Kwestionariusz studenta http://biecek.pl/MIMUW/TWD2014/studentQuestionnaire.pdf
+** Kwestionariusz szko&#322;y http://biecek.pl/MIMUW/TWD2014/schoolQuestionnaire.pdf
 
 * Pakiet ggplot cz&#281;&#347;&#263; pierwsza
--> http://biecek.pl/MIMUW/TWD2014/ggplot1.html
--> http://biecek.pl/MIMUW/TWD2014/ggplot1.Rmd
+** http://biecek.pl/MIMUW/TWD2014/ggplot1.html
+** http://biecek.pl/MIMUW/TWD2014/ggplot1.Rmd
 
 
-'''Plan spotka&#324;:'''
--> 2 X
--> 9 X
--> 16 X - Prezentacja pierwszej fazy projektu miniaturka
--> 23 X
--> 30 X - Prezentacja pierwszej fazy projektu PISA
--> 6 XI
--> 13 XI - Prezentacja drugiej fazy projektu miniaturka
--> 20 XI
--> 27 XI - Prezentacja drugiej fazy projektu PISA
--> 4 XII
--> 11 XII - Prezentacje artyku&#322;ów z Points of View na wyk&#322;adzie
--> 18 XII
--> 8 I - Prezentacja trzeciej fazy projektu miniaturka
--> 15 I
--> 22 I - Prezentacja trzeciej fazy projektu PISA
+Plan spotka&#324;:
+------------------
+* 2 X
+* 9 X
+* 16 X - Prezentacja pierwszej fazy projektu miniaturka
+* 23 X
+* 30 X - Prezentacja pierwszej fazy projektu PISA
+* 6 XI
+* 13 XI - Prezentacja drugiej fazy projektu miniaturka
+* 20 XI
+* 27 XI - Prezentacja drugiej fazy projektu PISA
+* 4 XII
+* 11 XII - Prezentacje artyku&#322;ów z Points of View na wyk&#322;adzie
+* 18 XII
+* 8 I - Prezentacja trzeciej fazy projektu miniaturka
+* 15 I
+* 22 I - Prezentacja trzeciej fazy projektu PISA
 
 
-'''Projekty:'''
+Projekty:
+---------
 * '''Projekt miniaturka.''' 
 ->Celem jest opracowanie graficznej reprezentacji obiektów o okre&#347;lonej klasie (lm/glm/data.frame/htest/lda/knn/inny) na obszarze 800x800 pkt. 
 ->Projekt sk&#322;ada si&#281; z trzech faz: 
