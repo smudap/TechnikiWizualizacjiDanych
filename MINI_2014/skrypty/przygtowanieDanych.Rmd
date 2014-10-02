@@ -1,0 +1,132 @@
+Skrypt przygotowujący dane do zajęć
+===================================
+
+Pobieranie danych PISA do ćwiczeń na laboratoria.
+
+```{r, warning=FALSE, message=FALSE}
+install.packages("dplyr")
+library(dplyr)
+
+con <- url("http://biecek.pl/MIMUW/PISAeurope.rda")
+print(load(con))
+
+dim(pisa)
+
+tmp1 <- table(pisa$ST28Q01, pisa$CNT)
+tmp2 <- prop.table(tmp1, 2)
+apply(tmp2, 2, cumsum)
+
+table(pisa$ST115Q01, pisa$CNT)
+
+
+apply(prop.table(table(pisa$ST28Q01, pisa$CNT), 2), 2, cumsum)
+
+table(pisa$ST28Q01, pisa$CNT) %>%
+  prop.table(2) %>%
+  apply(2, cumsum)
+
+pisa$PV1MATH
+pisa$PV1READ
+pisa$PV1SCIE
+
+600
+
+table(pisa$PV1MATH > 600, pisa$CNT) %>%
+  prop.table(2)
+
+sort(table(pisa$CNT[pisa$PV1MATH > 600]))
+
+pisa %>%
+  filter(PV1MATH > 600) %>%
+  group_by(CNT) %>%
+  summarise(liczba = n(),
+            srednia = mean(PV1MATH, na.rm=TRUE)) %>%
+  arrange(liczba)
+
+
+
+
+
+
+
+
+```
+
+Przykładowe przetwarzanie z użyciem biblioteki dplyr
+
+```{r, warning=FALSE, message=FALSE}
+avgs <- pisa %>% 
+  group_by(CNT) %>% 
+  summarise(math = weighted.mean(PV1MATH, W_FSTUWT, na.rm = TRUE),
+            read = weighted.mean(PV1READ, W_FSTUWT, na.rm = TRUE),
+            total = sum(W_FSTUWT)) 
+avgs
+
+
+
+library(ggplot2)
+
+ggplot(avgs, aes(x = math, y = read, size=total)) + 
+  geom_point()
+
+ggplot(avgs, aes(x = math, y = read, label=CNT)) + 
+  geom_text()
+
+
+ggplot(avgs, aes(x = math, y = read, 
+                 shape=CNT)) + 
+  geom_point()
+
+ggplot(avgs, aes(x = math, y = read, 
+                 label=CNT)) + 
+  geom_point(size=5) +
+  geom_text(vjust=-1)
+
+ggplot(pisa, aes(x=ESCS, y=PV1READ, color=CNT)) +
+  geom_smooth(se=FALSE, size=2) + xlim(-2,3)
+
+
+
+
+
+
+
+
+
+pisa %>% 
+  group_by(CNT, grupa = PV1MATH > 600) %>% 
+  summarise(total = sum(W_FSTUWT)) %>%
+  group_by(CNT) %>%
+  mutate(frakcja = total / sum(total)) %>%
+  filter(grupa == TRUE) %>%
+  arrange(frakcja)
+
+
+
+sum1 <- pisa %>% 
+  filter(PV1MATH > 600) %>%
+  group_by(CNT) %>%
+  summarise(total = sum(W_FSTUWT))
+sum2 <- pisa %>% 
+  group_by(CNT) %>%
+  summarise(total = sum(W_FSTUWT))
+data.frame(kraj = sum1[,1], frakcja = sum1[,2]/sum2[,2])
+
+
+```
+
+Pobieranie danych o cenach aut do ćwiczeń na wykładzie
+
+```{r, warning=FALSE, message=FALSE}
+con <- url("http://biecek.pl/MIMUW/cenyAutI2012.Rdata")
+print(load(con))
+
+cenyAutI2012 %>%
+  head()
+
+cenyAutI2012$Marka %>%
+  table() %>%
+  sort()
+
+```
+
