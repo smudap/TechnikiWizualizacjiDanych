@@ -9,7 +9,7 @@ Plan ten mo&#380;e ulec urozmaiceniu na wniosek prowadz&#261;cego lub studentów
 Materia&#322;y:
 ---------------
 
-Materia&#322;y s&#261; równie&#380; dost&#281;pne na githubie [[https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_2014]]. Klonuj&#261;c to repozytorium mo&#380;na &#322;atwo uzyska&#263; dost&#281;p do niezb&#281;dnych plików.
+Materia&#322;y s&#261; równie&#380; dost&#281;pne na githubie [[https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014]]. Klonuj&#261;c to repozytorium mo&#380;na &#322;atwo uzyska&#263; dost&#281;p do niezb&#281;dnych plików.
 
 Przygotowanie danych
 * http://biecek.pl/MIMUW/TWD2014/przygtowanieDanych.html
@@ -19,17 +19,21 @@ Przygotowanie danych
 * Kwestionariusz studenta http://biecek.pl/MIMUW/TWD2014/studentQuestionnaire.pdf
 * Kwestionariusz szko&#322;y http://biecek.pl/MIMUW/TWD2014/schoolQuestionnaire.pdf
 
-Pakiet ggplot cz&#281;&#347;&#263; pierwsza
+Pakiet ggplot cz&#281;&#347;&#263; pierwsza, początki
 * http://biecek.pl/MIMUW/TWD2014/ggplot1.html
 * http://biecek.pl/MIMUW/TWD2014/ggplot1.Rmd
 
+Pakiet ggplot cz&#281;&#347;&#263; druga, schodzimy głębiej
+* http://biecek.pl/MIMUW/TWD2014/ggplot2.html
+* http://biecek.pl/MIMUW/TWD2014/ggplot2.Rmd
 
-Plan spotka&#324;:
+
+Plan spotka&#324; MINI PW:
 ------------------
 * 2 X
 * 9 X
-* 16 X - Prezentacja pierwszej fazy projektu miniaturka
-* 23 X
+* 16 X (brak spotkania)
+* 23 X - Prezentacja pierwszej fazy projektu miniaturka
 * 30 X - Prezentacja pierwszej fazy projektu PISA
 * 6 XI
 * 13 XI - Prezentacja drugiej fazy projektu miniaturka
@@ -38,9 +42,26 @@ Plan spotka&#324;:
 * 4 XII
 * 11 XII - Prezentacje artyku&#322;ów z Points of View na wyk&#322;adzie
 * 18 XII
-* 8 I - Prezentacja trzeciej fazy projektu miniaturka
+* 8 I - Prezentacja trzeciej fazy projektu miniaturka [wspólnie MINI i MIM]
 * 15 I
-* 22 I - Prezentacja trzeciej fazy projektu PISA
+* 22 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM]
+
+Plan spotka&#324; MIM UW:
+------------------
+* 7 X
+* 14 X (brak spotkania)
+* 21 X
+* 28 X - Prezentacja pierwszej fazy projektu miniaturka
+* 4 XI
+* 11 XI - Prezentacja pierwszej fazy projektu PISA
+* 18 XI
+* 25 XI - Prezentacja drugiej fazy projektu miniaturka
+* 2 XII
+* 9 XII - Prezentacja drugiej fazy projektu PISA
+* 16 XII
+* 13 I - Prezentacja trzeciej fazy projektu miniaturka [wspólnie MINI i MIM]
+* 20 I
+* 27 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM]
 
 
 Projekty:
