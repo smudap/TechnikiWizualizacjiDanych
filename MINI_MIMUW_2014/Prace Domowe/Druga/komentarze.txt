@@ -1,0 +1,14 @@
+1. Ma³o prac domowych w drugiej serii!
+Dziêujê tej jednej osobie, która pracê zg³osi³a i której prace mo¿na skomentowaæ.
+
+2. Robienie szkiców ma t¹ zaletê, ¿e nic nie dzieje siê ,,samo''.
+Elementy, które sa na wykresie to tylko te, które narysowaliœmy.
+
+W za³oszonej pracy domowej, u¿ycie legendy z kolorami to dobry pomys³, ale dobór kolorów i ich kolejnoœc nie jest naturalna. ,,Raczej sie zgadzam'' jest kolorem bardziej intensywnym niz ,,zgadzam sie''.
+
+W przypadku wykresu ko³owego, uk³ad wspó³rzêdnych z którym pracujemy to uk³ad biegunowy.
+Dodane do wykresu osie uk³adu kartezjañskiego nie wnosz¹ ¿adnej informacji, 
+kierunek lewo prawo/góra dó³ nie mapuje siê na wykres ko³owy.
+
+Na prawym wykresie, kolejnoœæ poziomów nie jest intuicyjna. Wartoœci poœrednie (raczej ...) s¹ daleko od siebie ,,na kole''.
+U¿yta jest te¿ wielkoœæ punktu do przedstawienia pewnej cechy, ale nie ma wzornika pozwalaj¹cego na odczytanie wartoœci liczbowych.
