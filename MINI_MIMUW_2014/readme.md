@@ -51,15 +51,15 @@ Plan spotka&#324; MIM UW:
 * 7 X
 * 14 X (brak spotkania)
 * 21 X
-* 28 X - Prezentacja pierwszej fazy projektu miniaturka
-* 4 XI
-* 11 XI - Prezentacja pierwszej fazy projektu PISA
+* 28 X 
+* 4 XI - Prezentacja pierwszej fazy projektu PISA
+* 11 XI 
 * 18 XI
-* 25 XI - Prezentacja drugiej fazy projektu miniaturka
+* 25 XI - Prezentacje artyku&#322;ów z Points of View
 * 2 XII
-* 9 XII - Prezentacja drugiej fazy projektu PISA
-* 16 XII
-* 13 I - Prezentacja trzeciej fazy projektu miniaturka [wspólnie MINI i MIM]
+* 9 XII
+* 16 XII - Prezentacja drugiej fazy projektu PISA
+* 13 I 
 * 20 I
 * 27 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM]
 
