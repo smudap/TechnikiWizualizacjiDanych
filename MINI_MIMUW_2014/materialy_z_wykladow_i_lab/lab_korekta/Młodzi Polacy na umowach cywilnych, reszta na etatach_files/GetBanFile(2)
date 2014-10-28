@@ -1,0 +1,13 @@
+document.write('<div class="banN3">reklama</div>');
+
+        document.write('<div class="banB3" id="b261823">');
+        
+document.write('<object class="IMbban1" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" id="UQRFNGWCDXJPYCCOMDTARGRLSBFXXC_261823" width=300 height=250>');
+document.write('<param name=movie value="http://adv.adview.pl/ads/130/UQRFNGWCDXJPYCCOMDTARGRLSBFXXC_261823.swf?clickTag=http%3A%2F%2Fad.adview.pl%2Fad%2Freloadwww%3Fatex%3D261823%26url%3Dhttp%253A%252F%252Fad.doubleclick.net%252Fddm%252Fclk%252F285224100%253B112197656%253Bx%26dx='+ban_dx+'%26jsp='+ban_jsp+'%26ts='+ban_ts+'">');
+document.write('<param name=quality value=high><param name="allowScriptAccess" value="always"><param name="wmode" value="opaque"><param name="menu" value="false">');
+document.write('<embed allowScriptAccess="always" class="IMbban1" wmode="opaque" name="UQRFNGWCDXJPYCCOMDTARGRLSBFXXC_261823" ID="UQRFNGWCDXJPYCCOMDTARGRLSBFXXC_261823" src="http://adv.adview.pl/ads/130/UQRFNGWCDXJPYCCOMDTARGRLSBFXXC_261823.swf?clickTag=http%3A%2F%2Fad.adview.pl%2Fad%2Freloadwww%3Fatex%3D261823%26url%3Dhttp%253A%252F%252Fad.doubleclick.net%252Fddm%252Fclk%252F285224100%253B112197656%253Bx%26dx='+ban_dx+'%26jsp='+ban_jsp+'%26ts='+ban_ts+'" quality=high swLiveConnect=true   pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width=300 height=250>');
+document.write('</embed></object>');
+document.write('</div>');
+        banP3pixel = new Image(1,1);
+banP3pixel.src = 'http://ad.doubleclick.net/ad/N6428.148648.GAZETA.PL/B8299286.112197656;sz=1x1;ord='+(new Date()).getTime()+'?';
+ 

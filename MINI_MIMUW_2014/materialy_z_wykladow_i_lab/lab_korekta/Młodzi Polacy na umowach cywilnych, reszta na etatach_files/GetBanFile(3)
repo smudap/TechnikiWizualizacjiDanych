@@ -1,0 +1,7 @@
+document.write('<div class="banLabel">REKLAMA</div>');
+
+document.write('<div class="banB21" id="b261494">');
+document.write('<a target="_blank" href="http://ad.adview.pl/ad/reloadwww?atex=261494&url=http%3A%2F%2Fwww.ceneo.pl%2FBotki%3Futm_source%3Dgazeta.pl%26utm_medium%3Dcpc%26utm_campaign%3Dapi%23pid%3D485&dx='+ban_dx+'&jsp='+ban_jsp+'&ts='+ban_ts+'">');
+document.write('<img src="http://adv.adview.pl/ads/130/HSHOPADTKRIWVVBXASUOHUTQLZZMAW_261494.jpg" alt=""  class="banBIM21" width=300 height=90></a>');
+document.write('</div>');
+ 

@@ -1,0 +1,7 @@
+var banXxByPoz = new Array();var banPassBackByPoz = new Array();banXxByPoz[0]='';banPassBackByPoz[0]='';banPassBackByPoz[59]='59-223488';banXxByPoz[1]='1-262282';banXxByPoz[3]='3-261823';banXxByPoz[21]='21-261494';banXxByPoz[4]='4-221250';banXxByPoz[59]='59-209960';var typyMakieta=',1,2,3,4,7,11,13,19,20,21,34,41,42,43,44,49,50,55,56,59,60,61,62,63,71,85,86,90,91,94,96,97,101,102,103,104,105,106,107,108,120,121,122,123,124,125,126,';var slowa='';var adInst='102,107,105';var typyWykluczaneBan='';var banKey='6566948433559716041';var banCookie='cb28fe24dac171fe7515648843723793fcfe';var adUid='';var ban_ts=1414153987392;var ban_dx=100896;var ban_dir='biznes';var ban_jsp=23;var banServer='http://ad.adview.pl/ad/';var nobanner=false;var siteId_admeta=window.location.host;
+ function setJsParams(playerID) { 
+ params = [100896, '/biznes/',23] 
+document.getElementById(playerID).setJsParams(params); 
+ }
+ var banSessionId = '&AD_SID=JxJRJKHDbmbN8nRNTJ0r66K3JKlVhl9gQB9ZNvlLQB0sJXs8Qf2Z!-1785645269'; 
+

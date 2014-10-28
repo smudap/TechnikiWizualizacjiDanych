@@ -1,0 +1,3 @@
+ 
+document.write('<div class="banB1" id="b262282">');document.write('<scr'+'ipt src="//my.adocean.pl/_'+(new Date()).getTime()+'/ad.js?id=BHCsoY24TPe8A9PKueHmkzvADkXezdsIuvgI2pba6.r.07/redir=" language="javascript"></scr'+'ipt>');document.write('</div>');
+if (getBanObj("banP1")) getBanObj("banP1").style.display="block"; 

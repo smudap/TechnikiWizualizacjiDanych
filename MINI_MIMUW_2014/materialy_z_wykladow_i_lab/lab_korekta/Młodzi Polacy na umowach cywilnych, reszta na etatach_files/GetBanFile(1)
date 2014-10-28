@@ -1,0 +1,28 @@
+document.write('<div class="banLabel">REKLAMA PAYPER.PL</div>');
+ 
+
+document.write('<div class="banB4" id="b221250">');if ((typeof(noBanner_admeta)=='undefined') || (noBanner_admeta==false)) {
+	var ADM_WIDTH  = 620;
+	var ADM_HEIGHT = 100;
+	var ADV_SITE   = siteId_admeta; 
+	var ADV_PAGE   = 'dir=' + ban_dir + ',jsp=' + ban_jsp; 
+	var ADM_PL = {
+		tp:'sp',
+		pbId: 163, 
+		Site: ADV_SITE, 
+		Page: ADV_PAGE, 
+		rank:1, 
+		width: ADM_WIDTH, 
+		height:ADM_HEIGHT, 
+		// ATpagefilter: true 
+	}
+	
+	if (window.Admeta) {
+		Admeta.processImpressions();
+	} else {
+		document.write('<scr'+'ipt type="text/javascript" src="http://s.atemda.com/Admeta.js"></scr'+'ipt>');
+	}
+} else if(document.getElementById("banP4")) {
+	document.getElementById("banP4").style.display = "none"; 
+}document.write('</div>');
+ 
