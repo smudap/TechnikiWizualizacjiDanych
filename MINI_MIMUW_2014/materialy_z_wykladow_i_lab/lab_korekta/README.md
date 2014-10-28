@@ -13,3 +13,7 @@ M³odzi Polacy na umowach cywilnych, reszta na etatach
 
 http://wyborcza.biz/biznes/1,100896,16724844,Mlodzi_Polacy_na_umowach_cywilnych__reszta_na_etatach.html
 
+4.
+This Chart Shows An Alarming Rise In Florida Gun Deaths After 'Stand Your Ground' Was Enacted
+
+http://www.businessinsider.com/gun-deaths-in-florida-increased-with-stand-your-ground-2014-2
