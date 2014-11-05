@@ -15,6 +15,10 @@ Danych opisujących kraje jest wiele, kluczowy jest wybór pewnej - niewielkiej 
 
 Przed końcem zajęć każda grupa przedstawia swoją tablicę, a następnie każda grupa wybiera jedną z trzech pozostałych, która im podoba się najbardziej.
 
+Hint
+----
+Czasu jest mało, ale zaplanowawszy jak ma wyglądać tablica rozdzielcza, można zrównoleglić prace.
+
 Profile
 -------
 * https://www.cia.gov/library/publications/the-world-factbook/geos/pl.html
