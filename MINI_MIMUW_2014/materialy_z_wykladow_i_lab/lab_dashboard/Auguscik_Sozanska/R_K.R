@@ -1,0 +1,59 @@
+library(dplyr) # obróbka danych
+library(ggplot2)
+library(reshape)
+library(RColorBrewer)
+library(gridExtra)
+library(scales)
+
+kraje <- c("Polska", "Niemcy", "Wielka Brytania", "Rumunia", "Estonia")
+area <- c(312685, 357022, 243610, 238391, 45228)
+militaryman <- c(9531855, 18529299, 14856917, 5601234, 291801)
+militarywoman <- c(9298593 ,17888543, 14307316, 5428939, 302696)
+gdp <- c(814, 3227, 2387, 288.5, 29.94)
+miejsce <- c(22, 6, 9, 45 ,114)
+dane <- data.frame(kraje, area, militaryman, militarywoman, gdp, miejsce)
+
+dane <- dane %>% arrange(miejsce)
+
+p2 <- ggplot(dane, aes(x=kraje, y=area)) +
+  geom_bar(stat="identity", fill="cornflowerblue")+
+  scale_x_discrete(limits=dane$kraje[order(dane$miejsce)])
+
+p3 <- ggplot(dane, aes(x=miejsce, y=gdp, label=kraje)) +
+  geom_point(size=5, col="cornflowerblue") +
+  geom_text(hjust=c(-0.2,-0.2,-0.1,-0.2,1.2), vjust=c(0,0.5,0,0,0),size=8)+
+  scale_x_continuous(breaks=miejsce)
+
+
+Polska <- c(14.6, 11.9, 43.8, 14.7, 14.5)
+Niemcy <- c(13, 10.6, 41.7, 13.6, 20.9)
+UK <- c(17.3, 12.6, 41, 11.5, 17.3)
+Rumunia <- c(14.6, 11.3, 45.7, 13, 15.1)
+Estonia <- c(15.6, 11.2, 41.5, 13.2, 18.2)
+dane2 <- cbind(Polska, Niemcy, UK, Rumunia, Estonia)
+rownames(dane2) <- c("0-14 lat", "15-24 lat", "25-54 lat", "55-64 lat", "65 lat i wiecej")
+dane2 <- melt(dane2)
+p1 <- ggplot(dane2, aes(x=Var2, y=value/100, fill=Var1)) + geom_bar(stat="identity") +
+  scale_fill_brewer(palette="Blues", guide=guide_legend(title="Wiek")) +
+  labs(y="Procentowa zawartoœæ",x="Kraj") +
+  coord_flip() +
+  theme( legend.position = "top") +
+  scale_y_continuous(labels = percent)+
+  geom_hline(aes(yintercept=0.25),linetype=2,col='black',size=1,alpha=0.4)+
+  geom_hline(aes(yintercept=0.75),linetype=2,col='black',size=1,alpha=0.4)+
+  geom_hline(aes(yintercept=0.50),linetype=2,col='black',size=1,alpha=0.4)+
+  guides(fill=guide_legend(title.position="top", title="                     Przedzia³y wiekowe "))+
+  theme( axis.text.x = element_text(family = "mono"),
+         axis.title.x= element_text(family = "mono"),
+         axis.title.y= element_text(family = "mono"),
+         title =element_text(family = "mono")
+  )+
+  ggtitle( "Struktura wiekowa")
+
+grid.newpage()
+print(p1, vp=viewport(x=0.3, y = 0.5,
+                      width=0.6, height=1))
+print(p2, vp=viewport(x=0.8, y = 0.75,
+                      width=0.4, height=0.5))
+print(p3, vp=viewport(x=0.8, y = 0.25,
+                      width=0.4, height=0.5))
