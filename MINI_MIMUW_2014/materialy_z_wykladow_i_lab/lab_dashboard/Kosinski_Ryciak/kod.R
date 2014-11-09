@@ -9,7 +9,7 @@ Polska <- c(14.6,11.9,43.8,14.7,14.5)
 UK <- c(17.3,12.6,41,11.5,17.3)
 Niemcy <- c(13,10.6,41.7,13.6,20.9)
 Estonia <- c(15.6,11.2,41.5,13.2,18.2)
-Rumuni <- c(14.6,11.3,45.7,13,15.1)
+Rumunia <- c(14.6,11.3,45.7,13,15.1)
 
 str_w <- data.frame(wiek,Polska,UK,Niemcy,Estonia,Rumunia)
 str_w2 <- melt(str_w)
@@ -53,7 +53,7 @@ le <- ggplot(Life, aes(x = kraj, y = dlugosc)) +
          title =element_text(family = "mono")
   )+
   scale_x_discrete(limits=Life$kraj[order(Life$dlugosc)])+
-  ggtitle("Oczekiwana d³ugoœæ ¿ycia")
+  ggtitle("Oczekiwana dÂ³ugoÅ“Ã¦ Â¿ycia")
 getwd()
 
 grid.newpage() 
