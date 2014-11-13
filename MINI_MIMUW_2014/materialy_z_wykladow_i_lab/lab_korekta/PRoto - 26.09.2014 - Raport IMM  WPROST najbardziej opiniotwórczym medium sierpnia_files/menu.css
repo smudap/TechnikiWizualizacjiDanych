@@ -1,0 +1,283 @@
+/*body {background: #ffffff url('PR/Images/PRoto_background_PromocjaNowaStronaIMM_1360x953_mural.png') no-repeat fixed center top;}*/    /*394_tlo_proto_admonit_02.jpg::049_tlo_proto_mc3.jpg::417_analizy_tlo_proto.jpg*/
+body {background: #ffffff} 
+
+body {color:black; font-weight: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; margin: 0px} 
+
+
+a {color: #B2101A;text-decoration: underline; cursor: pointer} /*underline*/
+a:hover{color: gray; text-decoration: none; cursor: pointer}
+input {font-size: 12px}
+select {font-size: 12px}
+textarea {font-size: 12px}
+/*P {padding:0px; margin:0px}*/
+
+
+.menu_poziome{color: #B2101A; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:none}
+.menu_pionowe{color: #FFFFFF; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:none}
+.tytul{color: black; font-weight: bold; font-family:Verdana,Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:none; padding-bottom:5px} /*height:30px; font-size:11px*/
+.tytulMalyCzerwony{color: #B2101A; font-weight: bold; font-family:Verdana,Arial, Helvetica, sans-serif; font-size: 10px; text-decoration:none}
+.tytulBig{color: black; font-weight: bold; font-family:Verdana,Arial, Helvetica, sans-serif; font-size: 13px; text-decoration:none}
+.naglowek{color:#B2101A; font-weight:bold; font-family:Verdana, Helvetica, sans-serif; font-size:14px;} /*padding-bottom:5px;*/
+
+.linkBox{color: #004995; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; text-decoration: none; cursor: pointer;}
+.linkBox:hover{color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; text-decoration: none; cursor: pointer;}
+
+.box{color: #004995; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; text-decoration: none;}
+
+.linkBoxBold{color: #004995; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; text-decoration: none;}
+/*.linkBoxBold:hover{color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; text-decoration: none; cursor: pointer;}*/
+
+.linkSmall{color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; text-decoration: underline; cursor: pointer;}
+.linkSmall:hover{color: gray; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; text-decoration: none; cursor: pointer;}
+
+.linkSmallRed{color: #B2101A; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+.linkSmallRed:hover{color: gray; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+
+.linkSmallBlack{color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+.linkSmallBlack:hover{color: #B2101A; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+
+.linkMiddleRed {color: #B2101A; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 120%; text-decoration: none;cursor: pointer;}
+.linkMiddleRed:hover {color: #686360; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 120%; text-decoration: none;cursor: pointer;}
+
+.linkBigRed {color: #B2101A; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; text-decoration: none;cursor: pointer;}
+.linkBigRed:hover {color: #686360; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; text-decoration: none;cursor: pointer;}
+
+.linkBigRed2 {color: #B2101A; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; text-decoration: none;cursor: pointer;}
+.linkBigRed2:hover {color: #686360; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; text-decoration: none;cursor: pointer;}
+
+.middleRed {color: #B2101A; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 120%; text-decoration: none;}
+.bigRed {color: #B2101A; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; text-decoration: none;}
+
+
+/* old PRoto*/
+.style_tresc_red_bold {color: #B2101A; font-weight: bold; text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px;}
+.style_tresc_red_bold_left {color: #B2101A; font-weight: bold; text-align: left; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px;}
+
+.link_sub_underline{color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: underline; cursor: pointer;} /*11px*/
+/*.link_sub_underline_black{color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: underline; cursor: pointer;}*/
+
+.link_sub_autolink{color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; text-decoration: none; border-bottom: thin dotted; border-width: 1px; cursor: pointer;} /*11px*/
+.link_sub_autolink:hover{color: #C80000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; border-bottom: thin dotted; border-width: 1px; text-decoration: none; cursor: pointer;} /*11px*/
+
+
+
+.sfout UL {display: none}
+
+#nav, #nav ul { /* all lists */
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        float : left;
+        width : 3em; /*11em*/
+        /*width:125px;*/
+}
+
+#nav li { /* all list items */
+        position : relative;
+        float : left;
+        line-height : 20px; /*1.25em :: 20px*/
+        margin-bottom : -1px;
+        width: 3em;
+        /*width:125px;*/
+        z-index:3;
+}
+
+#nav li ul { /* second-level lists */
+        position : absolute;
+        left: -999em;
+        margin-left : 123px;  /* w\idth + 1.05 */
+        /*margin-left : 11.55em;*/  /* w\idth + 1.05 */
+        margin-top : -22px; /*-1.35em :: -22px*/
+        z-index:0;
+
+}
+
+#nav li ul ul { /* third-and-above-level lists */
+        left: -999em;
+}
+
+#nav li a {
+        /*width:9em;*/
+        width : 108px;
+        display : block;
+        color : black; /*black*/
+        font-weight:normal;
+        font-family:arial;
+        font-size:12px;
+        text-decoration:none;
+        background-color:white;
+        
+        border:1px solid #C6C7C8; /*gray #EDEDEE*/
+        /*background-image:url("http://proto.pl/PR/Images/UI_grafiki/proto/strona/menu/back1.jpg");*/
+        padding-left:15px;
+        /*left:5px;*/
+        /*padding : 0 0.5em;*/
+        z-index:30; /*300*/
+}
+
+#nav li li a {
+        /*width:9em;*/
+        width : 128px;
+        display : block;
+        color : black;
+        font-weight:normal;
+        font-family:arial;
+        font-size:12px;
+        text-decoration:none;
+        background-color:#C6C7C8;
+        border : 1px solid white;
+        padding-left:15px;
+        z-index:30;   /*300*/
+}
+
+
+#nav li a:hover {
+        color:gray;
+        
+        border : 1px solid #C6C7C8;
+        display : block;
+        background-image:url("http://proto.pl/PR/Images/UI_grafiki/proto/strona/menu/back1.jpg"); /*5% 5% no-repeat*/
+        background-repeat:no-repeat;
+        background-color:white;
+}
+
+#nav li:hover ul ul, #nav li:hover ul ul ul, #nav li.sfhover ul ul, #nav li.sfhover ul ul ul {
+        left: -999em;
+}
+
+#nav li:hover ul, #nav li li:hover ul, #nav li li li:hover ul, #nav li.sfhover ul, #nav li li.sfhover ul, #nav li li li.sfhover ul { /* lists nested under hovered list items */
+        left: auto;
+}
+
+
+#content {
+        /*margin-left : 3em;*/
+        margin-left : 5px;
+}
+
+.akMenu {background-color:#e2eefe}
+.akMenu:hover {background-color:#27548d}
+
+/*stopka*/
+#bott1{width:24px; height:22px; background:#FFFFFF url(PR/Images/UI_grafiki/proto/strona/rog_dolny_lewy.jpg); float:left}
+#bott2{background-color:#C6C7C8; height:17px; width:906px; padding-top:5px; float:left; text-align:center}
+#bott3{width:20px; height:22px; background:#FFFFFF url(PR/Images/UI_grafiki/proto/strona/rog_dolny_prawy.jpg); float:left;}
+
+.img1{width:125px;height:64px; margin:5px; border:0px; float:left}
+.img2{width:80px;height:101px; margin:5px 27px 5px 27px; border:0px; float:left}
+.img3{margin:5px; border:0px; float:left}
+.taC{text-align:center}
+.taJ{text-align:justify}
+.taR{text-align:right}
+.taL{text-align:left}
+.fL{float:left}
+.fR{float:right}
+.clear{clear:both}
+.clearL {list-style:none; padding:0px; margin:0px}
+.m0303 {margin:0px 3px 0px 3px}
+.fwB {font-weight:bold}
+.b0 {border:0px}
+
+#zrodlo p {float:left;} /*padding:0px; margin:0px*/
+
+.raport_tytul {font-size:12px; font-weight:bold; color: #000000;}
+.prezentacja_projektu {color:#B2101A; font-size:12px; font-weight:bold}
+.czerwony {color:#B2101A;}
+.usunParagrafy P{margin:0px; padding:0px}
+
+#info_tab1 p {margin:0px}
+
+.nawDol {list-style-type:none; padding:0px; text-align:center; margin:0px}
+.nawDol li {display:inline; margin-right:10px}
+
+.killP P{margin-top:4px; margin-bottom:0px}
+
+.code {
+ font-family: Monaco, Verdana, Sans-serif;
+ font-size: 12px;
+ background-color: #f9f9f9;
+ border: 1px solid #D0D0D0;
+ color: #002166;
+ display: block;
+ /*margin: 14px 0 14px 0;*/
+ margin:0px;
+ padding: 12px 10px 12px 10px;
+}
+
+.code2 {
+ font-family: Monaco, Verdana, Sans-serif;
+ font-size: 12px;
+ background-color: #f9f9f9;
+ border: 1px solid #D0D0D0;
+ color: #002166;
+ display: block;
+ /*margin: 14px 0 14px 0;*/
+ margin:0px;
+ padding: 5px 5px 5px 5px;
+}
+
+.code P {margin:0px}
+.code H4 {margin-top:3px; margin-bottom:3px; font-size:14px; color:#000000}
+.code a {text-decoration:none;}
+
+.code2 {
+ font-family: Monaco, Verdana, Sans-serif;
+ /*font-size: 12px;*/
+ background-color: #f9f9f9;
+ border: 1px solid #D0D0D0;
+ color: #002166;
+ display: block;
+ margin: 0px 0 14px 0;
+ margin:0px;
+ padding: 6px 10px 6px 10px;
+}
+
+.przezro {background-color:#000000; filter:alpha(opacity=80); opacity:0.8;} /*#b2101a*/
+.formatLista li {margin-bottom:25px}
+.szkoleniaBoxGlowna a {color:#000000; text-decoration: none}
+
+#konkursIMM2010 fieldset {border:0px; padding:0px; margin:0px}
+#konkursIMM2010 ul {margin-top:10px}
+#konkursIMM2010 li {margin-bottom:5px}
+.konkursIMM2010_input {border:solid 1px #a9a9a9; width:250px}
+#buttonGlosuj {border:1px solid #a9a9a9; font-weight:bold; padding-bottom:3px}
+#buttonGlosuj:hover {color:#B2101A}
+.konkursIMM2010_ramka {
+ background-color: #f9f9f9;
+ border: 1px solid #D0D0D0;
+ display: block;
+ /*margin: 14px 0 14px 0;*/
+ margin:0px;
+ padding: 2px 10px 0px 10px;
+}
+.fs {font-size:10px}
+
+#cytat {list-style:none; padding:0px; margin:15px 0px 0px 14px}
+#cytat li {width:306px}
+#cytat p {padding:0px; margin:0px}
+
+
+.ankieta {margin-bottom:30px}
+.ankietaTytul {font-weight:bold; margin-bottom:10px}
+.ankietaSelect {font-size:11px; height:20px; float:right; margin-right:140px}
+.ankietaOdpowiedzi {margin-bottom:15px}
+
+/*box-glowyny*/
+.marginGrafik {padding:0px 8px 0px 0px; vertical-align:text-top}
+.newsLink {color:#000000; font-size:12px;}
+.hnewsy {margin:10px 0px 3px 0px; color:#000000; font-size:14px;}
+.hrNewsy {margin:0px; padding:0px; background:url(PR/Images/UI_grafiki/proto/layout/spacer.png) repeat; height:1; width:100%;}
+
+#szukajMain {color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+#szukajMain:hover{color: #B2101A; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+
+
+.linkSmallBlack{color: black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+.linkSmallBlack:hover{color: #B2101A; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; text-decoration: none; cursor: pointer;}
+
+#menuSzkolenia {color:blue}
+.ankietaMedia {font-weight:bold; color:#B2101A}
+
+input {border:1px solid #a9a9a9}
+.tabS2 {border-collapse: collapse; border:0px}
+.tabS2 td {border:1px solid #eee; padding:5px}

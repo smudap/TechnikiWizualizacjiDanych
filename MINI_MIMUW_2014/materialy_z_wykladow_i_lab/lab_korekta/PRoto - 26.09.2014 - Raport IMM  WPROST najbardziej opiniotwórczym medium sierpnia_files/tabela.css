@@ -1,0 +1,61 @@
+/*css for tables*/
+
+.tbl_board {
+  BORDER-RIGHT: #a0a0a0 0px solid; 
+  BORDER-TOP: #a0a0a0 0px solid; 
+  BORDER-LEFT: #a0a0a0 0px solid; 
+  BORDER-BOTTOM: #a0a0a0 0px solid; 
+  border-collapse: collapse; 
+  WIDTH: 100%; 
+  /*color: #686360; */
+  /*font-weight: normal; 
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 11px;*/
+}
+
+.tbl_board TH{
+  BORDER-RIGHT: #a0a0a0 1px solid; 
+  BORDER-TOP: #a0a0a0 1px solid; 
+  BORDER-LEFT: #a0a0a0 1px solid; 
+  BORDER-BOTTOM: #a0a0a0 1px solid; 
+  background:#EDEDEE;
+  color: #B2101A;
+  font-size: 12px;
+
+}
+
+.tbl_board_TD{
+  BORDER-RIGHT: #a0a0a0 1px solid; 
+  BORDER-TOP: #a0a0a0 1px solid; 
+  BORDER-LEFT: #a0a0a0 1px solid; 
+  BORDER-BOTTOM: #a0a0a0 1px solid; 
+
+}
+
+.tbl_board2 {
+  BORDER-RIGHT: #a0a0a0 0px solid; 
+  BORDER-TOP: #a0a0a0 0px solid; 
+  BORDER-LEFT: #a0a0a0 0px solid; 
+  BORDER-BOTTOM: #a0a0a0 0px solid; 
+  border-collapse: collapse; 
+  WIDTH: 100%; 
+}
+
+.tbl_board2 TH{
+  BORDER-RIGHT: #a0a0a0 1px solid; 
+  BORDER-TOP: #a0a0a0 1px solid; 
+  BORDER-LEFT: #a0a0a0 1px solid; 
+  BORDER-BOTTOM: #a0a0a0 1px solid; 
+  background:#EDEDEE;
+  color: #B2101A;
+  font-size: 12px;
+}
+
+.tbl_board2 TD{
+  BORDER-RIGHT: #a0a0a0 1px solid; 
+  BORDER-TOP: #a0a0a0 1px solid; 
+  BORDER-LEFT: #a0a0a0 1px solid; 
+  BORDER-BOTTOM: #a0a0a0 1px solid; 
+}
+
+.tbl_board_TD_kalendarium{border-right: #a0a0a0 1px solid; border-top: #606060 2px solid; border-left: #a0a0a0 1px solid; border-bottom: #a0a0a0 1px solid;}
