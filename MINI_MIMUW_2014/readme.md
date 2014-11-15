@@ -36,13 +36,13 @@ Plan spotka&#324; MINI PW:
 * 23 X - Prezentacja pierwszej fazy projektu miniaturka
 * 30 X - Prezentacja pierwszej fazy projektu PISA
 * 6 XI
-* 13 XI - Prezentacja drugiej fazy projektu miniaturka
-* 20 XI
+* 13 XI (nie ma zajęć)
+* 20 XI - Prezentacja drugiej fazy projektu miniaturka
 * 27 XI - Prezentacja drugiej fazy projektu PISA
 * 4 XII
 * 11 XII - Prezentacje artyku&#322;ów z Points of View na wyk&#322;adzie
 * 18 XII
-* 8 I - Prezentacja trzeciej fazy projektu miniaturka [wspólnie MINI i MIM]
+* 8 I - Prezentacja trzeciej fazy projektu miniaturka 
 * 15 I
 * 22 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM]
 
