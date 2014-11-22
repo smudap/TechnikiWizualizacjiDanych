@@ -1,0 +1,34 @@
+1. Czy rozumiem wykres po prezentacji?
+
+Nie rozumiałem po prezentacji i teraz też nie wiem jak go czytać.
+
+2. Estetyka [czy kolory pełnią funkcję, czy czcionka jest czytelna]
+
+Prawe wykresy mają inny krój pisma niż lewe wykresy.
+Nie wiem jaką funkcją pełnią wykresy po prawej stronie.
+Dwa ostatnie słupki się skleiły co źle wygląda.
+Opisy na osiach na lewym wykresie nie pasują do słupków.
+
+
+3. Czy chciałbym używać takiego wykresu?
+
+
+Nie widzę związku pomiędzy prawymi wykresami przedstawiającymi miary jakości klastrów
+a lewymi wykresami przedstawiającymi jakość klasyfikacji dla różnej liczby sąsiadów.
+Nie wiem skąd wybór k 0, 5, 10, 15. Dlaczego nie rozważyć wszystkich k 1...15.
+Przedstawienie liczebności za pomocą wielkości punktu nie pozwala na dostrzeżenie różnic pomiędzy kolumnami (o ile jakieś różnice są)
+
+
+
+Punkty
+
+1/6 + 2/6 + 2/6 + 2 = 7
+
+
+Inne:
+Brakuje jednej funkcji, którą można by uruchomić i przetestować (w pliku KNN_plot.R).
+
+Są trzy pliki *.R, nawet nie wiadomo z którym pracować
+
+
+
