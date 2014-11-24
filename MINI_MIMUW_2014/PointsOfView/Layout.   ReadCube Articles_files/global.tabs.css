@@ -1,0 +1,261 @@
+/* global tab behaviour css this should determine the base behaviour of all tabs - be careful */
+
+html.no-javascript #extranav div.tab-group h3.sidebar-heading {
+    display: none;
+}
+html.no-javascript #extranav div.tab-group .tab-content {
+    padding: 0 10px;
+}
+html.no-javascript #extranav div.tab-group .tab-content .box-footer {
+    display: none;
+}
+
+html.js-enabled div.tab-group {
+    overflow: hidden;
+}
+html.js-enabled div.tab-box {
+    background: transparent;
+}
+
+html.js-enabled div.tab-group div.active .tab-content {
+    float: right;
+    margin-top: 37px;
+    margin-left: -100%;
+    width: 100%;
+}
+
+html.js-enabled div.tab-group div.tab-box div.tab-content {
+    display: none;
+}
+
+html.js-enabled div.tab-group div.active div.tab-content {
+    display: block;
+}
+
+html.js-enabled div.tab-group div.tab-box .tab {
+    float: left;
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    height: 36px;
+}
+
+html.js-enabled div.tab-group div.tab-box .tab a {
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    padding: 13px 10px;
+    font-weight: bold;
+    height: auto;
+    line-height: 1em;
+    display: block;
+}
+
+html.js-enabled div.tab-group div.active .tab {
+    cursor: default;
+    border-bottom: 0 none;
+    height: 37px;
+}
+
+html.js-enabled body.ie8 div.tab-group .active .tab {
+    height: 39px;
+}
+
+html.js-enabled div.tab-group div.active .tab a {
+    color: #363636;
+}
+
+html.js-enabled div.tab-group div.tab-box.solotab .tab {
+    height: 39px;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    text-align: left;
+}
+
+
+/* end global tab behaviour */
+
+
+
+/* global main content area tab module the primary-tabs class should be used for the central tabs on all aip pages */
+
+html.js-enabled .primary-tabs {
+    position: relative;
+    overflow: hidden;
+}
+
+html.js-enabled .primary-tabs div.tab-box .tab-inner {
+    border:1px solid #9EABB4;
+    background: #F5F5F5;
+    overflow: hidden;
+}
+
+html.js-enabled .primary-tabs div.tab-box .tab {
+    background: #707070;
+    margin-right: 1px;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+html.js-enabled .primary-tabs div.active .tab {
+    background: #F5F5F5;
+    border-top: 1px solid #9EABB4;
+    border-right: 1px solid #9EABB4;
+    border-left: 1px solid #9EABB4;
+}
+
+html.js-enabled .primary-tabs div.tab-box.solotab .tab a {
+    display: block;
+    border: 1px solid #9EABB4;
+    border-bottom: 0 none;
+}
+
+html.js-enabled .primary-tabs div.tab-box .tab a {
+    
+    color: #F5F5F5;
+   
+}
+
+html.js-enabled .primary-tabs div.active .tab a {
+    color: #5E5E5E;
+}
+/*  End global main content tab module */
+
+
+/*  default sidebar tab styles */
+
+html.js-enabled #extranav h2.tab-group-heading {
+    padding: 0;
+}
+
+html.js-enabled #extranav div.tab-group {
+    position: relative;
+    border-top: 0 none;
+}
+
+#extranav div.tab-group .box-footer {
+    border: 0 none;
+}
+
+#extranav div.tab-box {
+    background: none;
+    border: 0;
+    padding: 0;
+}
+
+html.js-enabled #extranav div.tab-box .tab-content {
+    margin-top: 36px;  
+}
+
+html.js-enabled #extranav div.tab-box .tab {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    font-size: 96%; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html.js-enabled #extranav div.tab-box.first .tab  a {
+     border-left: 0 none;
+}
+
+html.js-enabled #extranav div.tab-box .tab a {
+    background: #707070;
+    color: #fff;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    font-size: 100%;
+}
+
+html.js-enabled #extranav div.active .tab {
+    background: #fff;
+}
+
+html.js-enabled #extranav div.active .tab a {
+    background: #fff;
+    color: #363636;
+    border-bottom: 0 none;
+    border-left: 1px solid #E7E7E7;
+    border-top: 1px solid #E7E7E7;
+    border-right: 1px solid #E7E7E7;
+   
+}
+
+html.js-enabled #extranav div.tab-box .tab  {
+    border-left: 1px solid #fff;
+}
+
+html.js-enabled #extranav div.tab-box:first-child .tab  {
+    border-left: 0 none;
+}
+
+html.js-enabled #extranav div.tab-box:first-child .tab a  {
+    border-left: 0 none;
+    overflow: visible;
+}
+
+html.js-enabled #extranav div.tab-box:last-child .tab a  {
+    border-right: 0 none;
+}
+
+html.js-enabled body.ie7 #extranav div.tab-box .tab {
+    border-left: 0 none;
+    border-right: 0 none;
+}
+
+html.js-enabled body.ie7  #extranav div.tab-box .tab a {
+    border-right: 0 none;
+}
+
+/* solo tab styles */
+
+html.js-enabled #extranav div.tab-box.solotab .tab {
+    float: none;
+    width: 100%;
+}
+
+html.js-enabled #extranav div.tab-box.active.solotab .tab a {
+    border-left: 0;
+    border-right: 0;
+    font-size: 116%;
+}
+
+html.js-enabled #extranav div.tab-content .tab-inner {
+    border-top: 3px solid #E7E7E7;
+}
+
+html.js-enabled #extranav div.solotab h3.sidebar-heading a {
+    display: none;
+}
+html.js-enabled #extranav div.solotab h3.sidebar-heading {
+    border-top: solid 1px #E7E7E7; 
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+html.js-enabled #extranav div.solotab .tab-inner {
+    border-top: 0;
+}
+html.js-enabled #extranav div.solotab .tab-content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/*
+ *
+ *    End default sidebar tab styles
+ *
+ */

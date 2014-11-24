@@ -1,0 +1,1290 @@
+/*
+JS-written content
+*/
+#js-menu {
+	display: none;
+}
+#constrain-header div div p.access a {
+	padding:0;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: normal;
+	background: none;
+}
+#constrain-header div div p.access a i {
+	display:none;
+}
+#header a {
+	font-weight: normal;
+}
+#constrain-header ul.user-services a {
+	font-weight: bold;
+}
+.ad.mobile {
+	display: none;
+}
+
+/* JS layout detection */
+body:after {
+	content: 'desktop';
+	display: none;
+}
+
+/*
+****
+* Tablet break point
+* First break point for tablets, mainly used to change layout of header v1
+****
+*/
+@media screen and (max-width: 1000px) {
+
+	.related-authors {
+		width: auto;
+	}
+	/* JS layout detection */
+	body:after {
+		content: 'sub-desktop';
+		display: none;
+	}
+
+	#am-container .am-col {
+		width: 100%;
+		float: none;
+		padding: 0;
+	}
+	#am-container .am-col2 {
+		padding: 10px 0 0;
+		float: none;
+		margin: 0;
+		width: 100%;
+		clear: both;
+	}
+	#am-container .am-col .am-module {
+		float: left;
+		max-width:100%;
+	}
+	.am-col .citations-container {
+		margin-right: 2%;
+	}
+	#online-media-metrics {
+		width: 100%;
+	}
+	.twitter-demographics-container #map-canvas,
+	.twitter-demographics-container  table.twitter-demographic-table {
+		width: 100%;
+		float: none;
+		margin: 15px 0 0 0;
+	}
+	#video-container div.video-information {
+		padding-top: 10px;
+	}
+	 /* This must be display block in all mobile styles as it is used to monitor mobile css for WT */
+	#mobile-css-test {
+		display: block;
+	}
+
+	.video-wrapper {
+		padding-right:0;
+	}
+	#video-container .video-player {
+		float: none;
+		margin: 0 0 40px;
+	}
+	#video-container div.video-information {
+		padding: 0;
+		float: none;
+		margin-right: 0;
+		width: auto;
+	}
+	#video-container .article-tools {
+		margin: 0;
+	}
+
+	#header div.logon p.access {
+		font-size: 85%;
+	}
+
+	/* Supplementary nav */
+
+	.supplementary-nav-wrap {
+		padding-right: 0;
+	}
+	.supplementary-nav {;
+		margin-bottom: 5px;
+	}
+	.supplementary-nav:last-of-type: {
+		margin-right: 0;
+	}
+	.supplementary-nav {
+		width: 31%;
+		margin-bottom: 5px;
+		margin-right: 3.5%;
+	}
+	.supplementary-nav ul {
+		min-height: 320px;
+	}
+	.supplementary-nav ul li {
+		float: none;
+		width: 100%;
+	}
+	
+	img,
+	object,
+	embed {
+		max-width: 100%;
+	}
+	
+	body img.fig {
+		height:auto !important;
+	}
+}
+
+/*
+****
+* Tablet break point
+* Second break point for tablets, can be used for ipad in portrait
+* Mainly characterised by right-hand column wrapping
+****
+*/
+@media screen and (max-width: 768px) {
+	
+	/* JS layout detection */
+	body:after {
+		content: 'single-column';
+		display: none;
+	}
+	
+	body {
+		width: 100%;
+		overflow-x: hidden;
+	}
+	#content {
+		width: 100%;
+		margin: 0;
+		padding-right: 0;
+	}
+
+	body #constrain {
+		overflow-x: hidden;
+	}
+
+	#constrain-header .leaderboard {
+		padding: 0;
+		background: transparent none;
+		max-width: 100%;
+		line-height: 0 !important;
+	}
+
+	#archive div.tab-box {
+		width: 100%;
+	}
+
+	#archive div.tab-box .inner-content {
+		width: 95%;
+	}
+
+	.js-enabled #wrapper {
+		margin: 0 auto;
+	}
+
+	#footer-search {
+		border-left: none 0;
+		float: left;
+		clear: both;
+		margin: 20px 10px 0 0 ;
+	}
+
+	#footer-search label span {
+		display: none;
+	}
+	
+	#news-comment .column-first {
+		width: 410px;
+	}
+
+	.lead-teaser {
+		padding-right: 0;
+	}
+
+	.lead-teaser h1 a {
+		display: block;
+		margin-left: 160px;
+		height: 110px;
+	}
+
+	.lead-teaser.media-right div.media {
+		top: 0;
+		left: 0;
+		margin-top: 0;
+	}
+
+	.lead-teaser div.media {
+		border: none;
+		width: 150px;
+	}
+
+	.lead-teaser img {
+		width: 150px;
+	}
+
+	.lead-teaser div.media p {
+		position: relative;
+		width: 400px;
+		margin-top: 5px;
+		text-align: left;
+		background: transparent;
+	}
+
+	div.bookmarking-popup,
+	div.delivery-popup {
+		width: 150px !important;
+	}
+
+	#top-ads,
+	#leaderboard {
+		height: auto;
+		min-height: 0;
+	}
+
+	/* related page styles */
+
+
+	#video-container object,
+	#video-container video {
+		height: 100% !important;
+	}
+	
+	#video-container  div.video-information {
+		padding-top: 10px;
+	}
+
+	#extranav {
+		width: 100%;
+		float: left;
+		margin: 0;
+		padding: 0;
+	}
+
+	#extranav .box {
+		margin: 0 0 10px;
+	}
+
+	#extranav #submit-box {
+		margin: 0;
+	}
+
+	#extranav section#top-articles-box {
+		float: left;
+	}
+
+	#header {
+		min-height: 120px;
+		background-repeat: no-repeat;
+	}
+	#am-container .altmetric-donut {
+		width: 48%;
+		float: left;
+		margin: 0;
+	}
+	#am-container .altmetric-key {
+		width: 48%;
+		float: right;
+		margin: 0;
+	}
+	#am-container .altmetric-context {
+		margin-left: 0;
+	 }
+	#am-container .sharing-container {
+		max-width: 100%;
+	}
+	.twitter-demographics-container .jvectormap-zoomin,
+	.twitter-demographics-container .jvectormap-zoomout {
+		left: 5px;
+	}
+	.pageview-metrics-container, 
+	.citations-container {
+		max-width: 100%;
+	}
+
+	html.js-enabled .highlight-popup,
+	html.js-enabled  .compound-popup {
+		max-width: 93% !important;
+		margin-left: 3px !important;
+	}
+
+	/* This must be display block in all mobile styles as it is used to monitor mobile css for WT */
+	#mobile-css-test {
+		display: block;
+	}
+	
+	/* Supplementary nav */
+
+	.supplementary-nav-wrap {
+		padding-right: 0;
+	}
+	.supplementary-nav:last-of-type: {
+		margin-right: 0;
+	}
+	.supplementary-nav {
+		width: auto;
+		margin: 0 0 20px 0;
+	}
+	.supplementary-nav.left {
+		float: none;
+	}
+	.supplementary-nav ul {
+		min-height: inherit;
+		padding: 0 10px 10px;
+		float: left;
+		width: 100%;
+	}
+	.supplementary-nav ul li {
+		margin-bottom: 7px;
+		float: left;
+		width: 50%;
+	}
+	.related-authors .author-index  li {
+		margin-right: 15%;
+	}
+	.related-authors .author-index li:nth-child(3n+3)   {
+		margin-right: 0;
+	}
+
+	#extranav .loop-title {
+		background-position: 94% -64px;
+	}
+
+}
+
+/*
+****
+* Mobile break point
+* Mobile break point, trying to target as many different devices as possible
+****
+*/
+
+@media	screen and (max-width : 520px),
+
+		screen and (-webkit-min-device-pixel-ratio : 1.3) and (max-width : 640px) and (orientation : landscape),
+		screen and (-webkit-min-device-pixel-ratio : 1.3) and (max-width : 480px) and (orientation : portrait),
+		screen and (-o-min-device-pixel-ratio: 13/10) and (max-width : 640px) and (orientation : landscape),
+		screen and (-o-min-device-pixel-ratio: 13/10) and (max-width : 480px) and (orientation : portrait),
+		screen and (min-resolution: 1.3dppx) and (max-width : 640px) and (orientation : landscape),
+		screen and (min-resolution: 1.3dppx) and (max-width : 480px) and (orientation : portrait) {
+	
+	/* JS layout detection */
+	body:after {
+		content: 'small-screen';
+		display: none;
+	}
+	
+	/*
+	****
+	* Page Structure
+	* Used to set up the page layout, and generic items like carousels
+	****
+	*/
+
+	.message-contain .minimised {
+		min-height: 50px;
+	}
+
+	.message-contain .visible {
+		height: auto;
+	}
+
+	.message-contain .visible .global-message-control {
+		position: relative;
+	}
+
+	body {
+		margin: auto;
+		min-width: 0;
+		max-width: none;
+		width: auto;
+		-webkit-text-size-adjust: 100%;
+		-moz-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%;
+		-text-size-adjust: 100%;
+		background: #333;
+		background: -webkit-gradient(linear, 0 0, 0 310, from(#202020), to(#CBCBCB));
+		background: -webkit-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -moz-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -ms-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -o-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: linear-gradient(to bottom, #202020, #CBCBCB 310px);
+		color: #222;
+	}
+
+	/* Must have !important as some images have inline widths and heights */
+	img,
+	object,
+	embed {
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	.ad.mobile,
+	#extranav .ad.mobile {
+		padding: 15px 0 3px 0;
+		width: 100%;
+		float: left;
+		clear: both;
+		text-align: center;
+		position: relative;
+		margin: 0 auto !important;
+		background: #fff;
+	}
+
+	.ad.mobile {
+		display: block;
+		max-height: 50px;
+	}
+
+	#extranav .ad.mobile {
+		width: 300px;
+		margin: 0 auto 10px !important;
+	}
+
+	body div.col {
+		float: none;
+	}
+
+	body .constrain {
+		width:auto;
+	}
+
+	body #constrain {
+		min-width:90%;
+		overflow:hidden;
+		padding:0;
+	}
+
+	body.one-col #constrain-content,
+	body #constrain-content {
+		border-left: 0;
+		border-right: 0;
+		padding: 20px 10px 10px;
+	}
+
+	#content .content-block-double {
+		width:100%;
+		margin-right:0;
+	}
+
+	body #extranav {
+		margin: 20px 0 0;
+		padding: 0;
+		width:auto;
+		float: left;
+	}
+
+	body #content {
+		width: auto;
+		border: 0;
+		clear: both;
+		margin-right: 0;
+		padding-right: 0;
+	}
+
+	.content-block-double .column-splitter.double-columns .column-first,
+	.content-block-double .column-splitter.double-columns .column-second {
+		width: 100%;
+	}
+
+	#content .content-block-full,
+	#content .content-block-double,
+	#content .content-block-single  {
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	.content-block-full {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.section {
+		margin: 0 0 5px;
+	}
+
+	.dynamic {
+		width: 100%;
+	}
+
+	.inner-content {
+		padding: 20px 0 0;
+		position: relative;
+		clear: both;
+	}
+
+	.inner {
+		width: 100%;
+	}
+
+	#content-wrapper {
+		padding: 10px 0 0;
+	}
+
+	.related-carousel {
+		display: none;
+	}
+
+	#extranav div.ad {
+		float: left;
+	}
+
+	.media-left {
+		width: 100%;
+		padding: 0 0 10px 0 !important;
+		border-bottom: 1px solid #B7B7B7;
+	}
+
+	.media-left .media {
+		float: left;
+		width: 100% !important;
+		margin: 10px 0 10px 0;
+		position: relative;
+	}
+
+	body #header div.logon p.user-actions a.cart {
+		background-image: url(/view/images/shop_cart.png);
+	}
+
+
+	/* Temporarily disable the Nature.com survey on mobile until we have a nice solution */
+	.natureWideSurvey {
+		display: none;
+	}	
+
+	/*
+	****
+	* Page Headings
+	* Standard typography headings used through out the templates and some standard links
+	****
+	*/
+
+	.primary-heading {
+		margin-top: 0;
+	}
+
+	.list-header .secondary-heading span {
+		display: block;
+	}
+
+	.list-header .secondary-heading {
+		width: 100%;
+	}
+
+	.primary-heading span {
+		padding: 0;
+		display: inline-block;
+		margin-top: 5px;
+	}
+
+	#research .primary-heading span {
+		border: none;
+	}
+
+	#about-the-cover h3  {
+		display: none;
+		color: #FFF;
+	}
+
+	.standard-teaser h1 {
+		 font-size:120%;
+	}
+
+	.section .inner .more,
+	.subsection .sub-inner .more {
+		margin: 11px 5px 0 0;
+	}
+
+	.section .inner a.more {
+		position: relative;
+	}
+
+	/*
+	****
+	* Footer
+	* Everything for the footer including the toggle, search and explore footer
+	****
+	*/
+
+	#footer a#toggle {
+		margin: 10px auto;
+	}
+
+	div#footer {
+		width:100%;
+		padding: 0;
+	}
+
+	#footer {
+		padding: 0;
+	}
+
+	div#footer.constrain {
+		border: 0;
+	}
+
+	#explore .atoz {
+		float: left;
+		position: relative;
+	}
+
+	#explore .list-set-wrapper .list-set  {
+		height: auto;
+		min-height: 50px;
+	}
+
+	#footer dl dt,
+	#footer dl dd {
+		float: left;
+	}
+	#footer .inner .narrow-journal-info {
+		width: auto;
+	}
+
+	#footer form#footer-search,
+	#ftr .search-form {
+		height: 22px;
+		margin: 0;
+		width: 96%;
+		float:left;
+		background: #ddd;
+		padding: 6px 0 6px 4%;
+		border-left: none;
+		border-bottom: 5px solid #fff;
+	}
+
+
+
+	#footer-search input.txt,
+	#ftr .search-form input.text {
+		width: 76%;
+		margin-right: 5px;
+		padding: 2px;
+	}
+
+	#ftr .search-form input.text {
+		padding: 4px 0;
+	}
+
+	#footer-search button {
+		padding: 2px 10px;
+		text-transform: uppercase;
+	}
+
+	#ftr .search-form button {
+		padding: 5px 10px;
+		text-transform: uppercase;
+		margin-right: 5px;
+	}
+
+	#footer form#footer-search {
+		margin-top: 20px;
+		position: relative;
+	}
+
+	#footer ul.footer-links,
+	#ftr .footer-links {
+		width: auto;
+		float: none;
+		font-weight: bold;
+		font-size:110%;
+		border-bottom: 1px dotted #ccc;
+		border-right: 0;
+		margin: 0 20px;
+	}
+
+	.footer-links a {
+		font-weight: bold;
+	}
+
+	#footer ul.first {
+		padding-top: 20px;
+	}
+
+	#ftr .footer-links {
+		padding: 10px 0 5px;
+	}
+
+	#ftr .footer-links.last {
+		border: none;
+	}
+
+	#ftr #footer-copyright {
+		margin: 0;
+	}
+
+	#ftr #footer-search input.txt,
+	#ftr .search-form input.text-inner {
+		padding: 0;
+	}
+
+	#footer .footer-main .copyright  {
+		background-position: left top;
+		padding: 50px 0 0;
+		margin-top: 10px;
+	}
+
+	#ftr .logo {
+		background-position: left top;
+		padding: 50px 0 0;
+		margin-left: 10px;
+	}
+
+	#constrain-footer {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+	/* Removed items from the footer */
+
+	#footer form#footer-search label,
+	#ftr .search-form label {
+		display:none;
+	}
+
+	/*
+	****
+	* Global Boxes
+	* Global boxs used within content and the sidebar
+	****
+	*/
+
+	#extranav div.box,
+	#extranav div.module {
+		float: left;
+		width: 99%;
+		margin: 0 0 10px;
+	}
+
+	#extranav div#quick-nav {
+		width: auto;
+	}
+
+	.home #nature-events-box,
+	#research #nature-events-box,
+	.home #nature-jobs-box,
+	#research #nature-jobs-box {
+		width: 99%;
+		float: left;
+		margin-bottom: 10px;
+	}
+
+	.focus-box {
+		margin-bottom: 20px;
+	}
+
+	.focus-box .inner,
+	.subsection.focus-box .sub-inner {
+		width:97%;
+		border:none;
+		padding-right:0;
+	}
+
+	#careers-jobs ul.article-list {
+		border: 0;
+	}
+
+	#careers-jobs ul.extras-list,
+	#careers-jobs p.extras-list,
+	#events-box ul.extras-list,
+	#events-box p.extras-list {
+		border: 0;
+	}
+
+	/*
+	****
+	* Article pages
+	* Everything mainly used on article pages
+	****
+	*/
+
+	div.article-template {
+		padding-top: 0;
+	}
+
+	.subscribe-prompt .subscribe-cta {
+		float: left;
+		padding: 0;
+	}
+	div.article-tools li {
+		margin: 0 5px 5px 0;
+		width: 44%;
+	}
+	div.article-tools .tools li a {
+		min-height: 20px;
+		margin-top: 5px;
+		-webkit-background-size: 15px;
+		-moz-background-size: 15px;
+		-o-background-size: 15px;
+		background-size: 15px;
+		font-size: 85%;
+	}
+	.top-links .article-com-tools {
+		margin-right: 5px;
+	}
+	div.article-tools li.download-pdf a,
+	div.article-tools li.downloading-pdf a  {
+		background-image: url(/view/images/article_tools_sprite.png);
+		background-position: 7px 0;
+	}
+	div.download-popup li.readcube a {
+		background-image: url(/view/images/article_tools_sprite.png);
+		background-position: 3px 0;
+	}
+	div.article-tools li.download-readcube a {
+		background-image: url(/view/images/readcube_logo.gif);
+	}
+	div.article-tools li.download-citation a, 
+	p.download-refs a {
+		background-image: url(/view/images/article_tools_sprite.png);
+		background-position: 3px -58px;
+	}
+	div.article-tools li.order-reprints a,
+	div.article-tools li.full-text a {
+		background-image: url(/view/images/article_tools_sprite.png);
+		background-position: 3px -119px;
+	}
+	div.article-tools li.rights a  {
+		background-image: url(/view/images/article_tools_sprite.png);
+		background-position: 3px -177px;
+	}
+	div.article-tools li.article-metrics a {
+		background-image: url(/view/images/article_tools_sprite.png);
+		background-position: 3px -237px;
+	}
+
+	.subscribe-prompt h4 {
+		min-height: 70px;
+		margin-top: 20px;
+	}
+
+	/* Related elated page styles */
+	
+	#related-videos {
+		margin-left: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	#related-videos li {
+		display:block;
+		border:0;
+		border-bottom:1px solid #e1e1e1;
+		border-top:1px solid #FFF;
+		margin:0 10px 0 0;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		margin-right: 0;
+		background:#F0F0F0;
+	}
+
+	ul#related-videos a {
+		width:97%;
+		padding:10px;
+
+	}
+	#related-videos div.thumbnail {
+		float: left;
+		margin-right: 10px;
+		width: auto;
+		overflow: hidden;
+	}
+	#related-videos div.thumbnail:after {
+		background: url(/view/images/video-prompt.png) no-repeat scroll 0 0 transparent;
+		content: "";
+		height: 34px;
+		left: 28%;
+		position: absolute;
+		top: 28%;
+		width: 34px;
+		z-index: 2;
+	}
+	ul#related-videos li.selected h6 {
+		width: 169px;
+		padding: 5px;
+		margin: 5px;
+	}
+
+	#constrain ul#related-videos .title,
+	#constrain ul#related-videos .strap {
+		float:none;
+		margin:0 0 10px;
+	}
+	ul#related-videos a:hover,
+	ul#related-videos li.selected a {
+		background:#DDD;
+	}
+	ul#related-videos li.selected h5.video-selected{
+		top:10px;
+		left:10px;
+	}
+	ul#related-videos .video {
+		margin-right:10px;
+	}
+	.related-video h2 {
+		background:#000; 
+		padding:10px; 
+		color:#EEE; 
+		margin:0; 
+	}
+	.video-player object {
+		height:100% !important;
+	}
+
+	ul.video-tasks li {
+		float: none;
+	}
+	div.article-tools ul.video-tasks li.original-article {
+		float: left;
+		margin-top: 4px;
+	}
+
+	/* This is generic pop up that is mostly used for the authors */
+	.js-enabled .popup {
+		max-width: 280px;
+		width: 100%;
+		padding-left: 20px;
+		z-index: 100000000;
+	}
+	html.js-enabled .highlight-popup,
+	html.js-enabled  .compound-popup {
+		width: 85% !important;
+		margin-left: 5px !important;
+	}
+	html.js-enabled div.compound-popup h2 {
+		min-width: 0;
+		width: 290px;
+		padding-right: 10px;
+	}
+	.js-enabled div.compound-popup img {
+		max-width: 80%;
+	}
+	.js-enabled .highlight-popup h2,
+	.js-enabled .compound-popup h2 a {
+		word-wrap: break-word;
+	}
+
+	/* Removed items form the article pages */
+	.figures-at-a-glance {
+		display: none;
+	}
+
+
+	/* Content Structure */
+
+	.home .article-list li#article-list-links a,
+	.more-link {
+		float: left;
+		margin: 10px 5px 0 0;
+	}
+
+	ul.article-list.split li,
+	ul.article-list li.split {
+		width: 100%;
+	}
+
+	/*
+	****
+	* TOC pages
+	* Items used globally across AIP TOC pages
+	****
+	*/
+
+	.content-block-full {
+		width: 100%;
+	}
+
+	.lead-teaser h1 a {
+		display: block;
+		margin: 0 0 10px;
+		height: auto;
+	}
+
+	.lead-teaser.media-right div.media {
+		position:relative;
+	}
+
+	/* Article features */
+
+	ul.prev-next-article {
+		float: left;
+		width: 100%;
+		margin: 0 10px 0;
+	}
+
+	ul.prev-next-article li.prev {
+		float: left;
+	}
+
+	ul.prev-next-article li.next {
+		float: right;
+		margin-right: 20px;
+	}
+
+	/*
+	****
+	* TOC pages
+	* Items used globally across AIP TOC pages
+	****
+	*/
+
+
+	body.toc #content .secondary-heading {
+		font-size:90%;
+	}
+
+	ul.collapsed-list li {
+		display: block;
+		margin-bottom: 10px;
+	}
+
+	ul.collapsed-list li a {
+		border: none;
+		padding: 0;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content .toc {
+		padding: 10px 0 0 10px;
+	}
+
+	#issue-meta .sub-inner .secondary-heading span {
+		padding: 0 0 0 5px;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content .toc {
+		float: left;
+		clear: left;
+		border-top: solid 1px #D7D7D7;
+		border-left: none;
+		margin-left: 0;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content .toc li {
+		float: left;
+		height: auto;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content img {
+		float: none;
+		display: block;
+		width: 148px;
+		height: 196px;
+		margin: 10px auto;
+	}
+
+	#issue-meta .sub-inner span.more {
+		font-size:80%;
+	}
+
+
+	/*
+	****
+	* Research pages
+	* Items used globally across AIP Research pages
+	****
+	*/
+
+	.list-header .secondary-heading {
+		width: 100%;
+	}
+
+	.list-header .extras-list {
+		float: left;
+		margin: 0 0 20px;
+	}
+
+	.list-header .paging {
+		float: left;
+		margin: 0 -2px 9px 0;
+	}
+
+	#research .primary-heading span {
+		width: auto;
+		display: inline-block;
+		margin: 0;
+		border: none;
+	}
+
+	ul.extras-list li {
+		float: left;
+		padding: 10px 0 0 10px;
+	}
+
+	p.extras-list {
+		text-align: left;
+	}
+
+	/* Article Elements to hide */
+	#content ul.prev-next-article,
+	.figures-at-a-glance,
+	.reshigh-carousel {
+		display: none;
+	}
+	 
+	/* V2 'Landing' pages */
+	.standard-teaser h1 {
+		 font-size:120%;
+	}
+
+	/* 'Article Metrics' pages */
+	#am-container,
+	.metrics-head {
+		margin: 5px;
+	}
+	.citation-list h2.citation-header {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.metric-display .section h4 {
+		width: auto;
+		text-align: left;
+		margin-bottom: 5px;
+	}
+	.graph-nav {
+		display: none;
+	}
+	.graph-placeholder {
+		width: 100%;
+	}
+	#am-container .am-col {
+		width: 100%;
+	}
+	.metric-display h2 {
+		margin-top: 10px;
+		height: auto;
+		float: left;
+	}
+	.metrics-module h2 {
+		text-align: left;
+	}
+	.citations-container {
+		margin: 0 0 10px;
+	}
+	.citation-metrics {
+		margin-top: 10px;
+		text-align: center;
+	}
+	.citation-summary li {
+		margin: 8px;
+	}
+	#am-container .am-col .am-module {
+		width: 100%;
+		margin: 0 0 10px;
+	}
+	#am-container .am-col .metrics-module {
+		width: 100%;
+	}
+	#online-media-metrics {
+		width: 100%;
+	}
+	.twitter-demographics-container  #map-canvas,
+	.twitter-demographics-container  table.twitter-demographic-table {
+		float: none;
+		margin: 0;
+	}
+
+	.metric-defintions dd {
+		margin-left: 0;
+		padding: 0;
+		float: left;
+		display: block;
+		margin-top: 2px;
+	}
+	.metric-defintions dt {
+		display: block;
+		float: none;
+		text-align: left;
+		font-style: italic;
+	}
+	
+	/* workaround AIP-1598 */
+	.js-enabled .icb-box {
+		display: none;
+	}
+
+	.related-authors .author-index li.even {
+		margin-right: 0;
+	}
+
+	.related-authors .author-index  li.odd {
+		margin-right: 14%;
+	}
+
+	.related-authors .author-index li:nth-child(2n)   {
+		margin-right: 0;
+	}
+	.related-authors .author-index  li:nth-child(odd)  {
+		margin-right: 14%;
+	}
+
+	#extranav .loop-title {
+		background-position: 98% -64px;
+	}
+
+	#extranav .loop-box {
+		width: 99.5%;
+		margin-left: -3.2%;
+	}
+	.loop-box .loop-box-header {
+		background-image: none;
+	}
+	/* 
+	****
+	* WT Tracking
+	* A css property we track using web trends to check if mobile css is being used
+	****
+	*/
+
+	#mobile-css-test {
+		display: block;
+	}
+
+}
+
+/* COPS-236 */
+@media	screen and (max-width : 480px) {
+
+	.compound .figure-nav {
+		padding: 1px 5px 0;
+	}
+
+	.compound .figure-nav li.prev,
+	.compound .figure-nav li.next,
+	.compound .figure-nav li.index {
+		position: relative;
+	}
+}
+/* PUBSERV pagination styles
+* This conflicts with existing pagination styles in AIP so I've given it a different name.
+* TODO: maybe do a gardening ticket to bring everything in line with pubserv?
+*/
+@media screen and (max-width:32.5em){
+	.pubserv_pagination .hide-nav-text {
+		position:absolute;
+		left:-9999em;
+	}
+	.pubserv_pagination .hide-small-screen {
+		display:none; 
+	}
+	.pubserv_pagination .icon {
+		height:24px;
+		display:block;
+		padding:0 8px 0 0;
+	}
+	.pubserv_pagination .show-small-screen{
+		display:inline-block;
+		visibility:visible;
+	}
+	.pubserv_pagination li a,
+	.pubserv_pagination .current,
+	.pubserv_pagination .disabled {
+		padding:6px 12px;
+	}
+}

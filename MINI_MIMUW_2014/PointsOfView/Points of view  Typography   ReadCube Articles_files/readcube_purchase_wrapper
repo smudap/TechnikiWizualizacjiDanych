@@ -1,0 +1,7 @@
+(function() {
+  var script=document.createElement('script');
+  var head=document.getElementsByTagName('head')[0];
+  script.type='text/javascript';
+  script.src='https://d3jitpq7h831d5.cloudfront.net/assets/readcube_purchase_new-27e41bf9b7cdcfe8387a00530fccc486.js';
+  head.appendChild(script);
+})();

@@ -1,0 +1,746 @@
+/*
+ *
+ *
+ *		global.header-v3.css
+ *
+ *		Header styles for "v3" header with multi-level navigation
+ *
+ *		@scope: 	Included on all AIP pages who have set header as v3
+ *
+ *		@history: 	Created (copied) from /styles/global.header-v2.css
+ *
+ *
+ */
+
+body {
+	background: #eee;
+}
+
+
+/**
+ * @section Header
+ * ============================================================================
+ */
+
+/**
+ * @subsection Foreword - top level links
+ * ------------------------------------------------------------------------
+ */
+
+#foreword {
+	border: none;
+	background: none;
+	padding: 5px 5px 0 5px;
+}
+
+#foreword a {
+	text-decoration: none;
+	font-weight: normal;
+}
+
+#foreword a:hover,
+#foreword a:focus {
+	text-decoration: underline;
+}
+
+#foreword h1 {
+	float: left;
+	margin: 0;
+	padding: 6px 10px 10px 0;
+	font-family: garamond,"times new roman",serif;
+	font-size: 150%;
+	line-height: 24px;
+	background: url(/view/images/divider-dotted-blue.png) no-repeat 100% 50%;
+}
+
+#foreword ul.left {
+	float: left;
+	padding: 10px 0;
+}
+
+#foreword ul.right {
+	float: right;
+	overflow: hidden;
+	margin: 0 -11px 0 0;
+	padding: 10px 0;
+}
+
+#foreword ul li {
+	float: left;
+	padding-left: 11px;
+	margin-left: 10px;
+	background: url(/view/images/divider-dotted-blue.png) no-repeat 0 50%;
+	position: relative;
+}
+
+#foreword ul li:first-child {
+	background-image: none;
+}
+
+#foreword ul li.cart a {
+	padding-left: 22px;
+	background: url(/view/images/shop-cart-blue.png) no-repeat 0 50%;
+}
+
+#foreword ul li.my-account a {
+	padding-left: 22px;
+	background: url(/view/images/my-account-blue.png) no-repeat 0 50%;
+}
+
+#foreword ul.right li {
+	left: -11px;
+}
+
+#foreword p.sitemap {
+	margin: 0;
+	padding: 10px;
+	float: left;
+}
+#foreword p.sitemap a.all-publications {
+	background: url(/view/images/divider-dotted-blue.png) no-repeat 100% 50%;
+	padding-right: 10px;
+	margin-right: 5px;
+}
+
+#foreword p.welcome,
+#foreword p.access {
+	line-height: 1.23;
+	margin: 0 0 10px;
+	max-height: 32px;
+	padding: 12px 10px 0;
+	text-align: center;
+}
+
+/**
+ * @subsection Top Ads
+ * ------------------------------------------------------------------------
+ */
+
+#top-ads {
+	border: 0;
+	z-index: 11;
+}
+
+body.ie6 #top-ads {
+	overflow-x: hidden;
+}
+
+#top-ads .ad {
+	position: relative !important;
+	background: #5C5A5B;
+	background:rgba(0,0,0,0.3);
+	margin: 0 auto;
+	padding: 0;
+}
+
+#top-ads .leaderboard {
+	background: url(/common/includes/header/images/backgrounds/01/leaderboard.gif) no-repeat 0 0;
+	float: none!important;
+	height: auto;
+	max-height: 90px;
+	padding: 0 15px;
+	width: 728px;
+}
+
+#top-ads .half-banner {
+	width: 203px;
+	height: 90px;
+	overflow: hidden;
+}
+
+#top-ads img {
+	display: block;
+	margin: 0;
+	padding: 0;
+	height: auto;
+}
+
+/**
+ * @subsection Leaderboard
+ * ------------------------------------------------------------------------
+ */
+
+#header {
+	height: 108px;
+	overflow: visible;
+	min-height: 108px;
+	position: relative;
+	border: 6px solid #fff;
+	border-bottom: 0 none;
+	background-repeat: no-repeat;
+	background-position: left top;
+	margin-top: 6px;
+	z-index: 10; /* Fixes IE7 new context on z-index bug */
+}
+
+#header h1 {
+	margin: 0;
+}
+
+#header h1 a {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	width: 400px;
+	height: 100px;
+	overflow: hidden;
+	text-indent: -9999em;
+	direction: ltr;
+}
+
+#header h2 {
+	position: absolute;
+	left: -9999em;
+}
+
+#header a {
+	font-weight: normal;
+}
+
+#header p.institution-access {
+	margin: 10px 10px 0;
+	float: right;
+	clear: right;
+	color: #fff;
+}
+
+/**
+ * @subsection Main shunter global navigation
+ * ------------------------------------------------------------------------
+ */
+
+/*
+ * helper styles
+ * =========================================================================
+ */
+
+#js-menu {
+	display: none;
+}
+
+.js-show {
+	display: block;
+	visibility: visible;
+}
+
+.horizontal-list > li {
+	float: left;
+}
+
+nav ul,
+nav ol {
+	list-style: none;
+	list-style-image: none;
+}
+
+
+/*
+ * main site navigation
+ * =========================================================================
+ */
+
+.banner-nav-links {
+	position: absolute;
+	left: 3px;
+	bottom: 0;
+	line-height: 1.6;
+	margin-bottom: 0; /* Needed to override default style on article pages */
+	z-index: 2;
+}
+
+.banner-nav-links li {
+	position: relative;
+}
+
+.banner-nav-links > li {
+	margin-left: -1px;
+}
+
+.banner-nav-links a {
+	display: block;
+	padding: 5px 0;
+}
+
+.banner-nav-links > li .nav-link-title {
+	padding: 0 8px;
+	border-right-style: solid;
+	border-right-width: 1px;
+}
+
+.banner-nav-links > .last .nav-link-title {
+	border: 0;
+}
+
+.banner-nav-links > li:hover > a,
+.banner-nav-links > .js-nav-click > a,
+.banner-nav-links > .active > a {
+	background-color: #fff;
+	border-color: #ececec;
+	border-style: solid;
+	border-width: 1px 1px 0 1px;
+	text-decoration: none;
+	padding: 4px 0 5px;
+}
+
+.banner-nav-links > li:hover .nav-link-title,
+.banner-nav-links > .js-nav-click .nav-link-title,
+.banner-nav-links > .active .nav-link-title {
+	padding: 0 7px;
+}
+
+/* links with children */
+
+.banner-nav-links .dropdown-icon {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAPElEQVQImWP4//9/OS7MACTu/scOwJJpWCRAGhhAkiC8G03SBVnSGEliFVQMLgnCM6GSStgkBaGuhIsBAAJMqlYjagoUAAAAAElFTkSuQmCC);
+}
+
+body.ie7 .banner-nav-links .dropdown-icon {
+	background-image: url(/view/images/v3/navigation-arrow.png);
+}
+
+.banner-nav-links > .nav-parent:hover .dropdown-icon,
+.banner-nav-links > .js-nav-click .dropdown-icon,
+.banner-nav-links > .active .dropdown-icon {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAQklEQVQIW2MwMzMrx4UZgMRdIP6PBYMl07BI3P3//z8DA4gAcnajSbogSxojSawCicEloQpmQiWVsEkKAnE5jA/CADMAWkAT1TVdAAAAAElFTkSuQmCC);
+}
+
+body.ie7 .banner-nav-links > .nav-parent:hover .dropdown-icon,
+body.ie7 .banner-nav-links > .js-nav-click .dropdown-icon,
+body.ie7 .banner-nav-links > .active .dropdown-icon {
+	background-image: url(/view/images/v3/navigation-arrow-parent.png);
+}
+
+
+/* sub-navigation dropdowns */
+
+.banner-subnav-links {
+	border: 1px solid #ececec;
+	background: #fff;
+	margin-bottom: 0; /* Needed to override default style on article pages */
+	position: absolute;
+	top: 100%;
+	left: -9999px;
+	-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+.nav-parent-hover:hover > .banner-subnav-links,
+.nav-parent-hover:focus > .banner-subnav-links,
+.nav-parent-hover:active > .banner-subnav-links,
+.js-banner-subnav-show {
+	left: 0;
+	min-width: 100%;
+}
+
+.banner-subnav-links > li {
+	border-bottom: 1px solid #ececec;
+}
+
+.banner-subnav-links > .last {
+	border: 0;
+}
+
+.banner-subnav-links a {
+	padding: 5px 7px;
+	white-space: nowrap;
+	color: #069;
+}
+
+.banner-subnav-links a:visited {
+	color: #5c7996;
+}
+
+.banner-subnav-links > .active a {
+	color: #363636;
+}
+
+/*
+ * header color set by app
+ * =========================================================================
+ */
+
+/* white */
+
+.header-color-white,
+.header-color-white a {
+	color: #fff;
+}
+
+.banner-nav-links > li .header-color-white {
+	border-color: #fff;
+	border-color: rgba(255,255,255,0.5);
+}
+
+.banner-nav-links > li:hover .header-color-white,
+.banner-nav-links > .js-nav-click .header-color-white,
+.banner-nav-links > .active .header-color-white {
+	color: #363636;
+}
+
+/* blue */
+
+.header-color-blue,
+.header-color-blue a {
+	color: #069;
+}
+
+.banner-nav-links > li .header-color-blue {
+	border-color: #069;
+	border-color: rgba(0, 102, 153, 0.5);
+}
+
+.banner-nav-links > li:hover .header-color-blue,
+.banner-nav-links > .js-nav-click .header-color-blue,
+.banner-nav-links > .active .header-color-blue {
+	border-color: #fff;
+	border-color: rgba(255,255,255,0.5);
+}
+
+.banner-nav-links > li:hover .header-color-blue,
+.banner-nav-links > .js-nav-click .header-color-blue,
+.banner-nav-links > .active .header-color-blue {
+	color: #363636;
+}
+
+
+/**
+ * @subsection Breadcrumbs
+ * ------------------------------------------------------------------------
+ */
+#breadcrumbs {
+	border: solid #fff;
+	border-width: 2px 6px 0 6px;
+	background: #ececec;
+}
+
+#breadcrumbs li {
+	padding: 0;
+	float: left;
+	position: relative;
+}
+
+body.ie6 #breadcrumbs li {
+	width: 0;
+}
+
+#breadcrumbs a,
+#breadcrumbs span {
+	padding: 3px 8px;
+	margin: 3px 0;
+	display: block;
+	position: relative;
+	border-left: 1px solid #D4D4D4;
+	background-repeat: no-repeat;
+	background-position: 100% 50%;
+	line-height: 16px;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+#breadcrumbs a:hover {
+	color: #fff;
+	background-color: #801819;
+	margin: 0;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	text-decoration: none;
+}
+
+#breadcrumbs .sub a:hover {
+	padding-right: 8px;
+}
+
+#breadcrumbs li.parent,
+#breadcrumbs li.current {
+	margin-left: -20px;
+}
+
+#breadcrumbs li.first {
+	margin-left: 0;
+	z-index: 10;
+}
+
+#breadcrumbs li.parent-2 {
+	z-index: 9;
+}
+
+#breadcrumbs li.parent-3 {
+	z-index: 8;
+}
+
+#breadcrumbs li.parent-4 {
+	z-index: 7;
+}
+
+#breadcrumbs li.parent-5 {
+	z-index: 6;
+}
+
+#breadcrumbs li.parent-6 {
+	z-index: 5;
+}
+
+#breadcrumbs li.parent-7 {
+	z-index: 4;
+}
+
+#breadcrumbs li.parent-8 {
+	z-index: 3;
+}
+
+#breadcrumbs li.parent-9 {
+	z-index: 2;
+}
+
+#breadcrumbs li.current {
+	z-index: 1;
+}
+
+#breadcrumbs li.parent a,
+#breadcrumbs li.parent span,
+#breadcrumbs li.current span {
+	color: #fff;
+	margin: 0;
+	padding: 6px 23px 6px 24px;
+	background-image: url(/view/images/background-dark-grey-crumb.png);
+	border: 0;
+}
+
+#breadcrumbs li.current span {
+	background-image: url(/view/images/background-med-grey-crumb.png);
+}
+
+#breadcrumbs li.parent a:hover {
+	background-image: url(/view/images/background-red-crumb.png);
+	background-color: transparent;
+}
+
+#breadcrumbs li.first a,
+#breadcrumbs li.first span {
+	padding-left: 13px;
+}
+
+#breadcrumbs li.sub-1 {
+	margin-left: -20px;
+}
+
+#breadcrumbs li.sub-1 a {
+	padding-left: 24px;
+	border: 0;
+}
+
+#breadcrumbs #sub-navigation,
+#breadcrumbs #sib-sub-navigation  {
+	margin: 0;
+	float: left;
+}
+
+/*v1 style breadcrumbs */
+.breadcrumb-container {
+	background: #fff;
+	border-color: #fff;
+	border-style: solid solid none;
+	border-width: 6px 6px 0;
+}
+
+ul.breadcrumbs {
+	margin: 0;
+	padding: 0 0 0 10px;
+	float: left;
+}
+
+ul.breadcrumbs a {
+	text-transform: lowercase;
+}
+
+ul.breadcrumbs li {
+	display: inline;
+	font-weight: bold;
+}
+
+body.ie6 ul.breadcrumbs {
+	position: relative;
+}
+
+.right-arrow a {
+	padding-right: 12px;
+	background: url(/view/images/arrow_small_right.gif) no-repeat 100% 50%;
+}
+
+#constrain {
+	max-width: 980px;
+	padding: 0 5px;
+}
+
+#constrain-header {
+	background: transparent;
+	margin-bottom: 0;
+	line-height: 1.534em;
+}
+
+#constrain-content {
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-left: 11px solid #fff;
+	border-right: 11px solid #fff;
+}
+
+body.one-col #constrain-content {
+	padding: 20px 0;
+}
+
+#constrain-footer {
+	margin-top: 0;
+	border: 12px solid #fff;
+	border-bottom: 0 none;
+	border-top: 0 none;
+}
+
+div.infographic {
+	padding: 13px;
+}
+
+.prev-next-article li.prev {
+	left: -70px;
+}
+
+.prev-next-article li.next {
+	right: -1027px;
+}
+
+
+/**
+ * @subsection Search
+ * ------------------------------------------------------------------------
+ */
+#header form.search-form {
+	white-space: nowrap;
+	margin: 10px 5px;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align: right;
+	float: none;
+	font-size: inherit;
+	line-height: 1.6;
+	height: 1.6em;
+}
+
+body.ie6 #header form.search-form {
+	width: 16em;
+}
+
+#header form.search-form label,
+#header form.search-form a {
+	color: #fff;
+}
+
+#header form.search-form a {
+	padding-left: 12px;
+	background: url(/view/images/white-arrow-right.png) no-repeat 0 50%;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+#header form.search-form * {
+	vertical-align: top;
+	display: inline-block;
+	height: 1.6em;
+}
+
+#header form.search-form fieldset {
+	display: block;
+}
+
+#header form.search-form label,
+#header form.search-form fieldset {
+	margin: 0 5px 0 0;
+}
+
+#header form.search-form label {
+	font-weight: normal;
+}
+
+#header form.search-form fieldset.search-advanced {
+	margin-top: 5px;
+}
+
+#header form.search-form input.txt,
+#header form.search-form button {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#header form.search-form button {
+	border: solid 1px #9A9787;
+	line-height: 1;
+	background: #333;
+	padding: 0 2px;
+	color: #fff;
+	margin-left: 2px;
+}
+
+#header form.search-form input.txt {
+	padding: 0 2px;
+	height: 1.6em;
+	border: 1px solid #9e9986;
+}
+
+body.ie6 #header form.search-form input.txt,
+body.ie7 #header form.search-form input.txt {
+	height: 1.4em;
+}
+
+#header form.search-form label.placeholder-replaces input {
+	width: 69%;
+}
+
+#header form.search-form input.placeholder {
+	color: #999;
+}
+
+#header form.search-form label.placeholder-replaces {
+	position: relative;
+	width: 150px;
+}
+
+#header form.search-form label.placeholder-replaced span {
+	display: none;
+}
+
+#header form.search-form label.placeholder-replaces input[placeholder] {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-left: 0;
+}
+
+/* IE7 and those that don't understand [] or apply box-sizing */
+body.ie7 #header form.search-form label.placeholder-replaced input,
+#header form.search-form label.placeholder-replaced input {
+	width: 96%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-left: 0;
+}
+
+/* IE7+9 supports [] selector, but not the placeholder without JS */
+.no-javascript body.ie7 #header form.search-form *,
+.no-javascript body.ie8 #header form.search-form *,
+.no-javascript body.ie9 #header form.search-form * {
+	width: auto !important;
+	position: static !important;
+}
+
+.no-javascript body.ie7 #header form.search-form label.placeholder-replaces input[placeholder],
+.no-javascript body.ie8 #header form.search-form label.placeholder-replaces input[placeholder],
+.no-javascript body.ie9 #header form.search-form label.placeholder-replaces input[placeholder] {
+	margin-left: 5px;
+}
