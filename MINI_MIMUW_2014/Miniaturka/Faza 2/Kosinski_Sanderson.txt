@@ -2,6 +2,22 @@
 
 Nie rozumiałem po prezentacji i teraz też nie wiem jak go czytać.
 
+
+EDIT: Marcin Kosiński: Miniturka składa się z 2 części. Dla g poziomów etykiet, po prawej stronie miniaturki
+ukazuje sie klastrowanie na g etykiet (które najlpiej żeby nie uwzględniało zmiennej zawierającej etykiety) przy
+użyciu algorytmu analizy skupień o nazwie pam. Dla każdej obserwacji jest liczona miara silhuete, mówiaca
+jak "podobna" wg tej miary jest oberwacja w porównaniu o reszty obserwacji w swoim klastrze. 
+Ta miara jest ukazana jako słupki a prawa cześć miniaturki składa się z tylu częsci ile jest g poziomów, a w każdej 
+części przedstawiona jest miara siluete dla danej obserwacji. 
+
+Czy nie rozumienie wykresu bierze się z nieznajomości algorytmu czy z ogólnie panującej w grupie ćwiczeniowej niechęci do
+naszej grupy czy z moich niskich kompetencji w przekazywaniu moich myśli? Jeżeli to ostatnie, to postaram się poprawić. 
+W innych przypadkach nie jestem w stanie nic zrobić.
+
+Co do lewej strony może najlepiej żeby wyjaśniła Emma Sanderson.
+
+
+
 2. Estetyka [czy kolory pełnią funkcję, czy czcionka jest czytelna]
 
 Prawe wykresy mają inny krój pisma niż lewe wykresy.
@@ -10,13 +26,30 @@ Dwa ostatnie słupki się skleiły co źle wygląda.
 Opisy na osiach na lewym wykresie nie pasują do słupków.
 
 
+EDIT: Marcin Kosiński: Przyjmuję komentarz, jednak "Nie wiem jaką funkcją pełnią wykresy po prawej stronie." ma niewiele
+wspólnego z estetyką wg mnie. Czy możemy liczyć na dodatkowe punkty ze względu na losowe kolory przy wywołaniu miniaturki?
+
+
+
 3. Czy chciałbym używać takiego wykresu?
 
 
 Nie widzę związku pomiędzy prawymi wykresami przedstawiającymi miary jakości klastrów
 a lewymi wykresami przedstawiającymi jakość klasyfikacji dla różnej liczby sąsiadów.
 Nie wiem skąd wybór k 0, 5, 10, 15. Dlaczego nie rozważyć wszystkich k 1...15.
-Przedstawienie liczebności za pomocą wielkości punktu nie pozwala na dostrzeżenie różnic pomiędzy kolumnami (o ile jakieś różnice są)
+Przedstawienie liczebności za pomocą wielkości punktu nie pozwala na dostrzeżenie różnic pomiędzy kolumnami 
+(o ile jakieś różnice są)
+
+EDIT: Marcin Kosiński: rozważając od 1-15 15 słupków mogłoby być za dużo.
+Związek między knn a pam jest taki, że na wejściu przychodzi knn z g poziomami: lewy wykres pokazuje jakie
+powinno być k "najlepsze" (na prezentacji nie zgraliśmy co u kogo jest k, a co u kogo jest g) a prawa cześć
+jaka jest struktura bazująca na mierze sihouthe. Tutaj można albo pozostawić etykiety z knn, które będą oznaczać
+klastry dla których będą liczone miary albo bez etykiet z knn przeprowadzić analizę skupień pam ale wtedy etykiety mogą
+się nie pokrywać z pam i z knn (to jeszcze do przemyślenia).
+Ja osobiście chciałbym używać takiego wykresu i widzę w nim wiele zalet. Mam wrażenie, że opinia w 3 pytaniu jest mocno
+podyktowana odczuciami na temat 1 pytania.
+
+
 
 
 
@@ -30,5 +63,7 @@ Brakuje jednej funkcji, którą można by uruchomić i przetestować (w pliku KN
 
 Są trzy pliki *.R, nawet nie wiadomo z którym pracować
 
+
+EDIT: Marcin Kosiński: Mogę to poprawić. Myślałem, że na wykładzie będziemy omawiać kod przy autorach.
 
 
