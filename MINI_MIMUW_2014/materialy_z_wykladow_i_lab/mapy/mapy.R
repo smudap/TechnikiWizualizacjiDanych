@@ -1,69 +1,125 @@
 setwd("/Users/pbiecek/GitHub/TechnikiWizualizacjiDanych/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy/")
 
-require(maptools)
+library(maptools)
+library(ggplot2)
+library(rgdal)
+library(gpclib)
+gpclibPermit()
 
-newproj <- "+proj=utm +zone=55 +south +ellps=GRS80 +units=m"
-# kontury kraju
-# i konktury wojewodztw
-shape0 <- readShapeSpatial("POL_adm/POL_adm0", proj4string = CRS(newproj))
-shape1 <- readShapeSpatial("POL_adm/POL_adm1", proj4string = CRS(newproj),repair=TRUE,force_ring=T,verbose=TRUE) 
+shp1 <- readShapePoly("POL_adm/POL_adm1.shp") 
+levels(shp1@data$NAME_1)[3] = "Łódzkie"
 
-plot(shape1, col="grey80",border="white", lwd=2, axes=F)
-
-#
-# podsumowanie pliku z mapkami
-summary(shape1)
-
-#
 # zobaczmy co jest w odczytanym obiekcie
 # metadane
-shape1@data
+shp1@data
+summary(shp1)
 
 # ksztalt konkturu
-str(shape1@polygons[[1]])
+str(shp1@polygons[[1]])
 
-#
-# punkty dla danego konkturu
-shape1@polygons[[1]]@Polygons[[1]]@coords
-plot(shape1@polygons[[1]]@Polygons[[1]]@coords, pch=19)
-
-# powierzchnia wskazanego obszaru
-shape1@polygons[[1]]@Polygons[[1]]@area
-
-#
 # srodek konturu
-shape1@polygons[[1]]@labpt
+shp1@polygons[[1]]@labpt
 
 #
 # wyciagamy srodki kazdego z wojewodztw
-wsp <- sapply(1:nrow(shape1@data), 
-              function(x) (shape1@polygons[[x]]@labpt))
-# na ekranie wypisujemy nazwy 
-plot(shape1, col="grey80",border="white", lwd=2, axes=T)
-text(wsp[1,], wsp[2,], shape1@data$VARNAME_1, cex=0.8, col="red", adj=c(0.5,0.5))
+wsp <- sapply(shp1@polygons,   function(x) x@labpt)
+
+#
+# fortify zmienia format danych na ggplot2 spójny
+shp1f <- fortify(shp1, region = "NAME_1")
+# save(shp1f, file="shp1f.rda")
+load("shp1f.rda")
+
+#
+# mapka w ggplot
+ggplot() +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="black", size=0.25)
+
+#
+# losowy zbior danych do cwiczen
+df <- data.frame(voj=unique(shp1f$id), val=runif(16), long = wsp[1,], lat = wsp[2,])
+
+#
+# wojewodztwa wypelnione kolorem
+# [losowym]
+ggplot() +
+  geom_map(data=df, aes(map_id=voj, fill=val), map=shp1f) +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="black", size=0.25)
+  
+#
+# jak określić projekcje
+ggplot() +
+  geom_map(data=df, aes(map_id=voj, fill=val), map=shp1f) +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="black", size=0.25) +
+  coord_map(projection="mercator")
+
+#
+# to szare tło wcale nie jest potrzebne
+ggplot() +
+  geom_map(data=df, aes(map_id=voj, fill=val), map=shp1f) +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="black", size=0.25) +
+  coord_map(projection="mercator") +
+  theme_bw() +
+  theme(axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major=element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        panel.border = element_blank())
+
+#
+# A może wielkością punktu?
+ggplot() +
+  geom_point(data=df, aes(x=long, y=lat, size=val)) +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="black", size=0.25) +
+  coord_map(projection="mercator") +
+  theme_bw() +
+  scale_size_continuous(range=c(1,20)) +
+  theme(axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major=element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        panel.border = element_blank())
+
+#
+# A może długością paska
+ggplot() +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="grey", size=0.25) +
+  geom_rect(data=df, aes(xmin=long-0.2, xmax=long+0.2, ymin=lat-0.2, ymax=lat + val), fill="black", color="black") +
+  coord_map(projection="mercator") +
+  theme_bw() +
+  scale_size_continuous(range=c(1,20)) +
+  theme(axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major=element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        panel.border = element_blank())
+
+
+
+# dane o wyborach
+# library(gdata)
+# wybory2014 <- read.xls("wybory2014.xlsx", 1)
+# save(wybory2014, file="wybory2014.rda")
+load("wybory2014.rda")
+
+wybory2014
 
 
 #
-# kolorujemy kazde z wojewodztw innym kolorem
-# @ w zaleznosci od wartosci zmienna zmienna
+# Zadanie:
 
-library(classInt)     
-library(RColorBrewer) 
+# Czy jest zależność pomiędzy wynikami a frekwencją 
+# (tak jest)
+# pokaż w ciekawy sposób wyniki wyborów i/lub informacje o frekwencji
 
-zmienna <- round(rnorm(16)*100)/10
-lklas   <- 4
-kolory <- brewer.pal(lklas,"Spectral")
-klasy <- classIntervals(zmienna, lklas, style="quantile")
-koloryW <- findColours(klasy, kolory)
-
-plot(shape1, col=koloryW,border="black", lwd=1, axes=F)
-#
-# dopisujemy napisy
-text(wsp[1,], wsp[2,], paste(zmienna, "%"), cex=1.1, col="black")
-#
-# i legende
-par(xpd=NA)
-legend(23.5, 55.5, legend=names(attr(koloryW, "table")), fill=attr(koloryW, "palette"), bty="n")
-par(xpd=T)
-
+# najlepsze prace domowe (za zgodą autorów) trafią na blog
 
