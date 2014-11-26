@@ -70,6 +70,23 @@ ggplot() +
         panel.border = element_blank())
 
 #
+# to szare tło wcale nie jest potrzebne
+ggplot() +
+  geom_map(data=df, aes(map_id=voj, fill=val), map=shp1f) +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="white", size=1) +
+  coord_map(projection="mercator") +
+  theme_bw() +
+  scale_fill_gradient(low = "grey90", high = "black") +
+  theme(axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major=element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        panel.border = element_blank())
+
+#
 # A może wielkością punktu?
 ggplot() +
   geom_point(data=df, aes(x=long, y=lat, size=val)) +
