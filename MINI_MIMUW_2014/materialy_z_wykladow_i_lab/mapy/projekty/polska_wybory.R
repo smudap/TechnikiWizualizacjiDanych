@@ -6,6 +6,9 @@ library(rgdal)
 library(mapproj)
 library(rgeos)
 
+shp0 <- readShapePoly("POL_adm/POL_adm0.shp") 
+shp0f <- fortify(shp0, region = "ISO")
+
 shp1 <- readShapePoly("POL_adm/POL_adm1.shp") 
 levels(shp1@data$NAME_1)[4] = "Lodzkie"
 
@@ -20,6 +23,9 @@ shp1f$id[shp1f$id==lodz] <- "Lodzkie"
 
 # dane o wyborach
 library(gdata)
+
+wybory2014 <- read.table("projekty/wybory.csv",header=T,sep="\t",
+                         dec=",")
 
 wybory2014 <- read.table("clipboard",header=T,sep="\t",
                          dec=".")
@@ -71,9 +77,10 @@ psl <- shp1f[shp1f$id==c("Warmian-Masurian","Swietokrzyskie"),]
 
 # opcja z zoltym i czerwonym
 ggplot() +
+  geom_path(data=shp0f, aes(x=long, y=lat, group=id), colour="grey10", size=3) +
   geom_map(data=wybory2014, aes(map_id=ID, fill=FrekwencjaNa1730), map=shp1f) +
   ggtitle("Wygrane partie (w liczbie mandatów) w województwach \ni frekwencja wyborcza wewnątrz nich")+
-  geom_path(data=shp1f, aes(x=long, y=lat, group=id),colour="grey10", size=0.000001) +
+  geom_path(data=shp1f, aes(x=long, y=lat, group=id),colour="white", size=0.000001) +
   geom_path(data=cale, aes(x=long.x, y=lat, group=id.y), colour="grey10", size=1.5) +
   geom_path(data=psl, aes(x=long, y=lat, group=id), colour="grey10", size=1.5) +
   geom_text(data=wybory2014.1,aes(x=long, y=lat, label=Wygrany,col=Wygrany),size=8,show_guide=F)+
