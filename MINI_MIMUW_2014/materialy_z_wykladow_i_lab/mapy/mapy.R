@@ -7,7 +7,7 @@ library(gpclib)
 gpclibPermit()
 
 shp1 <- readShapePoly("POL_adm/POL_adm1.shp") 
-levels(shp1@data$NAME_1)[3] = "Łódzkie"
+#levels(shp1@data$NAME_1)[3] = "Łódzkie"
 
 # zobaczmy co jest w odczytanym obiekcie
 # metadane
@@ -108,6 +108,7 @@ ggplot() +
 ggplot() +
   geom_path(data=shp1f, aes(x=long, y=lat, group=id), colour="grey", size=0.25) +
   geom_rect(data=df, aes(xmin=long-0.2, xmax=long+0.2, ymin=lat-0.2, ymax=lat + val), fill="black", color="black") +
+  geom_rect(data=df, aes(xmin=long+0.4, xmax=long+0.2, ymin=lat-0.2, ymax=lat + val/2), fill="red4", color="black") +
   coord_map(projection="mercator") +
   theme_bw() +
   scale_size_continuous(range=c(1,20)) +
@@ -127,6 +128,8 @@ ggplot() +
 # wybory2014 <- read.xls("wybory2014.xlsx", 1)
 # save(wybory2014, file="wybory2014.rda")
 load("wybory2014.rda")
+
+read.table("clipboard", header=T, sep="\t",dec=",")
 
 wybory2014
 
