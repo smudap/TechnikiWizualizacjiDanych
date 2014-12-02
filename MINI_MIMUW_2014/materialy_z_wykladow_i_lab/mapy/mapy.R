@@ -7,7 +7,7 @@ library(gpclib)
 gpclibPermit()
 
 shp1 <- readShapePoly("POL_adm/POL_adm1.shp") 
-#levels(shp1@data$NAME_1)[3] = "Łódzkie"
+levels(shp1@data$VARNAME_1)[3] = "Lodzkie"
 
 # zobaczmy co jest w odczytanym obiekcie
 # metadane
@@ -26,7 +26,7 @@ wsp <- sapply(shp1@polygons,   function(x) x@labpt)
 
 #
 # fortify zmienia format danych na ggplot2 spójny
-shp1f <- fortify(shp1, region = "NAME_1")
+shp1f <- fortify(shp1, region = "VARNAME_1")
 # save(shp1f, file="shp1f.rda")
 load("shp1f.rda")
 
@@ -37,7 +37,7 @@ ggplot() +
 
 #
 # losowy zbior danych do cwiczen
-df <- data.frame(voj=unique(shp1f$id), val=runif(16), long = wsp[1,], lat = wsp[2,])
+df <- data.frame(voj=shp1@data$VARNAME_1, val=runif(16), long = wsp[1,], lat = wsp[2,])
 
 #
 # wojewodztwa wypelnione kolorem
