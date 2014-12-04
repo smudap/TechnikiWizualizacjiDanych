@@ -26,6 +26,7 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
+      p("A oto wykres"),
       plotOutput("smoothPlot")
     )
   )
