@@ -5,7 +5,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("smooth",
-                  "Wsp. przezroczystości:",
+                  "Wsp. wygładzenia:",
                   min = 0,
                   max = 1,
                   value = 0.5)
