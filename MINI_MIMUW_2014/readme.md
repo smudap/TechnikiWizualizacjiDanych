@@ -85,6 +85,14 @@ _Projekt wizualizacja danych PISA_
 
 Projekty realizowa&#263; nale&#380;y w grupach od 2 do 4 osób. Przeci&#281;cie grup z pierwszego i drugiego projektu mo&#380;e by&#263; co najwy&#380;ej jednoosobowe (nie mo&#380;na obu projektów robi&#263; w tej samej parze).
 
+Kryteria oceny 3 fazy projektu PISA
+===================================
+* Czy przedstawiane wykresy spójnie opisują jedną historię? [= czy wiadomo co przedstawiają, osie i wykresy są opisane, czy wykresy są powiązane tematycznie]
+* Czy historia jest dobrze przedstawiona? [=właściwy dobór geometrii do tematu, czytelne opisy, rozróżnialne kolory/kształty]
+* Czy historia jest wielowarstwowa/odpowiednio rozbudowana? [Historia, typu jaki jest średni wynik chłopców jest słaba bo sprowadza się do jednej liczby i nie ma zalet z graficznej prezentacji. Historia, której nie byłoby widać z surowych liczb ale widać ją na wykresach jest znacznie ciekawsza]
+
+
+
 Ocena:
 ------
 Ocena ko&#324;cowa zale&#380;e&#263; b&#281;dzie od sumy ocen cz&#261;stkowych z dwóch projektów (2*(10+20+30) = 120 pkt) oraz z krótkiej prezentacji wybranego artyku&#322;u z Points of View (20 pkt).
