@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- saved from url=(0199)http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click -->
+<html class="chrome mac-os"><script>var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<script async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"f606300a21","applicationID":"643547","transactionName":"egpeF0BWWAlRQB8XXVgBVRFtTwZKR1pfEg==","queueTime":0,"applicationTime":82,"agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js","ttGuid":"025896f2f433cea0"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+<meta content="initial-scale=1.0, user-scalable=no" name="viewport">
+<meta content="app-id=864042981, app-argument=readcube://10.1038/nmeth.2134?download=1&amp;open=1" name="apple-itunes-app">
+<meta content="noarchive" name="robots">
+<title>Points of view: Mapping quantitative data to color. | ReadCube Articles</title>
+<link href="http://www.readcube.com/articles/10.1038/nmeth.2134" rel="canonical">
+<meta name="description">
+<meta content="nature, methods, 10.1038/nmeth.2134" name="keywords">
+<link href="http://purl.org/dc/elements/1.1/" rel="schema.DC">
+<meta content="Points of view: Mapping quantitative data to color." name="DC.title">
+<meta content="doi:10.1038/nmeth.2134" name="DC.identifier">
+<meta content="10.1038/nmeth.2134" name="citation_doi">
+<meta content="Points of view: Mapping quantitative data to color." name="citation_title">
+<meta content="Nature methods" name="citation_journal_title">
+<meta content="9" name="citation_volume">
+<meta content="2012" name="citation_date">
+<meta content="Nils Gehlenborg" name="citation_author">
+<meta content="Nils Gehlenborg" name="DC.creator">
+<meta content="Bang Wong" name="citation_author">
+<meta content="Bang Wong" name="DC.creator">
+<meta content="article" property="og:type">
+<meta content="http://www.readcube.com/articles/10.1038/nmeth.2134" property="og:url">
+<meta content="Points of view: Mapping quantitative data to color." property="og:title">
+<meta property="og:description">
+<meta content="//objects.readcube.com/prerendered/03477762daaff542643a4df951c4d4f85247a13ef2eb9dc9e0dfd519bff9beac/1.jpg" property="og:image">
+
+<!--[if lt IE 9]>
+  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+<![endif]-->
+<!--[if (gte IE 9) | (!IE)]><!-->
+  <script type="text/javascript" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/jquery-ujs-bd8eb6cd0f6c66b44bcc83b4b5dc0b05.js" type="text/javascript"></script>
+<link href="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/reader_v2-3efdf7b24fd48d589085639d8c52d3c1.css" media="all" rel="stylesheet" type="text/css">
+<link href="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/style.css" media="all" rel="stylesheet" type="text/css">
+<link href="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/font-awesome.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/css" media="screen" rel="stylesheet" type="text/css">
+<script src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/embed.js" type="text/javascript"></script><script id="altmetric-embed-js" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/altmetric_badges-d99e7772b00f31495fed09fece0b7237.js"></script>
+<script src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/cpgadget.js" type="text/javascript"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-19582843-2', 'auto');
+  ga('set', 'dimension1', 'Anonymous');
+
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+<meta content="authenticity_token" name="csrf-param">
+<meta content="OOSLgy7YQI5hOvcALd8nBXTKXM1WE5L6Pjj0/AT+Vp0=" name="csrf-token">
+<style type="text/css"></style><style>@-webkit-keyframes popwwcgrzcusordohmgphsnorsqsmccvunmi {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popwwcgrzcusordohmgphsnorsqsmccvunmi {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#wwcgrzcusordohmgphsnorsqsmccvunmi{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:solid 2px #fff !important;box-sizing:content-box !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-webkit-border-radius:5px !important;-webkit-box-shadow:0px 0px 20px #000 !important;-webkit-box-sizing:content-box !important;}.wwcgrzcusordohmgphsnorsqsmccvunmi-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#wwcgrzcusordohmgphsnorsqsmccvunmi br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#wwcgrzcusordohmgphsnorsqsmccvunmi span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#wwcgrzcusordohmgphsnorsqsmccvunmi div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#wwcgrzcusordohmgphsnorsqsmccvunmi a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#wwcgrzcusordohmgphsnorsqsmccvunmi-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(chrome-extension://mlomiejdfkolichcflejclcbmpeaniij/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#wwcgrzcusordohmgphsnorsqsmccvunmi-gear:hover{-webkit-animation-name:popwwcgrzcusordohmgphsnorsqsmccvunmi !important;animation-name:popwwcgrzcusordohmgphsnorsqsmccvunmi !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#wwcgrzcusordohmgphsnorsqsmccvunmi:hover #wwcgrzcusordohmgphsnorsqsmccvunmi-gear{text-decoration:none !important;display:inline-block !important;}@media print{#wwcgrzcusordohmgphsnorsqsmccvunmi{display:none !important;}}</style><link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/embed-deec67c8878bf9a094e44df5cac3dc81.css"></head>
+<body class="reader-v2">
+<script>
+  window.readcube = {
+    user: {},
+    article: {"doi":"10.1038/nmeth.2134","hash":"03477762daaff542643a4df951c4d4f85247a13ef2eb9dc9e0dfd519bff9beac","options":{"total_pages":1},"stylesheet":"http://red2-assets.readcube.com/prerendered/03477762daaff542643a4df951c4d4f85247a13ef2eb9dc9e0dfd519bff9beac/style.css?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL3JlZDItYXNzZXRzLnJlYWRjdWJlLmNvbS9wcmVyZW5kZXJlZC8wMzQ3Nzc2MmRhYWZmNTQyNjQzYTRkZjk1MWM0ZDRmODUyNDdhMTNlZjJlYjlkYzllMGRmZDUxOWJmZjliZWFjL3N0eWxlLmNzcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTQxNjk2MDAwMH0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIwLjAuMC4wLzAifX19XX0_\u0026Signature=d3ZZWcrN1CReX-jhITwZzu74DY4zFfNIQjBfY0YaQYO-PWGze9OaFNRkjbZalWjXfshQd79P1bV1sypYuYyVL9FJ48qs7nU6JkXlkIfjJxVk6KeOfHtoPll8ZS8PFPX6H9ts8VraeczMp5idLaSF-Kp~zl1~ikN9791btfWMMLg_\u0026Key-Pair-Id=APKAI2AQJBOTGLBL6N3A","background":["http://red1-assets.readcube.com/prerendered/03477762daaff542643a4df951c4d4f85247a13ef2eb9dc9e0dfd519bff9beac/bg1.svg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL3JlZDEtYXNzZXRzLnJlYWRjdWJlLmNvbS9wcmVyZW5kZXJlZC8wMzQ3Nzc2MmRhYWZmNTQyNjQzYTRkZjk1MWM0ZDRmODUyNDdhMTNlZjJlYjlkYzllMGRmZDUxOWJmZjliZWFjL2JnMS5zdmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MTY5NjAwMDB9LCJJcEFkZHJlc3MiOnsiQVdTOlNvdXJjZUlwIjoiMC4wLjAuMC8wIn19fV19\u0026Signature=E8T7Hmx5LvF82LzEqjUi2k9li-BKJYMFmjV5RV2~GZh0DRzHzebnSe6UCqQ3ZZo7oT0exNyTP2WkDB8JARdOAhGx~8akI5J1g-EINMbqMFTHfFbRwYqipYOhmi7mlF9KzGpuuhVPBgFloG82hxXhWZ~PIxIKPEwUc~dyac~JX5M_\u0026Key-Pair-Id=APKAI2AQJBOTGLBL6N3A"],"text":["http://red2-assets.readcube.com/prerendered/03477762daaff542643a4df951c4d4f85247a13ef2eb9dc9e0dfd519bff9beac/text1.page?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL3JlZDItYXNzZXRzLnJlYWRjdWJlLmNvbS9wcmVyZW5kZXJlZC8wMzQ3Nzc2MmRhYWZmNTQyNjQzYTRkZjk1MWM0ZDRmODUyNDdhMTNlZjJlYjlkYzllMGRmZDUxOWJmZjliZWFjL3RleHQxLnBhZ2UiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MTY5NjAwMDB9LCJJcEFkZHJlc3MiOnsiQVdTOlNvdXJjZUlwIjoiMC4wLjAuMC8wIn19fV19\u0026Signature=dtYP7NKFdle60pD16ngO25bmVNF-0sC0sJ685k~LMc1bCyyHagutyAL8EsJrprqXIq9ignbGPz7REbG82X6fxU2gd0rvfLunCZ6DQeBX92n2LRIF5lhnWoggJRWYe~MZqDi1uTxVCSqNSdorNMZICtxMMRqfPan3m5aJICN3QV0_\u0026Key-Pair-Id=APKAI2AQJBOTGLBL6N3A"],"thumb":["//objects.readcube.com/prerendered/03477762daaff542643a4df951c4d4f85247a13ef2eb9dc9e0dfd519bff9beac/1.jpg"]},
+    endpoints: {"parent":"","logout":"/session/log_out","login":"/session/new","register":"/user/new","add_to_sync":"https://services.readcube.com/articles/add_to_sync","sync_item":"http://sync.readcube.com/items/10.1038/nmeth.2134","sync_item_update":"http://sync.readcube.com/items/update","article_data":"/reader_v2/get_article_data","related_articles":"/reader_v2/related_articles","article_pages":"/reader_v2/get_pages","generate_shared_access":"/reader_v2/generate_shared_access","show_supplement":"/reader_v2/supplement","analytics_init":"https://analytics.readcube.com/metrics/create_session_ex.json","analytics_update":"https://analytics.readcube.com/metrics/update_session_ex.json","legacy_browser_redirect":"http://www.readcube.com/reader_legacy/10.1038/nmeth.2134","wiley_jsonp_access":"http://onlinelibrary.wiley.com/readcube","iucr_jsonp_access":"http://onlinelibrary.wiley.com/readcube","kluwer_jsonp_access":"http://journals.lww.com/readcubeaccess.rpdf/access"},
+    tracking: {"tracking_id":"eab1e69c-5de2-421a-8e6f-cb1020abf0a8","origin":"website","origin_path":null,"action":"tier_click","publisher":null,"client":"web"},
+    access_options: {},
+    publisher_proxy: "http://www.nature.com/nmeth/journal/v9/n8/full/nmeth.2134.html",
+    show_checkout: true,
+    show_close: false
+  };
+</script>
+<div class="notifications">
+<div class="notification annotations-not-saved">
+<div class="message">To save article annotations, please sign in to a ReadCube account</div>
+<div class="btn login">Sign In</div>
+<div class="btn register">Get Free Account</div>
+<div class="close">×</div>
+</div>
+<div class="notification rental-expires-in">
+<div class="message">
+Rental expires in
+<span class="time"></span>
+</div>
+<div class="close">×</div>
+</div>
+<div class="notification rental-expired-on">
+<div class="message">
+Rental expired on
+<span class="time"></span>
+</div>
+<div class="close">×</div>
+</div>
+<div class="notification shared-access">
+<div class="message">You have complimentary access to this article.</div>
+<a href="http://www.readcube.com/" class="btn" target="_blank">Learn more</a>
+<div class="close">×</div>
+</div>
+</div>
+
+<div class="sidepanel ready" id="sidepanel">
+<div class="menu">
+<div class="tab tooltip unselectable" data-pane="#sidepanel-info">
+<span>Information</span>
+<i class="icon info"></i>
+</div>
+<div class="tab tooltip unselectable" data-pane="#sidepanel-figures">
+<span>Figures</span>
+<i class="icon figure"></i>
+</div>
+<div class="tab tooltip unselectable" data-pane="#sidepanel-share">
+<span>Share</span>
+<i class="icon network"></i>
+</div>
+<div class="tab tooltip unselectable" data-pane="#sidepanel-notes">
+<span>Notes</span>
+<i class="icon talk"></i>
+</div>
+<div class="tab tooltip unselectable" data-pane="#sidepanel-references">
+<span>References</span>
+<i class="icon bars"></i>
+</div>
+<div class="tab tooltip unselectable" data-hide="" data-pane="#sidepanel-checkout" style="display: none;">
+<span>Checkout</span>
+<i class="icon cards"></i>
+</div>
+<div class="tab tooltip unselectable" data-pane="#sidepanel-readcube">
+<span>ReadCube</span>
+<i class="icon readcube"></i>
+</div>
+</div>
+<div class="tab-content">
+<div class="info-pane tab-pane active" id="sidepanel-info">
+<div class="info">Nature Methods, July, 2012. 10.1038/nmeth.2134</div>
+<h2 class="title">Points of view: Mapping quantitative data to color</h2>
+<p class="authors">Nils Gehlenborg, Bang Wong</p>
+<h5 class="abstract">Abstract</h5>
+<p class="abstract">Data structure informs choice of color maps.</p>
+
+
+</div>
+
+<div class="figures-pane tab-pane" id="sidepanel-figures">
+<h3>Figures</h3>
+<h4 class="empty-message">No figures found.</h4>
+<div class="figures-list"><div class="figure-item">
+<img class="figure-thumb" data-no-retina="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="100px">
+<div class="figure-caption unselectable"><b>Figure 1 |</b>  Color maps. (a) Sequential color gradient from 10% to 90% black. (b) A sequential color schema mapped to observed data range. (c) Divergent color gradient varying in hue and saturation. (d) Blended-hue color map. (e) Schematic illustration of a misleading representation due to misaligned data and color properties.</div>
+</div></div>
+</div>
+
+<div class="share-pane tab-pane" id="sidepanel-share">
+<div class="share-article">
+<h3>Share this article</h3>
+<div class="share-access">
+<div class="explanation">Share full-text access to this article via ReadCube Share. Anyone you share the following link with will receive complimentary access to this article.</div>
+<div class="share-access-link">
+<label>Shareable Link</label>
+<div class="link-container">
+<div class="icon link"></div>
+<input id="share_url" name="share_url" readonly="readonly" type="text" value="http://www.readcube.com/articles/10.1038/nmeth.2134">
+</div>
+</div>
+</div>
+<a href="http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click#" class="share-btn facebook" data-url="http://www.facebook.com/sharer/sharer.php?u={{url}}" target="_blank"><div class="icon facebook"></div>
+<div class="social-text">Share on Facebook</div>
+</a><a href="http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click#" class="share-btn twitter" data-url="http://twitter.com/intent/tweet?text={{url}} {{title}}" target="_blank"><div class="icon twitter"></div>
+<div class="social-text">Share on Twitter</div>
+</a><a href="http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click#" class="share-btn google" data-url="https://plus.google.com/share?url={{url}}" target="_blank"><div class="icon google"></div>
+<div class="social-text">Share on Google+</div>
+</a><a href="http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click#" class="share-btn linkedin" data-url="http://www.linkedin.com/shareArticle?mini=true&amp;url={{url}}&amp;title={{title}}" target="_blank"><div class="icon linkedin"></div>
+<div class="social-text">Share on LinkedIn</div>
+</a></div>
+<div class="divider"></div>
+<div class="altmetric">
+<h3>Where this article has been shared</h3>
+<h4>Powered by Altmetric.com</h4>
+<div class="altmetric-embed" data-badge-details="right" data-badge-type="medium-donut" data-doi="10.1038/nmeth.2134" data-link-target="_blank" data-uuid="72e9393a-e504-f278-6752-27ad205cd1ec"><div style="overflow:hidden;">
+  <div style="float:left; margin:0 20px 0 0;">
+    <a target="_blank" href="http://www.altmetric.com/details.php?domain=www.readcube.com&citation_id=875263" style="display:inline-block;">
+      <img alt="Article has an altmetric score of 4" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/saved_resource" width="120px" height="120px" style="border:0; margin: 0; max-width: none;">
+    </a>
+    <p style="padding-top: 10px; text-align: center;"><a target="_blank" href="http://www.altmetric.com/details.php?domain=www.readcube.com&citation_id=875263">See more details</a></p>
+  </div>
+  <div id="_altmetric_popover_el" class="altmetric-embed right" style="margin:0; padding:0; display:inline-block; float:left; position:relative;">
+    <div class="altmetric_container" id="_altmetric_container">
+      <div class="altmetric-embed altmetric-popover-inner right" id="_altmetric_popover_inner">
+        <div style="padding:0; margin: 0;" class="altmetric-embed altmetric-popover-content">
+          
+    <div style="padding-left: 10px; line-height:18px; border-left: 16px solid #74CFED;">Tweeted by <b>7</b></div>
+
+    <div style="padding-left: 10px; line-height:18px; border-left: 16px solid #E065BB;">Mentioned in <b>1</b> Google+ posts</div>
+
+
+
+    <div class="altmetric-embed readers" style="margin-top: 10px;">
+      
+          <div class="altmetric-embed tip_mendeley" style="padding-left: 10px; line-height:18px; border-left: 16px solid #A60000;">
+              <b>121</b> readers on Mendeley
+          </div>
+      
+      
+      
+          <div class="altmetric-embed tip_citeulike" style="padding-left: 10px; line-height:18px; border-left: 16px solid #BCD2EF;">
+              <b>1</b> readers on CiteULike
+          </div>
+      
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="notes-pane tab-pane empty" id="sidepanel-notes">
+<h3>My Notes</h3>
+<div class="empty-message">
+<h4>You have no notes.</h4>
+<div class="tip">Tip: To annotate, select any text in the article to get the annotation menu. You can add highlights and comments, which will be listed here in this panel.</div>
+</div>
+<div class="notes-list"></div>
+</div>
+
+<div class="references-pane tab-pane" id="sidepanel-references">
+<h3>References</h3>
+<h4 class="empty-message">No references found.</h4>
+<div class="references articles"><div class="article reference">
+<div class="number">1</div>
+<h4 class="title"></h4>
+<div class="authors">Wong, B.</div>
+<div class="links"><a href="http://dx.doi.org/10.1038/nmeth0810-573" target="_blank"> Article </a></div>
+<div class="published">Nat. Methods, 2010</div>
+</div></div></div>
+
+<div class="checkout-pane tab-pane" id="sidepanel-checkout">
+<div class="loading-screen">
+<h3>Loading Checkout...</h3>
+<div class="spinner"></div>
+</div>
+<iframe class="checkout" data-src="http://www.readcube.com/checkout/new?doi=10.1038%2Fnmeth.2134&amp;embed=true&amp;hide_formats=true&amp;parent_url=http%3A%2F%2Fwww.readcube.com%2Farticles%2F10.1038%2Fnmeth.2134%3Futm_campaign%3Dreadcube_access%26utm_source%3Dnature.com%26utm_medium%3Dpurchase_option%26utm_content%3Dbutton_version%26show_checkout%3D1%26tracking_action%3Dtier_click&amp;tracking_action=tier_click&amp;tracking_publisher=nature"></iframe>
+</div>
+
+<div class="readcube-pane tab-pane" id="sidepanel-readcube">
+<a href="http://www.readcube.com/" class="logo" target="_blank"><img alt="Text-right" data-at2x="//green4-assets.readcube.com/assets/logos/text-right@2x-9a891966a266720cee1e4be40a600e7c.png" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/text-right@2x-9a891966a266720cee1e4be40a600e7c.png" width="0" height="0">
+</a><h3>Join the millions of researchers who use ReadCube to read, discover, organize and cite.</h3>
+<ul class="features">
+<li class="manager">
+Readcube is a <strong>free</strong> reference manager, citation tool and Enhanced PDF reader.
+</li>
+<li class="sync">
+Sync articles instantly across platforms with ReadCube Desktop, Mobile and Web apps.
+</li>
+<li class="personalized">
+Stay on top of new literature with personalized recommendations.
+</li>
+<li class="clickable">
+Enjoy clickable references, linked supplements and annotation tools offline anytime in the ReadCube apps.
+</li>
+<li class="smartcite">
+Cite in Word with SmartCite, ReadCube's easy-to-use citation tool.
+</li>
+</ul>
+<div class="buttons">
+<a href="http://www.readcube.com/download" class="button download-button" target="_blank"><div class="large">Get ReadCube</div>
+<div class="small">Free for Mac and Windows</div>
+</a><a href="https://itunes.apple.com/us/app/readcube/id864042981?ls=1&mt=8" class="appstore-button" target="_blank"><img alt="Appstore" data-at2x="//green3-assets.readcube.com/assets/reader_v2/sidepanel/appstore@2x-a57f123fb6a86c5041fe945b677362cb.png" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/appstore@2x-a57f123fb6a86c5041fe945b677362cb.png" width="0" height="0">
+</a></div>
+<div class="existing-user">Already use ReadCube? <a href="http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click#" class="login-link">Sign in.</a></div>
+</div>
+
+</div>
+</div>
+
+<div class="content publisher-nature" id="content">
+<div class="close-reader unselectable" id="close-reader">×</div>
+<div class="top unselectable" id="top">
+<a href="http://dx.doi.org/10.1038/nmeth.2134" class="publisher-site-link">View on Nature</a>
+</div>
+<div class="reader hw-accelerate" id="reader" tabindex="0" style="display: block;">
+<div class="banner"></div>
+
+<div class="pf w0 h0 open" style="width: 900px; height: 1186.36363636364px; margin: 12.1212121212121px auto;"><div class="pc pc1 w0 h0" style="transform: scale(0.37879);"><img class="bf" alt="" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/bg1.svg"><div class="bf"></div><div class="t m0 x0 h1 y0 ff1 fs0 fc0 sc0 ls0 ws0">NA<span class="_ _0"></span>TURE METHODS<span class="ff2 fc1 ws1"> </span></div><div class="t m0 x1 h1 y1 ff3 fs0 fc1 sc0 ls0 ws1">|</div><div class="t m0 x2 h1 y0 ff3 fs0 fc1 sc0 ls0 ws0"> V<span class="_ _1"></span>OL.9 NO<span class="_ _0"></span>.8 </div><div class="t m0 x3 h1 y1 ff3 fs0 fc1 sc0 ls0 ws1">|</div><div class="t m0 x4 h1 y0 ff3 fs0 fc1 sc0 ls0 ws0"> A<span class="_ _1"></span>UGUST <span class="_ _1"></span>2012 </div><div class="t m0 x5 h1 y1 ff3 fs0 fc1 sc0 ls0 ws1">|</div><div class="t m0 x6 h1 y0 ff3 fs0 fc1 sc0 ls0 ws1"> <span class="_ _2"></span><span class="ff1">769</span></div><div class="t m0 x7 h2 y2 ff1 fs1 fc0 sc0 ls0 ws2">THIS MONTH</div><div class="t m0 x8 h2 y3 ff2 fs2 fc0 sc0 ls1 ws3">POINT<span class="_ _1"></span>S OF VIEW</div><div class="t m0 x8 h3 y4 ff4 fs3 fc1 sc0 ls2 ws4">Mapping quantitativ<span class="_ _0"></span>e<span class="_ _3"></span> </div><div class="t m0 x8 h3 y5 ff4 fs3 fc1 sc0 ls2 ws4">data to color</div><div class="t m0 x8 h4 y6 ff1 fs4 fc1 sc0 ls3 ws5">Data structur<span class="_ _1"></span>e inf<span class="_ _1"></span>orms choice o<span class="_ _1"></span>f color maps<span class="_ _1"></span>.</div><div class="t m0 x8 h4 y7 ff5 fs4 fc1 sc0 ls4 ws6">Data can be clas<span class="_ _1"></span>sified in man<span class="_ _1"></span>y wa<span class="_ _1"></span>ys. On<span class="_ _1"></span>e usefu<span class="_ _2"></span>l m<span class="_ _1"></span>ethod of clas<span class="ls0 ws1">-</span></div><div class="t m0 x8 h4 y8 ff5 fs4 fc1 sc0 ls4 ws6">sif<span class="_ _2"></span>yin<span class="_ _1"></span>g da<span class="_ _1"></span>ta fo<span class="_ _1"></span>r visualiza<span class="_ _1"></span>tion is t<span class="_ _1"></span>o distin<span class="_ _1"></span>guish between those with </div><div class="t m0 x8 h4 y9 ff5 fs4 fc1 sc0 ls4 ws6">and wi<span class="_ _1"></span>tho<span class="_ _1"></span>ut a<span class="_ _1"></span>n inher<span class="_ _1"></span>en<span class="_ _1"></span>t o<span class="_ _1"></span>r<span class="_ _1"></span>der<span class="_ _0"></span>. F<span class="_ _0"></span>or exa<span class="_ _1"></span>m<span class="_ _1"></span>pl<span class="_ _1"></span>e, a set of s<span class="_ _1"></span>pe<span class="_ _2"></span>cies (s<span class="_ _1"></span>uch </div><div class="t m0 x8 h4 ya ff5 fs4 fc1 sc0 ls0 ws7">as <span class="_ _0"></span><span class="ff6 ls5 ws5">E<span class="_ _2"></span>sche<span class="_ _2"></span>r<span class="_ _2"></span>ichia<span class="_ _2"></span> coli<span class="ff5 ls0 ws1">,<span class="ff6 ws3"> Dro<span class="_ _1"></span>soph<span class="_ _1"></span>i<span class="_ _1"></span>la me<span class="_ _1"></span>la<span class="_ _1"></span>n<span class="_ _1"></span>ogast<span class="_ _1"></span>er<span class="ff5 ws5"> and <span class="ff6">H<span class="_ _1"></span>omo s<span class="_ _2"></span>apien<span class="_ _2"></span>s<span class="ff5 ws3">) has </span></span></span></span></span></span></div><div class="t m0 x8 h4 yb ff5 fs4 fc1 sc0 ls0 ws5">no in<span class="_ _1"></span>t<span class="_ _1"></span>ui<span class="_ _1"></span>tive o<span class="_ _1"></span>r<span class="_ _1"></span>dering a<span class="_ _1"></span>nd is co<span class="_ _1"></span>ns<span class="_ _1"></span>ider<span class="_ _1"></span>ed ‘<span class="_ _4"></span>ca<span class="_ _1"></span>teg<span class="_ _1"></span>orical da<span class="_ _1"></span>ta<span class="_ _4"></span>’<span class="_ _5"></span>, whereas a </div><div class="t m0 x8 h4 yc ff5 fs4 fc1 sc0 ls4 ws6">list o<span class="_ _1"></span>f ge<span class="_ _1"></span>ne exp<span class="_ _1"></span>r<span class="_ _1"></span>essio<span class="_ _1"></span>n valu<span class="_ _1"></span>es is ‘<span class="_ _4"></span>o<span class="_ _1"></span>r<span class="_ _1"></span>der<span class="_ _1"></span>ed data<span class="_ _4"></span>’ because we ca<span class="_ _1"></span>n sort </div><div class="t m0 x8 h4 yd ff5 fs4 fc1 sc0 ls4 ws6">them fro<span class="_ _1"></span>m lo<span class="_ _1"></span>wes<span class="_ _1"></span>t to highest. I<span class="_ _1"></span>n a p<span class="_ _1"></span>r<span class="_ _1"></span>evious co<span class="_ _1"></span>l<span class="_ _1"></span>umn, we described </div><div class="t m0 x8 h4 ye ff5 fs4 fc1 sc0 ls0 ws3">methods fo<span class="_ _1"></span>r col<span class="_ _1"></span>or<span class="_ _0"></span>-co<span class="_ _2"></span>din<span class="_ _1"></span>g ca<span class="_ _1"></span>teg<span class="_ _1"></span>orical da<span class="_ _1"></span>ta (A<span class="_ _0"></span>ugust 20<span class="enhanced-reference 825e6210-c50d-46f6-bb4d-da7ba18b0d0a enhanced-reference-elem-draw">1</span>0)</div><div class="t m0 x9 h5 yf ff5 fs5 fc1 sc0 ls0 ws1">1</div><div class="t m0 xa h4 y10 ff5 fs4 fc1 sc0 ls0 ws3">. H<span class="_ _1"></span>er<span class="_ _1"></span>e w<span class="_ _1"></span>e </div><div class="t m0 x8 h4 y11 ff5 fs4 fc1 sc0 ls0 ws5">focus on cr<span class="_ _1"></span>ea<span class="_ _1"></span>ting col<span class="_ _1"></span>or m<span class="_ _1"></span>a<span class="_ _1"></span>ps fo<span class="_ _1"></span>r q<span class="_ _1"></span>uan<span class="_ _1"></span>ti<span class="_ _1"></span>ta<span class="_ _1"></span>tiv<span class="_ _1"></span>e da<span class="_ _1"></span>ta. </div><div class="t m0 xb h4 y12 ff5 fs4 fc1 sc0 ls0 ws6">C<span class="_ _2"></span>o<span class="_ _1"></span>lo<span class="_ _1"></span>r is ar<span class="_ _1"></span>guab<span class="_ _1"></span>ly o<span class="_ _1"></span>ne o<span class="_ _1"></span>f the mos<span class="_ _1"></span>t im<span class="_ _1"></span>portan<span class="_ _1"></span>t gra<span class="_ _1"></span>phical assets f<span class="_ _1"></span>or </div><div class="t m0 x8 h4 y13 ff5 fs4 fc1 sc0 ls3 ws3">da<span class="_ _1"></span>ta pr<span class="_ _1"></span>e<span class="_ _1"></span>sen<span class="_ _1"></span>tatio<span class="_ _1"></span>n, fr<span class="_ _1"></span>om<span class="_ _1"></span> medical imaging<span class="_ _1"></span> to p<span class="_ _1"></span>ie c<span class="_ _1"></span>harts. B<span class="_ _1"></span>y var<span class="_ _2"></span>yin<span class="_ _1"></span>g j<span class="_ _1"></span>ust </div><div class="t m0 x8 h4 y14 ff5 fs4 fc1 sc0 ls0 ws6">three p<span class="_ _1"></span>rimar<span class="_ _2"></span>y co<span class="_ _1"></span>m<span class="_ _1"></span>ponen<span class="_ _1"></span>ts o<span class="_ _1"></span>f co<span class="_ _1"></span>lo<span class="_ _1"></span>r (h<span class="_ _1"></span>ue, sa<span class="_ _1"></span>t<span class="_ _1"></span>ura<span class="_ _1"></span>tio<span class="_ _1"></span>n an<span class="_ _1"></span>d lightnes<span class="_ _1"></span>s), </div><div class="t m0 x8 h4 y15 ff5 fs4 fc1 sc0 ls4 ws8">colo<span class="_ _1"></span>r can fulfi<span class="_ _2"></span>ll a n<span class="_ _1"></span>um<span class="_ _1"></span>ber of fundam<span class="_ _1"></span>en<span class="_ _1"></span>tal comm<span class="_ _1"></span>uni<span class="_ _1"></span>ca<span class="_ _1"></span>tion needs: </div><div class="t m0 x8 h4 y16 ff5 fs4 fc1 sc0 ls4 ws6">to label, t<span class="_ _1"></span>o sho<span class="_ _1"></span>w q<span class="_ _1"></span>uan<span class="_ _1"></span>ti<span class="_ _1"></span>ties, to r<span class="_ _1"></span>ep<span class="_ _1"></span>r<span class="_ _1"></span>esen<span class="_ _1"></span>t o<span class="_ _1"></span>r sim<span class="_ _1"></span>ula<span class="_ _1"></span>te r<span class="_ _1"></span>eality<span class="_ _4"></span>, and t<span class="_ _1"></span>o </div><div class="t m0 x8 h4 y17 ff5 fs4 fc1 sc0 ls3 ws3">enliven o<span class="_ _1"></span>r deco<span class="_ _1"></span>ra<span class="_ _1"></span>te<span class="_ _1"></span>. I<span class="_ _0"></span>t is im<span class="_ _1"></span>perati<span class="_ _1"></span>ve tha<span class="_ _1"></span>t w<span class="_ _1"></span>e choose colo<span class="_ _1"></span>r purpos<span class="_ _2"></span>efully<span class="_ _2"></span> </div><div class="t m0 x8 h4 y18 ff5 fs4 fc1 sc0 ls0 ws6">to highlight the salien<span class="_ _1"></span>t fea<span class="_ _1"></span>t<span class="_ _1"></span>ur<span class="_ _1"></span>es o<span class="_ _1"></span>f the da<span class="_ _1"></span>ta we in<span class="_ _1"></span>ten<span class="_ _1"></span>d to dep<span class="_ _1"></span>ict. E<span class="_ _1"></span>ven </div><div class="t m0 x8 h4 y19 ff5 fs4 fc1 sc0 ls4 ws6">though colo<span class="_ _1"></span>r en<span class="_ _1"></span>coding does not r<span class="_ _1"></span>es<span class="_ _1"></span>ult in the mos<span class="_ _1"></span>t accura<span class="_ _1"></span>te visual </div><div class="t m0 x8 h4 y1a ff5 fs4 fc1 sc0 ls0 ws6">rep<span class="_ _1"></span>r<span class="_ _1"></span>esen<span class="_ _1"></span>ta<span class="_ _1"></span>tion o<span class="_ _1"></span>f q<span class="_ _1"></span>uan<span class="_ _1"></span>ti<span class="_ _1"></span>ta<span class="_ _1"></span>tiv<span class="_ _1"></span>e da<span class="_ _1"></span>ta, color i<span class="_ _1"></span>s often the best c<span class="_ _1"></span>ho<span class="_ _1"></span>ice fo<span class="_ _1"></span>r </div><div class="t m0 x8 h4 y1b ff5 fs4 fc1 sc0 ls0 ws5">com<span class="_ _1"></span>pact visualiza<span class="_ _1"></span>tio<span class="_ _1"></span>ns o<span class="_ _1"></span>f lar<span class="_ _1"></span>ge da<span class="_ _1"></span>ta sets. </div><div class="t m0 xb h4 y1c ff5 fs4 fc1 sc0 ls6 ws1">U<span class="_ _0"></span>nlike ca<span class="_ _1"></span>teg<span class="_ _1"></span>o<span class="_ _1"></span>rical d<span class="_ _2"></span>a<span class="_ _1"></span>ta, the <span class="_ _1"></span>elemen<span class="_ _1"></span>t<span class="_ _1"></span>s o<span class="_ _1"></span>f qua<span class="_ _1"></span>n<span class="_ _1"></span>ti<span class="_ _1"></span>ta<span class="_ _1"></span>tive <span class="_ _1"></span>da<span class="_ _1"></span>ta can<span class="_ _1"></span> </div><div class="t m0 x8 h4 y1d ff5 fs4 fc1 sc0 ls6 ws6">be placed on a n<span class="_ _1"></span>umerical sca<span class="_ _2"></span>le tha<span class="_ _1"></span>t describes their rela<span class="_ _1"></span>ti<span class="_ _1"></span>ve posi<span class="ls0 ws1">-</span></div><div class="t m0 x8 h4 y1e ff5 fs4 fc1 sc0 ls0 ws6">tion a<span class="_ _1"></span>nd size wi<span class="_ _1"></span>th res<span class="_ _1"></span>pe<span class="_ _2"></span>ct to o<span class="_ _1"></span>ne a<span class="_ _1"></span>no<span class="_ _1"></span>ther<span class="_ _0"></span>. T<span class="_ _1"></span>his in<span class="_ _1"></span>t<span class="_ _1"></span>erre<span class="_ _1"></span>la<span class="_ _1"></span>tion<span class="_ _1"></span>shi<span class="_ _1"></span>p o<span class="_ _1"></span>f </div><div class="t m0 x8 h4 y1f ff5 fs4 fc1 sc0 ls4 ws6">qua<span class="_ _1"></span>n<span class="_ _1"></span>tita<span class="_ _1"></span>tiv<span class="_ _1"></span>e da<span class="_ _1"></span>ta req<span class="_ _1"></span>uir<span class="_ _1"></span>es tha<span class="_ _1"></span>t we ex<span class="_ _1"></span>er<span class="_ _1"></span>cise car<span class="_ _1"></span>e in designing co<span class="_ _1"></span>lo<span class="_ _1"></span>r </div><div class="t m0 x8 h4 y20 ff5 fs4 fc1 sc0 ls0 ws3">ma<span class="_ _1"></span>ps tha<span class="_ _1"></span>t a<span class="_ _1"></span>r<span class="_ _1"></span>e percep<span class="_ _1"></span>t<span class="_ _1"></span>ual<span class="_ _2"></span>l<span class="_ _1"></span>y co<span class="_ _1"></span>nsis<span class="_ _1"></span>ten<span class="_ _1"></span>t <span class="_ _1"></span>with the ran<span class="_ _1"></span>ge a<span class="_ _1"></span>nd c<span class="_ _1"></span>ha<span class="_ _1"></span>ng<span class="_ _1"></span>e in </div><div class="t m0 x8 h4 y21 ff5 fs4 fc1 sc0 ls0 ws5">magni<span class="_ _1"></span>tud<span class="_ _1"></span>e fo<span class="_ _1"></span>und in the da<span class="_ _1"></span>ta. </div><div class="t m0 xb h4 y22 ff5 fs4 fc1 sc0 ls4 ws6">Wh<span class="_ _1"></span>en dep<span class="_ _1"></span>icting quan<span class="_ _1"></span>ti<span class="_ _1"></span>ta<span class="_ _1"></span>tiv<span class="_ _1"></span>e da<span class="_ _1"></span>ta, it is u<span class="_ _1"></span>sef<span class="_ _2"></span>ul to first d<span class="_ _1"></span>efine the </div><div class="t m0 x8 h4 y23 ff5 fs4 fc1 sc0 ls4 ws6">key r<span class="_ _1"></span>egion<span class="_ _1"></span>s or po<span class="_ _1"></span>in<span class="_ _1"></span>ts in the da<span class="_ _1"></span>ta rang<span class="_ _1"></span>e tha<span class="_ _1"></span>t w<span class="_ _1"></span>e in<span class="_ _1"></span>ten<span class="_ _1"></span>d to highlight </div><div class="t m0 x8 h4 y24 ff5 fs4 fc1 sc0 ls0 ws6">befor<span class="_ _1"></span>e de<span class="_ _1"></span>signing a colo<span class="_ _1"></span>r<span class="_ _0"></span>-c<span class="_ _2"></span>oding sche<span class="_ _1"></span>me tha<span class="_ _1"></span>t varies the thr<span class="_ _1"></span>ee com<span class="ws1">-</span></div><div class="t m0 x8 h4 y25 ff5 fs4 fc1 sc0 ls6 ws9">ponen<span class="_ _1"></span>ts o<span class="_ _1"></span>f co<span class="_ _1"></span>lor<span class="_ _4"></span>. Often this req<span class="_ _1"></span>uir<span class="_ _1"></span>es determinin<span class="_ _1"></span>g the aspec<span class="_ _2"></span>ts o<span class="_ _1"></span>f<span class="_ _1"></span> </div><div class="t m0 x8 h4 y26 ff5 fs4 fc1 sc0 ls4 ws6">the da<span class="_ _1"></span>ta we wan<span class="_ _1"></span>t t<span class="_ _1"></span>o make a<span class="_ _1"></span>p<span class="_ _1"></span>pa<span class="_ _1"></span>re<span class="_ _1"></span>n<span class="_ _1"></span>t. I<span class="_ _1"></span>n ma<span class="_ _1"></span>n<span class="_ _1"></span>y cases, the meanin<span class="_ _1"></span>g<span class="ls0 ws1">-</span></div><div class="t m0 x8 h4 y27 ff5 fs4 fc1 sc0 ls4 ws6">ful rang<span class="_ _1"></span>e wil<span class="_ _2"></span>l be the extrem<span class="_ _1"></span>es—the minim<span class="_ _1"></span>um a<span class="_ _1"></span>nd/o<span class="_ _1"></span>r maxim<span class="_ _1"></span>um<span class="_ _1"></span> </div><div class="t m0 x8 h4 y28 ff5 fs4 fc1 sc0 ls6 ws8">value<span class="_ _1"></span>s. A<span class="_ _1"></span>d<span class="_ _1"></span>di<span class="_ _1"></span>tionally<span class="_ _4"></span>, ther<span class="_ _1"></span>e ca<span class="_ _1"></span>n be n<span class="_ _1"></span>umerical value<span class="_ _1"></span>s between the<span class="_ _1"></span> </div><div class="t m0 xc h4 y29 ff5 fs4 fc1 sc0 ls6 ws8">extrem<span class="_ _1"></span>es with specia<span class="_ _2"></span>l m<span class="_ _1"></span>eanin<span class="_ _1"></span>g, such as zer<span class="_ _1"></span>o<span class="_ _0"></span>. In som<span class="_ _1"></span>e cases, this </div><div class="t m0 xc h4 y2a ff5 fs4 fc1 sc0 ls0 ws3">n<span class="_ _1"></span>um<span class="_ _1"></span>ber could be unique to the defined da<span class="_ _1"></span>ta rang<span class="_ _1"></span>e, s<span class="_ _1"></span>uch as ‘<span class="_ _4"></span>s<span class="_ _2"></span>ea level<span class="_ _1"></span>’ </div><div class="t m0 xc h4 y2b ff5 fs4 fc1 sc0 ls0 ws5">fo<span class="_ _1"></span>r ma<span class="_ _1"></span>p<span class="_ _1"></span>s or 32° o<span class="_ _1"></span>n the F<span class="_ _1"></span>ahr<span class="_ _1"></span>enhei<span class="_ _1"></span>t tem<span class="_ _1"></span>pera<span class="_ _1"></span>t<span class="_ _1"></span>ur<span class="_ _1"></span>e sca<span class="_ _2"></span>le<span class="_ _1"></span>. </div><div class="t m0 xd h4 y2c ff5 fs4 fc1 sc0 ls6 ws8">Altho<span class="_ _1"></span>ugh colo<span class="_ _1"></span>r h<span class="_ _1"></span>ue is w<span class="_ _1"></span>ell sui<span class="_ _1"></span>ted fo<span class="_ _1"></span>r ca<span class="_ _1"></span>t<span class="_ _1"></span>ego<span class="_ _1"></span>rical data, it t<span class="_ _1"></span>ends<span class="_ _1"></span> </div><div class="t m0 xc h4 y2d ff5 fs4 fc1 sc0 ls4 ws6">to be im<span class="_ _1"></span>p<span class="_ _1"></span>ractica<span class="_ _2"></span>l f<span class="_ _1"></span>o<span class="_ _1"></span>r q<span class="_ _1"></span>uan<span class="_ _1"></span>ti<span class="_ _1"></span>ta<span class="_ _1"></span>tive da<span class="_ _1"></span>ta. W<span class="_ _0"></span>i<span class="_ _1"></span>th quan<span class="_ _1"></span>ti<span class="_ _1"></span>ta<span class="_ _1"></span>tiv<span class="_ _1"></span>e da<span class="_ _1"></span>ta, we </div><div class="t m0 xc h4 y2e ff5 fs4 fc1 sc0 ls0 ws3">princi<span class="_ _1"></span>pally re<span class="_ _1"></span>ly o<span class="_ _1"></span>n colo<span class="_ _1"></span>r val<span class="_ _1"></span>ue an<span class="_ _1"></span>d re<span class="_ _1"></span>ser<span class="_ _2"></span>ve h<span class="_ _1"></span>ue to indica<span class="_ _1"></span>t<span class="_ _1"></span>e differ<span class="_ _1"></span>en<span class="_ _1"></span>t </div><div class="t m0 xc h4 y2f ff5 fs4 fc1 sc0 ls4 ws6">seg<span class="_ _2"></span>m<span class="_ _1"></span>en<span class="_ _1"></span>ts o<span class="_ _1"></span>f the da<span class="_ _1"></span>ta rang<span class="_ _1"></span>e. W<span class="_ _1"></span>hen p<span class="_ _1"></span>lo<span class="_ _1"></span>ttin<span class="_ _1"></span>g da<span class="_ _1"></span>ta with only posi<span class="_ _1"></span>tive<span class="_ _1"></span> </div><div class="t m0 xc h4 y30 ff5 fs4 fc1 sc0 ls4 ws6">or<span class="_ _1"></span> nega<span class="_ _1"></span>ti<span class="_ _1"></span>ve val<span class="_ _1"></span>ues, a<span class="_ _1"></span>n in<span class="_ _1"></span>t<span class="_ _1"></span>ui<span class="_ _1"></span>tiv<span class="_ _1"></span>e en<span class="_ _1"></span>coding is a seque<span class="_ _1"></span>n<span class="_ _1"></span>tial colo<span class="_ _1"></span>r ma<span class="_ _1"></span>p<span class="_ _1"></span> </div><div class="t m0 xc h4 y31 ff5 fs4 fc1 sc0 ls0 ws3">tha<span class="_ _1"></span>t varies o<span class="_ _1"></span>nly the ligh<span class="_ _1"></span>tness fro<span class="_ _1"></span>m 10% to 90% b<span class="_ _1"></span>lack (<span class="ff7">F<span class="_ _1"></span>ig. 1a<span class="ff5">). S<span class="_ _1"></span>uch </span></span></div><div class="t m0 xc h4 y7 ff5 fs4 fc1 sc0 ls0 ws3">a colo<span class="_ _1"></span>r p<span class="_ _1"></span>r<span class="_ _1"></span>ogres<span class="_ _1"></span>sio<span class="_ _1"></span>n pr<span class="_ _1"></span>oduce<span class="_ _1"></span>s even trans<span class="_ _1"></span>itio<span class="_ _1"></span>ns thr<span class="_ _1"></span>o<span class="_ _1"></span>ughou<span class="_ _1"></span>t the ran<span class="_ _1"></span>g<span class="_ _1"></span>e. </div><div class="t m0 xc h4 y8 ff5 fs4 fc1 sc0 ls4 ws6">Ther<span class="_ _1"></span>e ar<span class="_ _1"></span>e tw<span class="_ _1"></span>o possible o<span class="_ _1"></span>p<span class="_ _1"></span>tion<span class="_ _1"></span>s fo<span class="_ _1"></span>r fit<span class="_ _1"></span>ting s<span class="_ _1"></span>uch a col<span class="_ _1"></span>or m<span class="_ _1"></span>a<span class="_ _1"></span>p to the<span class="_ _1"></span> </div><div class="t m0 xc h4 y9 ff5 fs4 fc1 sc0 ls0 ws6">da<span class="_ _1"></span>ta: we can tran<span class="_ _1"></span>sla<span class="_ _1"></span>t<span class="_ _1"></span>e the ends o<span class="_ _1"></span>f the colo<span class="_ _1"></span>r gradien<span class="_ _1"></span>t t<span class="_ _1"></span>o (i) zero a<span class="_ _1"></span>nd </div><div class="t m0 xc h4 ya ff5 fs4 fc1 sc0 ls0 ws5">the theor<span class="_ _1"></span>etical maximum val<span class="_ _1"></span>ue o<span class="_ _1"></span>r (ii) the obser<span class="_ _2"></span>ved minim<span class="_ _1"></span>um a<span class="_ _1"></span>nd </div><div class="t m0 xc h4 yb ff5 fs4 fc1 sc0 ls4 ws6">maxim<span class="_ _1"></span>um<span class="_ _1"></span>. The f<span class="_ _1"></span>o<span class="_ _1"></span>rmer a<span class="_ _1"></span>p<span class="_ _1"></span>p<span class="_ _1"></span>r<span class="_ _1"></span>oach allo<span class="_ _1"></span>ws us t<span class="_ _1"></span>o in<span class="_ _1"></span>t<span class="_ _1"></span>erpr<span class="_ _1"></span>et the da<span class="_ _1"></span>ta in </div><div class="t m0 xc h4 yc ff5 fs4 fc1 sc0 ls0 ws3">the con<span class="_ _1"></span>t<span class="_ _1"></span>ext o<span class="_ _1"></span>f the theor<span class="_ _1"></span>etical data ran<span class="_ _1"></span>ge (<span class="ff7">F<span class="_ _1"></span>ig. 1a<span class="ff5">). H<span class="_ _1"></span>o<span class="_ _1"></span>w<span class="_ _1"></span>ever<span class="_ _4"></span>, if hig<span class="_ _2"></span>h<span class="ws1">-</span></span></span></div><div class="t m0 xc h4 yd ff5 fs4 fc1 sc0 ls4 ws6">er con<span class="_ _1"></span>tra<span class="_ _1"></span>st is needed f<span class="_ _2"></span>r<span class="_ _1"></span>o<span class="_ _1"></span>m the gra<span class="_ _1"></span>phi<span class="_ _1"></span>cal rep<span class="_ _1"></span>re<span class="_ _1"></span>senta<span class="_ _1"></span>tio<span class="_ _1"></span>n an<span class="_ _1"></span>d zero<span class="_ _1"></span> </div><div class="t m0 xc h4 ye ff5 fs4 fc1 sc0 ls4 ws6">is irre<span class="_ _1"></span>levan<span class="_ _1"></span>t as a r<span class="_ _1"></span>ef<span class="_ _1"></span>er<span class="_ _1"></span>ence poin<span class="_ _1"></span>t, then i<span class="_ _1"></span>t is r<span class="_ _1"></span>easona<span class="_ _1"></span>ble t<span class="_ _1"></span>o ma<span class="_ _1"></span>p the<span class="_ _1"></span> </div><div class="t m0 xc h4 y11 ff5 fs4 fc1 sc0 ls0 ws3">lo<span class="_ _1"></span>wes<span class="_ _1"></span>t obser<span class="_ _2"></span>ved value t<span class="_ _1"></span>o the light<span class="_ _1"></span>est col<span class="_ _1"></span>or a<span class="_ _1"></span>nd the highest o<span class="_ _1"></span>bser<span class="_ _2"></span>ved </div><div class="t m0 xc h4 y12 ff5 fs4 fc1 sc0 ls0 ws5">value t<span class="_ _1"></span>o the dark<span class="_ _1"></span>est co<span class="_ _1"></span>lor (<span class="ff7">F<span class="_ _1"></span>ig. 1b<span class="ff5 ws1">). </span></span></div><div class="t m0 xd h4 y13 ff5 fs4 fc1 sc0 ls4 ws9">I<span class="_ _1"></span>n cir<span class="_ _1"></span>cumstance<span class="_ _1"></span>s where the da<span class="_ _1"></span>ta ha<span class="_ _1"></span>v<span class="_ _1"></span>e mo<span class="_ _1"></span>r<span class="_ _1"></span>e than two r<span class="_ _1"></span>egio<span class="_ _1"></span>ns o<span class="_ _1"></span>f </div><div class="t m0 xc h4 y14 ff5 fs4 fc1 sc0 ls0 ws8">in<span class="_ _1"></span>ter<span class="_ _1"></span>es<span class="_ _1"></span>t, it i<span class="_ _1"></span>s necessar<span class="_ _2"></span>y to des<span class="_ _1"></span>ign a colo<span class="_ _1"></span>r schema wi<span class="_ _1"></span>th mul<span class="_ _1"></span>tip<span class="_ _1"></span>le fac<span class="ws1">-</span></div><div class="t m0 xc h4 y15 ff5 fs4 fc1 sc0 ls0 ws6">ets. A comm<span class="_ _1"></span>o<span class="_ _1"></span>n scenario in<span class="_ _1"></span>v<span class="_ _1"></span>olv<span class="_ _1"></span>es da<span class="_ _1"></span>ta con<span class="_ _1"></span>ta<span class="_ _1"></span>inin<span class="_ _1"></span>g both p<span class="_ _2"></span>os<span class="_ _1"></span>iti<span class="_ _1"></span>ve a<span class="_ _1"></span>nd </div><div class="t m0 xc h4 y16 ff5 fs4 fc1 sc0 ls3 ws3">nega<span class="_ _1"></span>tiv<span class="_ _1"></span>e value<span class="_ _1"></span>s, in which the lo<span class="_ _1"></span>wer a<span class="_ _1"></span>nd u<span class="_ _1"></span>p<span class="_ _1"></span>per ends of the dis<span class="_ _1"></span>tribu<span class="_ _1"></span>tion </div><div class="t m0 xc h4 y17 ff5 fs4 fc1 sc0 ls0 ws6">as we<span class="_ _1"></span>ll as zero n<span class="_ _1"></span>eed to b<span class="_ _2"></span>e di<span class="_ _1"></span>stinguis<span class="_ _1"></span>hed. I<span class="_ _1"></span>n this case, a div<span class="_ _1"></span>ergin<span class="_ _1"></span>g (or </div><div class="t m0 xc h4 y18 ff5 fs4 fc1 sc0 ls0 ws6">bi<span class="_ _1"></span>polar) co<span class="_ _1"></span>lo<span class="_ _1"></span>r schema tha<span class="_ _1"></span>t em<span class="_ _1"></span>p<span class="_ _1"></span>lo<span class="_ _1"></span>ys both colo<span class="_ _1"></span>r h<span class="_ _1"></span>ue a<span class="_ _1"></span>nd co<span class="_ _1"></span>lo<span class="_ _1"></span>r sat<span class="_ _1"></span>ura<span class="ws1">-</span></div><div class="t m0 xc h4 y19 ff5 fs4 fc1 sc0 ls3 ws5">tion is effective<span class="_ _1"></span>. U<span class="_ _0"></span>se colo<span class="_ _1"></span>r h<span class="_ _1"></span>ue t<span class="_ _1"></span>o make a distinction between positiv<span class="_ _1"></span>e </div><div class="t m0 xc h4 y1a ff5 fs4 fc1 sc0 ls1 ws3">and n<span class="_ _1"></span>ega<span class="_ _1"></span>tiv<span class="_ _1"></span>e values (f<span class="_ _1"></span>o<span class="_ _1"></span>r exam<span class="_ _1"></span>p<span class="_ _1"></span>le<span class="_ _1"></span>, red a<span class="_ _1"></span>nd bl<span class="_ _1"></span>ue) a<span class="_ _1"></span>nd co<span class="_ _1"></span>lor sa<span class="_ _1"></span>t<span class="_ _1"></span>ura<span class="_ _1"></span>tio<span class="_ _1"></span>n to<span class="_ _2"></span> </div><div class="t m0 xc h4 y1b ff5 fs4 fc1 sc0 ls3 ws6">indica<span class="_ _1"></span>te the r<span class="_ _1"></span>e<span class="_ _1"></span>la<span class="_ _1"></span>tive scale, with mo<span class="_ _1"></span>r<span class="_ _1"></span>e sa<span class="_ _1"></span>t<span class="_ _1"></span>ura<span class="_ _1"></span>ted colo<span class="_ _1"></span>r dep<span class="_ _1"></span>icting valu<span class="_ _1"></span>es<span class="_ _2"></span> </div><div class="t m0 xc h4 y1c ff5 fs4 fc1 sc0 ls3 ws5">of gr<span class="_ _1"></span>ea<span class="_ _1"></span>ter ma<span class="_ _1"></span>gnit<span class="_ _1"></span>ude a<span class="_ _1"></span>nd no sa<span class="_ _1"></span>t<span class="_ _1"></span>ura<span class="_ _1"></span>tio<span class="_ _1"></span>n rep<span class="_ _1"></span>r<span class="_ _1"></span>esen<span class="_ _1"></span>ting zer<span class="_ _1"></span>o (<span class="ff7">F<span class="_ _1"></span>ig. 1c<span class="ff5 ws0">).<span class="_ _2"></span> </span></span></div><div class="t m0 xd h4 y1d ff5 fs4 fc1 sc0 ls4 ws6">The in<span class="_ _1"></span>t<span class="_ _1"></span>erpr<span class="_ _1"></span>eta<span class="_ _1"></span>tion o<span class="_ _1"></span>f zer<span class="_ _1"></span>o or o<span class="_ _1"></span>ther k<span class="_ _1"></span>ey values can furt<span class="_ _2"></span>h<span class="_ _1"></span>er influ<span class="ls0 ws1">-</span></div><div class="t m0 xc h4 y1e ff5 fs4 fc1 sc0 ls7 ws1">ence the cho<span class="_ _1"></span>ice o<span class="_ _1"></span>f colo<span class="_ _1"></span>r k<span class="_ _1"></span>eys. Ge<span class="_ _2"></span>ogra<span class="_ _1"></span>p<span class="_ _1"></span>hical elevatio<span class="_ _1"></span>n ma<span class="_ _1"></span>ps u<span class="_ _1"></span>se </div><div class="t m0 xc h4 y1f ff5 fs4 fc1 sc0 ls4 ws6">keys tha<span class="_ _1"></span>t make the zer<span class="_ _1"></span>o cr<span class="_ _1"></span>ossin<span class="_ _1"></span>g visually explici<span class="_ _1"></span>t (<span class="ff7">F<span class="_ _1"></span>ig. 1d<span class="ff5">). This is </span></span></div><div class="t m0 xc h4 y20 ff5 fs4 fc1 sc0 ls0 ws3">achieved b<span class="_ _1"></span>y usin<span class="_ _1"></span>g differ<span class="_ _1"></span>en<span class="_ _1"></span>t co<span class="_ _1"></span>lor<span class="_ _1"></span>s fo<span class="_ _1"></span>r the valu<span class="_ _1"></span>es immedia<span class="_ _1"></span>tel<span class="_ _1"></span>y belo<span class="_ _1"></span>w </div><div class="t m0 xc h4 y21 ff5 fs4 fc1 sc0 ls4 ws6">and a<span class="_ _1"></span>bov<span class="_ _1"></span>e zer<span class="_ _1"></span>o<span class="_ _1"></span>, r<span class="_ _1"></span>e<span class="_ _1"></span>spec<span class="_ _2"></span>ti<span class="_ _1"></span>vel<span class="_ _1"></span>y<span class="_ _4"></span>. Wh<span class="_ _1"></span>ether such a co<span class="_ _1"></span>lo<span class="_ _1"></span>r ma<span class="_ _1"></span>p is a<span class="_ _1"></span>p<span class="_ _1"></span>p<span class="_ _1"></span>r<span class="_ _1"></span>o<span class="ls0 ws1">-</span></div><div class="t m0 xc h4 y22 ff5 fs4 fc1 sc0 ls6 ws8">pria<span class="_ _1"></span>te f<span class="_ _1"></span>o<span class="_ _1"></span>r the da<span class="_ _1"></span>ta depends on ho<span class="_ _1"></span>w va<span class="_ _1"></span>riabl<span class="_ _1"></span>e the data a<span class="_ _1"></span>r<span class="_ _1"></span>e and the<span class="_ _1"></span> </div><div class="t m0 xc h4 y23 ff5 fs4 fc1 sc0 ls0 ws5">meanin<span class="_ _1"></span>g o<span class="_ _1"></span>f zero f<span class="_ _1"></span>o<span class="_ _1"></span>r the in<span class="_ _1"></span>terpr<span class="_ _1"></span>eta<span class="_ _1"></span>tio<span class="_ _1"></span>n.</div><div class="t m0 xd h4 y24 ff5 fs4 fc1 sc0 ls4 ws6">I<span class="_ _0"></span>t is essen<span class="_ _1"></span>tia<span class="_ _2"></span>l t<span class="_ _1"></span>o select t<span class="_ _2"></span>he type of the co<span class="_ _1"></span>lor m<span class="_ _1"></span>a<span class="_ _1"></span>ps a<span class="_ _1"></span>p<span class="_ _1"></span>p<span class="_ _1"></span>r<span class="_ _1"></span>op<span class="_ _1"></span>ria<span class="_ _1"></span>te f<span class="_ _1"></span>o<span class="_ _1"></span>r </div><div class="t m0 xc h4 y25 ff5 fs4 fc1 sc0 ls0 ws3">the da<span class="_ _1"></span>ta. Some a<span class="_ _1"></span>nalytical softwar<span class="_ _1"></span>e t<span class="_ _1"></span>ools use a div<span class="_ _1"></span>er<span class="_ _1"></span>gen<span class="_ _1"></span>t<span class="_ _1"></span> colo<span class="_ _1"></span>r m<span class="_ _1"></span>a<span class="_ _1"></span>p as </div><div class="t m0 xc h4 y26 ff5 fs4 fc1 sc0 ls0 ws3">a defa<span class="_ _1"></span>ult. W<span class="_ _1"></span>hen this i<span class="_ _1"></span>s inadv<span class="_ _1"></span>erten<span class="_ _1"></span>tly a<span class="_ _1"></span>p<span class="_ _1"></span>pli<span class="_ _1"></span>ed to da<span class="_ _1"></span>ta rang<span class="_ _1"></span>es wi<span class="_ _1"></span>thou<span class="_ _1"></span>t a </div><div class="t m0 xc h4 y27 ff5 fs4 fc1 sc0 ls0 ws3">zero cr<span class="_ _1"></span>os<span class="_ _1"></span>sing, the da<span class="_ _1"></span>ta ma<span class="_ _1"></span>y be misr<span class="_ _1"></span>ep<span class="_ _1"></span>re<span class="_ _1"></span>sent<span class="_ _1"></span>ed be<span class="_ _2"></span>ca<span class="_ _1"></span>use an in<span class="_ _1"></span>cr<span class="_ _1"></span>ease in<span class="_ _2"></span> </div><div class="t m0 xc h4 y28 ff5 fs4 fc1 sc0 ls0 ws3">da<span class="_ _1"></span>ta values migh<span class="_ _1"></span>t no<span class="_ _1"></span>t be reflec<span class="_ _2"></span>ted b<span class="_ _1"></span>y a<span class="_ _1"></span>n incr<span class="_ _1"></span>ease in color sa<span class="_ _1"></span>t<span class="_ _1"></span>ura<span class="_ _1"></span>tio<span class="_ _1"></span>n </div><div class="t m0 xe h4 y32 ff5 fs4 fc1 sc0 ls0 ws1">(<span class="ff7 ws3">F<span class="_ _1"></span>ig. 1e<span class="ff5">). W<span class="_ _1"></span>hen designin<span class="_ _1"></span>g colo<span class="_ _1"></span>r ma<span class="_ _1"></span>p<span class="_ _1"></span>s, there </span></span></div><div class="t m0 xe h4 y33 ff5 fs4 fc1 sc0 ls0 ws3">ar<span class="_ _1"></span>e tw<span class="_ _1"></span>o r<span class="_ _1"></span>esour<span class="_ _1"></span>ces w<span class="_ _1"></span>e like tha<span class="_ _1"></span>t d<span class="_ _1"></span>o no<span class="_ _1"></span>t r<span class="_ _1"></span>equir<span class="_ _1"></span>e </div><div class="t m0 xe h4 y34 ff5 fs4 fc1 sc0 ls0 ws6">the user to su<span class="_ _1"></span>pp<span class="_ _1"></span>ly all o<span class="_ _1"></span>f the colo<span class="_ _1"></span>r exper<span class="_ _2"></span>tise. </div><div class="t m0 xe h4 y35 ff5 fs4 fc1 sc0 ls0 ws3">They ar<span class="_ _1"></span>e the P<span class="_ _0"></span>enns<span class="_ _1"></span>ylvan<span class="_ _1"></span>ia S<span class="_ _1"></span>ta<span class="_ _1"></span>te U<span class="_ _0"></span>ni<span class="_ _1"></span>ver<span class="_ _1"></span>si<span class="_ _1"></span>ty’<span class="_ _4"></span>s<span class="_ _1"></span> </div><div class="t m0 xe h4 y36 ff5 fs4 fc1 sc0 ls0 ws3">C<span class="_ _2"></span>o<span class="_ _1"></span>lo<span class="_ _1"></span>rBr<span class="_ _1"></span>ewer (h<span class="_ _1"></span>t<span class="_ _1"></span>t<span class="_ _1"></span>p://colo<span class="_ _1"></span>rb<span class="_ _1"></span>rewe<span class="_ _1"></span>r2.or<span class="_ _1"></span>g/) a<span class="_ _1"></span>nd </div><div class="t m0 xe h4 y37 ff5 fs4 fc1 sc0 ls4 ws9">N<span class="_ _0"></span>ASA<span class="_ _5"></span>’<span class="_ _4"></span>s Color T<span class="_ _6"></span>ool (h<span class="_ _1"></span>tt<span class="_ _1"></span>p://col<span class="_ _1"></span>orusage<span class="_ _1"></span>.ar<span class="_ _1"></span>c.</div><div class="t m0 xe h4 y38 ff5 fs4 fc1 sc0 ls0 ws7">nasa.go<span class="_ _1"></span>v/Colo<span class="_ _1"></span>rT<span class="_ _6"></span>o<span class="_ _2"></span>ol<span class="_ _1"></span>.ph<span class="_ _1"></span>p#1). </div><div class="t m0 xe h6 y39 ff1 fs6 fc1 sc0 ls0 ws6">COMPETING FINANCIAL INTERESTS</div><div class="t m0 xe h7 y3a ff2 fs6 fc1 sc0 ls0 ws6">Th<span class="_ _1"></span>e auth<span class="_ _1"></span>ors declar<span class="_ _1"></span>e n<span class="_ _1"></span>o competin<span class="_ _1"></span>g fin<span class="_ _1"></span>an<span class="_ _1"></span>ci<span class="_ _1"></span>al in<span class="_ _1"></span>ter<span class="_ _1"></span>ests<span class="_ _1"></span>.</div><div class="t m0 xe h8 y3b ff1 fs7 fc1 sc0 ls5 ws6"><span class="enhanced-author 1cb0e998-8d7d-43fa-8610-bd4c51ac31cd enhanced-author-elem-draw enhanced-author b6921ea0-99e3-439b-b8a2-50eb0fe0c9ae">Nils Gehlenbor</span><span class="_ _1"></span><span class="enhanced-author 1cb0e998-8d7d-43fa-8610-bd4c51ac31cd enhanced-author-elem-draw enhanced-author b6921ea0-99e3-439b-b8a2-50eb0fe0c9ae">g</span> &amp; <span class="enhanced-author 99f941d7-d0b2-4675-b211-b6f02e3151a7 enhanced-author-elem-draw enhanced-author 1044426c-ca36-489d-a652-c14466a9dae3">Bang W</span><span class="_ _0"></span><span class="enhanced-author 99f941d7-d0b2-4675-b211-b6f02e3151a7 enhanced-author-elem-draw enhanced-author 1044426c-ca36-489d-a652-c14466a9dae3">ong</span></div><div class="t m0 xe h6 y3c ff5 fs6 fc1 sc0 ls0 ws6">N<span class="_ _1"></span>ils Gehlenborg i<span class="_ _1"></span>s a resear<span class="_ _1"></span>ch associat<span class="_ _1"></span>e a<span class="_ _1"></span>t H<span class="_ _1"></span>arvard </div><div class="t m0 xe h6 y3d ff5 fs6 fc1 sc0 ls0 ws6">M<span class="_ _1"></span>edical S<span class="_ _2"></span>c<span class="_ _1"></span>hool and the B<span class="_ _1"></span>road I<span class="_ _1"></span>ns<span class="_ _1"></span>tit<span class="_ _1"></span>ut<span class="_ _1"></span>e. Bang W<span class="_ _4"></span>o<span class="_ _1"></span>ng </div><div class="t m0 xe h6 y3e ff5 fs6 fc1 sc0 ls0 ws6">is the crea<span class="_ _1"></span>tiv<span class="_ _1"></span>e directo<span class="_ _1"></span>r of the Br<span class="_ _1"></span>oad I<span class="_ _1"></span>ns<span class="_ _1"></span>titu<span class="_ _1"></span>te a<span class="_ _1"></span>nd an </div><div class="t m0 xe h6 y3f ff5 fs6 fc1 sc0 ls0 ws6">adj<span class="_ _1"></span>unct assis<span class="_ _1"></span>tan<span class="_ _1"></span>t pr<span class="_ _1"></span>o<span class="_ _1"></span>fes<span class="_ _1"></span>sor in the Department o<span class="_ _1"></span>f Art as<span class="_ _2"></span> </div><div class="t m0 xe h6 y40 ff5 fs6 fc1 sc0 ls0 ws6">A<span class="_ _1"></span>p<span class="_ _1"></span>p<span class="_ _1"></span>lied to M<span class="_ _1"></span>edicine a<span class="_ _1"></span>t The J<span class="_ _1"></span>o<span class="_ _1"></span>hns H<span class="_ _1"></span>o<span class="_ _1"></span>p<span class="_ _1"></span>kins U<span class="_ _0"></span>niversi<span class="_ _1"></span>ty </div><div class="t m0 xe h6 y41 ff5 fs6 fc1 sc0 ls0 ws6">School of M<span class="_ _1"></span>edicine<span class="_ _1"></span>.</div><div class="t m0 xe h7 y42 ff2 fs6 fc1 sc0 ls0 ws6">1. <span class="_ _7"> </span>W<span class="_ _1"></span>on<span class="_ _1"></span>g, B<span class="_ _0"></span>. <span class="ff8">Nat. Methods</span><span class="ws1"> <span class="_ _1"></span><span class="ff1">7<span class="_ _1"></span><span class="ff2 ws6">, 573 (2010). </span></span></span></div><div class="t m0 x8 h1 y43 ff1 fs0 fc0 sc0 ls0 ws6">Figur<span class="_ _1"></span>e 1<span class="ff2"> |<span class="fc1"> Color m<span class="_ _1"></span>aps<span class="_ _1"></span>. (<span class="ff1 ws1">a</span>) Sequen<span class="_ _1"></span>ti<span class="_ _1"></span>al color gr<span class="_ _1"></span>adi<span class="_ _1"></span>en<span class="_ _1"></span>t fr<span class="_ _1"></span>om 10% to 90% black. (<span class="ff1 ws1">b</span>) A sequen<span class="_ _1"></span>ti<span class="_ _1"></span>al color </span></span></div><div class="t m0 x8 h1 y44 ff2 fs0 fc1 sc0 ls0 ws6">sch<span class="_ _1"></span>em<span class="_ _1"></span>a m<span class="_ _1"></span>apped to observed d<span class="_ _1"></span>ata r<span class="_ _1"></span>an<span class="_ _1"></span>g<span class="_ _1"></span>e<span class="_ _1"></span>. (<span class="ff1 ws1">c</span>) Diver<span class="_ _1"></span>g<span class="_ _1"></span>en<span class="_ _1"></span>t color gr<span class="_ _1"></span>adi<span class="_ _1"></span>en<span class="_ _1"></span>t varyin<span class="_ _1"></span>g in h<span class="_ _1"></span>ue an<span class="_ _1"></span>d satur<span class="_ _1"></span>ati<span class="_ _1"></span>on. <span class="ws1"> </span></div><div class="t m0 x8 h1 y45 ff2 fs0 fc1 sc0 ls0 ws1">(<span class="ff1">d</span><span class="ws6">) Blen<span class="_ _1"></span>d<span class="_ _1"></span>ed-h<span class="_ _1"></span>ue color m<span class="_ _1"></span>ap. (<span class="ff1 ws1">e</span>) Sch<span class="_ _1"></span>em<span class="_ _1"></span>ati<span class="_ _1"></span>c illustr<span class="_ _1"></span>ati<span class="_ _1"></span>on o<span class="_ _1"></span>f a misleadin<span class="_ _1"></span>g r<span class="_ _1"></span>epr<span class="_ _1"></span>esen<span class="_ _1"></span>tati<span class="_ _1"></span>on d<span class="_ _1"></span>ue to misali<span class="_ _1"></span>gn<span class="_ _1"></span>ed </span></div><div class="t m0 x8 h1 y46 ff2 fs0 fc1 sc0 ls0 ws6">d<span class="_ _1"></span>ata an<span class="_ _1"></span>d color pr<span class="_ _1"></span>operti<span class="_ _1"></span>es<span class="_ _1"></span>.</div><div class="t m0 xf h9 y47 ff9 fs8 fc2 sc0 ls0 ws1">0</div><div class="t m0 xf h9 y48 ff9 fs8 fc2 sc0 ls0 ws1">0</div><div class="t m0 x10 h9 y49 ff9 fs8 fc2 sc0 ls0 ws1">–10<span class="_ _8"> </span><span class="ls8 wsa">01<span class="_ _9"></span><span class="ls0 ws1">0</span></span></div><div class="t m0 x11 h9 y48 ff9 fs8 fc2 sc0 ls0 ws1">10</div><div class="t m0 x12 h9 y4a ff9 fs8 fc2 sc0 ls0 ws1">Sea</div><div class="c x8 y4b w1 ha"><div class="t m0 x13 h9 y4c ff9 fs8 fc2 sc0 ls0 ws1">level</div></div><div class="t m0 x14 h9 y4d ff9 fs8 fc2 sc0 ls0 ws1">Below sea level<span class="_ _a"> </span>Above sea level</div><div class="t m0 x15 h9 y4e ff9 fs8 fc3 sc0 ls0 ws1">Data values</div><div class="t m0 x16 h9 y4f ff9 fs8 fc3 sc0 ls0 ws1">Color</div><div class="t m0 x16 h9 y50 ff9 fs8 fc3 sc0 ls0 ws1">maps</div><div class="t m0 x17 h9 y4e ff9 fs8 fc3 sc0 ls0 ws1">1.8<span class="_ _7"> </span>2.3<span class="_ _7"> </span>4.0<span class="_ _7"> </span>6.<span class="ls9 wsb">28<span class="_ _b"></span><span class="ls0 ws1">.8</span></span></div><div class="t m0 x18 h9 y51 ff9 fs8 fc2 sc0 ls0 ws1">8<span class="_ _c"></span><span class="lsa wsc">41<span class="_ _d"></span><span class="ls0 ws1">0</span></span></div><div class="t m0 x19 hb y52 ffa fs9 fc3 sc0 ls0 ws1">b</div><div class="t m0 x19 hb y53 ffa fs9 fc3 sc0 ls0 ws1">a</div><div class="t m0 x19 hb y54 ffa fs9 fc3 sc0 ls0 ws1">c</div><div class="t m0 x19 hb y55 ffa fs9 fc3 sc0 ls0 ws1">d</div><div class="t m0 x1a hb y56 ffa fs9 fc3 sc0 ls0 ws1">e</div><div class="t m0 x1b h9 y57 ff9 fs8 fc2 sc0 ls0 ws1">Observed data range</div><div class="t m0 x1c h9 y58 ff9 fs8 fc3 sc0 ls0 ws1">0</div><div class="t m0 x1d h9 y59 ff9 fs8 fc3 sc0 ls0 ws1">10</div><div class="c x1e y5a w0 hc"><div class="t m1 x1f hd y5b ffb fsa fc4 sc0 ls0 ws1">npg</div><div class="t m1 x1f h7 y5c ffc fsb fc5 sc0 ls0 ws1">© 2012 Nature <span class="_ _1"></span>America, Inc. <span class="_ _0"></span>All rights reserved.</div></div><a class="l" href="http://colorbrewer2.org/" target="_blank"><div class="d m2" style="border-style:none;position:absolute;left:1774.296000px;bottom:775.548000px;width:89.130000px;height:12.132000px;background-color:rgba(255,255,255,0.000001);"></div></a><a class="l" href="http://colorusage.arc.nasa.gov/ColorTool.php#1/" target="_blank"><div class="d m2" style="border-style:none;position:absolute;left:1876.160000px;bottom:729.548000px;width:82.440000px;height:12.132000px;background-color:rgba(255,255,255,0.000001);"></div></a><a class="l" href="http://colorusage.arc.nasa.gov/ColorTool.php#1/" target="_blank"><div class="d m2" style="border-style:none;position:absolute;left:1565.104000px;bottom:683.548000px;width:99.597000px;height:12.132000px;background-color:rgba(255,255,255,0.000001);"></div></a></div></div></div>
+<div class="figures-carousel" id="figures-carousel">
+<div class="fc-wrapper">
+<div class="fc-header unselectable">
+<div class="title"></div>
+<div class="prev" style="visibility: hidden;">
+<i class="fa fa-angle-left"></i>
+<div class="txt">Previous</div>
+</div>
+<div class="next" style="visibility: hidden;">
+<div class="txt">Next</div>
+<i class="fa fa-angle-right"></i>
+</div>
+<div class="close">
+<div class="txt">Close</div>
+<div class="sym">×</div>
+</div>
+</div>
+<div class="fc-content unselectable">
+<img class="figure" data-no-retina="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<div class="spinner"></div>
+</div>
+<div class="fc-menu">
+<div class="download-full">
+<i class="fa fa-download"></i>
+<span>Download Full Image</span>
+</div>
+</div>
+<div class="fc-footer">
+<div class="caption"></div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="bottom unselectable" id="bottom">
+<div class="left">
+<div class="logo" id="readcube-button">
+<i class="icon readcube"></i>
+</div>
+<div class="btn user-button" id="user-button">
+<span class="action">Sign up / Log in</span>
+<span class="user-name"></span>
+</div>
+</div>
+<div class="right">
+<div class="btn btn-icon" id="zoom-in">
+<i class="icon zoom-in"></i>
+</div>
+<div class="btn btn-icon" id="zoom-out">
+<i class="icon zoom-out"></i>
+</div>
+<div class="btn btn-icon" id="fit-width">
+<i class="icon fit-width"></i>
+</div>
+<div class="btn btn-icon" id="print">
+<i class="icon print"></i>
+</div>
+<div class="btn btn-icon" data="uv-trigger" id="user-voice">
+<i class="icon help"></i>
+</div>
+</div>
+<div class="center">
+<div class="btn" id="save">
+<i class="icon icon-left download"></i>
+<span>Download PDF</span>
+</div>
+<div class="btn" id="cloud-save">
+<div class="add-to-library">
+<i class="icon icon-left cloud"></i>
+<span>Add to Library</span>
+</div>
+<div class="in-library">
+<div class="normal-btn">
+<i class="icon icon-left cloud-full"></i>
+<span>In Library</span>
+</div>
+<div class="remove-btn">
+<i class="icon-left fa fa-trash-o"></i>
+<span>Remove</span>
+</div>
+</div>
+</div>
+<div class="btn" id="supplements" style="display: none;">
+<span>Supplements</span>
+</div>
+<div class="btn" id="related-articles">
+<span>Related Articles</span>
+<i class="icon icon-right caret-up"></i>
+</div>
+</div>
+</div>
+
+<div id="templates">
+<div class="article reference" id="article-reference-template">
+<div class="number"></div>
+<h4 class="title"></h4>
+<div class="authors"></div>
+<div class="links"></div>
+<div class="published"></div>
+</div>
+<div class="author" id="article-author-template">
+<h4 class="name"></h4>
+<div class="affiliations"></div>
+<div class="contact">
+<i class="icon user"></i>
+<div class="contact-link"></div>
+</div>
+<div class="search">
+Search for author in:
+<div class="links"></div>
+</div>
+</div>
+<a class="supplement" id="article-supplement-template" target="_blank">
+<div class="thumb"></div>
+<div class="title"></div>
+<div class="type"></div>
+</a>
+<div class="article" id="related-article-template">
+<h4 class="title"></h4>
+<div class="authors"></div>
+<div class="links"></div>
+<div class="published"></div>
+</div>
+<div class="base-toolbar" id="annotations-base-toolbar">
+<div class="row annot-colors">
+<div class="sample color-1" data-colorid="1"></div>
+<div class="sample color-2" data-colorid="2"></div>
+<div class="sample color-3" data-colorid="3"></div>
+<div class="sample color-4" data-colorid="4"></div>
+</div>
+<div class="row add-note">
+<i class="fa fa-comment-o"></i>
+Add Note
+</div>
+<div class="row edit-note">
+<textarea placeholder="Type note text here."></textarea>
+</div>
+<div class="row delete">
+<i class="fa fa-trash-o"></i>
+Delete
+</div>
+</div>
+<div class="note-item" id="note-template">
+<div class="note-created-at"></div>
+<div class="note-highlight"></div>
+<div class="note-text"></div>
+</div>
+<div class="figure-item" id="figure-template">
+<img class="figure-thumb" data-no-retina="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="100px">
+<div class="figure-caption unselectable"></div>
+</div>
+<div class="readcube-menu" id="readcube-menu">
+<div class="menu">
+<a href="http://www.readcube.com/" class="item" target="_blank">Get Readcube</a>
+<!-- /.recently-read.item Recently Read -->
+<!-- /.my-library.item My Library -->
+<!-- /.recommendations.item Recommendations -->
+<hr>
+<a href="http://www.readcube.com/account" class="account item" target="_blank">Account</a>
+<a href="http://www.readcube.com/account#purchases-info" class="purchase-history item" target="_blank">Purchase History</a>
+<hr>
+<a href="http://www.readcube.com/support" class="help item" target="_blank">Help</a>
+<a href="http://www.readcube.com/session/log_out" class="item" rel="nofollow">Log Out</a>
+</div>
+</div>
+<div class="cloud-save-menu" id="cloud-save-menu">
+<img alt="Text-right" class="logo" data-at2x="//green4-assets.readcube.com/assets/logos/text-right@2x-9a891966a266720cee1e4be40a600e7c.png" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/text-right@2x-9a891966a266720cee1e4be40a600e7c.png" width="0" height="0">
+<h3>Add this article to your ReadCube library</h3>
+<ul class="features">
+<li class="sync">Sync this article instantly to ReadCube's free Desktop, Mobile and Web apps.</li>
+<li class="extra">Save your annotations and notes plus enjoy Enhanced PDF features offline, including clickable inline references and automatic supplements.</li>
+</ul>
+<div class="actions">
+<a href="http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click#" class="button sign-in">Add to Library</a>
+</div>
+</div>
+<div class="cloud-first-add-dialog" id="cloud-first-add-dialog">
+<img alt="Large" class="logo" data-at2x="//green4-assets.readcube.com/assets/logos/large@2x-64bc25b5f74acc7437b96298d282a8ed.png" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/large@2x-64bc25b5f74acc7437b96298d282a8ed.png" width="0" height="0">
+<h3>This article has been added to your library!</h3>
+<div class="about">Download ReadCube's free apps to access the Enhanced PDF offline</div>
+<ul class="apps">
+<li class="desktop"><a href="http://www.readcube.com/download" class="button" target="_blank">ReadCube Desktop (Mac/Windows)</a></li>
+<li class="ios"><a href="https://itunes.apple.com/us/app/readcube/id864042981?ls=1&mt=8" class="button" target="_blank">ReadCube iOS (iPhone/iPad)</a></li>
+<li class="android">ReadCube for Android Coming Soon! <br> <a href="http://pages.readcube.com/android/" target="_blank">Sign up</a> for alerts.</li>
+</ul>
+</div>
+<div class="print-dialog" id="print-dialog">
+<div class="close-btn">
+<div class="fa fa-times"></div>
+</div>
+<div class="options-screen">
+<h2>article print options</h2>
+<div class="row print-pdf">
+<div class="fa fa-print"></div>
+<div class="text">Print High Resolution PDF</div>
+</div>
+<div class="row send-to-tablet">
+<div class="fa fa-tablet"></div>
+<div class="text">
+<span>Send to ReadCube Mobile</span>
+<div class="fineprint">Read the Enhanced PDF on your iPad or iPhone</div>
+</div>
+</div>
+<div class="row google-cloud-print">
+<div class="fa fa-google"></div>
+<div class="text">Google Cloud Print</div>
+</div>
+</div>
+<div class="success-screen">
+<div class="cloud-sync-image"></div>
+<h2>Synced in the cloud!</h2>
+<div class="instructions">This article is now synced to your ReadCube library. Open the ReadCube Mobile app for iPhone or iPad to read this article.</div>
+<a href="https://itunes.apple.com/us/app/readcube/id864042981?ls=1&mt=8" target="_blank"><div class="appstore-btn"></div>
+</a></div>
+</div>
+<div class="action-unavailable" id="download-purchase-unavailable-notice">
+<div class="message">Saving the PDF outside of ReadCube requires the full PDF purchase option. Rental and Cloud articles can be viewed online and offline in the ReadCube Web, Desktop and Mobile apps but cannot be printed or saved outside of ReadCube.</div>
+<div class="info">This article was purchased as a <span class="purchase-type"></span> on <span class="purchase-date"></span>.</div>
+</div>
+<div class="action-unavailable" id="download-shared-unavailable-notice">
+<div class="message">You are viewing a complimentary shared article, since we have detected that you would not normally have full-text access. Complimentary shares do not allow PDF file downloads. <a href="http://dx.doi.org/10.1038/nmeth.2134" target="_blank">Click here</a> for additional access options.</div>
+</div>
+<div class="action-unavailable" id="print-purchase-unavailable-notice">
+<div class="message">Printing requires the full PDF purchase option. Rental and Cloud articles can be viewed online and offline in the ReadCube Web, Desktop and Mobile apps but cannot be printed or saved outside of ReadCube.</div>
+<div class="info">This article was purchased as a <span class="purchase-type"></span> on <span class="purchase-date"></span>.</div>
+</div>
+<div class="action-unavailable" id="print-shared-unavailable-notice">
+<div class="message">You are viewing a complimentary shared article, since we have detected that you would not normally have full-text access. Complimentary shares do not allow printing. <a href="http://dx.doi.org/10.1038/nmeth.2134" target="_blank">Click here</a> for additional access options.</div>
+</div>
+</div>
+
+<script src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/reader_v2-36f4ef8caf76cc5d40b6ddc17d9046a6.js" type="text/javascript"></script>
+
+
+<script src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/retina-be5969bc9269cb6a40cea36d7821f365.js" type="text/javascript"></script>
+
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap" class="fancybox-ie"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><script type="text/javascript" src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/nmeth.2134"></script><div id="wwcgrzcusordohmgphsnorsqsmccvunmi" title="Click to dismiss alert bubble" style="right: 20px !important; bottom: 15px !important; cursor: pointer; background: rgb(51, 0, 51) !important;"><div style="background: rgb(51, 0, 51) !important;"><a href="http://www.readcube.com/articles/10.1038/nmeth.2134?utm_campaign=readcube_access&utm_source=nature.com&utm_medium=purchase_option&utm_content=button_version&show_checkout=1&tracking_action=tier_click#" id="wwcgrzcusordohmgphsnorsqsmccvunmi-gear" title="Click to configure alert bubble" style="right: 0px !important; bottom: 0px !important; border-top-left-radius: 3px !important; border-bottom-right-radius: 3px !important;">&nbsp;</a><span class="wwcgrzcusordohmgphsnorsqsmccvunmi-blocked">Brightcove</span><br><span class="wwcgrzcusordohmgphsnorsqsmccvunmi-blocked">DoubleClick</span><br><span class="wwcgrzcusordohmgphsnorsqsmccvunmi-blocked">Ensighten</span><br><span class="wwcgrzcusordohmgphsnorsqsmccvunmi-blocked">Google Analytics</span><br><span class="wwcgrzcusordohmgphsnorsqsmccvunmi-blocked">Mixpanel</span><br><span class="wwcgrzcusordohmgphsnorsqsmccvunmi-blocked">New Relic</span><br><span class="wwcgrzcusordohmgphsnorsqsmccvunmi-blocked">UserVoice</span><br></div></div><iframe src="./Points of view  Mapping quantitative data to color.   ReadCube Articles_files/nmeth.2134.html" class="access-check"></iframe><script src="http://js-agent.newrelic.com/nr-476.min.js"></script></body></html>

@@ -1,0 +1,381 @@
+/*
+ *
+ *
+ *		global.layout.css
+ *		
+ *		General non-content-specific layout styles
+ *		
+ *		@scope: 	Included on all AIP pages
+ *		
+ *		@history: 	original document to provide styles for aotf.vm
+ *		
+ *		
+ */
+
+html{
+	height: 100%;
+}
+body {
+	min-height: 100%;
+	background: #fff url(/view/images/bg_constrain.gif) repeat-y 50% 0;
+	color: #000;
+	width: 100%;
+	overflow-x: hidden;
+	/*line-height: 1.461;*/ /*1.385;*/
+}
+
+#constrain {
+	margin: 0 auto;
+	max-width: 966px;
+	padding: 0 15px; /* a little padding to prevent text running up to the edge of the window when the window is made narrow */
+}
+
+#constrain-header,
+#constrain-content,
+#constrain-footer {
+	background: #fff;
+	clear: both;
+}
+#constrain-header {
+	margin: 0 0 20px;
+}
+#constrain-footer {
+	margin: 20px 0 0;
+}
+
+div.col {
+	float: left;
+	position: relative;
+}
+
+#constrain-content {
+	margin: 0;
+	padding: 0;
+}
+
+.content-block-full {
+	width: 100%;
+}
+
+#content {
+	padding-right: 330px;
+}
+
+body.one-col #content {
+	padding-right: 0;
+	width: 100%;
+}
+
+#extranav {
+	width: 300px;
+	margin: 0 0 0 -300px;
+	line-height: 1.489em;
+	float: right;
+	/*line-height: 1.241em;*/
+	/*line-height: 1.385;*/
+}
+body.one-col #content {
+	margin-right: 0;
+}
+
+body.ie6 #content,
+body.ie6 #extranav {
+	overflow: hidden;
+}
+
+/**
+ * @section Footer
+ * ============================================================================
+ */
+
+/* This must be display none in all desktop styles as it is used to monitor mobile css for WT */
+#mobile-css-test {
+	display: none;
+}
+
+#footer a {
+	font-weight: normal;
+}
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer.has-explore .inner {
+	border-top: solid 5px #671113;
+}
+
+#footer dl,
+#footer .journal-title {
+	border-bottom: 1px solid #fff;
+	padding: 15px 10px 5px;
+	color: #333;
+	font-size:90%;
+	margin-bottom: 0;
+}
+#footer .journal-title {
+	margin-bottom: 0;
+}
+#footer.has-explore dl {
+	background: #E5E1D4;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#DAD5C1), to(#c9c5b6));
+	background: -webkit-linear-gradient(top, #DAD5C1, #c9c5b6);
+	background: -moz-linear-gradient(top, #DAD5C1, #c9c5b6);
+	background: -o-linear-gradient(top, #DAD5C1, #c9c5b6);
+	background: linear-gradient(to bottom, #DAD5C1, #c9c5b6);
+}
+
+#footer dl dt,
+#footer dl dd {
+	float: left;
+	margin: 0 10px;
+}
+
+#footer dl dt,
+#footer strong {
+	font-style: italic;
+	font-weight: normal;
+}
+#footer dl dt,
+#footer .journal-title {
+	font-weight: bold;
+}
+
+#footer .footer-main {
+	background: #F2F4F6;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#e1e4e9), to(#FFF)); /*#EBEFF2*/
+	background: -webkit-linear-gradient(top, #e1e4e9, #FFF);
+	background: -moz-linear-gradient(top, #e1e4e9, #FFF);
+	background: -o-linear-gradient(top, #e1e4e9, #FFF);
+	background: linear-gradient(to bottom, #e1e4e9, #FFF);
+	padding: 10px 0;
+	font-size: 85%;
+}
+#footer .footer-main li {
+	line-height: 1.7em;
+}
+
+#footer .footer-main .copyright {
+	background: url(/view/images/npg_logo_full.png) 0 50% no-repeat;
+	padding: 20px 0 20px 225px;
+	margin: 0 20px;
+	clear: both;
+}
+#footer .copyright small {
+	font-size: 100%;
+	display: block;
+}
+#footer .copyright small a {
+	color: #000;
+}
+
+#footer .footer-main a {
+	color: #54606a;
+}
+
+#footer ul.footer-links {
+	float: left;
+	margin: 0 0 0 20px;
+	padding: 0 19px 0 0;
+	border-right: 1px dashed #fff;
+	width: 120px;
+}
+body.ie6 #footer ul.footer-links  {
+	margin-left: 10px;
+}
+#footer ul.last {
+	border: 0 none;
+}
+
+#footer ul.toggle {
+	padding: 0;
+	float: right;
+	width: 187px;
+	margin-right: 20px;
+}
+
+#footer a#toggle {
+	margin: 0 auto 10px auto;
+	display: block;
+	width: 100%;
+	height: 20px;
+	padding: 5px 0;
+	text-align: center;
+	background: #E1E4E9;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#FDFCFD), to(#E1E4E9));
+	background: -webkit-linear-gradient(top, #FDFCFD, #E1E4E9);
+	background: -moz-linear-gradient(top, #FDFCFD, #E1E4E9);
+	background: -o-linear-gradient(top, #FDFCFD, #E1E4E9);
+	background: linear-gradient(to bottom, #FDFCFD, #E1E4E9);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #C7C8CC;
+}
+
+#footer a:hover#toggle {
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#E1E4E9), to(#FDFCFD));
+	background: -webkit-linear-gradient(top, #E1E4E9, #FDFCFD);
+	background: -moz-linear-gradient(top, #E1E4E9, #FDFCFD);
+	background: -o-linear-gradient(top, #E1E4E9, #FDFCFD);
+	background: linear-gradient(to bottom, #E1E4E9, #FDFCFD);
+}
+
+
+#footer-search {
+	float: right;
+	margin: 0 20px 0 0;
+	padding: 0 0 20px 19px;
+	border-left: 1px dashed #fff;
+}
+
+#footer-search input.txt,
+#footer-search button {
+	border: 1px solid #c7c8cc;
+	margin: 0 0 0 2px;
+}
+#footer-search label {
+	padding: 5px 2px 5px 0;
+}
+
+#footer-search button {
+	color: #575e66;
+	text-transform: lowercase;
+	padding: 5px 10px;
+	background: #e1e4e9;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfcfd), to(#e1e4e9));
+	background: -webkit-linear-gradient(top, #fdfcfd, #e1e4e9);
+	background: -moz-linear-gradient(top, #fdfcfd, #e1e4e9);
+	background: -o-linear-gradient(top, #fdfcfd, #e1e4e9);
+	background: linear-gradient(to bottom, #fdfcfd, #e1e4e9);
+}
+#footer-search input.txt {
+	width: 150px;
+	padding: 5px 2px;
+}
+#footer-search input.txt,
+#header-search input.txt {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+body.ie6 #footer-search {
+	width: 300px;
+	margin-right: 10px;
+}
+body.ie6 #footer-search fieldset {
+	float: right;
+}
+body.ie6 #footer-search button {
+	padding: 5px 10px;
+	line-height: 1;
+}
+
+/* clearing */
+.cleared:after,
+.clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: ' ';
+	clear: both;
+	height: 0;
+}
+.cleared,
+.clear {
+	display: inline-block;
+}
+/* start commented backslash hack \*/
+body.ie6 .cleared,
+body.ie6 .clear {
+	height: 1%;
+}
+.cleared,
+.clear {
+	display: block;
+}
+/* close commented backslash hack */
+
+/* This must be display NONE in desktop styles as it is used to monitor mobile/desktop css for WT */
+#mobile-css-test {
+	display: none;
+}
+
+/* Pubserv styles, used for pagination, new v3 navigation, etc */
+.clean-list {
+	padding: 0;
+	list-style: none;
+}
+
+.icon {
+	background-repeat:no-repeat;
+}
+
+.icon-left {
+	background-position:0 50%;
+	padding-left:20px;
+}
+
+.icon-right {
+	background-position:100% 50%;
+	padding-right:20px;
+}
+
+.icon-left-small {
+	background-position:0 50%;
+	padding-left:14px;
+}
+
+.icon-right-small {
+	background-position:100% 50%;
+	padding-right:14px;
+	display: inherit;
+}
+
+.icon-arrow-left {
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAAAAADF+lnMAAAAAnRSTlMA/1uRIrUAAABASURBVAhbY/gPBh/e/WcAM+7uuAJmPT26detVIOvN2a1bt2wFib3YswXIAon9/3pjB0QMpPMiRAwEXj6FsYAcANhwSYpvEUXFAAAAAElFTkSuQmCC);
+}
+
+.icon-arrow-right {
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAAAAADF+lnMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAP9bkSK1AAAAPUlEQVQIW2P4/+7DfzBg+H9lx10o6+rWrUefQsS2btm69ewbsNiWrVv2vICI7bjxFaLu4geIjqcvYabAAADLqkmKf6DKUgAAAABJRU5ErkJggg==);
+}
+
+.icon-white-arrow-right {
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAHCAYAAAArkDztAAAAO0lEQVQImWP4////NSAuA2IGZAwi3v6HgMdAbI9NAgT+AfE2IFZEl4CB4+gSX2H2wSRgRqBYDjYT3VUATTeUGxhqZp0AAAAASUVORK5CYII=);
+}
+
+.icon-arrow-left-blue {
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAXklEQVQIW2P4//8/AzoWDe0yEAnpdkARFAjoFxAO7pogHNL9XyikuwEuAeQUAAU/gCTgkiAjgIwHMEEUSYGIdgUgZwFWSZixIAcABQ9glYRh4dCuBJDdWCVhrgZZBwAWD3Z7ilYZEAAAAABJRU5ErkJggg==);
+}
+
+.icon-arrow-right-blue {
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAU0lEQVQIW2MQiGhXEAjoF/j//z8DOmYQCuluEA7p/iAc2pWAS/I/FB8QCel2wCUJwwtA1mGVBIo9EA3tMkCX/ADkF2AaG9w1Ad3VDCAHgIzA5hUAS2B2e+iv5kEAAAAASUVORK5CYII=);
+}
+
+/* Hiding */
+.hide {
+	display: none;
+	visibility: hidden;
+}
+.hidden {
+	direction: ltr;
+	left: -9999em;
+	overflow: hidden;
+	position: absolute;
+}
+body.ie7 .hidden {
+	zoom: 1;
+}
+.visually-hidden {
+	width: 1px;
+	height: 1px;
+	position: absolute !important;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+body.ie7 .visually-hidden {
+	clip: rect(1px 1px 1px 1px);
+}
