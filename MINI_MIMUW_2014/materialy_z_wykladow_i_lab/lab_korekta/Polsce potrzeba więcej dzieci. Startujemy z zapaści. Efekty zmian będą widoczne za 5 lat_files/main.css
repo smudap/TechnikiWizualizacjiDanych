@@ -1,0 +1,15 @@
+/* globalne */
+a, .path {color: #146cb4;}
+a:hover {color: #000;}
+
+/* winieta */
+#winieta a:hover { color: #fff; }
+
+/* #content */
+#cont h2 {font-family:Georgia,serif; font-weight:normal;}
+#cont p.lead {font-family:Georgia,serif;}
+#artykul {font-family:Georgia,serif;}
+
+/*cytaty i wyimki 2.0*/
+#cont .cmsArtykulElem h6 {border-left-color: #146cb4;}
+

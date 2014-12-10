@@ -1,0 +1,38 @@
+div.content a {
+	border-bottom-color: #c5202c;
+}
+
+#header {
+	background-color: #6d829f;
+	background-image: url(/view/rj/nmeth/images/journal_header.jpg);
+}
+#quick-nav {
+	background-color: #6d829f;
+	background-image: url(/view/rj/nmeth/images/bg_quick_nav.gif);
+}
+#toc .focus-title {
+	background: url(/view/rj/nmeth/images/heading_gradients.jpg) no-repeat right top;
+	zoom: 1;
+}
+
+#leaderboard ul.user-services a.my-account {
+	background-image:url(/view/images/red/icon_account.gif);
+}
+#leaderboard ul.user-services a.submit-manuscript {
+	background-image:url(/view/images/red/icon_submit.gif);
+}
+#leaderboard ul.user-services a.register {
+	background-image:url(/view/images/red/icon_register.gif);
+}
+#leaderboard ul.user-services a.subscribe {
+	background-image:url(/view/images/red/icon_subscribe.gif);
+}
+body.ie6 #header ul.user-services a {
+	background-image: url(/view/rj/nmeth/images/bg_register_list.gif);
+}
+body.ie6 #header ul.user-services a:hover {
+	background-image: url(/view/rj/nmeth/images/bg_register_list_hover.gif);
+}
+body.ie6 #header form.search-form {
+	background-image:url(/view/rj/nmeth/images/bg_search.gif);
+}

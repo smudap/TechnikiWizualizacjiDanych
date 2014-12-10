@@ -36,13 +36,13 @@ Plan spotka&#324; MINI PW:
 * 23 X - Prezentacja pierwszej fazy projektu miniaturka
 * 30 X - Prezentacja pierwszej fazy projektu PISA
 * 6 XI
-* 13 XI - Prezentacja drugiej fazy projektu miniaturka
-* 20 XI
+* 13 XI (nie ma zajęć)
+* 20 XI - Prezentacja drugiej fazy projektu miniaturka
 * 27 XI - Prezentacja drugiej fazy projektu PISA
 * 4 XII
 * 11 XII - Prezentacje artyku&#322;ów z Points of View na wyk&#322;adzie
 * 18 XII
-* 8 I - Prezentacja trzeciej fazy projektu miniaturka [wspólnie MINI i MIM]
+* 8 I - Prezentacja trzeciej fazy projektu miniaturka 
 * 15 I
 * 22 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM]
 
@@ -84,6 +84,14 @@ _Projekt wizualizacja danych PISA_
 * Oceniana b&#281;dzie warto&#347;&#263; informacyjna i oryginalno&#347;&#263; opracowanej wizualizacji.
 
 Projekty realizowa&#263; nale&#380;y w grupach od 2 do 4 osób. Przeci&#281;cie grup z pierwszego i drugiego projektu mo&#380;e by&#263; co najwy&#380;ej jednoosobowe (nie mo&#380;na obu projektów robi&#263; w tej samej parze).
+
+Kryteria oceny 3 fazy projektu PISA
+===================================
+* Czy przedstawiane wykresy spójnie opisują jedną historię? [= czy wiadomo co przedstawiają, osie i wykresy są opisane, czy wykresy są powiązane tematycznie]
+* Czy historia jest dobrze przedstawiona? [=właściwy dobór geometrii do tematu, czytelne opisy, rozróżnialne kolory/kształty]
+* Czy historia jest wielowarstwowa/odpowiednio rozbudowana? [Historia, typu jaki jest średni wynik chłopców jest słaba bo sprowadza się do jednej liczby i nie ma zalet z graficznej prezentacji. Historia, której nie byłoby widać z surowych liczb ale widać ją na wykresach jest znacznie ciekawsza]
+
+
 
 Ocena:
 ------

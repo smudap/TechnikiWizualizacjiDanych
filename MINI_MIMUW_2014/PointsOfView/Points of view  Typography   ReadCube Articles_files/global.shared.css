@@ -1,0 +1,367 @@
+/*
+ *
+ *
+ *		global.shared.css
+ *		
+ *		Those few styles that don't relate to the layout, sidebar, article or non-article page content,
+ *		header, etc.  (That shouldn't be many - keep this file light!)
+ *		
+ *		@scope: 	Included on all AIP pages
+ *		
+ *		@history: 	created from assorted css with the advent of the v2 project: goo.gl/YMhDF
+ *		
+ *		
+ */
+
+body {
+	font-family: arial, helvetica, 'ＭＳ Ｐゴシック', 'ＭＳ ゴシック', 'Osaka', 'MS PGothic', sans-serif;
+	color: #333;
+}
+
+a {
+	color: #069;
+	text-decoration: none;
+}
+a:active {
+	outline: 0 none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:visited {
+	color: #5C7996;
+}
+
+/*
+ * IE 6
+*/
+body.ie6 * {
+	zoom:1;
+}
+
+
+/* common text styles */
+
+em,
+i {
+	font-style: italic;
+}
+strong,
+b {
+	font-weight: bold;
+}
+cite {
+	font-style: normal;
+}
+sup,
+sub {
+	font-size: 85%;
+	line-height: 0;
+}
+sup {
+	vertical-align: super;
+}
+sub {
+	position: relative;
+	bottom: -0.6ex;
+}
+
+
+/* global message */
+
+.message-contain div.minimised .global-message-content {
+	display: none;
+}
+
+.message-contain {
+	position: relative;
+	border-color: #FFF;
+	border-style: solid solid none;
+	border-width: 6px 6px 0;
+	line-height: 1.3em;
+}
+
+.message-contain .minimised .global-message-header  {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.message-contain .visible .global-message-header {
+	margin-bottom: 0.5em;
+}
+
+
+.message-contain .global,
+.message-contain .local {
+	border: 1px solid #EEEEEE;
+	display: block;
+	position: relative;
+}
+
+.message-contain .global {
+	background: #DDEEF6;
+}
+
+.message-contain .local {
+	background: #FCFAD3;
+}
+
+.message-contain .global-message-header {
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+.message-contain .global-message-header .global-message-title {
+	color: #AA2C13;
+}
+
+.message-contain .content {
+	padding: 5px 10px;
+	position: relative;
+}
+
+.message-contain .no-cookies .content {
+	padding:0 5px 0 10px;
+	background: transparent;
+}
+
+/* message control */
+.global-message-control {
+	margin: 0;
+}
+
+body.ie7 .global-message-control a {
+	padding: 1px 0 1px 25px;
+	height: 19px;
+}
+
+.message-contain .global-message-control {
+	bottom: 7px;
+	padding: 0 35px 0 0;
+	right: 0;
+	position:absolute;
+}
+
+.message-contain div.visible .global-message-control {
+	float: right;
+}
+
+.message-contain div.minimised .global-message-control a.arrow {
+	background: url(/view/images/down_arrow.png) no-repeat right center transparent;
+	padding: 0 15px 0 0;
+	font-weight: normal;
+}
+
+.message-contain div.visible .global-message-control a.arrow {
+	background: url(/view/images/up_arrow.png) no-repeat right center transparent;
+	padding: 0 15px 0 0;
+	font-weight: normal;
+}
+
+body.ie8 .message-contain div.minimised .global-message-control a.arrow,
+body.ie7 .message-contain div.minimised .global-message-control a.arrow {
+	vertical-align: baseline;
+}
+
+body.ie6 .message-contain div.minimised a.remove {
+	padding: 5px;
+}
+
+.message-contain a.remove {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	margin: 0;
+	padding: 0 10px;
+	text-indent: -9999px;
+	direction: ltr;
+	background: url(/view/images/close.png) no-repeat right center transparent;
+}
+
+.message-contain .global-message-link-wrapper {
+	display: block;
+	margin: 0.5em auto;
+	text-align: center;
+}
+
+.message-contain .global-message-link {
+	background-color: #069;
+	background-image: url(/view/images/v2/white-arrow-right.png);
+	background-position: 93% 50%;
+	background-repeat: no-repeat;
+	color: #fff;
+	line-height: 1.77;
+	padding: 6px 24px 6px 12px;
+	text-decoration: none;
+	vertical-align: baseline;
+}
+
+/* end message control */
+/* end global message */
+
+/* modal window styles */
+#modalWindow {
+	font: 100%/1.231 arial,helvetica,clean,sans-serif;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+}
+#modalWindow-body {
+	position: absolute;
+	z-index: 10000;
+	width: 100%;
+}
+#modalWindow-constrain {
+	max-width: 860px;
+	margin: 20px auto;
+}
+#modalWindow-content {
+	background-color: #fff;
+	border: 10px solid #d72222;
+	padding: 20px;
+}
+#modalWindow-shade {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.88;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=88)";
+	filter: alpha(opacity=88);
+}
+body.ie6 #modalWindow-shade, 
+body.ie7 #modalWindow-shade {
+	position: absolute;
+}
+#modalWindow .txt {
+	margin-top: 30px;
+}
+#modalWindow h1 {
+	font-size: 146.5%;
+	line-height: 1.173;
+	margin: 0;
+	padding: 0;
+}
+#modalWindow h1 .journalname {
+	color: #D72222;
+	font-style: italic;
+}
+#modalWindow h2 {
+	font-size: 116%;
+}
+#modalWindow h2 .journalname  {
+	font-style: italic;
+}
+#modalWindow a.close {
+	float: right;
+	font-size: 93%;
+	padding: 25px 25px 25px 0;
+	margin-right: 20px;
+	color: #000;
+	background: url(/view/images/close.jpg) no-repeat center right;
+	text-decoration: none;
+}
+#modalWindow a.close:hover,
+#modalWindow a.close:focus {
+	color: #000;
+	text-shadow: 0 0 4px rgba(255,255,255,0.5);
+	text-decoration: none;
+}
+#modalWindow #modal-header {
+	background: none;
+	margin-bottom: 20px;
+}
+#modalWindow #modal-footer {
+	position: relative;
+	min-height: 110px;
+}
+#modalWindow #modal-footer .media-right {
+	right: 0;;
+}
+#modalWindow #modal-footer img {
+	position: absolute;
+	bottom: 0;
+}
+
+/**
+ * @section Basic Lists
+ * ------------------------------------------------------------------------
+ */
+html body ul.bullet,
+ol.number,
+ol.ucletter,
+ol.lcletter,
+ol.ucroman,
+ol.lcroman {
+	margin: 0 0 20px 3em;
+	list-style-position: outside;
+}
+html body ul.bullet li,
+ol.number li,
+ol.ucletter li,
+ol.lcletter li,
+ol.ucroman li,
+ol.lcroman li {
+	margin: 10px 0;
+	list-style-position: outside;
+}
+
+html body ul.bullet,
+html body ul.bullet li {
+	list-style-type: disc;
+}
+ul.bullet ul.bullet,
+ul.bullet li ul.bullet li {
+	list-style-type: circle;
+}
+ol.number,
+ol.number li,
+ol li > ol.number li,
+ol.ucletter li > ol li > ol.number li,
+ol.lcletter li > ol li > ol.number li,
+ol.ucroman li > ol li > ol.number li,
+ol.lcroman li > ol li > ol.number li {
+	list-style-type: decimal;
+}
+ol.ucletter,
+ol.ucletter li,
+ol li > ol.ucletter li,
+ol.number li > ol li > ol.ucletter li,
+ol.lcletter li > ol li > ol.ucletter li,
+ol.ucroman li > ol li > ol.ucletter li,
+ol.lcroman li > ol li > ol.ucletter li {
+	list-style-type: upper-alpha;
+}
+ol.lcletter,
+ol.lcletter li,
+ol li > ol.lcletter li,
+ol.number li > ol li > ol.lcletter li,
+ol.ucletter li > ol li > ol.lcletter li,
+ol.ucroman li > ol li > ol.lcletter li,
+ol.lcroman li > ol li > ol.lcletter li {
+	list-style-type: lower-alpha;
+}
+ol.ucroman,
+ol.ucroman li,
+ol li > ol.ucroman li,
+ol.number li > ol li > ol.ucroman li,
+ol.ucletter li > ol li > ol.ucroman li,
+ol.lcletter li > ol li > ol.ucroman li,
+ol.lcroman li > ol li > ol.ucroman li {
+	list-style-type: upper-roman;
+}
+ol.lcroman,
+ol.lcroman li,
+ol li > ol.lcroman li,
+ol li > ol li > ol.lcroman li {
+	list-style-type: lower-roman;
+}
+dl.norm dd {
+	margin-left: 40px;
+}
