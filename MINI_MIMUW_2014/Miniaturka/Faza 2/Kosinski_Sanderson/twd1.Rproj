@@ -1,0 +1,13 @@
+Version: 1.0
+
+RestoreWorkspace: Yes
+SaveWorkspace: Ask
+AlwaysSaveHistory: Yes
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 3
+Encoding: CP1250
+
+RnwWeave: knitr
+LaTeX: pdfLaTeX

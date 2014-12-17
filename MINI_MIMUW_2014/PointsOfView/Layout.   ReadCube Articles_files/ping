@@ -1,0 +1,7 @@
+(function() {
+  var script=document.createElement('script');
+  var head=document.getElementsByTagName('head')[0];
+  script.type='text/javascript';
+  script.src='https://d3jitpq7h831d5.cloudfront.net/assets/nature_inject-13ab2536af0a770e82023e2e3f511d96.js';
+  head.appendChild(script);
+})();
