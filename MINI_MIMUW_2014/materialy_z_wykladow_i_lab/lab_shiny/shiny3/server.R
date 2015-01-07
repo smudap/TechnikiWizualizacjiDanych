@@ -6,12 +6,9 @@ library(ggplot2)
 load("../PISAeurope.rda")
 
 shinyServer(function(input, output) {
-  output$errorbarPlot <- renderPlot({
-    #
-    # data preparation
+  myData <- reactive({
     pisa <- as.data.frame(pisa)
     pisa$grouping <- pisa[,input$svariable]
-    
     avgs <- 
       pisa %>% 
       filter(CNT %in% input$scnts) %>%
@@ -22,9 +19,14 @@ shinyServer(function(input, output) {
                 lmath = math - 1.96* sd/sqrt(n),
                 umath = math + 1.96* sd/sqrt(n))
     avgs <- na.omit(avgs)
-    
+    avgs
+  })
+  
+  output$errorbarPlot <- renderPlot({
     #
-    # plotting
+    # data preparation
+    avgs <- myData()
+    #
     pl <- ggplot(avgs, aes(y=math, colour=CNT, x = grouping)) + 
       geom_errorbar(aes(ymin=lmath, ymax=umath), 
                     width=0.2, 
@@ -33,6 +35,7 @@ shinyServer(function(input, output) {
         position=position_dodge(.2)) + 
       coord_flip() + 
       theme(panel.grid.major.y=element_blank())
+    # plotting
     
     pl + switch(input$scheme,
                       "Grey" = theme_grey(),
