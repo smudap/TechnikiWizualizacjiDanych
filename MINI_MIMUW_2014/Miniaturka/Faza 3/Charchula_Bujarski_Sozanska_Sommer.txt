@@ -1,12 +1,28 @@
 1. Czytelność wykresu (przy rozdzielczości 800x800)
 
+Wykres jest czytelny.
 
-2. Inżynierksa staranność w tworzeniu kodu R
+2. Inżynierska staranność w tworzeniu kodu R
 
+Nazewnictwo zmiennych: 
+	Argument o nazwie pel? Jak się domyślić co on znaczy?
+
+Parametry:
+	Więcej parametrów mogłoby być dostępnych przez nagłówek funkcji, np kolory słupków
+
+Zamiast jednej długiej funkcji możnaby wydzielić kilka mniejszych (podobnie jak wyciagnijmodel(), tyle że więcej)
+
+Dla modelu z samą średnią zdarzyło się 
+'Error in eval(expr, envir, enclos) : object 'variable' not found '
+
+Brak kodowania UTF-8
 
 3. Użyteczność / przydatność
 
-
+Minaturka jest dosyć przydatna, choć dwa usprawnienia zwiększyłyby BARDZO tę przydatność
+- inne metody wyboru zmiennych, raczej nie porównyje się wyników forward/backward AIC/BIC. 
+  przy małej liczbie zmiennych pełne przeszukiwanie byłoby znacznie lepszym rozwiazaniem
+- wybór R2 adjusted jest takim sobie wyborem (lepszym byłby błąd predykcji), ale najlepszym byłoby podanie jako argument funkcji oceniającej model. Wtedy każdy mó©by wybrać sobie też inną funkcję oceniającą niż adjusted R2.
 
 
 Punkty
