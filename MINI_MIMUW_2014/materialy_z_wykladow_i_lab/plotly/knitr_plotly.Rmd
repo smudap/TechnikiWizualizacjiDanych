@@ -41,7 +41,7 @@ g1
  
 ```{r, plotly=TRUE, message=FALSE, warning=FALSE}
 py <- plotly()
-py$ggplotly(g1, session="knitr", kwargs=list(filename="przezwalnosc_log",
+py$ggplotly(g1, session="knitr", kwargs=list(filename="przezwalnosc_log3",
                                              fileopt="overwrite"))
 ```
  
@@ -58,7 +58,7 @@ I wersja plotly
 
 ```{r, plotly=TRUE, message=FALSE, warning=FALSE}
 py <- plotly()
-py$ggplotly(g3, session="knitr", kwargs=list(filename="przezwalnosc_hist2",
+py$ggplotly(g3, session="knitr", kwargs=list(filename="przezwalnosc_hist3",
                                              fileopt="overwrite"))
 ```
  
@@ -81,7 +81,7 @@ I wersja plotly
 
 ```{r, plotly=TRUE, message=FALSE, warning=FALSE}
 py <- plotly()
-py$ggplotly(g4, session="knitr", kwargs=list(filename="oczekiwana_dlugosc_zycia",
+py$ggplotly(g4, session="knitr", kwargs=list(filename="oczekiwana_dlugosc_zycia3",
                                              fileopt="overwrite"))
 ```
  
