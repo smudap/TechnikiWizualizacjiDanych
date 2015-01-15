@@ -193,3 +193,11 @@ ggvis(df, ~zrodlo, ~liczba.odpowiedzi) %>%
 
 ```
 
+
+# Zadanie na zajęcia:
+
+- Nierówności w krajach (pomiędzy płciami, pomiędzy małymi / dużymi miastami, pomiędzy szkołami)
+- ESCS, edukacja PV1MATH, PV1READ, HISEI, CULTPOS
+
+W których krajach nierówności są duże a w których małe?
+
