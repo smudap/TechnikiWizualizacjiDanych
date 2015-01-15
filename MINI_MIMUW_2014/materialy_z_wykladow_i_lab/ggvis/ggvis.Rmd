@@ -40,8 +40,18 @@ avgs
 avgsGender <- pisa %>% 
     group_by(ST04Q01, CNT) %>% 
     summarise(math = weighted.mean(PV1MATH, W_FSTUWT, na.rm = TRUE),
-              read = weighted.mean(PV1READ, W_FSTUWT, na.rm = TRUE)) 
+              read = weighted.mean(PV1READ, W_FSTUWT, na.rm = TRUE)) %>%
+  mutate(nn = paste(CNT, ST04Q01, sep=" "))
 avgsGender
+
+avgsGender <- as.data.frame(avgsGender)
+avgsGender %>%
+  ggvis(y = ~math, x = ~nn, stroke=~CNT, fill=~ST04Q01) %>% 
+  layer_bars() %>%
+  add_axis("x", properties = axis_props(
+    labels = list(angle = 90, align = "left")
+  ) )
+
 
 ```
 
@@ -187,6 +197,13 @@ df <- data.frame(zrodlo = factor(x, levels=x), liczba.odpowiedzi = y, stringsAsF
 
 ggvis(df, ~zrodlo, ~liczba.odpowiedzi) %>%
   layer_bars(width = 0.75) %>%
+  add_axis("x", properties = axis_props(
+    grid = list(stroke = "white")
+  ))
+
+ggvis(df, ~zrodlo, ~liczba.odpowiedzi) %>%
+  layer_bars(width := 0.75) %>%
+  layer_bars(y=~liczba.odpowiedzi+1, width := 0.5, fill :='red') %>%
   add_axis("x", properties = axis_props(
     grid = list(stroke = "white")
   ))
