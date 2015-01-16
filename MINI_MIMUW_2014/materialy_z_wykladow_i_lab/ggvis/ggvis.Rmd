@@ -203,7 +203,7 @@ ggvis(df, ~zrodlo, ~liczba.odpowiedzi) %>%
 
 ggvis(df, ~zrodlo, ~liczba.odpowiedzi) %>%
   layer_bars(width := 0.75) %>%
-  layer_bars(y=~liczba.odpowiedzi+1, width := 0.5, fill :='red') %>%
+  layer_bars(y=~liczba.odpowiedzi-1, width := 0.5, fill :='red') %>%
   add_axis("x", properties = axis_props(
     grid = list(stroke = "white")
   ))
