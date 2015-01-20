@@ -66,6 +66,8 @@ library(ggvis)
 avgs %>%
   ggvis(x = ~math, y = ~read) %>%
   layer_points()
+
+ggplot(avgs, aes(math, read)) + geom_point()
 ```
 
 W ggvis można wykorzystywać operator `:=` (który istniał wcześniej w R, ale nie był wykorzystywany). Pozwala on na wskazanie cechy wykresu przez wartość.
