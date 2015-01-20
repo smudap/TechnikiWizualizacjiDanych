@@ -60,7 +60,7 @@ avgsGender %>%
 Geometrie w ggvis nazywa się warstwami (layers).
 
 Mapowania określa się poprzez formuły, warstwy dodaje się operatorem `%>%`.
-
+  
 ```{r fig.width=5, fig.height=5, warning=FALSE, message=FALSE}
 library(ggvis)
 avgs %>%
