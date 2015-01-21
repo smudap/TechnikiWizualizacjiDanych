@@ -61,7 +61,7 @@ Plan spotka&#324; MIM UW:
 * 16 XII - Prezentacja drugiej fazy projektu PISA
 * 13 I 
 * 20 I
-* 27 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM]
+* 22 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM, 22 to czwartek]
 
 
 Projekty:
@@ -87,8 +87,12 @@ Projekty realizowa&#263; nale&#380;y w grupach od 2 do 4 osób. Przeci&#281;cie 
 
 Kryteria oceny 3 fazy projektu PISA
 ===================================
+Na prezentację należy przynieść wydruk w formacie nie większym niż A3.
+Każda grupa będzie miała na prezentacje swojego projektu do 5 minut.
+
+Oceniane będą następujące kryteria.
 * Czy przedstawiane wykresy spójnie opisują jedną historię? [= czy wiadomo co przedstawiają, osie i wykresy są opisane, czy wykresy są powiązane tematycznie]
-* Czy historia jest dobrze przedstawiona? [=właściwy dobór geometrii do tematu, czytelne opisy, rozróżnialne kolory/kształty]
+* Czy historia jest dobrze przedstawiona? [= właściwy dobór geometrii do tematu, czytelne opisy, rozróżnialne kolory/kształty]
 * Czy historia jest wielowarstwowa/odpowiednio rozbudowana? [Historia, typu jaki jest średni wynik chłopców jest słaba bo sprowadza się do jednej liczby i nie ma zalet z graficznej prezentacji. Historia, której nie byłoby widać z surowych liczb ale widać ją na wykresach jest znacznie ciekawsza]
 
 
