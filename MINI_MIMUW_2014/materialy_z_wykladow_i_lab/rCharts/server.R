@@ -15,3 +15,10 @@ shinyServer(function(input, output, session) {
   })
 
 })
+
+# mmG$datyN <- as.numeric(factor(mmG$daty))
+# p1 <- nPlot(value ~ datyN, group = "variable", data = mmG, type = "lineWithFocusChart")
+# p1
+
+# p1 <- nPlot(value ~ datyN, group = "variable", data = mmG, type = "lineChart")
+# p1

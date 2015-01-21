@@ -61,7 +61,7 @@ Plan spotka&#324; MIM UW:
 * 16 XII - Prezentacja drugiej fazy projektu PISA
 * 13 I 
 * 20 I
-* 22 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM, 22 to czwartek, upewnić się, że 10-12 jest ok na prezentacje]
+* 22 I - Prezentacja trzeciej fazy projektu PISA [wspólnie MINI i MIM, 22 to czwartek]
 
 
 Projekty:
