@@ -27,8 +27,11 @@ Historia jest rozbudowana,
 jednak tytuł [czynniki środowiskowe] obiecuje więcej
 
 
+Graficznie najlepiej wygląda wykres w prawym górnym rogu.
+
+
 Punkty
-5/9 + 6/9 + 8/9 + 3 = 22
+6/9 + 6/9 + 8/9 + 3 = 23
 
 
 
