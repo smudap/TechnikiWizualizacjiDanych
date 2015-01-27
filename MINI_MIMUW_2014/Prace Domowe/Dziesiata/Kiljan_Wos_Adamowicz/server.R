@@ -5,6 +5,7 @@
 #install_github('slidifyLibraries', 'ramnathv', ref = 'dev') # optional
 require(devtools)
 require(shiny)
+require(dplyr)
 require(rCharts)
 
 
