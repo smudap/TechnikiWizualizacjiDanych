@@ -66,20 +66,21 @@ dane5$ODP <- reorder(dane5$ODP, -dane5$reorder)
 dane5$reorder <- NULL
 
 
-wykres <- ggplot(dane5, aes(x=CNT, y=liczba * 100, fill=ODP) ) +
+wykres <- ggplot(dane5, aes(x = CNT, y = liczba * 100, fill = ODP) ) +
   geom_bar(stat = "identity") + 
-  ggtitle("Mathematics is an important subject for me because I need it\n for what I want to study later on") +
+  ggtitle("Mathematics is an important subject for me because I need it for what I want to study later on") +
+  theme_solarized(light = FALSE) +
   scale_fill_brewer(name = "How strongly student agrees", palette = 5) +
-  scale_x_discrete(name= "") +
   scale_y_continuous(name = "Percents") +
   theme(
-    plot.title=element_text(face="bold",size=19),
-    axis.title=element_blank(),
-    axis.text.x  = element_text(hjust=0.8,size=16),
-    axis.text.y  = element_text(size=15),
-    axis.ticks = element_blank()
+    plot.title = element_text(face="bold",size=22),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(size = 18),
+    axis.text.x  = element_text(angle = 20, hjust=1.0,size=18),
+    axis.text.y  = element_text(size=18),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size=14),
+    legend.title = element_text(size=16)
   ) 
 
-wykres + theme_solarized(light = FALSE) 
- 
-
+wykres
