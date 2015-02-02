@@ -229,7 +229,7 @@ x = c(x, NA, w-0.05,w-0.05,w,w)
 y = c(y, NA, 0, h, h, 0)
 id=rep(0,length(x))
 
-#polki s¹ co 1 okolo
+#polki sÂ¹ co 1 okolo
 for (i in 1:(h-1)){
    x = c(x, NA, 0,0,w,w)
    y = c(y, NA, i, i+0.2, i+0.2, i)
@@ -337,10 +337,10 @@ w6<-p6+#scale_colour_gradient(low="antiquewhite",high="maroon4")+
 ###############################
 
 
-## prowizorycznie tytu³ ca³ej kartki
+## prowizorycznie tytuÂ³ caÂ³ej kartki
 w0<-ggplot(positions, aes(x=x, y=y)) + geom_blank()  +
    ggtitle("I love mathematics because I have to")+
-   scale_x_discrete(name="Marta Charchu³a & Emma Sanderson & Wiktor Ryciuk")+
+   scale_x_discrete(name="Marta CharchuÂ³a & Emma Sanderson & Wiktor Ryciuk")+
    theme(legend.position = "none",panel.background=element_blank(),
          plot.background = element_blank()
          ,panel.grid.major = element_blank()
@@ -405,3 +405,27 @@ print(w6, vp=viewport(x=0.89, y = 0.17,
          
 print(ww, vp=viewport(x=0.17, y = 0.17, 
                       width=0.2, height=0.33))
+
+
+# Kosinski
+
+daneMarcin <- dane4 %>% filter( ODP %in% c("Agree", "Strongly agree")) %>%
+    group_by( CNT ) %>% mutate( proc = sum(liczba) ) %>% mutate( odp_do_sum = liczba/proc ) %>% filter( ODP %in% "Agree") #%>% rbind(
+#      
+#      dane4 %>% filter( ODP %in% c("Disagree", "Strongly disagree")) %>%
+#        group_by( CNT ) %>% mutate( proc = sum(liczba) ) %>% filter( ODP %in% "Disagree")
+#      
+#      )
+ 
+ daneMarcin
+ 
+ wMarcin <- ggplot(daneMarcin, aes(x=proc, y=math, label=CNT))+
+   geom_smooth(col="red", method="lm")+
+   geom_point(size=10, aes(color=odp_do_sum))+xlab("Proportion of Students that Agree and Strongly Agree to all Students")+ylab("Mean Math Score in a Country")+
+   ggtitle("Mathematics is an important subject for me because  \n I need it for what I want to study later on")+
+   geom_text(aes(family="serif"), size=10, color="orange", hjust=c(0.5, 0.2,rep(0.5,2),1,rep(0.5,5)), vjust=1.4)+
+   theme_bw(base_family = "serif", base_size = 28 )+theme(legend.title = element_text(face = "italic"))+
+   scale_color_continuous(name="Agree to \n Agree +  \n Strongly Agree \n Proportion")
+   
+ wMarcin
+ 
