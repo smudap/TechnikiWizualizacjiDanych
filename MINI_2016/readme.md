@@ -8,5 +8,6 @@ Do omawiania na prezentacjach studentow: https://medium.com/@kennelliott/39-stud
 http://datavis.ca/papers/golden-STS268.pdf
 http://www.thefunctionalart.com/2016/06/there-is-no-perfect-visualization-but_14.html
 http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
+https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
 
 Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
