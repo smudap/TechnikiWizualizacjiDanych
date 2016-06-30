@@ -11,4 +11,7 @@ http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
 https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
 http://www.thefunctionalart.com/2016/06/diverging-color-schemes-showing-good_26.html
 
+Nowinki:
+https://github.com/rstats-gsoc/gsoc2016/wiki/ggduo:-pairs-plots-for-multiple-regression,-cca,-time-series
+
 Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
