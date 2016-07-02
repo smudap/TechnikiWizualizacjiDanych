@@ -15,3 +15,6 @@ Nowinki:
 https://github.com/rstats-gsoc/gsoc2016/wiki/ggduo:-pairs-plots-for-multiple-regression,-cca,-time-series
 
 Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
+
+
+Atlas x2
