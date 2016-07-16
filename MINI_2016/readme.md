@@ -20,3 +20,16 @@ Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i sta
 
 
 Atlas x2
+
+## Prace Domowe:
+
+W gazecie lub portalu informacyjnym znajdź artykuł z obecnego tygodnia w którym pojawia się jakiś wykres lub dane.
+Następnie przedstaw te dane z użyciem narzędzi, o których mówiliśmy w ostantim tygodniu.
+Zasady punktowania: 
+
+- 0% jeżeli ktoś inny juz te dane przedstawił w lepszy sposób (liczy się data zgłoszenia)
+- 50% jeżeli dane są przedstawione graficznie
+- 100% jeżeli dane są przedstawione lepiej niż w źródle
+- 200% jeżeli jest to porywające przedstawienie złożonych danych
+
+
