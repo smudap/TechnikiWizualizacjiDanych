@@ -10,6 +10,7 @@ http://www.thefunctionalart.com/2016/06/there-is-no-perfect-visualization-but_14
 http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
 https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
 http://www.thefunctionalart.com/2016/06/diverging-color-schemes-showing-good_26.html
+http://rpubs.com/hrbrmstr/taucharts biblioteka TauCharts
 
 Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
 
