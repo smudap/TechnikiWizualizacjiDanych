@@ -15,6 +15,9 @@ biblioetki do html widgets (fo Michała)
 https://github.com/rich-iannone/DiagrammeR
 https://github.com/bokeh/rbokeh - większe możliwści niż ggvis
 
+Nierówności dochodów 10 decyli
+http://www.r-bloggers.com/showing-a-distribution-over-time-how-many-summary-stats/
+
 
 Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
 
