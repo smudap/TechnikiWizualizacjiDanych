@@ -42,3 +42,5 @@ Inne pomysły:
 wyjść z ekranu, pracować z drukarką 3d lub z pudełkiem plasteliny.
 Jak mając plastelinę pokazać dane?
 
+Model mentalny w projektowaniu wykresów, jakie analaogie z fizycznością, jak je wykorzytać
+http://karolwolski.pl/co-siedzi-w-glowach-uzytkownikow-czyli-modele-mentalne-w-projektowaniu-stron-www-i-nie-tylko/
