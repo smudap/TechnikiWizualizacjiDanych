@@ -11,6 +11,10 @@ http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
 https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
 http://www.thefunctionalart.com/2016/06/diverging-color-schemes-showing-good_26.html
 http://rpubs.com/hrbrmstr/taucharts biblioteka TauCharts
+biblioetki do html widgets (fo Michała)
+https://github.com/rich-iannone/DiagrammeR
+https://github.com/bokeh/rbokeh - większe możliwści niż ggvis
+
 
 Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
 
