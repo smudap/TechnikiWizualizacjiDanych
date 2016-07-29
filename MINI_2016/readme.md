@@ -38,3 +38,7 @@ Zasady punktowania:
 - 200% jeżeli jest to porywające przedstawienie złożonych danych
 
 
+Inne pomysły:
+wyjść z ekranu, pracować z drukarką 3d lub z pudełkiem plasteliny.
+Jak mając plastelinę pokazać dane?
+
