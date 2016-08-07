@@ -1,5 +1,8 @@
 Zanim zaczniemy tworzyć grafikę, napierw pobawimy się w odtwarzanie istenijącej
-http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=
+I przykład negatywny 
+http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html
+
 
 Pomysły na projekty:
 
