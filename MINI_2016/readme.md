@@ -7,6 +7,7 @@ http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html
 Pomysły na projekty:
 
 Analiza czynników rokowniczych dla największych nowotworów z TCGA [to może być super]
+Wizualizacja rekordów olimpijskich (np. rzut młotem). Kiedyś to świetnie zrobiono na przykładzie biegów na 100m (NYT?)
 
 Wyjaśnienie komitetów drzew
 
