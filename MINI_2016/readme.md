@@ -23,6 +23,7 @@ https://github.com/rich-iannone/DiagrammeR
 https://github.com/bokeh/rbokeh - większe możliwści niż ggvis
 https://mapy.geoportal.gov.pl/iMapLite/KMZBPublic.html Krajowa Mapa Zarożeń Bezpieczeństwa
 https://drsimonj.svbtle.com/visualising-residuals - Ciekawy link o wizualizacji reszt
+http://www.datavizcatalogue.com/methods/candlestick_chart.html
 
 Nierówności dochodów 10 decyli
 http://www.r-bloggers.com/showing-a-distribution-over-time-how-many-summary-stats/
