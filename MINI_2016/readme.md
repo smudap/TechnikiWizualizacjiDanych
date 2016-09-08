@@ -3,7 +3,7 @@ http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42
 I przykład negatywny 
 http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html
 w tematach sportowo olimpijskich http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/
-
+Datasaurus - always visualize your data http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
 
 Pomysły na projekty:
 
