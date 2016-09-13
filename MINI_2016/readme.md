@@ -1,8 +1,10 @@
-Grupa Alfa - poniedziełki 8-12
-Grupa Beta - piątki 12-16
+# Spotkania
+
+* Grupa Alfa - poniedziełki 8-12
+* Grupa Beta - piątki 12-16
 
 
-
+# Tematy
 
 
 Zanim zaczniemy tworzyć grafikę, napierw pobawimy się w odtwarzanie istenijącej
