@@ -1,6 +1,6 @@
 # Spotkania
 
-* Grupa Alfa - poniedziełki 8-12
+* Grupa Alfa - poniedziałki 8-12
 * Grupa Beta - piątki 12-16
 
 
