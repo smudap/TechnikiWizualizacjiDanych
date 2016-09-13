@@ -1,3 +1,10 @@
+Grupa Alfa - poniedziełki 8-12
+Grupa Beta - piątki 12-16
+
+
+
+
+
 Zanim zaczniemy tworzyć grafikę, napierw pobawimy się w odtwarzanie istenijącej
 http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=
 I przykład negatywny 
