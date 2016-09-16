@@ -1,3 +1,13 @@
+# Techniki Wizualizacji Danych
+
+Przemysław Biecek
+MINI 2016/2017
+
+# Motto
+
+Datasaurus - always visualize your data 
+http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
+
 # Terminy spotkań
 
 * Grupa Alfa - poniedziałki 8-12
@@ -40,20 +50,22 @@ Zaliczenie jest oparte o trzy składowe:
 
 Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa ocena.
 
+# Projekty
 
-Zanim zaczniemy tworzyć grafikę, najpierw pobawimy się w odtwarzanie istniejącej
-http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=
-I przykład negatywny 
-http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html
-w tematach sportowo olimpijskich http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/
-Datasaurus - always visualize your data http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
-Wizualizacja rekordów olimpijskich (np. rzut młotem). Kiedyś to świetnie zrobiono na przykładzie biegów na 100m (NYT?)
+Projekty można realizować w zespołach 2-3 osobowych. 
+Dane do projektu, tematyka szczegółowa i realizacja jest zupełnie dowolna. 
+
+W projekcie oceniane będą trzy aspekty:
+
+* Poprawność prezentacji. Jeżeli prezentacja jest nieestetyczna, nieczytelna lub przekłamująca dane to źle, jeżeli jest estetyczna, czytelna i pozwala na szybkie odczytanie informacji to dobrze.
+* Złożoność danych. Jeżeli zaprezentowana jest jedna tabela liczb którą można pobrać z wikipedii w 5 minut to źle, jeżeli przedstawiono złożone powiązane z sobą dane, tworzone złożoną i uzupełniającą się historię to dobrze.
+* Innowacyjność. Jeżeli zaprezentowano dane za pomocą standardowych narzędzi bez wnikania w specyfikę prezentowanej historii to źle, jeżeli  zaprezentowane dane w sposób pomysłowy, odsłaniający ciekawe aspekty tych danych, sposób nieoczywisty to dobrze.
 
 Pomysły na projekty:
 
-1. Analiza głosowań posłów w Sejmie / stenogramów
-2. Sukcesy Sportowe Polski - 
-3. PISA
+1. Analiza głosowań posłów w Sejmie / stenogramów, []
+2. Sukcesy Sportowe Polski - Olimpiada, Piłka nożna, Rekordy [1](http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=), [2](http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/), [3](http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html)
+3. PISA - 
 
 
 # Prezentacje studentów
