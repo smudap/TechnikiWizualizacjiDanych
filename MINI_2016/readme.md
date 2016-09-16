@@ -63,9 +63,9 @@ W projekcie oceniane będą trzy aspekty:
 
 Pomysły na projekty:
 
-1. Analiza głosowań posłów w Sejmie / stenogramów, []
+1. Analiza głosowań posłów w Sejmie / stenogramów [https://github.com/mi2-warsaw/sejmRP]
 2. Sukcesy Sportowe Polski - Olimpiada, Piłka nożna, Rekordy [1](http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=), [2](http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/), [3](http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html)
-3. PISA - 
+3. PISA - dane będą dostępne od 6 grudnia [https://www.oecd.org/pisa/]
 
 
 # Prezentacje studentów
