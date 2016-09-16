@@ -8,26 +8,26 @@
 
 
 
-Blok 1 - grafika statyczna
+Blok 1 - Grafika statyczna
 
 * [1] W: [Wprowadzenie do gramatyki grafiki](http://biecek.pl/Eseje/indexGramatyka.html); L: ggplot2 - pierwsza krew
 * [2] W: [Gramatyka grafiki część 2](http://biecek.pl/Eseje/indexGramatyka.html); L: ggplot2 - skale, statystyki, koordynaty.
-* [3] W: Prezentacja projektu 1/1; L: 
+* [3] W: Prezentacja projektu 1/1; L: Prototypowanie wykresu, unplugged (kartki+kredki)
 * [4] W: [Nie rób tego w domu](http://biecek.pl/Eseje/indexPomylka.html); L: [Pracujemy z danymi z NSP 2011](http://stat.gov.pl/spisy-powszechne/nsp-2011/nsp-2011-wyniki/)
 * [5] W: Prezentacja projektu 1/2; L: BrainStorming
 
-Blok 2 - grafika interaktywna
+Blok 2 - Grafika interaktywna / internetowa
 
-* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: plotly
-* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: RBokeh
-* [8] W: Prezentacja projektu 2/1; 
-* [9] ggvis
+* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [plotly](https://plot.ly/r/getting-started/)
+* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [RBokeh](http://hafen.github.io/rbokeh/#preview)
+* [8] W: Prezentacja projektu 2/1; L: [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html)
+* [9] W: Prezentacje stdudentów (tematy poniżej); L: [ggvis+shiny](http://ggvis.rstudio.com/interactivity.html)
 * [10] W: Prezentacja projektu 2/2; L: BrainStorming
 
-Blok 3 - grafika informatywna
+Blok 3 - Grafika informatywna
 
 * [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html)
-* [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html)
+* [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: [DiagrammeR](https://github.com/rich-iannone/DiagrammeR)
 * [13] W: Prezentacja projektu 3/1
 * [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html)
 * [15] W: Prezentacja projektu 3/2
@@ -53,23 +53,22 @@ Analiza głosowań posłów w Sejmie / stenogramów (michałków)
 
 Wyjaśnienie komitetów drzew
 
-Do omawiania na prezentacjach studentow: https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73#.3kne5zu36
-http://datavis.ca/papers/golden-STS268.pdf
-http://www.thefunctionalart.com/2016/06/there-is-no-perfect-visualization-but_14.html
-http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
-https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
-http://www.thefunctionalart.com/2016/06/diverging-color-schemes-showing-good_26.html
-http://rpubs.com/hrbrmstr/taucharts biblioteka TauCharts
-biblioetki do html widgets (fo Michała)
-https://github.com/rich-iannone/DiagrammeR
-https://github.com/bokeh/rbokeh - większe możliwści niż ggvis
+
+# Prezentacje studentów
+
+Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jeden z tematów poniżej, przeczytać, zrozumieć, przeczytać, przedstawić treści z tego artykułu w 5+5 min (5 minut na prezentacje i 5 minut na dyskusje).
+
+* https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73#.3kne5zu36
+* http://datavis.ca/papers/golden-STS268.pdf
+* http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
+* https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
+* (prezentacja powinna zawierać też wykonany wykres dla Polski) https://robertgrantstats.wordpress.com/2015/08/13/showing-a-distribution-over-time-how-many-summary-stats/
+
 https://mapy.geoportal.gov.pl/iMapLite/KMZBPublic.html Krajowa Mapa Zarożeń Bezpieczeństwa
 https://drsimonj.svbtle.com/visualising-residuals - Ciekawy link o wizualizacji reszt
 http://www.datavizcatalogue.com/methods/candlestick_chart.html
-https://www.r-bloggers.com/googlevis-0-6-1-on-cran/ - obowiązkowo o googlevis
 
-Nierówności dochodów 10 decyli
-http://www.r-bloggers.com/showing-a-distribution-over-time-how-many-summary-stats/
+
 
 
 Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
