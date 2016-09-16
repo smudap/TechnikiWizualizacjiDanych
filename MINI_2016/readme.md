@@ -27,10 +27,10 @@ Blok 2 - grafika interaktywna
 Blok 3 - grafika informatywna
 
 * [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html)
-* [12] 
-* [13] Prezentacja projektu 3/1
-* [14] 
-* [15] Prezentacja projektu 3/2
+* [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html)
+* [13] W: Prezentacja projektu 3/1
+* [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html)
+* [15] W: Prezentacja projektu 3/2
 
 
 # Zasady zaliczenia
@@ -100,3 +100,14 @@ Jak mając plastelinę pokazać dane?
 
 Model mentalny w projektowaniu wykresów, jakie analaogie z fizycznością, jak je wykorzytać
 http://karolwolski.pl/co-siedzi-w-glowach-uzytkownikow-czyli-modele-mentalne-w-projektowaniu-stron-www-i-nie-tylko/
+
+
+
+Literatura uzupełniająca:
+-------------------------
+* Nature Methods, Points of View http://clearscience.info/wp/?p=546
+* Blog o wizualizacji danych http://flowingdata.com/
+* Jak powstaje grafika w NYT http://kpq.github.io/chartsnthings/
+* Dokumentacja pakietu ggplot2 http://docs.ggplot2.org/current/
+* Cookbook for R http://www.cookbook-r.com/Graphs/
+* Materia&#322;y do nauki pakietu ggvis http://ggvis.rstudio.com/
