@@ -7,25 +7,26 @@
 # Tematy
 
 
+
 Blok 1 - grafika statyczna
 
-* [1] 
-* [2] 
-* [3] Prezentacja projektu 1/1
-* [4] 
-* [5] Prezentacja projektu 1/2
+* [1] W: [Wprowadzenie do gramatyki grafiki](http://biecek.pl/Eseje/indexGramatyka.html); L: ggplot2 - pierwsza krew
+* [2] W: [Gramatyka grafiki część 2](http://biecek.pl/Eseje/indexGramatyka.html); L: ggplot2 - skale, statystyki, koordynaty.
+* [3] W: Prezentacja projektu 1/1; L: 
+* [4] W: [Nie rób tego w domu](http://biecek.pl/Eseje/indexPomylka.html); L: [Pracujemy z danymi z NSP 2011](http://stat.gov.pl/spisy-powszechne/nsp-2011/nsp-2011-wyniki/)
+* [5] W: Prezentacja projektu 1/2; L: BrainStorming
 
 Blok 2 - grafika interaktywna
 
-* [6] 
-* [7] 
-* [8] Prezentacja projektu 2/1
-* [9] 
-* [10] Prezentacja projektu 2/2
+* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: plotly
+* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: RBokeh
+* [8] W: Prezentacja projektu 2/1; 
+* [9] ggvis
+* [10] W: Prezentacja projektu 2/2; L: BrainStorming
 
 Blok 3 - grafika informatywna
 
-* [11] 
+* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html)
 * [12] 
 * [13] Prezentacja projektu 3/1
 * [14] 
