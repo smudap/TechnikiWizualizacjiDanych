@@ -7,6 +7,36 @@
 # Tematy
 
 
+Blok 1 - grafika statyczna
+
+* [1] 
+* [2] 
+* [3] Prezentacja projektu 1/1
+* [4] 
+* [5] Prezentacja projektu 1/2
+
+Blok 2 - grafika interaktywna
+
+* [6] 
+* [7] 
+* [8] Prezentacja projektu 2/1
+* [9] 
+* [10] Prezentacja projektu 2/2
+
+Blok 3 - grafika informatywna
+
+* [11] 
+* [12] 
+* [13] Prezentacja projektu 3/1
+* [14] 
+* [15] Prezentacja projektu 3/2
+
+
+# Zasady zaliczenia
+
+
+
+
 Zanim zaczniemy tworzyć grafikę, napierw pobawimy się w odtwarzanie istenijącej
 http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=
 I przykład negatywny 
