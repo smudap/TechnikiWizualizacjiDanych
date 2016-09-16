@@ -52,7 +52,6 @@ PISA
 Wyjaśnienie komitetów drzew
 
 
-Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
 
 Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
 
@@ -96,6 +95,7 @@ Zasady punktowania:
 Literatura uzupełniająca:
 -------------------------
 * Nature Methods, Points of View http://clearscience.info/wp/?p=546
+* Antony Unwin, Graphical Data Analysis with R, https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
 * Blog o wizualizacji danych http://flowingdata.com/
 * Jak powstaje grafika w NYT http://kpq.github.io/chartsnthings/
 * Dokumentacja pakietu ggplot2 http://docs.ggplot2.org/current/
