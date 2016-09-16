@@ -58,26 +58,20 @@ Wyjaśnienie komitetów drzew
 
 Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jeden z tematów poniżej, przeczytać, zrozumieć, przeczytać, przedstawić treści z tego artykułu w 5+5 min (5 minut na prezentacje i 5 minut na dyskusje).
 
-* https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73#.3kne5zu36
-* http://datavis.ca/papers/golden-STS268.pdf
-* http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
-* https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
-* (prezentacja powinna zawierać też wykonany wykres dla Polski) https://robertgrantstats.wordpress.com/2015/08/13/showing-a-distribution-over-time-how-many-summary-stats/
-
-https://mapy.geoportal.gov.pl/iMapLite/KMZBPublic.html Krajowa Mapa Zarożeń Bezpieczeństwa
-https://drsimonj.svbtle.com/visualising-residuals - Ciekawy link o wizualizacji reszt
-http://www.datavizcatalogue.com/methods/candlestick_chart.html
-
+* Percepcja grafiki, https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73#.3kne5zu36
+* Kartogramy a Brexit, http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
+* Wizualizacja reszt, https://drsimonj.svbtle.com/visualising-residuals
+* Wykresy kołowe, https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results
+* Trendy w rozkładach, prezentacja powinna zawierać też wykonany wykres dla Polski, https://robertgrantstats.wordpress.com/2015/08/13/showing-a-distribution-over-time-how-many-summary-stats/
+* Wykresy świecowe, prezentacja powinna zawierać przykład dla WIG/WIG20 wykonany w R, http://www.datavizcatalogue.com/methods/candlestick_chart.html
+* Historia grafiki, http://datavis.ca/papers/golden-STS268.pdf
 
 
 
 Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
 
-Nowinki:
-https://github.com/rstats-gsoc/gsoc2016/wiki/ggduo:-pairs-plots-for-multiple-regression,-cca,-time-series
 
 Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
-
 
 Atlas x2
 
@@ -92,13 +86,6 @@ Zasady punktowania:
 - 100% jeżeli dane są przedstawione lepiej niż w źródle
 - 200% jeżeli jest to porywające przedstawienie złożonych danych
 
-
-Inne pomysły:
-wyjść z ekranu, pracować z drukarką 3d lub z pudełkiem plasteliny.
-Jak mając plastelinę pokazać dane?
-
-Model mentalny w projektowaniu wykresów, jakie analaogie z fizycznością, jak je wykorzytać
-http://karolwolski.pl/co-siedzi-w-glowach-uzytkownikow-czyli-modele-mentalne-w-projektowaniu-stron-www-i-nie-tylko/
 
 
 
