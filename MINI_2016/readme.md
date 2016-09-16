@@ -1,12 +1,9 @@
-# Spotkania
+# Terminy spotkań
 
 * Grupa Alfa - poniedziałki 8-12
 * Grupa Beta - piątki 12-16
 
-
-# Tematy
-
-
+# Tematy spotkań
 
 Blok 1 - Grafika statyczna
 
@@ -21,14 +18,14 @@ Blok 2 - Grafika interaktywna / internetowa
 * [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [plotly](https://plot.ly/r/getting-started/)
 * [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [RBokeh](http://hafen.github.io/rbokeh/#preview)
 * [8] W: Prezentacja projektu 2/1; L: [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html)
-* [9] W: Prezentacje stdudentów (tematy poniżej); L: [ggvis+shiny](http://ggvis.rstudio.com/interactivity.html)
+* [9] W: Prezentacje stdudentów (tematy poniżej); L: [rCharts](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/rCharts)
 * [10] W: Prezentacja projektu 2/2; L: BrainStorming
 
 Blok 3 - Grafika informatywna
 
 * [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html)
 * [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: [DiagrammeR](https://github.com/rich-iannone/DiagrammeR)
-* [13] W: Prezentacja projektu 3/1
+* [13] W: Prezentacja projektu 3/1; L: L: [ggvis+shiny](http://ggvis.rstudio.com/interactivity.html)
 * [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html)
 * [15] W: Prezentacja projektu 3/2
 
@@ -50,8 +47,16 @@ Pomysły na projekty:
 Analiza czynników rokowniczych dla największych nowotworów z TCGA [to może być super]
 Wizualizacja rekordów olimpijskich (np. rzut młotem). Kiedyś to świetnie zrobiono na przykładzie biegów na 100m (NYT?)
 Analiza głosowań posłów w Sejmie / stenogramów (michałków)
+PISA
 
 Wyjaśnienie komitetów drzew
+
+
+Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
+
+Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
+
+Atlas x2
 
 
 # Prezentacje studentów
@@ -65,27 +70,26 @@ Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jede
 * Trendy w rozkładach, prezentacja powinna zawierać też wykonany wykres dla Polski, https://robertgrantstats.wordpress.com/2015/08/13/showing-a-distribution-over-time-how-many-summary-stats/
 * Wykresy świecowe, prezentacja powinna zawierać przykład dla WIG/WIG20 wykonany w R, http://www.datavizcatalogue.com/methods/candlestick_chart.html
 * Historia grafiki, http://datavis.ca/papers/golden-STS268.pdf
+* Points of view, wybierz jeden z artykułów: https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/PointsOfView
 
 
+# Prace Domowe:
 
-Dobra książka: https://www.crcpress.com/downloads/K25332/Chapter_1.pdf
+Prace domowe należy zgłaszać przez GitHub. Można zgłosić tylko jedną prace domową w tygodniu, w przedziale od zajęć do zajęć. Prace nalezy wgrywać do katalogu MINI_2016/PraceDomowe/TydzienXX. W tym katalogu można umiścić plik lub katalog o nazwie zawierającej nazwisko autora pracy domowej.
 
-
-Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
-
-Atlas x2
-
-## Prace Domowe:
+Wszystkie prace domowe mają jeden temat:
 
 W gazecie lub portalu informacyjnym znajdź artykuł z obecnego tygodnia w którym pojawia się jakiś wykres lub dane.
 Następnie przedstaw te dane z użyciem narzędzi, o których mówiliśmy w ostantim tygodniu.
+
+Jako pracę wyślij link lub zdjęcie oryginalnej grafiki/tabeli oraz twoją propozycję.
+
 Zasady punktowania: 
 
-- 0% jeżeli ktoś inny juz te dane przedstawił w lepszy sposób (liczy się data zgłoszenia)
-- 50% jeżeli dane są przedstawione graficznie
-- 100% jeżeli dane są przedstawione lepiej niż w źródle
-- 200% jeżeli jest to porywające przedstawienie złożonych danych
-
+- 0% jeżeli ktoś inny juz te dane przedstawił w lepszy sposób (liczy się data zgłoszenia),
+- 50% jeżeli dane są przedstawione graficznie,
+- 100% jeżeli dane są przedstawione lepiej niż w źródle,
+- aż do 200% jeżeli jest to porywające przedstawienie złożonych danych.
 
 
 
@@ -96,4 +100,3 @@ Literatura uzupełniająca:
 * Jak powstaje grafika w NYT http://kpq.github.io/chartsnthings/
 * Dokumentacja pakietu ggplot2 http://docs.ggplot2.org/current/
 * Cookbook for R http://www.cookbook-r.com/Graphs/
-* Materia&#322;y do nauki pakietu ggvis http://ggvis.rstudio.com/
