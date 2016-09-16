@@ -15,18 +15,18 @@ Blok 1 - Grafika statyczna
 
 Blok 2 - Grafika interaktywna / internetowa
 
-* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [plotly](https://plot.ly/r/getting-started/)
+* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [plotly](https://plot.ly/r/getting-started/), [2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly)
 * [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [RBokeh](http://hafen.github.io/rbokeh/#preview)
 * [8] W: Prezentacja projektu 2/1; L: [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html)
-* [9] W: Prezentacje stdudentów (tematy poniżej); L: [rCharts](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/rCharts)
+* [9] W: Prezentacje studentów (tematy poniżej); L: [rCharts](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/rCharts)
 * [10] W: Prezentacja projektu 2/2; L: BrainStorming
 
 Blok 3 - Grafika informatywna
 
-* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html)
+* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: 
 * [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: [DiagrammeR](https://github.com/rich-iannone/DiagrammeR)
 * [13] W: Prezentacja projektu 3/1; L: L: [ggvis+shiny](http://ggvis.rstudio.com/interactivity.html)
-* [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html)
+* [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy)
 * [15] W: Prezentacja projektu 3/2
 
 
@@ -35,7 +35,7 @@ Blok 3 - Grafika informatywna
 
 
 
-Zanim zaczniemy tworzyć grafikę, napierw pobawimy się w odtwarzanie istenijącej
+Zanim zaczniemy tworzyć grafikę, najpierw pobawimy się w odtwarzanie istniejącej
 http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=
 I przykład negatywny 
 http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html
@@ -75,18 +75,18 @@ Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jede
 
 # Prace Domowe:
 
-Prace domowe należy zgłaszać przez GitHub. Można zgłosić tylko jedną prace domową w tygodniu, w przedziale od zajęć do zajęć. Prace nalezy wgrywać do katalogu MINI_2016/PraceDomowe/TydzienXX. W tym katalogu można umiścić plik lub katalog o nazwie zawierającej nazwisko autora pracy domowej.
+Prace domowe należy zgłaszać przez GitHub. Można zgłosić tylko jedną prace domową w tygodniu, w przedziale od zajęć do zajęć. Prace należy wgrywać do katalogu MINI_2016/PraceDomowe/TydzienXX. W tym katalogu można umieścić plik lub katalog o nazwie zawierającej nazwisko autora pracy domowej.
 
 Wszystkie prace domowe mają jeden temat:
 
 W gazecie lub portalu informacyjnym znajdź artykuł z obecnego tygodnia w którym pojawia się jakiś wykres lub dane.
-Następnie przedstaw te dane z użyciem narzędzi, o których mówiliśmy w ostantim tygodniu.
+Następnie przedstaw te dane z użyciem narzędzi, o których mówiliśmy w ostatnim tygodniu.
 
 Jako pracę wyślij link lub zdjęcie oryginalnej grafiki/tabeli oraz twoją propozycję.
 
 Zasady punktowania: 
 
-- 0% jeżeli ktoś inny juz te dane przedstawił w lepszy sposób (liczy się data zgłoszenia),
+- 0% jeżeli ktoś inny już te dane przedstawił w lepszy sposób (liczy się data zgłoszenia),
 - 50% jeżeli dane są przedstawione graficznie,
 - 100% jeżeli dane są przedstawione lepiej niż w źródle,
 - aż do 200% jeżeli jest to porywające przedstawienie złożonych danych.
@@ -100,3 +100,4 @@ Literatura uzupełniająca:
 * Jak powstaje grafika w NYT http://kpq.github.io/chartsnthings/
 * Dokumentacja pakietu ggplot2 http://docs.ggplot2.org/current/
 * Cookbook for R http://www.cookbook-r.com/Graphs/
+
