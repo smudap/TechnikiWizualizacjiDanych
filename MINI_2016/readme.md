@@ -8,7 +8,7 @@
 Blok 1 - Grafika statyczna
 
 * [1] W: [Wprowadzenie do gramatyki grafiki](http://biecek.pl/Eseje/indexGramatyka.html); L: ggplot2 - pierwsza krew
-* [2] W: [Gramatyka grafiki część 2](http://biecek.pl/Eseje/indexGramatyka.html); L: ggplot2 - skale, statystyki, koordynaty.
+* [2] W: [Gramatyka grafiki część 2](http://biecek.pl/Eseje/indexGramatyka.html), [Standardy w komunikacji](http://www.ibcs-a.org/); L: ggplot2 - skale, statystyki, koordynaty.
 * [3] W: Prezentacja projektu 1/1; L: Prototypowanie wykresu, unplugged (kartki+kredki)
 * [4] W: [Nie rób tego w domu](http://biecek.pl/Eseje/indexPomylka.html); L: [Pracujemy z danymi z NSP 2011](http://stat.gov.pl/spisy-powszechne/nsp-2011/nsp-2011-wyniki/)
 * [5] W: Prezentacja projektu 1/2; L: BrainStorming
@@ -32,7 +32,13 @@ Blok 3 - Grafika informatywna
 
 # Zasady zaliczenia
 
+Zaliczenie jest oparte o trzy składowe:
 
+* Punkty z projektów. Będą trzy projekty, w każdym projekcie punktowana jest końcowa prezentacja w skali 0-100. 
+* Punkty z prac domowych. Prace domowe nie są obowiązkowe. Prace można zgłaszać raz na tydzień (patrz zasady poniżej). Każda praca jest oceniana w skali 0-10.
+* Punkty z prezentacji wybranego tematu. Prezentacja oceniona w skali 0-25.
+
+Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa ocena.
 
 
 Zanim zaczniemy tworzyć grafikę, najpierw pobawimy się w odtwarzanie istniejącej
@@ -41,21 +47,13 @@ I przykład negatywny
 http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html
 w tematach sportowo olimpijskich http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/
 Datasaurus - always visualize your data http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
+Wizualizacja rekordów olimpijskich (np. rzut młotem). Kiedyś to świetnie zrobiono na przykładzie biegów na 100m (NYT?)
 
 Pomysły na projekty:
 
-Analiza czynników rokowniczych dla największych nowotworów z TCGA [to może być super]
-Wizualizacja rekordów olimpijskich (np. rzut młotem). Kiedyś to świetnie zrobiono na przykładzie biegów na 100m (NYT?)
-Analiza głosowań posłów w Sejmie / stenogramów (michałków)
-PISA
-
-Wyjaśnienie komitetów drzew
-
-
-
-Drugi projekt, jeżeli grupa będzie ok, można poprowadzić w temacie sex i statystyka (statystyki małżeństw, zdrad itp co może być interesujące do przedstawienia graficznego)
-
-Atlas x2
+1. Analiza głosowań posłów w Sejmie / stenogramów
+2. Sukcesy Sportowe Polski - 
+3. PISA
 
 
 # Prezentacje studentów
