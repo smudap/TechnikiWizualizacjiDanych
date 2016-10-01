@@ -55,6 +55,8 @@ Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa oce
 Projekty można realizować w zespołach 2-3 osobowych. 
 Dane do projektu, tematyka szczegółowa i realizacja jest zupełnie dowolna. 
 
+Każdy projekt należy realizować w innym zespole. Nie można na dwch projektach robić ten sam temat.
+
 W projekcie oceniane będą trzy aspekty:
 
 * Poprawność prezentacji. Jeżeli prezentacja jest nieestetyczna, nieczytelna lub przekłamująca dane to źle, jeżeli jest estetyczna, czytelna i pozwala na szybkie odczytanie informacji to dobrze.
@@ -63,10 +65,10 @@ W projekcie oceniane będą trzy aspekty:
 
 Pomysły na projekty:
 
-1. Analiza głosowań posłów w Sejmie / stenogramów [https://github.com/mi2-warsaw/sejmRP]; Wykorzystać można dane o głosowaniach lub dane o wypowiedziach posłów. Wybrać można konkretny temat (głosowania o edukacji, zdrowiu) lub szukać i pokazywać ogólne trendy. Można zpbaczyć jak głosują liderzy klubów, lub czy są duże różnice w głosowaniach. Można sprawdzić jak posłowie przechodzą pomiędzy klubami. [http://blog-n.mamprawowiedziec.pl/files/images/pazdziernik_2015/przeplywy-tekst.jpg](przyklad 0). Warto poszukać w jaki sposób przedstawiają takie dane zachodnie media UK/USA. [http://smarterpoland.pl/wp-content/uploads/2016/02/Screen-Shot-2016-02-23-at-09.57.04.png](przykład 1), [https://rawgit.com/mi2-warsaw/sejmRP/master/UseCase/LiczbaWypowiedzi.html](przykład 2)
-2. Sukcesy Sportowe Polski - Można wykorzystać dane z olimpiad, można wykorzystać dane o pozycji klubu lub kraju w piłkce nożnej, Informacje o tym jak pokazywać rekordy sportowców. Jako motywatory można zobaczyć [1](http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=), [2](http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/), [3](http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html)
-3. PISA - dane będą dostępne od 6 grudnia [https://www.oecd.org/pisa/]
-4. Przeżycia dla danych TCGA, na bazie pakietu RTCGA.clinical [http://RTCGA.github.io/RTCGA/]
+1. Analiza głosowań posłów w Sejmie / stenogramów [https://github.com/mi2-warsaw/sejmRP]; Wykorzystać można dane o głosowaniach lub dane o wypowiedziach posłów. Wybrać można konkretny temat (głosowania o edukacji, zdrowiu) lub szukać i pokazywać ogólne trendy. Można zobaczyć jak głosują liderzy klubów, lub czy są duże różnice w głosowaniach. Można sprawdzić jak posłowie przechodzą pomiędzy klubami. [http://blog-n.mamprawowiedziec.pl/files/images/pazdziernik_2015/przeplywy-tekst.jpg](przykład 0). Warto poszukać w jaki sposób przedstawiają takie dane zachodnie media UK/USA. [http://smarterpoland.pl/wp-content/uploads/2016/02/Screen-Shot-2016-02-23-at-09.57.04.png](przykład 1), [https://rawgit.com/mi2-warsaw/sejmRP/master/UseCase/LiczbaWypowiedzi.html](przykład 2)
+2. Sukcesy Sportowe Polski - Można wykorzystać dane z olimpiad, można wykorzystać dane o pozycji klubu lub kraju w piłce nożnej, Informacje o tym jak pokazywać rekordy sportowców. Jako motywatory można zobaczyć [1](http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=), [2](http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/), [3](http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html)
+3. PISA, informacje o wynikach 15-letnich uczniów w różnych krajach. Temat do prezentacji: strategie realizacji testu, segmentacja, podobieństwa w różnych krajach. Dane z PISA 2015 zawierają informację jak długo trwało rozwiązywanie każdego zadania i ile wymagało interakcji z zadaniem (zadania są na komputerze). Dane będą dostępne od 6 grudnia [https://www.oecd.org/pisa/], PISA ma 4-letni cykl, dobre wizualizacje tych danych będą interesujące dla bardzo szerokiego grona odbiorców.
+4. Przeżycia dla danych TCGA, na bazie pakietu RTCGA.clinical [http://RTCGA.github.io/RTCGA/]. W tym pakiecie znajdują się informacje o przeżyciach dla wielu różnych nowotworów, dla różnych grup zaawansowania nowotworu itp. Takie dane są ciekawe dla wielu osób, które mierzą się z chorobą. Dobra prezentacja danych może być bardzo użyteczna.
 
 
 # Prezentacje studentów
