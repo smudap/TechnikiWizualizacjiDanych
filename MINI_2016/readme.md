@@ -57,7 +57,7 @@ Dane do projektu, tematyka szczegółowa i realizacja jest zupełnie dowolna.
 
 Każdy projekt należy realizować w innym zespole. Nie można na dwch projektach robić ten sam temat.
 
-W projekcie oceniane będą trzy aspekty:
+W projekcie oceniane będą trzy aspekty, każde w skali 0-30 pkt, plus 0-10 pkt uwzględniających nieprzewidziane czynniki, które warto punktować:
 
 * Poprawność prezentacji. Jeżeli prezentacja jest nieestetyczna, nieczytelna lub przekłamująca dane to źle, jeżeli jest estetyczna, czytelna i pozwala na szybkie odczytanie informacji to dobrze.
 * Złożoność danych. Jeżeli zaprezentowana jest jedna tabela liczb którą można pobrać z wikipedii w 5 minut to źle, jeżeli przedstawiono złożone powiązane z sobą dane, tworzone złożoną i uzupełniającą się historię to dobrze.
