@@ -8,6 +8,10 @@ MINI 2016/2017
 Datasaurus - always visualize your data 
 http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
 
+# Ankieta na start
+
+https://goo.gl/forms/Dlz9HaV9DqrWLcds1
+
 # Terminy spotkań
 
 * Grupa Alfa - poniedziałki 8-12
