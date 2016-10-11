@@ -30,7 +30,7 @@ Blok 1 - Grafika statyczna
 Blok 2 - Grafika interaktywna / internetowa
 
 * [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [plotly](https://plot.ly/r/getting-started/), [2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly)
-* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [RBokeh](http://hafen.github.io/rbokeh/#preview)
+* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [RBokeh](http://hafen.github.io/rbokeh/#preview) / [ggiraph](https://github.com/davidgohel/ggiraph)
 * [8] W: Prezentacja projektu 2/1; L: [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html)
 * [9] W: Prezentacje studentów (tematy poniżej); L: [rCharts](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/rCharts)
 * [10] W: Prezentacja projektu 2/2; L: BrainStorming
