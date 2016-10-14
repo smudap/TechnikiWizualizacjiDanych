@@ -1,0 +1,63 @@
+---
+title: "Praca domowa nr 1"
+author: "Ewa Baranowska"
+date: "14 października 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Artykuł, który mnie zainteresował pochodzi z gazety "Rzeczpospolita" z dnia 7 października 2016 i nosi tytuł: "Śledczy w Polsce mają się dobrze". 
+
+![Analizowany artykuł](artykul.jpg)
+
+W artykule zamieszczono tabelkę z danymi dotyczącymi efektywności prokuratorów w 14 europejskich krajach. Z tabelki jednak niekoniecznie można łatwo wyczytać, który kraj ma najmniejszą/największą liczbę prokuratorów czy spraw - dane nie są posortowane. Nie widać też od razu czy istnieją pewne zgrupowania w danych i zależność między obiema zmiennymi i jak Polska wypada na tle pozostałych krajów. Nie zamieszczono też bezpośredniej statystyki dotyczącej tytułu tabeli, tj. efektywności prokuratorów. Widoczne za to są dokładne liczby spraw i śledczych związane z konkretnymi krajami.
+
+Aby przedstawić te dane w bardziej czytelny sposób wykorzystałam wykres punktowy. Na osi poziomej znajduje się liczba prokuratorów na 100 tys. mieszkańców, na pionowej liczba spraw na 100 mieszkańców. Naniesione na wykres punkty podpisałam nazwą kraju i ilością spraw przypadających na jednego prokuratora, a do wykresu dodałam nierzucający się mocno w oczy trend. 
+
+Aby zachować możliwość sprawdzenia wielkości odpowiadających każdemu krajowi dodałam do wykresu siatkę wraz odpowiednimi etykietami osi (można odczytać przybliżone wielkości, a kolor siatki nie rzuca sie w oczy). 
+
+Wykres tego typu pozwala na łatwe zauważenie przestrzennych zależności w tych danych - widoczne są 2 skupiska danych - grupa z małą liczbą prokuratorów, ale dużą ilością spraw (kraje zachodnie) i grupa z dużą ilością prokuratorów, ale małą ilością spraw (kraje środkowo-wschodnie). Można też od razu ocenić jak na tym tle wypada Polska - zaznaczona jest wyróżniającym się kolorem. Wykres ten pozwala też na szybkie znalezienie krajów z maksymalnymi/minimalnymi wielkościami dla obu zmiennych - uporządkowanie osi pozwoliło na zwizualizowanie rankingów dla obu zmiennych. Dodanie trendu pozwala zauważyć, że te dane wskazują na malejącą zależność ilości spraw od liczby prokuratorów (poza wyjątkami - Litwa, Finlandia). 
+
+Tytuł wykresu, powtórzony za tytułem tabeli wskazuje, że jego celem jest przedstawienie danych dotyczących efektywności prokuratorów. Ten cel realizowany jest przez dodanie w nawiasach przy nazwie kraju miary tej efektywności (liczonej jako liczbę spraw przypadających na jednego prokuratora). To pozwala ocenić z czego wynika malejący trend ukazany na wykresie - kraje z mniejszą ilością spraw, ale większą ilością prokuratorów są mniej "efektywne" (w znaczeniu podanym wyżej).
+
+Zatem w mojej ocenie wykres lepiej przedstawił dane zawarte w artykule niż tabelka w nim zamieszczona.
+```{r}
+
+dane <- data.frame( kraje = c("Austria", "Belgia", "Bułgaria", "Finlandia", "Francja", "Niemcy", "Węgry", "Włochy", "Litwa", "Polska", "Rosja", "Słowacja", "Turcja", "Ukraina"),
+                    prok = c(4,7.6,20.4,6.6,2.8,6.5,19,3.4,24.6,15.3,23.4,17.5,6.8,30.6),
+                    sprawy = c(6.14,5.9,1.93,1.54,7.44, 5.66,1.85,5.45,3.54, 2.72,0.63,1.85,4.44,0.04))
+
+dane$czyPolska <- ifelse(dane$kraje == "Polska",1,0)
+dane <- dane[order(dane$prok),]
+dane$efektywnosc <- round(dane$sprawy*1000/dane$prok)
+dane$etykiety <- paste0(dane$kraje, " (",dane$efektywnosc, ") ")
+library(ggplot2)
+library(ggrepel)
+
+p <- ggplot(data=dane, aes(x=prok, y =sprawy)) + 
+   geom_smooth(se = F, colour="#15294b") + 
+   geom_point(aes(size=3, colour=factor(czyPolska))) + 
+   geom_text_repel(aes(label=etykiety, size=3), segment.color = NA ,
+                   point.padding = unit(0.8, 'lines'), colour=c(rep("#0093ac",7),"#f98500", rep("#0093ac",6))) + 
+   scale_x_continuous(name ="\nLiczba prokuratorów na 100 tys. mieszkańców", 
+                     breaks=c(0,5,10,15,20,25,30)) +
+   scale_y_continuous(name ="Liczba spraw na 100 mieszkańców\n", 
+                    breaks=c(0,1,2,3,4,5,6,7,8)) +
+   ggtitle("Efektywność prokuratorów w Europie\n") +
+   annotate("text", x = 25, y = 7.5, label = "(w nawiasach podano liczbę spraw \n przypadających na 1 prokuratora)", color="white")+
+   scale_color_manual(values=c("#0093ac", "#f98500")) +
+   theme(legend.position="none", panel.background=element_rect(fill="black"), panel.grid.minor=element_blank(),   panel.grid.major=element_line(color="gray10"), plot.background=element_rect(fill="black"),
+         axis.line.x=element_line(color="white"), axis.line.y=element_line(color="white"), 
+         plot.margin=unit(c(1.5,1.5,1.5,1.5),"cm"),
+         plot.title = element_text(size = 25, face = "bold", colour = "white"), 
+         axis.title= element_text(size = 12, face = "bold", colour="white"  ), 
+         axis.text = element_text(size=10, face="bold", colour="white"),
+         axis.ticks = element_line( colour="white"))
+```
+
+```{r,echo=F, out.width = '800px', out.height = '800px', fig.align='center', fig.width=10, fig.height=8}
+p
+```
