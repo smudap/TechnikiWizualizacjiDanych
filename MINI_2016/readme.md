@@ -120,3 +120,8 @@ Literatura uzupełniająca:
 * Dokumentacja pakietu ggplot2 http://docs.ggplot2.org/current/
 * Cookbook for R http://www.cookbook-r.com/Graphs/
 
+
+Luźne linki:
+------------
+* Tilegrams https://bhaskarvk.github.io/tilegramsR/vignettes/UsingTilegramsInR.html
+
