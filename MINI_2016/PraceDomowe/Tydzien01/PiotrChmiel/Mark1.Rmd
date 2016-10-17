@@ -1,0 +1,67 @@
+---
+title: "Praca Domowa 1 - Zaufanie do Polityków"
+author: "Piotr Chmiel"
+date: "9 października 2016"
+output: html_document
+---
+
+
+## Dane wejściowe:
+Dane zostały stworzone na podstawie artyukłu: <br/>
+http://dorzeczy.pl/id,11424/Prezydent-wciaz-liderem-rankingu-zaufania.html<br/>
+Na podstawie zaufania do polityków została dołożona kolumna informująca o braku zdania/nieufności do polityka. Dodatkowo każdemu politykowi została przypisana partia, do której należy.
+
+```{r}
+library(ggplot2)
+
+zaufanie = read.csv2("C:/Users/Piotr/Documents/Studia/TWD/PD/1/ZaufanieDoPolitykow.csv", sep=',', header=TRUE)
+head(zaufanie)
+
+zaufanie2 <- zaufanie
+zaufanie3 <- zaufanie
+
+
+
+
+```
+## Wykres prezentujący zaufanie do Polityków:
+
+```{r}
+zaufanie$Polityk <-factor(zaufanie$Polityk, levels=zaufanie[order(zaufanie$Ufa), "Polityk"])
+y <-ggplot(zaufanie, aes(x=Polityk, y=Ufa, fill=Partia)) + 
+  geom_bar(stat="identity") + 
+  coord_flip()
+y + labs(title = "Zaufanie do Polityków", y="Procent zaufania", x="Polityk") 
+
+```
+
+## Wykres prezentujący brak zaufania/brak zdania o Politykach:
+
+
+```{r}
+zaufanie2$Polityk <-factor(zaufanie$Polityk, levels=zaufanie[order(zaufanie$NieUfa), "Polityk"])
+
+y <-ggplot(zaufanie2, aes(x=Polityk, y=NieUfa, fill=Partia)) + 
+  geom_bar(stat="identity") + 
+  coord_flip()
+y + labs(title = "Nieufność/Brak zdania do Polityków", y="Procent nieufności", x="Polityk") 
+```
+
+## Wykres prezentujący ufność do Partii na podstawie zaufania do Polityków:
+
+
+```{r}
+zaufanie3 <- aggregate(as.numeric(levels(zaufanie$Ufa)[zaufanie$Ufa]), by=list(zaufanie3$Partia), FUN=mean)
+
+zaufanie3$Group.1 <-factor(zaufanie3$Group.1, levels=zaufanie3[order(zaufanie3$x), "Group.1"])
+
+y <-ggplot(zaufanie3, aes(x=Group.1, y=x, fill=Group.1)) + 
+  geom_bar(stat="identity") + 
+  coord_flip()
+y + labs(title = "Zaufanie do Partii na podstawie zaufania do Polityków", y="Procent zaufania", x="Partia") 
+```
+
+
+
+
+

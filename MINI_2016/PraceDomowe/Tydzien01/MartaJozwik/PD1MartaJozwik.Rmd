@@ -1,0 +1,37 @@
+---
+title: "PD1"
+author: "Marta JÛüwik"
+date: "13 paüdziernika 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r, echo=F}
+lata<-c("2010/11","2011/12","2012/13","2013/14","2014/15","2015/16","2016/17")
+minuty<-c(630,1,630,430,546,630,225)
+calosc<-rep(630,7)
+procenty<-round(minuty/calosc*100,2)
+Kluby<-c("Reims","Bordeaux","Reims","Reims","Sevilla","Sevilla","PSG")
+dane<-data.frame(lata,minuty,calosc,procenty,Kluby)
+library(ggplot2)
+
+```
+
+Znaleziony przeze mnie w "Przeglπdzie sportowym nr 239 z 12 paüdziernika" wykres przedstawia≥ iloúÊ minut spÍdzonych na boisku przez Krychowiaka w 7 sezonach jego gry w rÛønych klubach. Wydaje mi siÍ, øe na oryginalnym wykresie za ma≥o zauwaøalny na nim by≥ wp≥yw klubÛw w ktÛrych aktualnie gra≥ (a widaÊ øe czas jego gry w duøej mierze od nich zaleøy) i by≥o zbyt duøo informacji w 1 kolumnie. Kolory teø raczej rozprasza≥y zamiast przykuwaÊ uwagÍ do waøniejszych rzeczy. Wydaje siÍ teø, øe liczby minut nie trzeba pokazywaÊ ≥πcznie z procentami (za kaødym razem by≥o przecieø yle samo - 630 minut jako 100%). Do≥oøona prosta pokazuje, øe czas minut spÍdzonych na boisku zachowuje siÍ jak prosta sta≥a w czasie, czyli moøna zauwaøyÊ, øe istnieje ma≥a tendencja spadkowa.
+
+
+
+```{r, echo=FALSE}
+ggplot(dane, aes(x=lata, y=procenty)) +geom_bar(aes(fill=Kluby),stat="identity") + geom_smooth(aes(x=c(1:7),y=procenty),method="lm",se = FALSE)+
+   xlab("Sezon")+ylab("% min na boisku z 630 moøliwych do zagrania")+
+      ggtitle("Minuty Krychowiaka na boisku w siedmiu sezonach")+ geom_text(aes(label = procenty),position = position_dodge(0.9))+geom_text(aes(x=2,y=75,label = "tendencja"),position = position_dodge(0.9))
+
+```
+
+

@@ -1,0 +1,46 @@
+---
+title: "Praca domowa 1"
+author: "Paulina Kostrzewa"
+date: "8 paŸdziernika 2016"
+output: html_document
+---
+```{r, echo=FALSE}
+library(ggplot2)
+```
+Praca domowa dotyczy³a znaleŸnienia przyk³adu Ÿle zobrazowanych danych na podstawie artyku³ów w Internecie. Nastêpnie nale¿a³o zaproponowaæ w³asny sposób przedstawienia tych danych.
+
+Znaleziony przeze mnie artyku³, znajduje siê pod poni¿szym linkiem: <http://www.bankier.pl/wiadomosc/Raport-o-cenach-wynajmu-pazdziernik-2016-7480186.html>
+
+Jest to raport cen wynajmu mieszkañ przedstawiony za pomoc¹ tabeli, w której widnieje podzia³ na miasta, metra¿ mieszkania i trzy ró¿ne momenty, w czasie których porównywano ceny wynajmu mieszkañ. Znajduje siê tam równie¿ wyliczony procent z jakim cena wynajmu mieszkania zmieni³a siê w stosunku do poprzedniego miesi¹ca (lipiec i sierpieñ 2016) oraz w stosunku do poprzedniego roku (2015 i 2016). 
+
+Tabela zawiera bardzo du¿o informacji. Poni¿ej znajduje siê kilka pocz¹tkowych wierszy z tabeli:
+```{r, echo=FALSE}
+
+tabela<-read.csv(file="C:\\Users\\kp\\Desktop\\Techniki wizualizacji danych\\cenynieruch.csv", sep=';', dec=',')
+head(tabela)
+```
+
+Jednak, aby zauwa¿yæ zale¿noœci du¿o lepiej sprawdza siê wykres, na którym ³atwo porównaæ, w którym mieœcie najlepiej op³aca³oby siê wynaj¹æ interesuj¹ce nas mieszkanie.
+
+
+Postanowi³am skupiæ siê tylko na 2016 roku. W tym celu uœredni³am ceny wynajmu z lipca i sierpnia 2016r. i stworzy³am wykres, króry przyporz¹dkowuje miastom œrednie ceny wynajmu mieszkañ w zale¿noœci od metra¿u. 
+
+Do odczytania rozwi¹zania potrzeba jest zainstalowana biblioteka ggplot2.
+Poni¿ej znajduje siê kod, który tworzy wykres:
+
+```{r}
+
+tabela<-read.csv(file="C:\\Users\\kp\\Desktop\\Techniki wizualizacji danych\\cenynieruch.csv", sep=';', dec=',')
+
+ggplot(tabela, aes(x=Miasto, y=œrednia_cena_2016,color=Metraz))+  
+   geom_area(aes(fill = Metraz), size=6)
+
+
+```
+
+
+Z wykresu ³atwo zauwa¿yæ, ¿e cena za wynajem najmniejszej opcji metra¿owej jest najtañsza w £odzi, Bydgoszczy i Poznaniu, a najdro¿sza w Warszawie. Co do œredniej wielkoœci metra¿u, najtaniej jest w Bydgoszczy i £odzi, a najdro¿ej w Warszawie. Natomiast wynajem mieszkania o du¿ym metra¿u jest najtañszy w Bydgoszczy, a najdro¿szy znowu w Warszawie.
+Podsumowuj¹c najtansze wynajmy mieszkañ s¹ w Bydgoszczy, £odzi, a najdro¿sze w Warszawie.
+
+W celu uzyskania dok³adnych porównañ mo¿na teraz pos³u¿yæ siê tabel¹.
+
