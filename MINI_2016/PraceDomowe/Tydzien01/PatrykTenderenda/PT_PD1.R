@@ -32,7 +32,10 @@ ggplot(dane, aes(x = miasto)) +
   geom_text(aes(x=miasto, y=wartość, ymax=wartość, label=wartość, 
                 hjust=ifelse(sign(wartość)>0, 1, 0))) + 
   coord_flip() +
-  scale_fill_manual(values=c("lightblue", "orange1", "lightcoral", "forestgreen"), name = "Klasa indeksu") +
+  scale_fill_manual(
+                values=c("lightblue", "orange1", "lightcoral", "forestgreen"), 
+                name = "Klasa indeksu",
+                breaks= c("niedowartościowanie", "wartość prawidłowa", 'przewartościowanie', "ryzyko bańki")) +
   geom_hline(aes(yintercept = 1.5), col="lightcoral") + 
   geom_hline(aes(yintercept = 0.5), col="orange1") + 
   geom_hline(aes(yintercept = -0.5), col="forestgreen") + 
