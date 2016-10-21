@@ -8,9 +8,11 @@ MINI 2016/2017
 Datasaurus - always visualize your data 
 http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
 
-# Ankieta na start
+# Aktualna punktacja
 
-https://goo.gl/forms/Dlz9HaV9DqrWLcds1
+[Link](https://docs.google.com/spreadsheets/d/1zBSP7joQIwaVi6wa4u-K5EkgHaKOYD404hX0vFSx88s/edit?usp=sharing)
+
+Prace domowe należy zgłaszać przez GitHub. [Instrukcja jak korzystać](http://pbiecek.github.io/Przewodnik/Programowanie/jak_korzystac_z_serwisu_github_i_waffle.html)
 
 # Terminy spotkań
 
@@ -67,11 +69,13 @@ W projekcie oceniane będą trzy aspekty, każde w skali 0-30 pkt, plus 0-10 pkt
 * Złożoność danych. Jeżeli zaprezentowana jest jedna tabela liczb którą można pobrać z wikipedii w 5 minut to źle, jeżeli przedstawiono złożone powiązane z sobą dane, tworzone złożoną i uzupełniającą się historię to dobrze.
 * Innowacyjność. Jeżeli zaprezentowano dane za pomocą standardowych narzędzi bez wnikania w specyfikę prezentowanej historii to źle, jeżeli  zaprezentowane dane w sposób pomysłowy, odsłaniający ciekawe aspekty tych danych, sposób nieoczywisty to dobrze.
 
-Pomysły na projekty:
+Propozycje projektów:
 
-Poniżej są zarysy pomysłów. Warto samemu poszukać, warto porozmawiać z prowadzącym jeżeli braknie na początku pomysłu.
+Poniżej są zarysy pomysłów. Należy wybrać jedną z poniższych.
 
-1. Analiza głosowań posłów w Sejmie / stenogramów [https://github.com/mi2-warsaw/sejmRP]; Wykorzystać można dane o głosowaniach lub dane o wypowiedziach posłów. Wybrać można konkretny temat (głosowania o edukacji, zdrowiu) lub szukać i pokazywać ogólne trendy. Można zobaczyć jak głosują liderzy klubów, lub czy są duże różnice w głosowaniach. Można sprawdzić jak posłowie przechodzą pomiędzy klubami. [http://blog-n.mamprawowiedziec.pl/files/images/pazdziernik_2015/przeplywy-tekst.jpg](przykład 0). Warto poszukać w jaki sposób przedstawiają takie dane zachodnie media UK/USA. [http://smarterpoland.pl/wp-content/uploads/2016/02/Screen-Shot-2016-02-23-at-09.57.04.png](przykład 1), [https://rawgit.com/mi2-warsaw/sejmRP/master/UseCase/LiczbaWypowiedzi.html](przykład 2)
+Jako pierwszy projekt najlepiej wybrać analizę danych SejmRP. W połowie listopada minie rok od powołania Sejmu. To świetny okres na podsumowania (we współpracy z MamPrawoWiedziec.pl).
+
+1. Analiza głosowań posłów w Sejmie / stenogramów [https://github.com/mi2-warsaw/sejmRP]; Wykorzystać można dane o głosowaniach lub dane o wypowiedziach posłów. Wybrać można konkretny temat (głosowania o edukacji, zdrowiu) lub szukać i pokazywać ogólne trendy. Można zobaczyć jak głosują liderzy klubów, lub czy są duże różnice w głosowaniach. Można sprawdzić jak posłowie przechodzą pomiędzy klubami. [http://blog-n.mamprawowiedziec.pl/files/images/pazdziernik_2015/przeplywy-tekst.jpg](przykład 0). Warto poszukać w jaki sposób przedstawiają takie dane zachodnie media UK/USA. [http://smarterpoland.pl/wp-content/uploads/2016/02/Screen-Shot-2016-02-23-at-09.57.04.png](przykład 1), [https://rawgit.com/mi2-warsaw/sejmRP/master/UseCase/LiczbaWypowiedzi.html](przykład 2). Tematy szczegółowe: 1. *Liderzy przerywania* (kto w Sejmie najwięcej przerywa). 2. Dla każdego klubu wskazać posła, który najwięcej razy wygłosił oświadczenie w imieniu, zadał najwięcej pytań. 3. Wskazać posłów, którzy najmniej się odzywali na posiedzeniach - po 5 dla każdego klubu.
 2. Sukcesy Sportowe Polski - Można wykorzystać dane z olimpiad, można wykorzystać dane o pozycji klubu lub kraju w piłce nożnej, Informacje o tym jak pokazywać rekordy sportowców. Jako motywatory można zobaczyć [1](http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=), [2](http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/), [3](http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html)
 3. PISA, informacje o wynikach 15-letnich uczniów w różnych krajach. Temat do prezentacji: strategie realizacji testu, segmentacja, podobieństwa w różnych krajach. Dane z PISA 2015 zawierają informację jak długo trwało rozwiązywanie każdego zadania i ile wymagało interakcji z zadaniem (zadania są na komputerze). Dane będą dostępne od 6 grudnia [https://www.oecd.org/pisa/], PISA ma 4-letni cykl, dobre wizualizacje tych danych będą interesujące dla bardzo szerokiego grona odbiorców.
 4. Przeżycia dla danych TCGA, na bazie pakietu RTCGA.clinical [http://RTCGA.github.io/RTCGA/]. W tym pakiecie znajdują się informacje o przeżyciach dla wielu różnych nowotworów, dla różnych grup zaawansowania nowotworu itp. Takie dane są ciekawe dla wielu osób, które mierzą się z chorobą. Dobra prezentacja danych może być bardzo użyteczna.
@@ -119,4 +123,9 @@ Literatura uzupełniająca:
 * Jak powstaje grafika w NYT http://kpq.github.io/chartsnthings/
 * Dokumentacja pakietu ggplot2 http://docs.ggplot2.org/current/
 * Cookbook for R http://www.cookbook-r.com/Graphs/
+
+
+Luźne linki:
+------------
+* Tilegrams https://bhaskarvk.github.io/tilegramsR/vignettes/UsingTilegramsInR.html
 
