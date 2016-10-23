@@ -1,0 +1,45 @@
+---
+title: "Ranking ubóstwa w UE"
+output: pdf_document
+classoption: landscape
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggthemes)
+```
+
+W ostatnim tygodniu trafi³am na artyku³ dotycz¹cy odsetka ludzi nara¿onych na ryzyko ubóstwa i wykluczenia spo³ecznego 
+( Ÿród³o : http://biznes.onet.pl/wiadomosci/ue/ranking-ubostwa-w-ue-porownanie-2008-z-2015/hcxtrl ).
+Postanowi³am przedstawiæ zawarte dane w podziale ze wzglêdu na rok. Oba wykresy zosta³y posortowane ze wzglêdu na malej¹cy odsetek osób zagro¿onych ubóstwem i wykluczeniem spo³ecznym. Kolory zosta³y przydzielone ze wzglêdu na podzia³, który pojawi³ siê w artykule - "Kraje z najwy¿szym ryzykiem w 2015", "Kraje z najni¿szym ryzykiem w 2015", "Kraje z najwy¿szym wzrostem ryzyka w stosunku do 2008". Oddzielnym kolorem zosta³y zaznaczone s³upki z danymi dla Polski.
+
+Patrz¹c na poni¿szy wykres od razu mo¿emy zauwa¿yæ, ¿e rozk³ad rozk³ad ryzyka w rozpatrywanych pañstwach UE jest bardzo podobny- w 2008 roku podobnie do 2015 Bu³garia, Rumunia, £otwa i Grecja maj¹ najwiêksze wartoœci, a Finlandia, Holandia, Szwecja i Czechy najmniejsze. Bu³garia utrzyma³a swoj¹ pierwsz¹ pozycjê w rankingu, natomiast Holandia, która w 2008 cechowa³a siê najni¿szym poziomem wskaŸnika, odnotowa³a jego wzrost i znalaz³a siê na 9 miejscu. 
+Wiêkszoœæ z pañstw z najwy¿szym poziomem ryzyka w 2015 cechuje siê jego spadkiem wzglêdem 2008- jedynie dla Grecji wska¿nik wzrós³ a¿ o 7.6 p.p. co czyni j¹ jednym z pañstw o najwy¿szym wzroœcie. 
+
+Widaæ, ¿e Polska z pañstwa, które w 2008 znajdowa³o siê w czo³ówce rankingu, odnotowa³a spadek z 30.5 do 23.4 i znajduje siê w grupie ze œrednim poziomem ryzyka ubóstwa.
+
+
+
+```{r,echo=TRUE,out.width = '700px', out.height = '5000px', fig.align='center'}
+dane<-read.csv("C:/Users/Agnieszka/Desktop/Dane2.csv", h=T, sep=";")
+dane2     <- dane[order(dane$Rok,-dane$Wartosc),]
+dane2$p <- with(dane2,paste(Kraj,Rok,sep="."))
+
+ggplot(dane2[dane2$Rok %in% unique(dane$Rok),], 
+  aes(x=factor(p,levels=unique(p)), y=Wartosc, fill=Indeks,width=.5)) + 
+  geom_bar(stat = "identity") +
+  geom_text(aes(y=0.1,label=Kraj),angle=90,size=2,hjust=1)+
+  geom_text(aes(y=Wartosc,label=Wartosc), size=2.5,hjust=0.5,vjust=-0.5)+
+  facet_wrap(~Rok, ncol = 2, scales="free_x") + 
+  ylim(-6,50)+
+  labs(title="Ranking ryzyka ubóstwa i wykluczenia spo³ecznego w UE-pórownanie 2008 z 2015", 
+     x="Kraj", y="[ % ]") +
+  theme(axis.text.x=element_blank(),axis.ticks.x=element_blank(),
+    axis.text=element_text(size=7), legend.position="bottom",
+    plot.title = element_text(size = 10, hjust = 0))+
+    theme_hc() + 
+  scale_fill_manual(name="Poziom ryzyka",
+    values=c("#f04546", "#44ef61", "#44a8ef", "#efcd44"))
+
+```
