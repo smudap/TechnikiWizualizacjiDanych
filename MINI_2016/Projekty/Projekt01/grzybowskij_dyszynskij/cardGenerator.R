@@ -1,9 +1,14 @@
+library(ggplot2)
+library(grid)
+library(gridExtra)
+
 generateDeck <- function(deckIndex){
 manaCost <-   c(sample(c(NA), 24, replace=T),ceiling(abs(rnorm(36, 3.5, 2))))
 
 cards <- data.frame(manaCost)
 cards$deckIndex <- factor(deckIndex)
 
+cards$attack <- rep(NA, nrow(cards))
 cards$type <- c(sample(c(NA), 24, replace=T),runif(36))
 cards$type[is.na(cards$type)] <- "Land"
 cards$type[cards$type < 0.45] <- "Creature"
@@ -14,15 +19,16 @@ cards$type[cards$type < 1.01] <- "Artifact"
 
 #ggplot(cards) + geom_bar(mapping = aes(x=1, fill = type), position = "fill") +  coord_polar(theta = "y")
 
-cards$attack <- NA
-cards$attack[cards$type == "Creature"] <- sample(1:5,replace=TRUE)
-cards$defence <- NA
-cards$defence[cards$type == "Creature"] <- sample(1:5,replace=TRUE)
+cards$attack <- rep(NA, nrow(cards))
+cards$attack[cards$type == "Creature"] <- sample(1:5, replace=TRUE, size=length(cards$attack[cards$type == "Creature"]))
+cards$defence <- rep(NA, nrow(cards))
+cards$defence[cards$type == "Creature"] <- sample(1:5, replace=TRUE, size=length(cards$defence[cards$type == "Creature"]))
 
-cards$battleType <- cards$attack/cards$defence
-cards$battleType[cards$battleType < 1] <- "defender"
-cards$battleType[cards$battleType == 1] <- "universal"
-cards$battleType[as.numeric(cards$battleType) > 1] <- "attacker"
+ratios = cards$attack/cards$defence
+cards$battleType <- rep(0, nrow(cards))
+cards$battleType[ratios < 1] <- "defender"
+cards$battleType[ratios == 1] <- "universal"
+cards$battleType[ratios > 1] <- "attacker"
 
 colors <- c("red", "blue", "green")
 colorsProbs <- c(1, 1, 0.5)
@@ -57,7 +63,7 @@ colorPlot <- function(deck){
 }
 
 costBarPlot <- function(deck){
-  ggplot(deck, aes(x=manaCost, fill=manaCost)) +
+  ggplot(deck[!is.na(deck$manaCost),], aes(x=manaCost, fill=manaCost)) +
     geom_bar() +
     coord_cartesian(xlim = c(0, maxCost), ylim = c(0, maxCost)) +
     scale_x_continuous(breaks=0:maxCost) +
@@ -69,14 +75,23 @@ creatureTypes <- function(desks){
   ggplot(decks,aes(x=battleType, fill = deckIndex)) + coord_flip()+ geom_bar(position="fill")
 }
 
+getLegend <- function(a.gplot) {
+  tmp <- ggplot_gtable(ggplot_build(a.gplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  legend
+}
+
 deck1 = generateDeck(1)
 deck2 = generateDeck(2)
 decks <- rbind(deck1,deck2)
 
+typeLegend <- getLegend(typePlot(decks))
+
 maxCost = max(decks$manaCost, na.rm=T)
 maxCount = max(max(hist(deck1$manaCost, plot=FALSE)$counts), max(hist(deck2$manaCost, plot=FALSE)$counts))
 
-t1 = typePlot(deck1) + theme(legend.position="right")
+t1 = typePlot(deck1) + theme(legend.position="none")
 c1 = colorPlot(deck1) + theme(legend.position="right")
 cost1 = costBarPlot(deck1)
 
@@ -89,4 +104,9 @@ balancePlot <- creatureTypes(decks) + themeNoLabels + theme(legend.position="non
 #p1 = multiplot(t1,c1,cost1, layout= matrix(c(1,3,2,3), nrow=2))
 #p2 = multiplot(t2,c2,cost2, layout= matrix(c(1,3,2,3), nrow=2))
 #multiplot(p1,p2)
-multiplot(t1, t2, c1, c2 ,cost1, cost2, balancePlot, layout= matrix(c(1,2,3,4,5,6,7,7), nrow=4, byrow = T))
+#multiplot(t1, t2, c1, c2 ,cost1, cost2, balancePlot, layout= matrix(c(1,2,3,4,5,6,7,7), nrow=4, byrow = T))
+row1 <- grid.arrange(t1, typeLegend, t2, ncol = 3)
+row2 <- grid.arrange(c1, c2, ncol = 2)
+row3 <- grid.arrange(cost1, cost2, ncol = 2)
+row4 <- balancePlot
+grid.arrange(row1, row2, row3, row4, ncol = 1)
