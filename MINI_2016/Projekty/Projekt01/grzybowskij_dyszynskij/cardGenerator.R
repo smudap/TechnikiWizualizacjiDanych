@@ -25,7 +25,7 @@ cards$defence <- rep(NA, nrow(cards))
 cards$defence[cards$type == "Creature"] <- sample(1:5, replace=TRUE, size=length(cards$defence[cards$type == "Creature"]))
 
 ratios = cards$attack/cards$defence
-cards$battleType <- rep(0, nrow(cards))
+cards$battleType <- rep(NA, nrow(cards))
 cards$battleType[ratios < 1] <- "defender"
 cards$battleType[ratios == 1] <- "universal"
 cards$battleType[ratios > 1] <- "attacker"
@@ -56,7 +56,8 @@ colorPlot <- function(deck){
   ggplot(deck, aes(x=1, fill=color)) +
     geom_bar(position="fill") +
     guides(fill = FALSE) +
-    
+    coord_flip() +
+    scale_y_continuous() +
     theme(axis.title.y=element_blank(),
           axis.text.y=element_blank(),
           axis.ticks.y=element_blank())
@@ -87,6 +88,7 @@ deck2 = generateDeck(2)
 decks <- rbind(deck1,deck2)
 
 typeLegend <- getLegend(typePlot(decks))
+#colorLegend <- getLegend(costBarPlot(decks))
 
 maxCost = max(decks$manaCost, na.rm=T)
 maxCount = max(max(hist(deck1$manaCost, plot=FALSE)$counts), max(hist(deck2$manaCost, plot=FALSE)$counts))
@@ -105,8 +107,8 @@ balancePlot <- creatureTypes(decks) + themeNoLabels + theme(legend.position="non
 #p2 = multiplot(t2,c2,cost2, layout= matrix(c(1,3,2,3), nrow=2))
 #multiplot(p1,p2)
 #multiplot(t1, t2, c1, c2 ,cost1, cost2, balancePlot, layout= matrix(c(1,2,3,4,5,6,7,7), nrow=4, byrow = T))
-row1 <- grid.arrange(t1, typeLegend, t2, ncol = 3)
-row2 <- grid.arrange(c1, c2, ncol = 2)
-row3 <- grid.arrange(cost1, cost2, ncol = 2)
+row1 <- grid.arrange(t1, typeLegend, t2, nrow = 1, widths = c(10, 2, 10))
+row2 <- grid.arrange(c1, c2, nrow = 1)
+row3 <- grid.arrange(cost1, cost2, nrow = 1)
 row4 <- balancePlot
 grid.arrange(row1, row2, row3, row4, ncol = 1)
