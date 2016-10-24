@@ -1,3 +1,4 @@
+source("multiplot.R")
 generateDeck <- function(deckIndex){
 manaCost <-   c(sample(c(NA), 24, replace=T),ceiling(abs(rnorm(36, 3.5, 2))))
 
@@ -25,7 +26,7 @@ cards$battleType[cards$battleType == 1] <- "universal"
 cards$battleType[as.numeric(cards$battleType) > 1] <- "attacker"
 
 colors <- c("red", "blue", "green")
-colorsProbs <- c(1, 1, 0.5)
+colorsProbs <- runif(3,min=0.25)
 
 cards$color <- sample(colors, 60, replace = TRUE, colorsProbs)
 
@@ -40,10 +41,14 @@ themeNoLabels = theme(axis.title.x=element_blank(),
                       axis.ticks.y=element_blank())
 
 typePlot <- function(deck) {
-  ggplot(deck) +
-    geom_bar(mapping = aes(x=1, fill = type), position = "fill") +
-    coord_flip() +
-    themeNoLabels
+  ggplot(deck) + 
+  geom_bar(mapping = aes(x=type)) + 
+  coord_flip() 
+  
+  #ggplot(deck) +
+  #  geom_bar(mapping = aes(x=1, fill = type), position = "fill") +
+  #  coord_flip() +
+  #  themeNoLabels
 }
 
 colorPlot <- function(deck){
