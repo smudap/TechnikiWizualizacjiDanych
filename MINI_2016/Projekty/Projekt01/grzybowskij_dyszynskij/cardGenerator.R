@@ -63,17 +63,22 @@ colorPlot <- function(deck){
           axis.ticks.y=element_blank())
 }
 
-costBarPlot <- function(deck){
+costBarPlot <- function(deck, maxCost, maxCount){
   ggplot(deck[!is.na(deck$manaCost),], aes(x=manaCost, fill=manaCost)) +
     geom_bar() +
-    coord_cartesian(xlim = c(0, maxCost), ylim = c(0, maxCost)) +
+    coord_cartesian(xlim = c(0, maxCost), ylim = c(0, maxCount)) +
     scale_x_continuous(breaks=0:maxCost) +
     scale_y_continuous(breaks=0:maxCount) +
     theme(panel.grid.major = element_line(colour = "blue"))
 }
 
-creatureTypes <- function(desks){
-  ggplot(decks,aes(x=battleType, fill = deckIndex)) + coord_flip()+ geom_bar(position="fill")
+creatureTypes <- function(decks) {
+  atkDef = as.data.frame(table(decks[, c("attack", "defence", "deckIndex")]))
+  atkDef = atkDef[atkDef$Freq > 0,]
+  p = ggplot(atkDef,aes(x=attack, y=defence, color=deckIndex, size=Freq, alpha=0.5))
+  p = p + geom_point()
+  p = p + guides(size=FALSE, alpha=FALSE)
+  p
 }
 
 getLegend <- function(a.gplot) {
@@ -95,13 +100,13 @@ maxCount = max(max(hist(deck1$manaCost, plot=FALSE)$counts), max(hist(deck2$mana
 
 t1 = typePlot(deck1) + theme(legend.position="none")
 c1 = colorPlot(deck1) + theme(legend.position="right")
-cost1 = costBarPlot(deck1)
+cost1 = costBarPlot(deck1, maxCost, maxCount)
 
 t2 = typePlot(deck2) + theme(legend.position="none")
 c2 = colorPlot(deck2)
-cost2 = costBarPlot(deck2) + coord_cartesian(xlim = c(0, maxCost), ylim = c(0, maxCost))
+cost2 = costBarPlot(deck2, maxCost, maxCount)
 
-balancePlot <- creatureTypes(decks) + themeNoLabels + theme(legend.position="none") + theme(axis.text.y=element_text())
+balancePlot <- creatureTypes(decks)
 
 #p1 = multiplot(t1,c1,cost1, layout= matrix(c(1,3,2,3), nrow=2))
 #p2 = multiplot(t2,c2,cost2, layout= matrix(c(1,3,2,3), nrow=2))
