@@ -25,7 +25,7 @@ Blok 1 - Grafika statyczna
 
 * [1] W: [Wprowadzenie do gramatyki grafiki](http://biecek.pl/Eseje/indexGramatyka.html); L: [ggplot2 - pierwsza krew](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html)
 * [2] W: [Gramatyka grafiki część 2](http://biecek.pl/Eseje/indexGramatyka.html), [Standardy w komunikacji](http://www.ibcs-a.org/); L: [ggplot2 - skale, statystyki, koordynaty](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html).
-* [3] W: Prezentacja projektu 1/1; L: Prototypowanie wykresu, unplugged (kartki+kredki)
+* [3] W: Prezentacja projektu 1/1; L: Prototypowanie wykresu, unplugged (kartki+kredki) [do cwiczen 1](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/Tydzien02/APszczolkowska/PD2.html), [do cwiczen 2](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/Tydzien03/PiotrSmuda/praca%20domowa%203.html)
 * [4] W: [Nie rób tego w domu](http://biecek.pl/Eseje/indexPomylka.html); L: [Pracujemy z danymi z NSP 2011](http://stat.gov.pl/spisy-powszechne/nsp-2011/nsp-2011-wyniki/)
 * [5] W: Prezentacja projektu 1/2; L: BrainStorming
 
