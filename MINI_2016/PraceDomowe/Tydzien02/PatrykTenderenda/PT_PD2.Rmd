@@ -1,0 +1,71 @@
+---
+title: "PT_PD2"
+author: "Patryk Tenderenda"
+date: "28 października 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Wykres udziału urządzeń na rynku kamer w latach 2012 i 2016
+
+Źródło: <http://aswathdamodaran.blogspot.com/2014/10/go-pro-camera-or-smartphone-social.html>
+
+Poprzedni wykres: <http://2.bp.blogspot.com/-ApPcmfjxPJw/VD55hVDwz3I/AAAAAAAABks/nIGZAIdYtnU/s1600/ChangingMarket.jpg>
+
+Wykres przedstawia podział rynku kamer na poszczególne urządzenia w latach 2012 i 2016.
+
+Dane zostały przedstawione na dwóch wykresach kołowych, co nie pozwala na pierwszy rzut oka na łatwe porównanie danych pomiędzy latami, a również trudniej porównywać poszczególne urządzenia w jednym roku.
+
+Dlatego lepszym rozwiązaniem jest wykres słupkowy, z opcją "dodge", tak by zaprezentować słupki dotyczące jednego urządzenia na przestrzeni tych 2 lat obok siebie. Zastosowany został również obrót wykresu.
+
+Dodatkowo dane zostały posortowane według wartości w roku 2012.
+
+Poniżej znajduje się kod skryptu i wykres.
+
+```{r, message=FALSE, warning=FALSE}
+if(!require(ggplot2)){
+  install.packages("ggplot2");
+}
+if(!require(ggrepel)){
+  install.packages("ggrepel");
+}
+if(!require(reshape2)){
+  install.packages("reshape2");
+}
+library(ggplot2)
+library(ggrepel)
+library(reshape2)
+
+
+dane <- data.frame(urzadzenie = c("Digital Cameras (all)", "Smartphones", "Tablets/PC",
+                              "Medical/Industrial", "Security", "Automotive", "Other"),
+                   r2012 = c(47, 25, 6,  11, 8, 0, 3),
+                   r2016 = c(27, 30, 12, 13, 11, 3, 3)
+                   )
+
+dane$urzadzenie <- reorder(dane$urzadzenie, dane$r2012)
+dane<-melt(dane)
+dane$variable <- factor(dane$variable, levels =c("r2016","r2012"))
+
+cols <- c("r2012"="#a1d99b","r2016"="#31a354")
+w <- ggplot(dane, aes(x = urzadzenie, width=.75, fill=variable, y=value)) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_text(aes(x=urzadzenie, y=value, ymax=value, label=sprintf("%.0f%%", value)),
+            position = position_dodge(width = .75),
+            hjust = -0.05)  + 
+  scale_fill_manual(name="Rok",
+                    limits = c("r2012", "r2016"),
+                    values=cols, 
+                    breaks=c("r2012", "r2016"), 
+                    labels=c("2012","2016")) +
+  scale_y_continuous(breaks = seq(0, 50, 5), limits=c(0, 50), expand=c(0,0)) +
+  coord_flip() +
+  labs(title = "Udziały urządzeń na rynku kamer", 
+       x = element_blank(), 
+       y = "Procent udziału [%]")
+
+w
+```
