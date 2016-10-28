@@ -1,3 +1,7 @@
+![z1](Rplot.png)
+![z1](mapa_europy.png)
+![z1](ranking_ubostwa_tenderendap_sobczakm.png)
+
 ![z1](IMG_3777.JPG)
 ![z2](IMG_3778.JPG)
 ![z3](IMG_3779.JPG)
