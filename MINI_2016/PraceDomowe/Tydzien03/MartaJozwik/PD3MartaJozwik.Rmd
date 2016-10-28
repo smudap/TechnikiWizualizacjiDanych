@@ -1,0 +1,50 @@
+---
+title: "PD3"
+author: "Marta JóŸwik"
+date: "27 paŸdziernika 2016"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+W tym tygodniu znalaz³am w Pulsie Biznesu z 26 paŸdziernika artyku³ "Jak wybory w USA wp³yn¹ na gie³dy" (str. 21), w którym by³a umieszczona tabela z danymi na temat zmian indeksu s&P500 w latach 1920-2015, nie zosta³a za to przedtawiona inna ¿adna wizualizacja tych danych. Na pewno te dane by³yby ³atwiej przyswajalne i mo¿naby chocia¿by zobaczy pewne trendy ju¿ na pierwszy rzut oka, natomiast teraz mamy koniecznoœæ zag³êbienia siê w dane, a i tak trzeba siê zastanowiæ ¿eby zauwa¿yæ odpowiednie zmiany. Dlatego postanowi³am przedawiæ opisane zmiany na wykresie, co na pewno u³atwi ich odczyt i zrozumienie.
+
+```{r, echo=F}
+lata<-c("Wszystkie lata wyborcze", "Wygrana kandydata dotychczasowego obozu", "Przegrana kandydata dotychczasowego obozu", "Utrzymanie stanowiska przez demokratów","Utrata stanowiska na rzecz republikanów","Lata bez wyborów")
+lata<-reorder(lata,c(1,5,6,3,4,2))
+okres<-c(-3,-1,1,3)
+ok2<-rep(okres,each=3)
+okresy<-rep(ok2,6)
+nazwy<-rep(lata,each=12)
+srednia<-c(1.94,1.75,-0.71,1.14,4.72,2.18,0.04,3.47,-1.95,1.15,-1.76,-2.13,5.34,2.01,-2.07,1.13,2.28,-0.08,-0.03,-1.86,0.32,0.89,0.57,2.97)
+mediana<-c(2.86,1.43,-0.26,3.48,3.58,2.03,-0.26,4.60,-1.49,0.04,0.47,-1.34,3.76,1.54,-1.01,4.14,5.07,-0.57,4.11,-1.65,1.87,1.69,1.59,4.69)
+odsetek<-c(67,67,50,58,93,79,50,79,30,50,50,30,100,86,29,71,60,40,60,20,63,64,65,69)
+odsetek<-odsetek/100
+wszystko<-rep(0,72)
+for (i in 1:24){
+wszystko[(3*i-2):(3*i)]<-c(srednia[i],mediana[i],odsetek[i])
+}
+mia<-c("œrednia","mediana","odsetek")
+mia<-reorder(mia,c(1,2,3))
+miara<-rep(mia,24)
+m1<-c("Lata wyborcze vs bezwyborcze","Zmiana vs bez zmiany partii","Demokraci vs republikanie")
+m1<-reorder(m1,c(1,2,3))
+maska<-m1[c(rep(1,12),rep(2,24),rep(3,24),rep(1,12))]
+dane<-data.frame(nazwy,okresy,miara,wszystko,maska)
+library(ggplot2)
+
+
+```
+
+
+```{r, echo=FALSE,warning=F}
+ggplot(subset(dane,miara!="odsetek"), aes(x=okresy,color=nazwy,y=wszystko)) +geom_point(size=2)+facet_wrap(~maska)+stat_smooth(aes(linetype=miara,show.legend=F,se=F),size=1.4)+
+scale_x_continuous(name ="Iloœæ miesiêcy przed lub po wyborach", breaks=c(-3,-1,1,3),labels=c("-3 mc","-1 mc","1 mc","3 mc"))+scale_color_discrete(guide = guide_legend(title = NULL,nrow = 3, byrow = TRUE,label.hjust = 0.5,label.vjust = 1))+scale_linetype_discrete(guide = guide_legend(title = "Miary")) +theme(legend.position = "bottom")+ylab("Wartoœci (miar) dla indeksu S&P500")+ggtitle("Porównanie indeksów S&P500 w latach 1920-2015")
+
+
+ggplot(subset(dane,miara=="odsetek"), aes(x=okresy,y=wszystko,fill=nazwy))+geom_bar(position = "dodge",stat="identity")+facet_wrap(~maska)+scale_x_continuous(name ="Iloœæ miesiêcy przed lub po wyborach", breaks=c(-3,-1,1,3),labels=c("-3 mc","-1 mc","1 mc","3 mc"))+scale_fill_discrete(guide = guide_legend(title = NULL,nrow = 3, byrow = TRUE))+theme(legend.position = "bottom")+ylab("Odsetek dodatnich zmian indeksu S&P")
+
+```
