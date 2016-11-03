@@ -12,6 +12,8 @@ http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.
 
 [Link](https://docs.google.com/spreadsheets/d/1zBSP7joQIwaVi6wa4u-K5EkgHaKOYD404hX0vFSx88s/edit?usp=sharing)
 
+Prace domowe należy zgłaszać przez GitHub. [Instrukcja jak korzystać](http://pbiecek.github.io/Przewodnik/Programowanie/jak_korzystac_z_serwisu_github_i_waffle.html)
+
 # Terminy spotkań
 
 * Grupa Alfa - poniedziałki 8-12
