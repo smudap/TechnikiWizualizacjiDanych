@@ -1,4 +1,6 @@
 ![z1](Rplot.png)
+![z1](Rplot01.png)
+![z1](plot1.jpeg)
 ![z1](mapa_europy.png)
 ![z1](ranking_ubostwa_tenderendap_sobczakm.png)
 
