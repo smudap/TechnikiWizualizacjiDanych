@@ -93,6 +93,7 @@ Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jede
 * Wykresy świecowe, prezentacja powinna zawierać przykład dla WIG/WIG20 wykonany w R, http://www.datavizcatalogue.com/methods/candlestick_chart.html
 * Historia grafiki, http://datavis.ca/papers/golden-STS268.pdf
 * Points of view, wybierz jeden z artykułów: https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/PointsOfView
+* PlosOne http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
 
 
 # Prace Domowe:
