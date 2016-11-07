@@ -1,0 +1,44 @@
+---
+title: "PD4"
+author: "Marta JóŸwik"
+date: "3 listopada 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Tym razem znalaz³am w gazecie Wyborczej z 2 listopada na str. 10 artyku³ o planowanej akcyzie na samochody w 2017 roku, dane zosta³y tam przedstawione w postaci tabeli, z której niwiele mo¿na by³o zauwa¿yæ, oprócz oczywiœcie planowanych stawek. Moim pomys³em by³o przedstawieni ich w sposob. który pozwala porównaæ poszczególne akcyzy wizualnie (wysokoœci¹ kropek) w zale¿noœci od pojemnoœci (na osi x) i roku produkcji (uzna³am, ¿e poniew¿ s¹ tylko 4 poziomy tych wartoœci przedstawienie ich prze kolor bêdzie najlepsze). Nie chcia³am jednak usuwaæ zupe³nie danych o konkretnych stawkach (kogoœ mo¿e interesowaæ konkretna stawka przewidziana dla jego samochodu), dlatego zamieœci³am na wykresie równie¿ wartoœci. S¹dzê, ¿e teraz lepiej widaæ jakie sa przeliczniki pomiêdzy ró¿nymi typami pojemnoœci/roku produkcji i doda³am te¿ linie œredniej akcyzy wyliczone dla 4 poziomów roku produkcji, ¿eby móc od razu wizualnie porównaæ jak konkretne stawki siê od niej ró¿ni¹. S¹dzê ¿e przedstawione w ten sposób dane s¹ czytelne zarówno dla kogoœ, kogo interesuje tylko 1 konkretna wartoœæ do odczytania, jak i dla kogoœ kto chcia³by mieæ wizualne porównanie miêdzy poszczególnymi stawkami. Rozwa¿a³am te¿ podzielenie danych na 4 podgrupy w zale¿noœci od roku, jednak poniewa¿ wszystko umieœci³am na jednym wykresie mo¿na bez problemu porównywaæ zarówno akcyzy w róznych latach produkcji jak i przy ró¿nych pojemnoœciach.
+
+```{r, echo=F}
+pojemnosci<-c("<1.2","1.2-1.499","1.5-1.999","2.0-2.499","2.5-2.999","3.0-3.499",
+              "3.5-3.999",">4.0")
+pojemnosci<-reorder(pojemnosci,c(1:8))
+pojemnosc<-rep(pojemnosci,each=4)
+lata<-c("od 2016","2010-15","2005-2009","2004 i starsze")
+lata<-reorder(lata,c(1:4))
+rok_produkcji<-rep(lata,8)
+akcyza<-c(424,474,524,574,638,820,1230,1476,1072,1378,2067,2481,1772,2278,3417,4101,
+          3025,3592,5388,6466,4753,5281,7922,9506,6328,7031,10547,12656,12644,14644,16644,18644)
+stawki_akcyzy<-data.frame(pojemnosc,rok_produkcji,akcyza)
+srednia1<-mean(stawki_akcyzy[which(stawki_akcyzy$rok_produkcji=="od 2016"),3])
+srednia2<-mean(stawki_akcyzy[which(stawki_akcyzy$rok_produkcji=="2010-15"),3])
+srednia3<-mean(stawki_akcyzy[which(stawki_akcyzy$rok_produkcji=="2005-2009"),3])
+srednia4<-mean(stawki_akcyzy[which(stawki_akcyzy$rok_produkcji=="2004 i starsze"),3])
+srednia<-round(c(srednia1,srednia2,srednia3,srednia4),0)
+srednie<-rep(srednia,8)
+stawki_akcyzy<-cbind(stawki_akcyzy,srednie)
+library(ggplot2)
+```
+
+
+
+
+
+
+```{r, echo=FALSE,warning=F}
+ggplot(stawki_akcyzy, aes(x=pojemnosc,color=rok_produkcji,y=akcyza)) +geom_point(size=3.5,position = position_dodge(0.5))+scale_y_continuous(name ="Stawki akcyzy [z³]", breaks=c(1000,3000,5000,7000,9000,11000,13000,15000,17000))+scale_x_discrete(name ="Pojemnoœæ silnika [tys. cm^3]")+ggtitle(c("Stawki akcycy na samochody w 2017 roku"))+scale_color_discrete(guide = guide_legend(title = "Rok produkcji"))+geom_hline(aes(yintercept = srednie,colour=rok_produkcji))+geom_text(aes(x=2,y=7700,label = "œrednie akcyzy"),inherit.aes = F,size=3)+geom_text(aes(label=akcyza,x=pojemnosc,y=akcyza),nudge_y = 300,size=3,inherit.aes = F,check_overlap = TRUE)
+
+
+```

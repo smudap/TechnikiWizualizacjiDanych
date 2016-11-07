@@ -1,0 +1,53 @@
+---
+title: "Praca domowa nr 4 - TWD 2016/2017"
+author: "Piotr Smuda"
+date: "30 października 2016"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Parę dni temu natknąłem się na ciekawy [artykuł](http://www.uefa.com/uefachampionsleague/news/newsid=2296585.html), który
+zawiera zestawienie awansów z grupy w Lidze Mistrzów w zależności od zdobytych punktów po 3 meczach od sezonu 2003/2004.
+
+Tutaj warto zaznaczyć, że z danych od razu widać, że jeśli Legia Warszawa awansuje do następnej fazy turnieju (po 3 meczach
+ma 0 punktów), to przejdzie do historii (nikt wcześniej tego nie dokonał)!
+
+```{r, echo = TRUE, message = FALSE, warning = FALSE}
+library(ggplot2)
+library(dplyr)
+library(plyr)
+
+data <- data.frame(points_after_3_games = paste(rep((0:9)[-9], 2), "points"),
+                   number_of_through_out = c(34, 49, 17, 51, 37, 5, 11, 4, 0,
+                                             0, 7, 4, 16, 28, 15, 56, 43, 39),
+                   type_of_event = c(rep("Knocked out", 9), rep("Gone through", 9)),
+                   stringsAsFactors = FALSE
+)
+
+data <- ddply(data, .(points_after_3_games), 
+   transform, label_position = cumsum(number_of_through_out) - (0.5 * number_of_through_out)
+)
+data$label_position[which(data$number_of_through_out == 0)] <- NA
+
+tick_labels <- unique(data$points_after_3_games)
+
+p <- ggplot(data, aes(x = points_after_3_games, y = number_of_through_out, fill = type_of_event, order = type_of_event)) +
+   geom_bar(stat = "identity") +
+   theme_classic() +
+   scale_x_discrete(labels = tick_labels) +
+   scale_y_continuous(breaks = NULL) +
+   scale_fill_manual(values = c("green", "red"), name = "After group stage") +
+   xlab("Points after 3 games") +
+   ylab("Number of teams") +
+   ggtitle("How many clubs have gone through or been knocked out\nwith each possible matchday three points tally") +
+   theme(axis.title = element_text(size = 20), plot.title = element_text(hjust = 0, size = 22),
+         axis.ticks.x = element_blank(), axis.text.x = element_text(angle = 45, hjust = 1.2, vjust = 2, size = 15))  +
+   geom_text(aes(label = number_of_through_out, y = label_position), size = 10)
+```
+
+```{r, echo = FALSE, out.width = '1000px', out.height = '1000px', fig.align = 'center', fig.width = 10, fig.height = 8, warning = FALSE}
+p
+```
