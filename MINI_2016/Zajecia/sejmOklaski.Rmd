@@ -1,0 +1,43 @@
+---
+title: "Kto zbiera najwięcej oklasków"
+output: html_document
+---
+
+```{r  echo=FALSE, message = FALSE, warning= FALSE, out.width=1100, out.height=2000}
+
+library(sejmRP)
+library(dplyr)
+library(ggplot2)
+statements<-get_statements_table(host="192.168.137.38")
+
+statements8<-filter(statements,nr_term_of_office=='8')
+
+
+dane<-sort(table(statements8[grepl(statements8$statement, pattern="\\(Oklas"), "surname_name"]))
+dane<-as.data.frame(dane)
+
+dane<-filter(dane, Freq>60)
+
+
+
+pogrupowane1<-group_by(statements8, surname_name)
+pogrupowane<-summarise(pogrupowane1, n=n(), oklaski=sum(grepl(statement, pattern="\\(Oklas")))
+pogrupowane2<-arrange(pogrupowane, -n)
+pogrupowane3<-filter(pogrupowane2, n>60)
+
+pogrupowane3$surname_name<-reorder(pogrupowane3$surname_name, pogrupowane3$n, mean)
+
+ggplot(pogrupowane3, aes(x=surname_name))+
+  geom_bar(aes(y=n), stat="identity")+
+  geom_bar(aes(y=oklaski), stat="identity", fill="blue4")+
+  coord_flip()+
+  #geom_text(aes(label = n, y= n), position= "stack", hjust=0)+
+  geom_text(aes(label =oklaski, y= oklaski), position= "stack", hjust=2, color="white")+
+  geom_text(aes(label =n-oklaski, y= n), position= "stack", hjust=2, color="white")+
+  xlab("")+
+  ylab("Liczba wystąpień z oklaskami / bez oklasków")+
+  ggtitle("")
+  
+
+```
+
