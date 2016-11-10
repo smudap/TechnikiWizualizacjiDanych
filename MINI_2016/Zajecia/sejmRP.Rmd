@@ -1,0 +1,44 @@
+---
+title: "SejmRP"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sejmRP)
+library(dplyr)
+```
+
+```{r pobranie danych, cache=TRUE, warning = FALSE}
+statements <- get_statements_table()
+statements8 <- statements %>% filter(nr_term_of_office == "8")
+
+# head(statements8,2)
+
+applauses <- data.frame(table(statements8[grepl(statements8$statement, pattern = "\\(Oklas"), "surname_name"]))
+
+poslowie <- get_filtered_votes(terms_of_office = c(8,8))
+poslowie <- poslowie %>% filter(id_voting == 7861)
+```
+
+```{r wykres}
+library(stringi)
+poslowie$surname <- unlist(stri_extract_all_regex(poslowie$surname_name,pattern="^[a-zA-ZêÊóÓ¹¥œŒ³£¿¯ŸæÆñÑ]+"))
+
+poslowie$oklaski <- 0
+
+for(i in 1:460)
+{
+  rows <- applauses %>% filter(grepl(applauses$Var1, pattern = poslowie[i,"surname"]))
+  poslowie$oklaski[i] <- sum(rows$Freq)
+}
+
+top5 <- poslowie %>% group_by(club) %>% arrange(oklaski) %>% top_n(5)
+
+library(ggplot2)
+p <- ggplot(top5, aes(x=surname_name, y=oklaski, fill=club))
+p <- p + geom_bar(stat="identity")
+p <- p + facet_grid(. ~ club,scales = "free_x")
+p <- p + theme(axis.text.x = element_text(angle = 90, hjust= 1, vjust = 0.5))
+p
+```
