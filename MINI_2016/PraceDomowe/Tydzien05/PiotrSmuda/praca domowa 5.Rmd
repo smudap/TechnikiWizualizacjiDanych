@@ -1,0 +1,77 @@
+---
+title: "Praca domowa nr 4 - TWD 2016/2017"
+author: "Piotr Smuda"
+date: "30 października 2016"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Pozostając w sportowej atmosferze prac domowych, tym razem chciałbym omówić dane z [artykułu](http://www.fcbarca.com/73437-osiagniecia-strzeleckie-messiego-przeciwko-druzynom-z-anglii.html?utm_source=newsList&utm_campaign=news), w którym opisane są kolejne popisy strzeleckie Lionela Messiego. Dane te zawierają zestawienie krajów pochodzenia drużyn, którym
+Messi strzelał bramki w Lidze Mistrzów.
+
+Ponieważ artykuł pochodzi z wtorku rana, a wieczorem tego samego dnia Messi strzelił jeszcze jedną bramkę Manchesterowi City (Anglia),
+to zostało to uwzględnione w finalnych danych.
+
+```{r, echo = TRUE, message = FALSE, warning = FALSE}
+library(XML)
+library(RCurl)
+library(stringi)
+library(ggplot2)
+library(plyr)
+library(tidyr)
+
+# Pobranie i obrobienie danych ze strony http://www.fcbarca.com/73437-osiagniecia-strzeleckie-messiego-przeciwko-druzynom-z-anglii.html?utm_source=newsList&utm_campaign=news
+
+link <- "http://www.fcbarca.com/73437-osiagniecia-strzeleckie-messiego-przeciwko-druzynom-z-anglii.html?utm_source=newsList&utm_campaign=news"
+xData <- getURL(link)
+table <- readHTMLTable(xData, stringsAsFactors = FALSE, encoding = "UTF-8")[[1]]
+names_table <- as.character(table[1,])
+names_table[c(2, 5)] <- c("Camp_Nou", "Łącznie")
+names(table) <- names_table
+table <- table[-c(1, 18), ]
+table[c(3, 15), 1] <- c("Włochy", "Białoruś")
+for(j in 1:ncol(table)){
+   for(i in 1:nrow(table)){
+      elem <- table[i, j]
+      if(elem == "-"){
+         table[i, j] <- 0
+      }
+   }
+}
+
+for(i in 2:5){
+   table[, i] <- as.numeric(table[, i])
+}
+
+table[1, c(3, 5)] <- table[1, c(3, 5)] + 1
+
+table <- gather(table, Gdzie, Ile, c(Camp_Nou, Wyjazd, Neutralne))
+
+table <- ddply(table, .(Kraj), 
+   transform, pozycja_etykiet = cumsum(Ile) - (0.5 * Ile)
+)
+table$pozycja_etykiet[which(table$Ile == 0)] <- NA
+
+table <- table %>% arrange(Łącznie)
+table$Kraj <- factor(table$Kraj, levels = table$Kraj[order(table$Łącznie)])
+
+p <- ggplot(table, aes(x = Kraj, y = Ile, fill = Gdzie, order = Gdzie)) +
+   geom_bar(stat = "identity") +
+   theme_classic() +
+   scale_x_discrete() +
+   scale_y_continuous(breaks = NULL) +
+   scale_fill_manual(values = c("#911010", "#bab6b6", "#000066"), name = "Gdzie strzelone", labels = c("Camp Nou", "Teren Neutralny", "Wyjazd")) +
+   xlab("Kraje pochodzenia przeciwnych zespołów") +
+   ylab("Liczba goli") +
+   ggtitle("Podział goli zdobytych przez Lionela Messiego w Lidze Mistrzów\nze względu na kraj pochodzenia przeciwnych zespołów") +
+   theme(axis.title = element_text(size = 20), plot.title = element_text(hjust = 0, size = 22),
+         axis.ticks.x = element_blank(), axis.text.x = element_text(angle = 45, hjust = 1.2, vjust = 1.6, size = 13))  +
+   geom_text(aes(label = Ile, y = pozycja_etykiet), size = 7, color = "white")
+```
+
+```{r, echo = FALSE, out.width = '1000px', out.height = '1000px', fig.align = 'center', fig.width = 10, fig.height = 8, warning = FALSE}
+p
+```
