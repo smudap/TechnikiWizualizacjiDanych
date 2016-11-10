@@ -1,0 +1,42 @@
+---
+title: "Trump atakuje Clinton"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Od d³u¿szego czasu za spraw¹ wyborów prezydenckich w Stanach Zjednoczonych sp³ywa³y (i sp³ywaj¹ nadaj) do nas najro¿niejsze informacje na temat kandydatów i prowadzonych przez nich kampanii. 
+
+
+Jeszcze przed wynikami g³osowañ natrafi³am na ciekawe zestawienie, pokazuj¹ce ubiegaj¹cych siê o urz¹d prezydenta z innej strony. 
+
+Jak donosz¹ zagraniczne media, na dwa dni przed wyborami, sztab wyborczy Donalda Trumpa odci¹³ kandydatowi na prezydenta dostêp do prywatnego konta na Twitterze, który potrafi³ swoimi wpisami wywo³aæ du¿o kontrowersji. 
+
+
+W niniejszym artykule zosta³ zamieszcozny wykres podsumowuj¹cy wszystkie obelgi Donalda Trumpa, które kierowa³ w stronê swojej konkurentki Hilary Clinton na wspomnianym wczeœniej portalu.
+(http://pikio.pl/tych-slow-trump-uzywal-najczesciej-by-obrazic-hillary-clinton/)
+
+
+Proste w swej naturze dane zosta³y przedstawione na wykresie s³upkowym. Niestety, z powodu wystepowania wartoœci, która dominuje nad pozosta³ymi, wykres jest ma³o czytelny. Jedynie podpisanie kolumn daje szansê na pozanie ich dok³adnej wysoskoœci. 
+
+W swojej wizualizacji postanowi³am wykorzystaæ typ wykresu, który pojawi³ siê na ostatnich zajêciach. Teraz, nawet bez podpisania wartoœci, jesteœmy w stanie wnioskowaæ o liczbie danej opinii.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(waffle)
+
+okreslenia<-c("Oszukañcza"=198, "Negatywna opinia"=20, "Ona k³amie"=20, "Skorumpowana"=9,
+               "Katastrofa"=7,"Niezdolna"=7,"Zawiod³a"=6,"Defraudacja"=6, "Nieuczciwa"=5)
+
+
+kolory<-c("#0B1545",  "#1A34AB",  "#596FCE",  "#CACAEA", "#C8EBBC","#91D779","#68C948","#4C9335","#264A1B")
+chart <- waffle(okreslenia, rows=18, size=1, pad=1,colors=kolory)
+chart+ ggtitle("Jakich s³ów u¿ywa³ najczêsciej Donald Trump, \naby uraziæ Hillary Clinton na Twitterze?")+
+  theme(plot.title=element_text(margin=margin(b=0.5, unit="cm"),hjust=0, size=18, face="bold"),
+        legend.title = element_text(size=20,face="bold"), 
+        legend.text = element_text(size = 15),
+        plot.margin=unit(c(1,1,1,1), "cm"))
+
+?waffle
+```
