@@ -1,9 +1,0 @@
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\bin\Debug\crawler.exe.config
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\bin\Debug\crawler.exe
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\bin\Debug\crawler.pdb
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\bin\Debug\HtmlAgilityPack.dll
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\bin\Debug\HtmlAgilityPack.pdb
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\bin\Debug\HtmlAgilityPack.xml
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\obj\Debug\crawler.csprojResolveAssemblyReference.cache
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\obj\Debug\crawler.exe
-D:\projekty\studia\TWD\proj1\crawler\crawler\crawler\obj\Debug\crawler.pdb
