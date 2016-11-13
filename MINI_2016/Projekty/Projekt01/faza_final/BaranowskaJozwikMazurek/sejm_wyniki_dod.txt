@@ -1,0 +1,11 @@
+"deputy" "partia" "ile_razy_mowil" "name" "procentowa_zgodnosc" "srednia_zgodnosc"
+"201" 201 "Kukiz15" 26 "Kulesza" 73.7 0.901
+"436" 436 "Kukiz15" 138 "Wójcikowski" 78 0.901
+"152" 152 "PSL" 121 "Kasprzak" 98.2 0.959
+"367" 367 "N" 177 "Suchoñ" 95.3 0.947
+"297" 297 "PO" 133 "Pêpek" 98.7 0.985
+"247" 247 "PiS" 73 "Micha³ek" 99.7 0.997
+"160" 160 "PSL" 12 "K³opotek" 84.5 0.959
+"249" 249 "N" 54 "Mieszkowski" 89.1 0.947
+"452" 452 "PiS" 12 "Ziobro" 96.8 0.997
+"357" 357 "PO" 25 "Sonik" 95.5 0.985
