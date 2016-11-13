@@ -7,9 +7,6 @@ output:
     css: style.css
   pdf_document: default
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Którzy posłowie są najczęściej nieobecni?
 
@@ -23,9 +20,9 @@ Na wykresie dodane zostały też informacje o 3. kwartylu skumulowanych nieobecn
 Interaktywność wykresu obejmuje wyświetlanie dodatkowych informacji po najechaniu na punkt oraz możliwość włączania/wyłączania linii dla wybranych partii, co pozwala na łatwiejsze porównania między konkretnymi partiami.
 
 
-[Wykres 1](http://rawgit.com/mmazurek/my_studies/master/liderzy_nieob_wykres.html)
+[Wykres 1](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/liderzy_nieob_wykres.html)
 
-[Kod do wykresu 1](http://rawgit.com/mmazurek/my_studies/master/PREZENTACJA_html_nieobecnosci.html)
+[Kod do wykresu 1](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/PREZENTACJA_html_nieobecnosci.html)
 
 
 ## Jak dużo partie sobie przeszkadzają?
@@ -40,9 +37,9 @@ Znajdują się na nim dwa półkola:
 Wykres jest interaktywny, tzn. możemy "najechać" na daną partię kursorem aby uzyskać informacje odnośnie przrywań.
 Obok wykresu jest umieszczona również tabela z infomarcją o przerywaniach w partiach, które powstały pod koniec kadencji.
 
-[Wykres 2](http://rawgit.com/mmazurek/my_studies/master/twd_p1.html)
+[Wykres 2](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/wykres_przerywania.html)
 
-[Kod do wykresu 2](http://rawgit.com/mmazurek/my_studies/master/kod_przerywania.html)
+[Kod do wykresu 2](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/kod_przerywania.html)
 
 Poniżej znajdują się tabele z informacjami jak dużo przerywań zawierało następujące wyrażenia:
 
@@ -83,7 +80,7 @@ Na wykresie można więc zobaczyć jak w zależności od partii rozkładają si�
 
 Dodatkowo zostały umieszczone po 2 nazwiska posłów z każdej partii: tych którzy mieli największą ilość wystąpień i tych którzy wykazali się największą niezgodnością z partią.
 
-[Wykres 3](https://raw.githubusercontent.com/mmazurek/my_studies/master/Rplot_mojekol.png)
+[Wykres 3](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/Rplot_mojekol.png)
 
 
 
