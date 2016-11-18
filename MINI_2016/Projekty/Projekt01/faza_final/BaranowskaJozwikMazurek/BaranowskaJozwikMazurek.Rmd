@@ -1,0 +1,86 @@
+---
+title: "Analiza i wizualizacja danych z Sejmu - VIII kadencja"
+author: "Ewa Baranowska, Marta Jóźwik, Magdalena Mazurek"
+date: "10 listopada 2016"
+output:
+  html_document: 
+    css: style.css
+  pdf_document: default
+---
+
+## Którzy posłowie są najczęściej nieobecni?
+
+Wykres przedstawia liderów nieobecności wśród posłów wszystkich partii w trakcie trwania I roku VIII kadencji sejmu. Wziętych pod uwagę zostało 451 posłów, którzy pełnili obowiązki posła przez wszystkie 1912 głosowań, które odbyły się w rozważanym przez nas okresie (od 12.11.2015 do 04.10.2016 roku).
+
+Jako lidera partii w nieobecnościach dla danego dnia definiujemy posła, majacego największą ilość skumulowanych nieobecności do tego dnia włącznie. Wyznaczeni liderzy zostali zaznaczeni w postaci linii dla każdej partii. Po najechaniu kursorem na odpowiedni punkt na linii wyświetla się informacja o aktualnym liderze danej partii (nazwisko posła, liczba opuszczonych w danym dniu głosowań oraz skumulowana liczba nieobecności do tego dnia włącznie) oraz o aktualnym punkcie czasowym (dokładna data
+wraz z dniem tygodnia oraz liczba przeprowadzonych w tym dniu głosowań). Dodatkowo kropkami na liniach zaznaczono moment, w którym nastąpiła dla danej partii zmiana lidera.
+
+Na wykresie dodane zostały też informacje o 3. kwartylu skumulowanych nieobecności dla wszystkich rozważanych posłów w danych dniach oraz nazwiska liderów partii w ostatnim rozważanym dniu wraz procentem opuszczonych przez nich przez ten rok głosowań.
+
+Interaktywność wykresu obejmuje wyświetlanie dodatkowych informacji po najechaniu na punkt oraz możliwość włączania/wyłączania linii dla wybranych partii, co pozwala na łatwiejsze porównania między konkretnymi partiami.
+
+
+[Wykres 1](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/liderzy_nieob_wykres.html)
+
+[Kod do wykresu 1](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/PREZENTACJA_html_nieobecnosci.html)
+
+
+## Jak dużo partie sobie przeszkadzają?
+
+Poniższy wykres przedstawia informacje dotyczące przerywania wygłaszanych mów przez posół w podziale na partie w kadencji VIII.
+
+Znajdują się na nim dwa półkola:
+
+* górne z nich odpowiada na pytanie: Jaki procent partii przerywało wybranej partii? (wraz z informacją jaki procent wszystkich przerywań dotyczył przerywań wybranej partii)
+* dolne półkole odpowiada na pytanie: Jaki procent poszczególne partie przerywały pozostałym partiom? (wraz z informacją  jaki procent wszystkich przerywań, to przerywania przez daną partię)
+
+Wykres jest interaktywny, tzn. możemy "najechać" na daną partię kursorem aby uzyskać informacje odnośnie przrywań.
+Obok wykresu jest umieszczona również tabela z infomarcją o przerywaniach w partiach, które powstały pod koniec kadencji.
+
+[Wykres 2](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/wykres_przerywania.html)
+
+[Kod do wykresu 2](http://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/kod_przerywania.html)
+
+Poniżej znajdują się tabele z informacjami jak dużo przerywań zawierało następujące wyrażenia:
+
+* "cisza" bądź "cicho",
+* "tak jest".
+
+```{r, echo=FALSE, results='asis'}
+
+cisza <- data.frame("Partia"=c("PiS","PO"),
+                     "Ilość"=c(47,20),
+                     "Procent" = c(0.84,0.38))
+tak_jest <- data.frame("Partia"=c("Kukiz15", "PiS","PO"),
+                     "Ilość"=c(3,342,36),
+                     "Procent" = c(1.07,6.12,0.68))
+
+
+library(knitr)
+t1 = kable(cisza, format='html', output = FALSE, table.attr=c('cellpadding="3px"'), caption = "Ile przerywań zawierało \"cisza\" bądź \"cicho\"?" )
+t2 = kable(tak_jest, format='html', output = FALSE, table.attr='cellpadding="3px"', caption= "Ile przerywań zawierało \"tak jest\"?")
+cat(c('<div style="height: 200px"><div id="left">', t1, '</div><div id="right">', t2, '</div></div>'), sep = '')
+
+
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
+shiny::includeHTML("http://rawgit.com/mmazurek/my_studies/master/twd_p1.html")
+```
+
+
+## Jak zgodni z partią są posłowie?
+
+Poniższy wykres przedstawia policzone informacje o zgodnościach posłów ze swoimi partiami podczas głosowań (czy głosowali zgodnie jak większość partii) oraz ilości ich wystąpień podczas w kadencji VIII w podziale na partie.
+
+Znajdują się na nim punty odpowiadające poszczególnym posłom, a ich umiejscowienie zależy od ilości wystąpień (oś x) i procentowej niezgodności z kanonem głosowań partii do której należy (oś y). Na wykresie znajdują się jedynie informacje dotyczące obecnych posłów, a informacje o nich dotyczą partii do której aktualnie należą.
+
+Na wykresie można więc zobaczyć jak w zależności od partii rozkładają się tendencje zachowań jej posłów.
+
+Dodatkowo zostały umieszczone po 2 nazwiska posłów z każdej partii: tych którzy mieli największą ilość wystąpień i tych którzy wykazali się największą niezgodnością z partią.
+
+[Wykres 3](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Projekty/Projekt01/faza_final/BaranowskaJozwikMazurek/Rplot_mojekol.png)
+
+
+

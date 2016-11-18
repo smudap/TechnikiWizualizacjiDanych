@@ -1,0 +1,336 @@
+---
+title: "Praca Domowa 2"
+author: "Paulina Kostrzewa & Maksymilian Mazur"
+date: "6 listopada 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Ÿród³o: https://www.rio2016.com
+
+## Wyniki Polski i innych krajów europejskich na Olimpiadzie Rio 2016
+
+```{r  echo=FALSE, message = FALSE, warning= FALSE, }
+library(tidyr)
+library(readr)
+library(dplyr)
+library(magrittr)
+library(countrycode)
+### Getting data in packages
+library(rvest)
+library(ggplot2)
+library(sqldf)
+library(tcltk)
+library(gridExtra)
+library(stringi)
+# hack for some IOC country abbrevations 
+
+ioc_country <- structure(
+   c("ROT", "KOS", "IVB", "SSD", "IOA"), 
+   names = c("Refugee Olympic Team", "Kosovo", "British Virgin Islands", "South Sudan", "Individual Olympic Athletes")
+)
+base.url <- "https://www.rio2016.com/en/"
+
+# Get all the sports and their URLs
+sports <- read_html("https://www.rio2016.com/en/sports") %>% 
+   html_nodes(".olympic-pictograms__item") %>% html_nodes("a")
+
+sports.suffix <- gsub('<a href="/en/(.*)" class.*', "\\1", sports)
+
+athletes.list <- lapply(sports.suffix, function(sport) {
+    #  cat("\n", sport)
+      sport.url <- paste0(base.url, sport)
+
+   name <- read_html(sport.url) %>%
+      html_nodes(".athletes-teams-graphic__full-list-name") %>% html_text()
+   gender <- read_html(sport.url) %>%
+      html_nodes(".athletes-teams-graphic__full-list-gender") %>% html_text()
+   iso3c <- read_html(sport.url) %>%
+      html_nodes(".athletes-teams-graphic__full-list-country")  %>% html_text()
+   stopifnot(length(name) == length(iso3c), length(gender) == length(name))
+
+   if(length(name) == 0) {
+     # warning("\n\n", "No althletes list for ", sport, "!!!", "\n")
+      NULL
+   } else {
+      data.frame(athletes = name, gender = gender, iso3 = iso3c, sport =  sport, stringsAsFactors = F)     
+   }
+ })
+
+
+athletes <- do.call(rbind, athletes.list)
+athletes$country <- countrycode(athletes$iso3, "ioc", "country.name")
+
+idx <- match(athletes[which(is.na(athletes$country)),'iso3'], ioc_country)
+if(any(is.na(idx))) {
+  warning("\nSome country IOC abbrevations have no English name!\n")
+}
+athletes[which(is.na(athletes$country)),'country'] <- names(ioc_country)[idx]
+
+
+plywanie <- athletes
+plywanie_granicePL<-filter(plywanie,country %in% c("Germany","United Kingdom" ,"Poland", "Spain", " Czech Republic", "Lithuania", "France", "Ukraine", "Czech Republic" ))
+
+
+Kraj <- c("France","United Kingdom","Germany","Spain","Poland","Ukraine","Czech Republic", "Lithuania")
+ludnosc <- c(66259012,63742976,80996688,47737940,38346280,44291412,10627448,3505738)
+
+
+IleLudzi <- data.frame(Kraj, ludnosc)
+
+IleSportowcow <-sqldf('SELECT country, count(*) as ilosc FROM plywanie_granicePL GROUP BY country')
+
+stosunekZawodnikóW <- sqldf('SELECT a.Kraj,b.ilosc/a.ludnosc*1000000 as sportowiecNaMilion from IleLudzi a inner join IleSportowcow b on a.Kraj=b.country')
+
+
+# g_legend<-function(a.gplot){
+#   tmp <- ggplot_gtable(ggplot_build(a.gplot))
+#   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+#   legend <- tmp$grobs[[leg]]
+#   legend
+# }
+
+
+
+plywanie_granicePL$country<-reorder(plywanie_granicePL$country, plywanie_granicePL$country, function(x) -length(x))
+
+stosunekZawodnikóW$Kraj <- factor(stosunekZawodnikóW$Kraj, levels=levels(plywanie_granicePL$country))
+
+#pierwszy
+# p1<- ggplot(plywanie_granicePL, aes(country,  fill=country))+
+#   geom_bar(position="stack",aes(alpha=gender))+
+#   geom_text(aes(label = ..count.., y= ..count.., group=gender), stat= "count", position= "stack", vjust=1)+
+#   geom_text(aes(label = ..count.., y= ..count..), stat= "count", position= "stack", vjust=-1, size=5)+
+#   theme(axis.title.x=element_blank(),
+#         axis.text.x=element_blank(),
+#         axis.ticks.x=element_blank(),
+#         axis.title.y=element_blank(),
+#         axis.text.y=element_blank(),
+#         axis.ticks.y=element_blank(),
+#         panel.background=element_blank(),
+#         legend.position="top") +
+#   ylab("Liczba uczestnikóW") + 
+#   scale_alpha_manual(values=c(0.5,1))+
+#   ylim(0, 460)
+
+
+
+p1<- ggplot(plywanie_granicePL, aes(country,  fill=country))+
+  geom_bar(position="stack",aes(alpha=gender))+
+  geom_text(aes(label = ..count.., y= ..count.., group=gender), stat= "count", position= "stack", vjust=1)+
+  geom_text(aes(label = ..count.., y= ..count..), stat= "count", position= "stack", vjust=-1, size=5)+
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        panel.background=element_blank()
+        #legend.position="none"
+        ) +
+  ylab("Liczba uczestnikóW") + 
+  scale_alpha_manual(values=c(0.5,1))+
+  ylim(0, 480)+
+  ggtitle('Liczba sportowców w podziale na p³eæ')+
+  theme(plot.title = element_text(lineheight=.8, face="bold"))
+
+p2 <- ggplot(stosunekZawodnikóW, aes(Kraj, fill=Kraj))+
+  geom_bar(aes(y=sportowiecNaMilion), position="dodge",stat="identity") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        panel.background=element_blank(),
+        legend.position="none") +
+  geom_text (aes(label = round(as.numeric(sportowiecNaMilion),2), y=round(as.numeric(sportowiecNaMilion),2), size=5), 
+             position="stack", vjust=-0.5) +
+  ylab("Stosunek sportowcy/obywatele") +
+  ylim(c(0,21))+
+  ggtitle('Procent sportowców w kraju')+
+  theme(plot.title = element_text(lineheight=.8, face="bold"))
+
+#Legenda <- g_legend(p1)
+#grid.arrange(Legenda,p1,p2, layout_matrix = rbind(c(1,1),c(2,3),c(2,3),c(2,3),c(2,3)))
+grid.arrange(p1,p2, layout_matrix = rbind(c(1,1,1,2,2),c(1,1,1,2,2),c(1,1,1,2,2),c(1,1,1,2,2)))
+
+
+
+
+
+```
+
+## Liczba medali przypadaj¹ca na kraj w zale¿noœci od p³ci i koloru medalu
+
+```{r  echo=FALSE, message = FALSE, warning= FALSE}
+library(tidyr)
+library(readr)
+library(dplyr)
+library(magrittr)
+library(countrycode)
+### Getting data in packages
+library(rvest)
+library(ggplot2)
+library(sqldf)
+library(tcltk)
+library(gridExtra)
+library(stringi)
+
+kraj <- c("france","great-britain","germany","spain","poland","ukraine","czech-republic", "lithuania")
+stronaGlowna <- "https://www.rio2016.com/en/"
+ramkaDanych <- data.frame(matrix(NA, nrow = 0, ncol = 10))
+
+for (i in 1:length(kraj)){
+  link <- stri_paste(stronaGlowna,kraj[i])
+  htmlZMedalami <- read_html(link) %>% html_nodes(".medals-list__item")
+  ramkaDanychTemp <- kraj[i]
+  for(j in 1:length(htmlZMedalami)){
+    listaDyscyplin <- htmlZMedalami[j] %>% html_nodes(".medals-list__item-sport")
+    medaleKobiet <- sum(stri_count_regex(listaDyscyplin, "Women"))
+    medaleMezczyzn  <- sum(stri_count_regex(listaDyscyplin, "Men")) 
+    # maska <- stri_count_regex(listaDyscyplin, "Women")+stri_count_regex(listaDyscyplin, "Men")
+    # zMaski <- which(maska==0)
+    # for (k in zMaski){
+    #   dyscyplinaBrak <- listaDyscyplin
+    # }
+    medaleMix = 0
+    ramkaDanychTemp <- cbind(ramkaDanychTemp,medaleKobiet, medaleMezczyzn,medaleMix)
+  }
+  ramkaDanych <- rbind(ramkaDanych,ramkaDanychTemp)
+}
+names(ramkaDanych) <- c("kraj", "kobietyZlote", "mezczyzniZlote","mixZlote","kobietySrebrne", "mezczyzniSrebrne","mixSrebrne","kobietyBrazowe", "mezczyzniBrazowe","mixBrazowe")
+
+ramkaDanych[,1] <- as.character(ramkaDanych[,1])
+
+for (i in 2:10){
+  ramkaDanych[,i] <- as.numeric(as.character(ramkaDanych[,i]))
+}
+
+ramkaDanych[6,8] = ramkaDanych[6,8]+1
+ramkaDanych[7,10] = ramkaDanych[7,10] +1
+ramkaDanych[4,5] = ramkaDanych[4,5] +1
+ramkaDanych[3,2] = ramkaDanych[3,2] +1
+ramkaDanych[3,3] = ramkaDanych[3,3] +1
+ramkaDanych[3,5]=ramkaDanych[3,5]+1
+ramkaDanych[3,7]=ramkaDanych[3,7]+1
+ramkaDanych[3,8]=ramkaDanych[3,8]+1
+ramkaDanych[3,10]=ramkaDanych[3,10]+1
+ramkaDanych[2,2]=ramkaDanych[2,2]+1
+ramkaDanych[2,3]=ramkaDanych[2,3]+1
+ramkaDanych[2,7]=ramkaDanych[2,7]+1
+ramkaDanych[1,4]=ramkaDanych[1,4]+1
+ramkaDanych[1,6]=ramkaDanych[1,6]+1
+
+ramkaDanych[,1] <- Kraj
+
+medale<-ramkaDanych
+
+######Rysunke Z³oto
+medale_zl_kobiety<- medale[,c(1,2)]
+medale_zl_kobiety[,3]<-'K'
+
+
+medale_zl_me¿czyzni<-medale_zl_kobiety
+medale_zl_me¿czyzni<-medale[,c(1,3)]
+medale_zl_me¿czyzni[,3]<-'M'
+
+
+names(medale_zl_me¿czyzni)<-c('kraj','Z³oto', 'plec')
+names(medale_zl_kobiety)<-c('kraj','Z³oto', 'plec')
+
+
+
+medale_zl_me¿czyzni$kraj<-reorder(medale_zl_me¿czyzni$kraj, medale_zl_me¿czyzni$Z³oto, function(x) x)
+
+
+medale_zlote<-rbind(medale_zl_me¿czyzni,medale_zl_kobiety)
+
+p3<-ggplot(medale_zlote, aes(x=kraj, y=Z³oto, group=plec, shape=plec, color=plec))+
+      geom_point(size=4)+
+      coord_flip()+
+      scale_shape_manual(values=c('K', 'M'))+
+      scale_y_continuous(breaks = seq(0,20,1))+
+      theme(axis.title.x=element_blank(),
+         axis.title.y=element_blank(),
+         legend.position="none")+
+      ggtitle('Z³oto')
+    
+######Rysunke Srebro
+medale_sr_kobiety<- medale[,c(1,5)]
+medale_sr_kobiety[,3]<-'K'
+
+medale_sr_me¿czyzni<-medale_sr_kobiety
+medale_sr_me¿czyzni<-medale[,c(1,6)]
+medale_sr_me¿czyzni[,3]<-'M'
+
+
+names(medale_sr_me¿czyzni)<-c('kraj','Srebro', 'plec')
+names(medale_sr_kobiety)<-c('kraj','Srebro', 'plec')
+
+
+
+medale_sr_me¿czyzni$kraj<-reorder(medale_sr_me¿czyzni$kraj, medale_sr_me¿czyzni$Srebro, function(x) x)
+
+
+medale_srebro<-rbind(medale_sr_me¿czyzni,medale_sr_kobiety)
+
+p4<-ggplot(medale_srebro, aes(x=kraj, y=Srebro, group=plec, shape=plec, color=plec))+
+   geom_point(size=4)+
+   coord_flip()+
+   scale_shape_manual(values=c('K', 'M'))+
+   scale_y_continuous(breaks = seq(0,14,1))+
+   theme(axis.title.x=element_blank(),
+         axis.title.y=element_blank(),
+         legend.position="none")+
+   ggtitle('Srebro')
+
+
+######Rysunke Br¹z
+medale_br_kobiety<- medale[,c(1,8)]
+medale_br_kobiety[,3]<-'K'
+
+medale_br_me¿czyzni<-medale_br_kobiety
+medale_br_me¿czyzni<-medale[,c(1,9)]
+medale_br_me¿czyzni[,3]<-'M'
+
+
+names(medale_br_me¿czyzni)<-c('kraj','Braz', 'plec')
+names(medale_br_kobiety)<-c('kraj','Braz', 'plec')
+
+
+
+medale_br_me¿czyzni$kraj<-reorder(medale_br_me¿czyzni$kraj, medale_br_me¿czyzni$Braz, function(x) x)
+
+
+medale_braz<-rbind(medale_br_me¿czyzni,medale_br_kobiety)
+
+p5<-ggplot(medale_braz, aes(x=kraj, y=Braz, group=plec, shape=plec, color=plec))+
+   geom_point(size=4)+
+   coord_flip()+
+   scale_shape_manual(values=c('K', 'M'))+
+   scale_y_continuous(breaks = seq(0,14,1))+
+   theme(axis.title.x=element_blank(),
+         axis.title.y=element_blank(),
+         legend.position="none")+
+   ggtitle('Br¹z')
+
+# g_legend<-function(a.gplot){
+#   tmp <- ggplot_gtable(ggplot_build(a.gplot))
+#   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+#   legend <- tmp$grobs[[leg]]
+#   legend
+# }
+
+
+#Legenda2 <- g_legend(p5)
+#grid.arrange(p3,p4,p5, Legenda2 ,layout_matrix = rbind(c(1,1,1,4),c(2,2,2,4),c(3,3,3,4)))
+
+grid.arrange(p3,p4,p5, layout_matrix = rbind(c(1,1,1,1,1),c(2,2,2,2,2),c(3,3,3,3,3)))
+
+
+```
