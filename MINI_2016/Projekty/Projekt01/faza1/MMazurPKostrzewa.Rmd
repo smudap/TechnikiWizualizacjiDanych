@@ -1,0 +1,196 @@
+---
+title: "Praca Domowa 2"
+author: "Paulina Kostrzewa & Maksymilian Mazur"
+date: "16 paŸdziernika 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Wyniki Polski i innych krajów europejskich na Olimpiadzie Rio 2016
+
+G³ównym celem naszego projektu jest, wykorzystuj¹c oficjaln¹ stronê Igrzysk Olimpijskich https://www.rio2016.com, oraz inne dodatkowe Ÿród³a demograficzne przedstawienie i porównanie wyników otrzymanych przez reprezentacjê Polski na tle innych krajów europejskich o podobnym potencjale/ludnoœci.
+
+
+```{r  echo=FALSE, message = FALSE, warning= FALSE, }
+library(tidyr)
+library(readr)
+library(dplyr)
+library(magrittr)
+library(countrycode)
+### Getting data in packages
+library(rvest)
+library(ggplot2)
+library(sqldf)
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  require(grid)
+  
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+  
+  numPlots = length(plots)
+  
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                     ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+  
+  if (numPlots==1) {
+    print(plots[[1]])
+    
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+    
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+      
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+```{r  echo=FALSE, message = FALSE, warning= FALSE}
+
+
+# hack for some IOC country abbrevations 
+
+ioc_country <- structure(
+   c("ROT", "KOS", "IVB", "SSD", "IOA"), 
+   names = c("Refugee Olympic Team", "Kosovo", "British Virgin Islands", "South Sudan", "Individual Olympic Athletes")
+)
+base.url <- "https://www.rio2016.com/en/"
+
+# Get all the sports and their URLs
+sports <- read_html("https://www.rio2016.com/en/sports") %>% 
+   html_nodes(".olympic-pictograms__item") %>% html_nodes("a")
+
+sports.suffix <- gsub('<a href="/en/(.*)" class.*', "\\1", sports)
+
+athletes.list <- lapply(sports.suffix, function(sport) {
+    #  cat("\n", sport)
+      sport.url <- paste0(base.url, sport)
+
+   name <- read_html(sport.url) %>%
+      html_nodes(".athletes-teams-graphic__full-list-name") %>% html_text()
+   gender <- read_html(sport.url) %>%
+      html_nodes(".athletes-teams-graphic__full-list-gender") %>% html_text()
+   iso3c <- read_html(sport.url) %>%
+      html_nodes(".athletes-teams-graphic__full-list-country")  %>% html_text()
+   stopifnot(length(name) == length(iso3c), length(gender) == length(name))
+
+   if(length(name) == 0) {
+     # warning("\n\n", "No althletes list for ", sport, "!!!", "\n")
+      NULL
+   } else {
+      data.frame(athletes = name, gender = gender, iso3 = iso3c, sport =  sport, stringsAsFactors = F)     
+   }
+ })
+
+athletes <- do.call(rbind, athletes.list)
+athletes$country <- countrycode(athletes$iso3, "ioc", "country.name")
+
+idx <- match(athletes[which(is.na(athletes$country)),'iso3'], ioc_country)
+if(any(is.na(idx))) {
+   warning("\nSome country IOC abbrevations have no English name!\n")
+}
+athletes[which(is.na(athletes$country)),'country'] <- names(ioc_country)[idx]
+
+
+plywanie <- athletes
+plywanie_granicePL<-filter(plywanie,country %in% c("Germany","United Kingdom" ,"Poland", "Spain", " Czech Republic", "Lithuania", "France", "Ukraine", "Czech Republic" ))
+
+
+
+Kraj <- c("France","United Kingdom","Germany","Spain","Poland","Ukraine","Czech Republic", "Lithuania")
+ludnosc <- c(66259012,63742976,80996688,47737940,38346280,44291412,10627448,3505738)
+
+
+IleLudzi <- data.frame(Kraj, ludnosc)
+
+IleSportowcow <-sqldf('SELECT country, count(*) as ilosc FROM plywanie_granicePL GROUP BY country')
+
+stosunekZawodnikóW <- sqldf('SELECT a.Kraj,b.ilosc/a.ludnosc*1000000 as sportowiecNaMilion from IleLudzi a inner join IleSportowcow b on a.Kraj=b.country')
+
+
+
+#pierwszy
+p1<- ggplot(plywanie_granicePL, aes(country, fill=country))+
+   geom_bar(position="dodge")+
+   geom_text(aes(label = ..count.., y= ..prop..), stat= "count", vjust = -0.4)+
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        legend.position="none") +
+  ylab("Liczba uczestnikóW")
+
+p2 <- ggplot(stosunekZawodnikóW, aes(Kraj, fill=Kraj))+
+  geom_bar(aes(y=sportowiecNaMilion), position="dodge",stat="identity") +
+theme(axis.title.x=element_blank(),
+      axis.text.x=element_blank(),
+      axis.ticks.x=element_blank()) +
+  ylab("Stosunek sportowcy/obywatele")
+
+
+p3<-ggplot(plywanie_granicePL, aes(gender, fill=country)) + geom_bar(position = position_dodge(width=0.95))+
+  geom_text(aes(label = ..count.., y= ..prop.., fill=factor(gender)), stat= "count", vjust = -0.4) +
+  ylab("Liczba uczestników") +
+  xlab("P³eæ")+
+  theme(legend.position="none")
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+    library(grid)
+    
+    # Make a list from the ... arguments and plotlist
+    plots <- c(list(...), plotlist)
+    
+    numPlots = length(plots)
+    
+    # If layout is NULL, then use 'cols' to determine layout
+    if (is.null(layout)) {
+      # Make the panel
+      # ncol: Number of columns of plots
+      # nrow: Number of rows needed, calculated from # of cols
+      layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                       ncol = cols, nrow = ceiling(numPlots/cols))
+    }
+    
+    if (numPlots==1) {
+      print(plots[[1]])
+      
+    } else {
+      # Set up the page
+      grid.newpage()
+      pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+      
+      # Make each plot, in the correct location
+      for (i in 1:numPlots) {
+        # Get the i,j matrix positions of the regions that contain this subplot
+        matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+        
+        print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                        layout.pos.col = matchidx$col))
+      }
+    }
+  }
+  
+layout <- matrix(c(1, 2, 3, 3), nrow = 2, byrow = TRUE)
+multiplot(p1,p2,p3, layout = layout)
+
+
+
+
+```
+

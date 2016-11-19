@@ -1,0 +1,78 @@
+---
+title: "PD5"
+author: "Marta JóŸwik"
+date: "9 listopada 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+W tym tygodniu znalza³am w Gazecie Prawnej artyku³ o d³ugach lokatorów (str. A12), do którego do³¹czone by³y dodatkowe dane w postaci ramki na górze. Patrz¹c na 2 pierwsze wykresy wydaje mi siê, ¿e zosta³y one przedatwione w taki sposób, ¿e trzeba siê mocno zastanowiæ zanim np. dojdziemy do wniosku, ¿e (mimo tytu³u artyku³u :"D³ugi lokatorów zmala³y") to d³ugi przypadaj¹ce na 1 mieszkanie w wiêkszoœci wzrasta³y, szczególnie dla d³ugów pow. 3 miesiêcy. S¹dzê, ¿e na przedstawionym wykresie ³atwiej zauwa¿yæ takie zale¿noœci. W gazecie równie¿ musia³am siê trochê naszukaæ co maj¹ znaczyæ 2 kolory s³upków (inf. na górze o latach jest zbyt ³atwo zauwa¿alna, a przecie¿ stanowi ona g³ówny temat). Tak samo podpisy s³upków s¹ zbyt rozrzucone i trudno porównaæ te dwa wykresy do siebie.
+
+
+```{r,echo=F}
+library(ggplot2)
+granice<-data.frame(x=c(0,4000,4000),y=c(0,4000,0))
+granice1<-data.frame(x=c(0,0,4000),y=c(0,4000,4000))
+
+dane<-data.frame(co=rep(c("Zak³. pracy","Skarbu pañstwa","Komunalne","TBS","Wspólnoty mieszk.","Spó³dzielcze"),2),
+                 rodzaj=c(rep("ogó³em",6),rep("pow. 3 mies.",6)),
+                 wart.2013=c(1764,2197,1593,1292,1156,904,2778,3408,2323,1981,2348,2954),
+                 wart.2015=c(2292,1876,1656,1236,1200,950,3341,3063,2369,3130,2509,3280))
+
+df<-as.data.frame(cbind(xstart=dane$wart.2013,xend=dane$wart.2013,ystart=dane$wart.2015,yend=dane$wart.2013))
+
+ggplot(dane,aes(x=wart.2013,y=wart.2015))+
+   geom_polygon(data=granice,aes(x=x,y=y),alpha=0.5,fill="lightblue")+
+   geom_polygon(data=granice1,aes(x=x,y=y),alpha=0.5,fill="violet")+
+   geom_point(aes(fill=rodzaj,shape=co,color=rodzaj),size=3)+
+   #geom_text(aes(label=co),size=3,hjust=1.1,vjust=-0.1,position = #position_dodge(1.1))+
+   geom_abline(intercept = 0,slope=1,col="black")+
+   coord_fixed()+
+   geom_segment(data=df,aes(x=xstart,y=ystart,xend=xend,yend=yend))+
+   theme(panel.background = element_rect(fill = "white"),
+         panel.grid.major = element_line(colour = "grey80",size=0.5),
+         panel.grid.minor = element_line(colour = "grey80",size=0.5),
+         legend.key=element_blank())+
+   scale_color_manual(guide = guide_legend(title = "Rodzaj zad³u¿enia"),
+                      values=c("#753b64","#f5624e"))+
+   ggtitle("Przeciêtne kwoty zaleg³oœci przypadaj¹ca na 1 mieszkanie [w z³] \n w 2013 i 2015 roku")+
+   xlab("Rok 2013")+
+   ylab("Rok 2015")+
+   scale_shape_manual(guide = guide_legend(title = "Rodzaj mieszkania"),
+                      values=c(21,22,23,24,25,4))+
+   scale_fill_manual(guide=F,values=c("#753b64","#f5624e"))
+```
+   
+Drug¹ czêœæ zawartych danych przedstawiono w postaci tabelki, co oczywiœcie utrudnia zauwa¿enie w nich od razu pewnych zale¿noœci (¿e praktycznie wszystkie wart. malej¹). Trudno te¿ zwizualizowaæ sobie w jakim stopniu zmala³y. Równie¿ na I rzut oka wydawa³o mi siê ¿e jest tam b³¹d (procenty sumowa³y siê do >100), ale po uwa¿niejszym wpatrzeniu siê w nawiasie drobnym drukiem jest inf. o tym, ¿e s¹ to po prostu procenty zad³u¿eñ w ka¿dej grupie mieszkañ. S¹dzê, ¿e przedstwione ni¿ej wykresy s¹ lepsz¹ mo¿liwoœci¹ przedstawienia takich danych ni¿ tabela.
+   
+```{r,echo=F}
+
+co2<-c("Zak³. pracy","Skarbu pañstwa","Komunalne","TBS","Wspólnoty mieszk.","Spó³dzielcze")
+wart2<-c(31.2,29.2,40.5,24.3,14.2,26.2)
+co2<-reorder(co2,-wart2) 
+
+
+
+dane2<-data.frame(co=rep(co2,4),
+                 rok=rep(c(rep(2013,6),rep(2015,6)),2),
+                  wart=c(31.2,29.2,40.5,24.3,14.2,26.2,21.5,20.6,37.8,20.0,14.3,22.7,15.9,15.7,22.5,6.0,5.0,4.9,12.2,10.1,21.3,4.7,4.8,3.9),okres=c(rep("ogó³em",12),rep("pow. 3 mies.",12)))
+
+   
+ggplot(dane2,aes(x=rok,y=wart,color=co))+
+   facet_wrap(~okres)+
+   geom_line(size=2)+
+   theme(panel.background = element_rect(fill = "white"),
+         panel.grid.major = element_line(colour = "grey80",size=0.5),
+         panel.grid.minor = element_line(colour = "grey80",size=0.5),
+         legend.key=element_blank())+scale_x_discrete(limits=c(2013,2015),expand = c(0.05,0.05))+
+   ylab("Procent poszczególnych zasobów")+xlab("Rok")+
+   scale_color_manual(guide = guide_legend(title = "Rodzaj mieszkania"),
+                      values=c(1,2,3,4,5,6))+
+   #scale_y_continuous(limits=c(13,41),breaks=c(10,20,30,40))+
+   ggtitle("Odsetki lokali zad³u¿onych wg rodzajów mieszkañ \n w 2013 i 2015 roku")
+
+   
+```

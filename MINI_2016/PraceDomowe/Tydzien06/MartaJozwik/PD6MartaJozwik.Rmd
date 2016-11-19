@@ -1,0 +1,69 @@
+---
+title: "PD6TWD"
+author: "Marta Jóźwik"
+date: "17 listopada 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Tym razem znalazłam w gazecie Puls Biznesu (z 16 list, str. B7) artykuł o świadczeniech pielęgniaryjnych, któremu towarzyszyło kilka obrazków sugerujących wielkość pobieranych świadczeń. Muszę przyznać, że przyciąga to większą uwagę na pierwszy rzut oka niż zwykłe wykresy słupkowe, ale niestety pojęci proporcji tych liczb ginie w tych obrazkach. Nie do końca wiadomo czy chodzi o porównanie pola, czy wysokości (raczej tak), ale na 1 rzut oka informacja wyczytana z obrazków może być myląca. Dlatego żeby iść na kompromis między przyciągnięciem wzroku czytelnika a większą rzetelnością posłużyłam się piktogramami. Ponieważ nie jest to jednak zupełnie dokładne, dodałam z boku odpowiednie liczby mówiące o osiągniętych liczebnościach.
+
+```{r, echo=FALSE,warning=F}
+
+library(png)
+library(ggplot2)
+library(grid)
+
+
+dane <- data.frame(wartosci = c(67.9,108.4,168.4,223.5,163.9,105.9,111.7), 
+                  rok = c('2009','2010','2011','2012','2013','2014','2015'))
+
+
+
+dane$wartosci<-dane$wartosci[7:1]
+dane$rok<-dane$rok[7:1]
+dane$wartosci<-dane$wartosci/20
+dane$rok<-reorder(dane$rok,1:7)
+
+fill_images <- function()
+{
+   l <- list()
+   for (i in 1:nrow(dane)) 
+   {
+      for (j in 1:floor(dane$wartosci[i]))
+      {
+         img <- readPNG("C:/Users/Marta/Desktop/matka2.png")
+         g <- rasterGrob(img, interpolate=TRUE)
+         l <- c(l, annotation_custom(g, xmin = i-1/2, xmax = i+1/2, ymin = j-1, ymax = j))
+      }
+   }
+   l
+}
+
+
+
+
+
+p <- ggplot(dane, aes(rok, wartosci)) + 
+   geom_bar(fill="lightblue", colour="darkblue", alpha=0.5, stat="identity") + 
+   coord_flip() + 
+   scale_y_continuous(breaks=c(0,2,4,6,8,10),labels=c('0','40','80','120','160','200')) + 
+   scale_x_discrete() + 
+   #theme_bw() + 
+   theme(axis.title.y  = element_blank(),axis.title.x  = element_blank()) + 
+   #ylab(c("Liczba osób w tys."))+
+   fill_images()+
+   ggtitle(c("Liczba osób [w tys.] pobierających świadczenie pielęgniaryjne \n w latach 2009-2015"))+
+   geom_text(aes(y=wartosci+0.6,label=wartosci*20),size=5)+
+   theme(panel.background = element_rect(fill = "white"),
+         panel.grid.major = element_blank(),axis.text.x=element_blank(),
+         axis.ticks=element_blank(),axis.text.y = element_text(size = 12),
+         plot.title = element_text(size = 15, face = "bold"))
+p
+
+```
+
+
