@@ -1,0 +1,161 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='C:/Users/Marta/Documents/R/win-library/3.3/rCharts/libraries/nvd3/css/nv.d3.css'>
+    <link rel='stylesheet' href='C:/Users/Marta/Documents/R/win-library/3.3/rCharts/libraries/nvd3/css/rNVD3.css'>
+    
+    <script src='C:/Users/Marta/Documents/R/win-library/3.3/rCharts/libraries/nvd3/js/jquery-1.8.2.min.js' type='text/javascript'></script>
+    <script src='C:/Users/Marta/Documents/R/win-library/3.3/rCharts/libraries/nvd3/js/d3.v3.min.js' type='text/javascript'></script>
+    <script src='C:/Users/Marta/Documents/R/win-library/3.3/rCharts/libraries/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='C:/Users/Marta/Documents/R/win-library/3.3/rCharts/libraries/nvd3/js/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart19c837974d60' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart19c837974d60()
+    });
+    function drawchart19c837974d60(){  
+      var opts = {
+ "dom": "chart19c837974d60",
+"width":    800,
+"height":    400,
+"x": "rok",
+"y": "ilosc",
+"group": "typ",
+"type": "multiBarChart",
+"id": "chart19c837974d60" 
+},
+        data = [
+ {
+ "ilosc":          1.088,
+"rok":           2011,
+"typ": "sprawy opoznione > 12 mies.",
+"procent":              8 
+},
+{
+ "ilosc":          1.204,
+"rok":           2012,
+"typ": "sprawy opoznione > 12 mies.",
+"procent":            8.6 
+},
+{
+ "ilosc":         1.5048,
+"rok":           2013,
+"typ": "sprawy opoznione > 12 mies.",
+"procent":            9.9 
+},
+{
+ "ilosc":         1.6498,
+"rok":           2014,
+"typ": "sprawy opoznione > 12 mies.",
+"procent":           11.3 
+},
+{
+ "ilosc":         1.9304,
+"rok":           2015,
+"typ": "sprawy opoznione > 12 mies.",
+"procent":           12.7 
+},
+{
+ "ilosc":         12.512,
+"rok":           2011,
+"typ": "sprawy nieopoznione",
+"procent":             92 
+},
+{
+ "ilosc":         12.796,
+"rok":           2012,
+"typ": "sprawy nieopoznione",
+"procent":           91.4 
+},
+{
+ "ilosc":        13.6952,
+"rok":           2013,
+"typ": "sprawy nieopoznione",
+"procent":           90.1 
+},
+{
+ "ilosc":        12.9502,
+"rok":           2014,
+"typ": "sprawy nieopoznione",
+"procent":           88.7 
+},
+{
+ "ilosc":        13.2696,
+"rok":           2015,
+"typ": "sprawy nieopoznione",
+"procent":           87.3 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .tooltipContent( function(key, x, y, e){ 
+         return  'ilosc spraw:' +y +
+' mln  (' + e.point.procent +'%)'
+         } )
+          
+        chart.xAxis
+  .axisLabel("Rok")
+
+        
+        
+        chart.yAxis
+  .axisLabel("Ilosc wplywajacych spraw sadowych")
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>
