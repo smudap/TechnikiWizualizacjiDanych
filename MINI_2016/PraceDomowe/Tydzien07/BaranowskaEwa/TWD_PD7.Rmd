@@ -16,7 +16,7 @@ Dodatkową opcją na wykresie jest możliwość ukrycia danych dla Warszawskiego
 
 Przydatność kodu do przyszłych użyć jest na tą chwilę znikoma, dane są zapisane w kodzie "na sztywno", jednak wizja wykresu została mniej więcej zrealizowana. Dalsze oswajenie z tym pakietem, mam nadzieję, poprawi optymalność rozwiązań użytych w tym kodzie. 
 
-Wykres jest dodany jako plik htmlowy do folderu, po pobraniu go na dysk powinien wyświetlać się poprawnie.
+Wykres jest dodany jako plik htmlowy do folderu, po pobraniu go na dysk powinien wyświetlać się poprawnie (jeśli wystąpią problemy z kodowaniem, można np. przy użyciu Notepad++ zamienić format kodowania na utf-8).
 
 
 ```{r}
