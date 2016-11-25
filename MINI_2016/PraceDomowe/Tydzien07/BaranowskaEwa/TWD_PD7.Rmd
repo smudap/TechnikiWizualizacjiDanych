@@ -16,10 +16,9 @@ Dodatkową opcją na wykresie jest możliwość ukrycia danych dla Warszawskiego
 
 Przydatność kodu do przyszłych użyć jest na tą chwilę znikoma, dane są zapisane w kodzie "na sztywno", jednak wizja wykresu została mniej więcej zrealizowana. Dalsze oswajenie z tym pakietem, mam nadzieję, poprawi optymalność rozwiązań użytych w tym kodzie. 
 
-Wykres jest dodany jako plik htmlowy do folderu, po pobraniu go na dysk powinien wyświetlać się poprawnie (jeśli wystąpią problemy z kodowaniem, można np. przy użyciu Notepad++ zamienić format kodowania na utf-8).
+Wykres jest dodany jako plik htmlowy do folderu,  znajduje się też pod adresem: https://rawgit.com/flaminka/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/Tydzien07/BaranowskaEwa/wykres1.html
 
-
-```{r}
+```{r, eval=F}
 
 dane <- data.frame( poz_2015 =  c(1,2,3,4,8,5,6,42),
                     poz_2016 = c(1,2,3,4,5,6,7,40),
@@ -180,6 +179,9 @@ wykres$set(padding = list(top = 10, bottom = 10,
                    left = 10, right = 10),
     width = 1000, height = 800)
 
-#wykres$save("wykres1.html")
+wykres$save("wykres1.html", standalone=T)
 ```
+
+
+
 
