@@ -9,7 +9,7 @@ output: html_document
 W tym tygodniu zajęłam się tabelą z dodatku do  Rzeczpospolitej dotyczącego przedsiębiorstw z "Listy 2000".
 W dodatku tym znalazła się tabela:
 
-![](artykul.jpg)
+![](artykul.JPG)
 
 
 Wybrałam z niej 6 pierwszych rekordów i dla nich stworzyłam wykres.
