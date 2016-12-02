@@ -12,7 +12,7 @@ W dodatku tym znalazła się tabela:
 ![](artykul.JPG)
 
 
-Wybrałam z niej 6 pierwszych rekordów i dla nich stworzyłam wykres.
+Wybrałam z niej 6 pierwszych rekordów i dla nich stworzyłam prosty wykres animowany.
 
 Adres: https://jsfiddle.net/flaminka/1j28n8b3/
 
