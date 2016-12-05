@@ -11,7 +11,8 @@ library(shiny)
 
 wybrane_kraje <- c("Hungary","Bulgaria","Poland","Italy","Finland","Spain","Germany","France", "United Kingdom")
 
-wybrane_rozmiary <- c("From 10 to 19.9 ha", "From 2 to 4.9 ha")
+wybrane_rozmiary <- c("Less than 2 ha","From 2 to 4.9 ha","From 5 to 9.9 ha", "From 10 to 19.9 ha",
+                      "100 ha or over","Total")
 
 
 # Define UI for application that draws a histogram
@@ -26,7 +27,7 @@ shinyUI(fluidPage(
       checkboxGroupInput("variable", "Countries to analyze",
                          choices = wybrane_kraje, selected = c("Poland", "Bulgaria")),
       radioButtons("size", "Size to analyze",
-                         choices = wybrane_rozmiary, selected = "From 2 to 4.9 ha")
+                         choices = wybrane_rozmiary, selected = "Total")
     ),
     
     # Show a plot of the generated distribution
