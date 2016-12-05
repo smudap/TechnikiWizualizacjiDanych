@@ -8,9 +8,11 @@ MINI 2016/2017
 Datasaurus - always visualize your data 
 http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
 
-# Ankieta na start
+# Aktualna punktacja
 
-https://goo.gl/forms/Dlz9HaV9DqrWLcds1
+[Link](https://docs.google.com/spreadsheets/d/1zBSP7joQIwaVi6wa4u-K5EkgHaKOYD404hX0vFSx88s/edit?usp=sharing)
+
+Prace domowe należy zgłaszać przez GitHub. [Instrukcja jak korzystać](http://pbiecek.github.io/Przewodnik/Programowanie/jak_korzystac_z_serwisu_github_i_waffle.html)
 
 # Terminy spotkań
 
@@ -23,16 +25,16 @@ Blok 1 - Grafika statyczna
 
 * [1] W: [Wprowadzenie do gramatyki grafiki](http://biecek.pl/Eseje/indexGramatyka.html); L: [ggplot2 - pierwsza krew](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html)
 * [2] W: [Gramatyka grafiki część 2](http://biecek.pl/Eseje/indexGramatyka.html), [Standardy w komunikacji](http://www.ibcs-a.org/); L: [ggplot2 - skale, statystyki, koordynaty](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html).
-* [3] W: Prezentacja projektu 1/1; L: Prototypowanie wykresu, unplugged (kartki+kredki)
+* [3] W: Prezentacja projektu 1/1; L: Prototypowanie wykresu, unplugged (kartki+kredki) [do cwiczen 1](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/Tydzien02/APszczolkowska/PD2.html), [do cwiczen 2](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/Tydzien03/PiotrSmuda/praca%20domowa%203.html)
 * [4] W: [Nie rób tego w domu](http://biecek.pl/Eseje/indexPomylka.html); L: [Pracujemy z danymi z NSP 2011](http://stat.gov.pl/spisy-powszechne/nsp-2011/nsp-2011-wyniki/)
 * [5] W: Prezentacja projektu 1/2; L: BrainStorming
 
 Blok 2 - Grafika interaktywna / internetowa
 
-* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [plotly](https://plot.ly/r/getting-started/), [2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly)
-* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [RBokeh](http://hafen.github.io/rbokeh/#preview)
+* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [rCharts](http://pbiecek.github.io/Przewodnik/Wizualizacja/jak_tworzyc_interaktywne_wykresy.html), [2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly), [shiny](http://pbiecek.github.io/Przewodnik/Programowanie/jak_tworzyc_aplikajce.html), [eurostat](https://github.com/rOpenGov/eurostat/blob/master/vignettes/2015-RJournal/lahti-huovari-kainu-biecek.md)
+* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [Wladcy Polski](https://pl.wikipedia.org/wiki/W%C5%82adcy_Polski), [Tutorial D3](http://vadim.ogievetsky.com/IntroD3/#1), [JS fiddle](https://jsfiddle.net/), [Time line](https://github.com/jiahuang/d3-timeline)
 * [8] W: Prezentacja projektu 2/1; L: [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html)
-* [9] W: Prezentacje studentów (tematy poniżej); L: [rCharts](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/rCharts)
+* [9] W: Prezentacje studentów (tematy poniżej); L: [RBokeh](http://hafen.github.io/rbokeh/#preview) / [ggiraph](https://github.com/davidgohel/ggiraph), [vegalite1](https://github.com/hrbrmstr/vegalite), [vegalite2](https://idl.cs.washington.edu/files/2017-VegaLite-InfoVis.pdf)
 * [10] W: Prezentacja projektu 2/2; L: BrainStorming
 
 Blok 3 - Grafika informatywna
@@ -67,11 +69,13 @@ W projekcie oceniane będą trzy aspekty, każde w skali 0-30 pkt, plus 0-10 pkt
 * Złożoność danych. Jeżeli zaprezentowana jest jedna tabela liczb którą można pobrać z wikipedii w 5 minut to źle, jeżeli przedstawiono złożone powiązane z sobą dane, tworzone złożoną i uzupełniającą się historię to dobrze.
 * Innowacyjność. Jeżeli zaprezentowano dane za pomocą standardowych narzędzi bez wnikania w specyfikę prezentowanej historii to źle, jeżeli  zaprezentowane dane w sposób pomysłowy, odsłaniający ciekawe aspekty tych danych, sposób nieoczywisty to dobrze.
 
-Pomysły na projekty:
+Propozycje projektów:
 
-Poniżej są zarysy pomysłów. Warto samemu poszukać, warto porozmawiać z prowadzącym jeżeli braknie na początku pomysłu.
+Poniżej są zarysy pomysłów. Należy wybrać jedną z poniższych.
 
-1. Analiza głosowań posłów w Sejmie / stenogramów [https://github.com/mi2-warsaw/sejmRP]; Wykorzystać można dane o głosowaniach lub dane o wypowiedziach posłów. Wybrać można konkretny temat (głosowania o edukacji, zdrowiu) lub szukać i pokazywać ogólne trendy. Można zobaczyć jak głosują liderzy klubów, lub czy są duże różnice w głosowaniach. Można sprawdzić jak posłowie przechodzą pomiędzy klubami. [http://blog-n.mamprawowiedziec.pl/files/images/pazdziernik_2015/przeplywy-tekst.jpg](przykład 0). Warto poszukać w jaki sposób przedstawiają takie dane zachodnie media UK/USA. [http://smarterpoland.pl/wp-content/uploads/2016/02/Screen-Shot-2016-02-23-at-09.57.04.png](przykład 1), [https://rawgit.com/mi2-warsaw/sejmRP/master/UseCase/LiczbaWypowiedzi.html](przykład 2)
+Jako pierwszy projekt najlepiej wybrać analizę danych SejmRP. W połowie listopada minie rok od powołania Sejmu. To świetny okres na podsumowania (we współpracy z MamPrawoWiedziec.pl).
+
+1. Analiza głosowań posłów w Sejmie / stenogramów [https://github.com/mi2-warsaw/sejmRP]; Wykorzystać można dane o głosowaniach lub dane o wypowiedziach posłów. Wybrać można konkretny temat (głosowania o edukacji, zdrowiu) lub szukać i pokazywać ogólne trendy. Można zobaczyć jak głosują liderzy klubów, lub czy są duże różnice w głosowaniach. Można sprawdzić jak posłowie przechodzą pomiędzy klubami. [przykład 0](http://blog-n.mamprawowiedziec.pl/files/images/pazdziernik_2015/przeplywy-tekst.jpg). Warto poszukać w jaki sposób przedstawiają takie dane zachodnie media UK/USA. [przykład 1](http://smarterpoland.pl/wp-content/uploads/2016/02/Screen-Shot-2016-02-23-at-09.57.04.png), [przykład 2](https://rawgit.com/mi2-warsaw/sejmRP/master/UseCase/LiczbaWypowiedzi.html). Tematy szczegółowe: 1. *Liderzy przerywania* (kto w Sejmie najwięcej przerywa). 2. Dla każdego klubu wskazać posła, który najwięcej razy wygłosił oświadczenie w imieniu, zadał najwięcej pytań. 3. Wskazać posłów, którzy najmniej się odzywali na posiedzeniach - po 5 dla każdego klubu.
 2. Sukcesy Sportowe Polski - Można wykorzystać dane z olimpiad, można wykorzystać dane o pozycji klubu lub kraju w piłce nożnej, Informacje o tym jak pokazywać rekordy sportowców. Jako motywatory można zobaczyć [1](http://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=), [2](http://flowingdata.com/2016/08/11/michael-phelps-race-times-since-his-first-olympics/), [3](http://danielmarcelino.github.io/blog/2016/yet-the-worst-olympic-chart.html)
 3. PISA, informacje o wynikach 15-letnich uczniów w różnych krajach. Temat do prezentacji: strategie realizacji testu, segmentacja, podobieństwa w różnych krajach. Dane z PISA 2015 zawierają informację jak długo trwało rozwiązywanie każdego zadania i ile wymagało interakcji z zadaniem (zadania są na komputerze). Dane będą dostępne od 6 grudnia [https://www.oecd.org/pisa/], PISA ma 4-letni cykl, dobre wizualizacje tych danych będą interesujące dla bardzo szerokiego grona odbiorców.
 4. Przeżycia dla danych TCGA, na bazie pakietu RTCGA.clinical [http://RTCGA.github.io/RTCGA/]. W tym pakiecie znajdują się informacje o przeżyciach dla wielu różnych nowotworów, dla różnych grup zaawansowania nowotworu itp. Takie dane są ciekawe dla wielu osób, które mierzą się z chorobą. Dobra prezentacja danych może być bardzo użyteczna.
@@ -89,6 +93,7 @@ Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jede
 * Wykresy świecowe, prezentacja powinna zawierać przykład dla WIG/WIG20 wykonany w R, http://www.datavizcatalogue.com/methods/candlestick_chart.html
 * Historia grafiki, http://datavis.ca/papers/golden-STS268.pdf
 * Points of view, wybierz jeden z artykułów: https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/PointsOfView
+* PlosOne http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
 
 
 # Prace Domowe:
@@ -119,4 +124,9 @@ Literatura uzupełniająca:
 * Jak powstaje grafika w NYT http://kpq.github.io/chartsnthings/
 * Dokumentacja pakietu ggplot2 http://docs.ggplot2.org/current/
 * Cookbook for R http://www.cookbook-r.com/Graphs/
+
+
+Luźne linki:
+------------
+* Tilegrams https://bhaskarvk.github.io/tilegramsR/vignettes/UsingTilegramsInR.html
 

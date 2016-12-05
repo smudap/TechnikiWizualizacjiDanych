@@ -1,0 +1,197 @@
+---
+title: "Projekt 1"
+author: "Dorota £êpicka, Paulina Popio³ek, Agnieszka Pszczó³kowska"
+date: "10 listopada 2016"
+output: html_document
+---
+
+
+###Cel projektu
+  
+Celem naszego projektu by³o dokonanie analizy nieobecnoœci pos³ów w 
+poszczególnych klubach podczas g³osowañ w sejmie w trakcie 8 kadencji (dane z okresu 12. 11. 2015 r. - 04. 10. 2016 r.). W tym czasie odby³o siê 1912 g³osowañ. Ka¿da kropka na wykresie odpowiada jednemu politykowi. 
+
+###Analizowane dane
+
+Do analizy u¿y³yœmy danych dotycz¹cych g³osowañ poszczególnych pos³ów w okresie od 12. 11. 2015 r. do 04. 10. 2016 r.. Rozwa¿a³yœmy pos³ów, którzy posiadali mandat poselski w dniu 04. 10. 2016 r., pozosta³ych odrzuci³yœmy z analizy. Pojawi³y siê tak¿e przypadki pos³ów (11 osób), którzy w rozwa¿anym okresie zmieniali klub. W tym wypadku przypisa³yœmy im klub wed³ug stanu z dnia 04. 10. 2016 r., a liczbê nieobecnoœci podczas g³osowañ zsumowa³yœmy. Dodatkowo przedstawi³yœmy ich nieobecnoœci na wykresie 3, w zale¿noœci od aktualnej przynale¿noœci do poszczególnych klubów. Ponadto wyodrêbni³yœmy grupê pos³ów ze 100\% frekwencj¹ podczas g³osowañ.
+
+###Wykres 1
+
+Warto zwróciæ uwagê na nierównomierny rozk³ad liczby pos³ów w poszczególnych klubach. Niektóre z klubów maj¹ tylko kilku cz³onków, co ma swoje konsekwencje w wyznaczonych statystykach nieobecnoœci, umieszczonych na kolejnym wykresie. Liczbê mandatów w poszczególnych klubach przedstawia poni¿szy wykres. Kolory odpowiadaj¹ barwom poszczególnych klubów poselskich.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+library(waffle)
+library(plotly)
+library(ggthemes)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+liczba_mandatow1<-c("WiS (3)"=3,"ED (4)"=4,"niez. (4)"=4 , "PSL (16)"=16, "N (30)"=30, "Kukiz15 (36)"=36, "PO (133)"=133,  "PiS (234)"=234 )
+
+kolory1<-c("#800000", "yellow3", "#808080", "#008000", "#007FFF", "#000000", "#FFA500", "#0300FD")
+
+chart <- waffle(liczba_mandatow1, rows=20, size=1, pad=1, colors=kolory1)
+
+chart+ggtitle("Liczba mandatów \ndla poszczególnych klubów")+
+  theme(plot.title=element_text(margin=margin(b=0.5, unit="cm"),hjust=0, size=18),
+        legend.title = element_text(size=18), 
+        legend.text = element_text(size = 15),
+        plot.margin=unit(c(1,1,1,1), "cm"))+
+  guides(fill=guide_legend(title="Klub:"))
+
+```
+
+###Wykres 2
+
+Kolejny wykres przedstawia procent nieobecnoœci pos³ów na g³osowaniach w zale¿noœci od klubów, do których nale¿eli w dniu 04. 10. 2016 r.. Ze wzglêdu na utracenie przez kilku pos³ów ich mandatów (œmieræ, pe³nienie innych funkcji), nie wszyscy pos³owie mogli stawiæ siê na wszystkich 1912 g³osowaniach. Z tego wzglêdu frakcjê nieobecnoœci poszczególnych osób obliczamy na podstawie liczby g³osowañ, w których realnie mog³y one uczestniczyæ. Dla ka¿dego ugrupowania pionow¹ czerwon¹ lini¹ zaznaczy³yœmy œredni procent nieobecnoœci pos³ów z tego klubu, ponadto oznaczy³yœmy po jednej osobie z najwiêkszym procentem nieobecnoœci.
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, out.width = '1000px', out.height = '600px'}
+load("lista_nieobecnosci2.Rdata")
+
+A<-sort.list(lista_nieobecnosci2$count)
+C<-lista_nieobecnosci2[A[c(460,458,457,456,453,451,437,430)],]
+
+kolory<-c("#0300FD","#007FFF", "#FFA500", "#808080", "#008000", "#000000", "#800000", "yellow3")
+
+srednia1<-data.frame(lista_nieobecnosci2$club, lista_nieobecnosci2$srednia)
+srednia1<-srednia1[!duplicated(srednia1),]
+srednia1<-srednia1[order(srednia1$lista_nieobecnosci2.srednia, decreasing = T),]
+
+ggplot(lista_nieobecnosci2, aes(x=club, y=procent, label=surname_name))+
+  geom_boxplot(fill=kolory, colour=kolory, coef=3, alpha=0.5)+
+  coord_flip(expand=TRUE)+
+  geom_jitter(width = 0.4, fill="black", colour="grey30", alpha=0.5)+    
+  geom_point(aes(y=srednia), col="red4", shape=124, size=4)+
+  geom_text(data=C, color="red4", nudge_x=0.3, size=3)+
+  geom_text(aes(x=srednia1[1,1], y=srednia1[1,2],label=paste(round(srednia1[1,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  geom_text(aes(x=srednia1[2,1], y=srednia1[2,2],label=paste(round(srednia1[2,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  geom_text(aes(x=srednia1[3,1], y=srednia1[3,2],label=paste(round(srednia1[3,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  geom_text(aes(x=srednia1[4,1], y=srednia1[4,2],label=paste(round(srednia1[4,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  geom_text(aes(x=srednia1[5,1], y=srednia1[5,2],label=paste(round(srednia1[5,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  geom_text(aes(x=srednia1[6,1], y=srednia1[6,2],label=paste(round(srednia1[6,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  geom_text(aes(x=srednia1[7,1], y=srednia1[7,2],label=paste(round(srednia1[7,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  geom_text(aes(x=srednia1[8,1], y=srednia1[8,2],label=paste(round(srednia1[8,2],2),"%")),
+            vjust=-1, color="red4", size=3)+
+  theme_grey() + 
+  theme(axis.text.x = element_text(hjust = 0.5, size=10),
+        axis.text.y = element_text(hjust = 0.9, vjust=0.5, size=10, colour=kolory),
+        plot.title=element_text(margin=margin(b=0.5, unit="cm"), hjust=0, size=12),
+        panel.grid.major.y=element_blank())+
+  xlab("")+
+  ylab("" )+
+  ggtitle("Nieobecnoœci podczas g³osowañ w poszczególnych klubach") +
+  scale_y_sqrt(expand = c(0, 0.03), 
+               labels=c(paste(0,"%"), paste(10,"%"), paste(20,"%"), paste(30,"%"), paste(40,"%")), 
+               limits=c(0,45))
+```
+
+###Wykres 3
+
+Ostatni wykres przedstawia pos³ów zmieniaj¹cych klub w rozwa¿anym okresie. Po najechaniu kursorem na poszczególne s³upki otrzymujemy informacjê o tym, na ilu g³osowaniach powinien byæ obecny, na ilu by³ nieobecny oraz procent nieobecnoœci na g³osowaniach w tym klubie.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE,out.width = '1000px', out.height = '600px'}
+load("dane1.Rdata")
+
+ nieobecni <- dane1%>% 
+   filter(vote=="Nieobecny") %>%
+   group_by(surname_name, club) %>%
+   summarise(count=n())
+ 
+ ile_glosowan2<-dane1%>% 
+   group_by(surname_name,club) %>%
+   summarise(ile=n())
+ 
+ w_kilku_partiach<-sort(table(nieobecni$surname_name), decreasing = T)[1:11]
+ w_kilku_partiach<-labels(w_kilku_partiach)[[1]]
+ 
+load("nieobecni_club.Rdata")
+
+kolory<-c("PiS"="#0300FD","N"="#007FFF", "PO"="#FFA500","niez."= "#808080","PSL" ="#008000", "Kukiz15"="#000000", "WiS"="#800000","ED"= "yellow3")
+
+
+p<-ggplot(nieobecni_club, aes(x=factor(Pose³, levels=w_kilku_partiach), y=procent,group=kolejnosc,  
+          fill=Partia,text =paste("Nieobecnoœci:", count, "Liczba glosowañ:", ile, 
+                                  " Wynik:",procent,"%")))+
+  geom_bar( stat="identity",position= position_dodge(width=0.8), alpha=0.6)+
+  theme(axis.text.x = element_text(angle = 90, hjust = 0,face="bold",size=10),
+        axis.text.y = element_text(size=18, face="bold"),
+        plot.title=element_text(margin=margin(b=0.5, unit="cm"), hjust=0, size=18, face="bold"),
+        panel.grid.major.y=element_blank())+
+  scale_y_sqrt(expand = c(0, 0),breaks=c(0,10,20,30,40,50,60,70,80,90),labels=c(paste(0,"%"),      
+               paste(10,"%"), paste(20,"%"), paste(30,"%"),paste(40,"%"),paste(50,"%"),paste(60,"%"),
+               paste(70,"%"),paste(80,"%"),paste(90,"%")), limits=c(0,95))+
+  scale_fill_manual(values=kolory)+
+  xlab(" ")+
+  ylab(" ")+
+  ggtitle("Nieobecnoœci podczas g³osowañ dla pos³ów zmieniaj¹cych kluby")+
+  coord_flip()+
+  theme_grey()+
+  guides(fill=FALSE, color=FALSE)
+
+p %>% ggplotly(originalData = FALSE,tooltip=c("Partia", "text"), legend=FALSE) 
+```
+
+###Wnioski
+
+Na podstawie powy¿szych wykresów mo¿emy wytypowaæ po jednej osobie z ka¿dego klubu, która by³a najczêœciej nieobecna na g³osowaniach. S¹ to odpowiednio:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+C
+```
+
+Ponadto mo¿na te¿ zauwa¿yæ, ¿e jedynie w klubie PiS s¹ pos³owie, którzy byli obecni na wszystkich g³osowaniach:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+brak_nieobecnosci<-dane1 %>% 
+  filter(vote!="Nieobecny")%>%
+  group_by(surname_name, club) %>%
+  summarise(count=n()) 
+brak_nieobecnosci<-brak_nieobecnosci[which(brak_nieobecnosci$count==1912),]
+brak_nieobecnosci$count<-0
+as.data.frame(brak_nieobecnosci)
+```
+
+10 najczêœciej niepojawiaj¹cych siê na g³osowaniach pos³ów to:
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+lista_nieobecnosci2[A[460:450],]
+```
+
+Œrednio najczêœciej nieobecni byli pos³owie z klubu ED oraz WiS, ale nale¿y zwróciæ, ¿e wysokoœæ tych œrednich jest uwarunkowana ma³¹ licznoœci¹ tych klubów.
+
+Mo¿na wiêc stwierdziæ, ¿e najczêœciej na g³osowaniach nie pojawiaj¹ siê pos³owie ugrupowania Kukiz'15, a najmniej nieobecnoœci maj¹ pos³owie z PiS. 
+
+
+###Tabele
+
+Powy¿sze wykresy zosta³y sporz¹dzone na podstawie poni¿szych danych.
+
+* Wykres 1 - liczba mandatów
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+data.frame(club=c("WiS","ED","niez.", "PSL", "N", "Kukiz15", "PO", "PiS"), count=c(3,4,4,16,30,36,133,234))
+```
+
+* Wykres 2 - procent nieobecnoœci na g³osowaniach
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+lista_nieobecnosci2
+```
+
+
+* Wykres 3 - procent nieobecnoœci na g³osowaniach - pos³owie zmieniaj¹cy kluby
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+colnames(nieobecni_club)<-c("surname_name", "club","count", "ile", "procent", "kolejnosc")
+nieobecni_club
+```

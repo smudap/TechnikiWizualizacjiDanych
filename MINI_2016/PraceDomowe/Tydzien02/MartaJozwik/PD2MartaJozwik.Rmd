@@ -1,0 +1,35 @@
+---
+title: "PD2"
+author: "Marta JóŸwik"
+date: "20 paŸdziernika 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Tym razem do pracy domowej wybra³am wykres z "Dziennika gazety prawnej" z 19 paŸdziernika 2016 r. ze strony B4. Przedstawia on odsetek liczby udzielonych zamówieñ publicznych od 1 stycznia do 30 wrzeœnia 2016 roku. Moim zdaniem g³ówne problemy to: po pierwsze trzeba siê prawie przyjrzeæ przez lupê, ¿eby znaleŸæ okres na jaki ten wykres jest przestawiony, a nawet chocia¿by rok, po drugie kolejnoœæ poustawiania tych kó³ jest taka, ¿e trudno porównywaæ ich wielkoœci miêdzy sob¹, s¹dzê, ¿e lepiej jest poustawiaæ je w kolejnoœci, a po trzecie trudno nawet w przybli¿eniu powiedzieæ ile razy dane odsetek jest wiêkszy od innego, jedyne co mo¿emy rozró¿niæ to w³aœciwie 3 rozmiary: najwiêkszy œredni i ma³y. S¹dzê, ¿e ten problem rozwi¹¿e ju¿ samo poustawianie ich w kolejnoœci, np. wielkoœci, choæ s¹dzê, ¿ê lepiej bêd¹ obrazowa³y ich zale¿noœci po prostu s³upki, poniewa¿ ³atwiej porównywaæ ich wielkoœci. 
+
+```{r, echo=F}
+instytucje<-c("6.AR cent.","5.AR teren.","1.AS","9.Ubezp. spo³.","8.KP","4.Ucz. publ.","3.SP ZOZ","7.Zam. sektor.","2.Inni")
+procenty<-c(2.43,2.48,40.91,0.23,0.78,5.95,21.5,1.86,23.86)
+#spr ze sumuj¹ siê do 100 sum(procenty)=100
+opis<-c("Administracja rz¹dowa centralna","Administracja rz¹dowa terenowa","Administarcja samorz¹dowa","Instytucja ubezpieczenia spo³ecznego i zdrowotnego","Organ kontroli pañstwowej lub ochrony prawa, s¹d lub trybuna³","Uczelnie publiczne","Samodzielny publiczny zak³ad opieki zdrowotnej lub inny podmiot prawa publicznego","Zamawiaj¹cy udzielaj¹cy zamówieñ sektorowych","Inni zamawiaj¹cy")
+kolejnosc<-sort(procenty,index.return=T,decreasing=T)$ix
+dane<-data.frame(instytucje[kolejnosc],procenty[kolejnosc])
+library(ggplot2)
+
+
+```
+
+
+```{r, echo=FALSE}
+
+ggplot(dane, aes(x=instytucje, y=procenty)) +geom_bar(aes(fill=procenty),stat="identity") +
+    scale_fill_continuous(guide = "none")+xlab("Instytucje")+ylab("% udzielonych zamówieñ publicznych")+
+      ggtitle("Odesetek udzielonych zamówieñ publicznych wg instytucji (z 92 341) w roku 2016")+ 
+  geom_text(aes(label=procenty), position = position_dodge(0.9), vjust = -0.2)
+opis[kolejnosc]
+
+```
