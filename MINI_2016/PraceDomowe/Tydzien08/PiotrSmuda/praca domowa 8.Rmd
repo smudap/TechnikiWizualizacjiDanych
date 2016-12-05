@@ -1,0 +1,130 @@
+---
+title: "Praca domowa nr 8 - TWD 2016/2017"
+author: "Piotr Smuda"
+date: "30 listopada 2016"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Tym razem nie będzie o klasycznym sporcie, ale o sporcie elektronicznym. Co to jest? Najprościej posłużyć się definicją z [wikipedia.org](https://pl.wikipedia.org/wiki/Sport_elektroniczny):
+
+```
+Sport elektroniczny (e-sport, ang. electronic sports) – forma rywalizacji, w której przedmiotem działań 
+zawodników są gry komputerowe. Rywalizacja między zawodnikami (graczami) odbywa się zarówno w formie 
+rekreacyjnej, jak i na turniejach gier komputerowych (tzw. „pro gaming”).
+```
+
+Jedną z takich takich gier jest od zawsze popularny `CS`, czyli `Counter-Strike`. I ta praca domowa będzie właśnie związana z tą grą.
+
+Jak nie wszystkim wiadomo z e-sportem od dawna związane są wielkie pieniądze, a nagrody za wygrane w turniejach idą czasem w setki tysięcy dolarów, a nawet i w miliony (np. [turniej `The International 2016` w grę `DoTa 2`](http://www.esportsearnings.com/tournaments/19287-the-international-2016))! I o tym tutaj będzie mowa. 
+
+Tydzień temu natknąłem się na [artykuł](http://cybersport.pl/73090/virtus-pro-druga-najlepiej-zarabiajaca-druzyna-csgo-w-2016/) związany z zarobkami graczy `Counter-Strike: Global Offensive`. Pieniądze jakie zarobili topowi gracze w 2016 roku są niesamowite. Co ciekawe drugie miejsce zajmują Polacy, którzy od ponad dziesięciu lat (skład minimalnie się zmieniał na przestrzeni lat) uznawani są za jeden z najlepszych zespołów Counter-Stike'a na świecie (byli wielokrotnie Mistrzami Świata).
+
+Na koniec warto dodać, że jak spojrzy się na te liczby, to powstaje pytanie czy wypowiedzi rodziców do swoich dzieci w stylu: "Przestań grać w te gry! Nigdzie w ten sposób nie zajdziesz!" mają w tych czasach sens?
+
+Kod generujący wykres został napisany w D3.js i można go wywołać [tutaj](https://jsfiddle.net/z2ajwz2b/10/).
+
+####Fragment `CSS`:
+```{r, eval = FALSE}
+div.csgo {
+  background-color: #ffffff;
+}
+```
+
+####Fragment `HTML`:
+```{r, eval = FALSE}
+<div class = "csgo">
+  <p name = "title" style = "font-size:200%;">
+    <text x = "50" y = "100" class = "tytul">Counter-Strike: Global Offensive - TOP10 earners in PLN</text>  
+  </p>
+  <svg width = "850" height = "550">
+    <script src = "http://d3js.org/d3.v2.js"></script>
+    <text x = "20" y = "30">SK Gaming</text>
+    <text x = "20" y = "80">Virtus.pro</text>
+    <text x = "20" y = "130">Na`Vi</text>
+    <text x = "20" y = "180">NiP</text>
+    <text x = "20" y = "230">G2 Esports</text>
+    <text x = "20" y = "280">Team Dignitas</text>
+    <text x = "20" y = "330">Cloud9</text>
+    <text x = "20" y = "380">Team Liquid</text>
+    <text x = "20" y = "430">Astralis</text>
+    <text x = "20" y = "480">FaZe Clan</text>
+    <rect x = "120" y = "15" width = "1" height = "20" />
+    <rect x = "120" y = "65" width = "1" height = "20" />
+    <rect x = "120" y = "115" width = "1" height = "20" />
+    <rect x = "120" y = "165" width = "1" height = "20" />
+    <rect x = "120" y = "215" width = "1" height = "20" />
+    <rect x = "120" y = "265" width = "1" height = "20" />
+    <rect x = "120" y = "315" width = "1" height = "20" />
+    <rect x = "120" y = "365" width = "1" height = "20" />
+    <rect x = "120" y = "415" width = "1" height = "20" />
+    <rect x = "120" y = "465" width = "1" height = "20" />
+  </svg>
+</div>
+```
+
+####Fragment `JAVASCRIPT`:
+```{r, eval = FALSE}
+var csgo_money = [ 
+  								{team: 'SK Gaming', money_dollars: 1692000, money_pln: 7021000},
+            			{team: 'Virtus.pro', money_dollars: 801900, money_pln: 3327885},
+            			{team: 'Na`Vi', money_dollars: 696500, money_pln: 2890475},
+            			{team: 'NiP', money_dollars: 625750, money_pln: 2596862.5},
+            			{team: 'G2 Esports', money_dollars: 524960, money_pln: 2178584},
+            			{team: 'Team Dignitas', money_dollars: 498740, money_pln: 2069771},
+            			{team: 'Cloud9', money_dollars: 459750, money_pln: 1907962.5},
+            			{team: 'Team Liquid', money_dollars: 424250, money_pln: 1760637.5},
+            			{team: 'Astralis', money_dollars: 396230, money_pln: 1644354.5},
+            			{team: 'FaZe Clan', money_dollars: 125750, money_pln: 521862.5}
+          		 	],
+    start_val = 0,
+    duration = 3000,
+    end_val_dollars = [
+    										1692000, 801900, 696500, 625750, 524960,
+                        498740, 459750, 424250, 396230, 125750
+											],
+    end_val_pln = [
+    								7021000, 3327885, 2890475, 2596862.5, 2178584,
+                    2069771, 1907962.5, 1760637.5, 1644354.5, 521862.5
+    							],
+    width = 850,
+    fx = d3.scale.linear()
+						.domain([0, 7021000])
+            .range([0, width]),
+    svg = d3.select("div.csgo svg")
+
+svg.selectAll(".txt")
+    .data(end_val_pln)
+    .enter()
+    .append("text")
+    .text(start_val)
+    .attr("class", "txt")
+    .attr("x", 122)
+    .attr("y", function(d, i) {
+        return i * 50 + 30
+    })
+    .style("fill", "#ffffff")
+    .transition()
+    .duration(3000)
+        .tween("text", function(d) {
+            var i = d3.interpolate(this.textContent, d),
+                prec = (d + "").split("."),
+                round = (prec.length > 1) ? Math.pow(10, prec[1].length) : 1;
+            return function(t) {
+                this.textContent = Math.round(i(t) * round) / round;
+            };
+        });
+
+svg.selectAll("rect")
+    .style("fill", "steelblue")
+		.data(csgo_money)
+  	.transition()
+  	.duration(3000)
+    	.attr("x", 120)
+    	.attr("y", function(d, i) { return i * 50 + 15 })
+    	.attr("width", function(d, i) { return fx(d.money_pln) })
+    	.attr("height", 20)
+```

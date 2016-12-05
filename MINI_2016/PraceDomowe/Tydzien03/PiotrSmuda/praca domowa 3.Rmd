@@ -1,0 +1,83 @@
+---
+title: "Praca domowa nr 3 - TWD 2016/2017"
+author: "Piotr Smuda"
+date: "22 października 2016"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Artykuł](http://www.uefa.com/uefachampionsleague/news/newsid=2244072.html), który
+mnie zainteresował pochodzi ze strony UEFA i dotyczy on strzelanych na przestrzeni
+lat bramek przez dwóch piłkarzy, którzy przewodzą w tabeli strzelców wszechczasów:
+Cristiano Ronaldo i Lionel Messi.
+
+
+```{r, echo = TRUE, message = FALSE, warning = FALSE}
+library(XML)
+library(RCurl)
+library(stringi)
+library(ggplot2)
+
+# Pobranie i obrobienie danych ze strony http://www.uefa.com/uefachampionsleague/news/newsid=2244072.html
+
+link <- "http://www.uefa.com/uefachampionsleague/news/newsid=2244072.html"
+xData <- getURL(link)
+table <- readHTMLTable(xData, stringsAsFactors = FALSE, encoding = "UTF-8")[[1]]
+names_table <- as.character(table[3,])
+names(table) <- names_table
+table <- table[-c(1:3), ]
+for(j in 1:ncol(table)){
+   for(i in 1:nrow(table)){
+      elem <- table[i, j]
+      if(stri_detect_regex(elem, "[Â¶]")){
+         table[i, j] <- stri_replace_all_regex(elem, "[Â¶]", "")
+      }
+   }
+}
+
+table_Messi <- table[1:89, 1:4]
+table_Ronaldo <- table[, c(1, 5:7)]
+table <- rbind(table_Messi, table_Ronaldo)
+
+ground <- unlist(stri_extract_all_regex(table$Opponent, "(?<=\\()[han](?=\\))"))
+ground <- sapply(ground, function(x){
+      if(x == "h"){
+         return("Home")
+      } else if(x == "a"){
+         return("Away")
+      } else {
+         return("Neutral")
+      }
+   })
+table$Ground <- ground
+table$Player <- c(rep("Messi", 89), rep("Ronaldo", 95))
+table$Date <- as.Date(table$Date, "%d/%m/%y")
+table$Goal <- as.numeric(table$Goal)
+
+dates <- paste0(seq(2005, 2016, 1), "/", seq(2006, 2017, 1))
+
+# Wykres
+
+p <- ggplot(table, aes(x = Date, y = Goal)) +
+   geom_line(aes(colour = Player, group = Player)) +
+   geom_point(aes(shape = Ground, colour = Player), size = 3) +
+   scale_shape_manual(values = c("A", "H", "N")) +
+   theme_bw() +
+   theme(text=element_text(size=20)) +
+   ggtitle("Lionel Messi and Cristiano Ronaldo goal for goal") +
+   xlab("Dates") +
+   ylab("Goals") +
+   scale_y_continuous(limits = c(0, 101), breaks = seq(0, 100, 10)) +
+   scale_x_date(breaks = seq(as.Date("2005-09-13"), as.Date("2017-09-01"), 365)) +
+   theme(axis.text.x = element_text(angle = 45, hjust = 1), plot.title = element_text(hjust = 0)) +
+   annotate("text", x = seq(as.Date("2006-03-15"), as.Date("2017-03-15"), 365), y = 2, label = "Season", vjust = 2.5) +
+   annotate("text", x = seq(as.Date("2006-03-15"), as.Date("2017-03-15"), 365), y = 0, label = dates, vjust = 2.5)
+
+```
+
+```{r, echo = FALSE, out.width = '1000px', out.height = '1000px', fig.align = 'center', fig.width = 10, fig.height = 8}
+p
+```

@@ -1,0 +1,70 @@
+---
+title: "Praca domowa nr 7 - TWD 2016/2017"
+author: "Piotr Smuda"
+date: "18 listopada 2016"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Ciąg dalszy sportowych danych. Ponieważ zbliża się koniec roku kalendarzowego, to co raz to kolejne gazety lub portale ogłaszają rankingi piłkarzy za miniony sezon. Stąd tym razem chciałbym zaprezentować dane z [artykułu](http://www.fcbarca.com/73709-czytelnicy-goalcom-messi-najlepszym-pilkarzem-na-swiecie-w-2016-roku.html), w którym opisany jest wybór najlepszej piątki piłkarzy 2016 roku zarówno przez redaktorów i czytelników portalu Goal.com. W obu tych zestawieniach pojawili się
+ci sami piłkarze: Gareth Bale (Real Madryt), Antoine Griezmann (Atlético Madryt), Lionel Messi (FC Barcelona), Cristiano Ronaldo (Real Madryt) i Luis Suárez (FC Barcelona).
+
+Dla osób nieinteresujących się piłką nożną warto dodać (choć można domyślić się tego po miastach w nazwach klubów), że wszyscy Ci piłkarze grają na co dzień w La Liga, tzn. lidze hiszpańskiej. Jest to kolejny dowód na dominacje hiszpańskiego futbolu na arenie europejskiej w ostatnich latach.
+
+```{r, echo = TRUE, message = FALSE, warning = FALSE}
+library(rCharts)
+
+dane <- data.frame(Pilkarz = c("Gareth Bale", "Antoine Griezmann", "Lionel Messi", "Cristiano Ronaldo", "Luis Suarez"),
+                   Klub = c("Real Madryt", "Atletico Madryt", "FC Barcelona", "Real Madryt", "FC Barcelona"),
+                   Kraj_pochodzenia = c("Walia", "Francja", "Argentyna", "Portugalia", "Urugwaj"),
+                   Ranking_redaktorzy = c(5, 3, 4, 1, 2),
+                   Ranking_czytelnicy = c(2, 4, 1, 3, 5))
+                   
+
+p <- nPlot(Ranking_redaktorzy ~ Ranking_czytelnicy, group = "Pilkarz", data = dane, type = "scatterChart")
+p$templates$script <- "http://timelyportfolio.github.io/rCharts_nvd3_templates/chartWithTitle.html"
+p$set(title = "TOP5 pilkarzy 2016 roku wedlug redaktorow i czytelnikow portalu Goal.com",
+      width = 640, height = 480)
+p$xAxis(axisLabel = "Przydzielone pilkarzowi miejsce przez czytelnikow",
+        tickValues = "#! function (x) {    
+                        tickvalues = [1, 2, 3, 4, 5];
+                        return tickvalues;
+                        } !#",
+        tickFormat = "#!function(d) {
+                        return d + '' 
+                        }!#")
+p$yAxis(axisLabel = "Przydzielone pilkarzowi miejsce przez redaktorow",
+        tickValues = "#! function (y) {    
+                        tickvalues = [1, 2, 3, 4, 5];
+                        return tickvalues;
+                        } !#")
+p$chart(forceX = c(1,5),
+        color = c("green", "red", "blue", "orange", "black"),
+        tooltipContent = "#! function(key, x, y, e){ 
+                           return 'Pilkarz: ' + e.point.Pilkarz + '<br>'
+                           + 'Klub: ' + e.point.Klub + '<br>' 
+                           + 'Kraj: ' + e.point.Kraj_pochodzenia + '<br>' 
+                           + 'Redaktorzy: #' + e.point.Ranking_redaktorzy + '<br>'
+                           + 'Czytelnicy: #' + e.point.Ranking_czytelnicy
+                           } !#")
+p$setTemplate(afterScript = '<script>
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".nv-x .nv-axislabel { font-size: 16px; }";
+  document.body.appendChild(css);
+  css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".nv-y .nv-axislabel { font-size: 16px; }";
+  document.body.appendChild(css);
+ </script>'
+)
+
+#p$save("TOP5_pilkarzy_goal_com.html", standalone = TRUE)
+```
+
+```{r, eval = FALSE, echo = FALSE, out.width = '1000px', out.height = '1000px', fig.align = 'center', fig.width = 10, fig.height = 8, warning = FALSE}
+p
+```

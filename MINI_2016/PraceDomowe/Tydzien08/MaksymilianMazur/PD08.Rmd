@@ -1,0 +1,83 @@
+---
+title: "Praca Domowa 8"
+author: "Maksymilian Mazur"
+date: "27 listopada 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Co ze wzrostem PBK po Brexicie
+
+W nastêpuj¹cym artykule: http://www.bloomberg.com/news/articles/2016-11-25/u-k-economy-shows-no-sign-of-brexit-effect-as-spending-rises, wykorzystany zosta³ wykres zmiany wp³ywu danych sektorów gospodarki w porównaniu do poprzedniego roku: http://www.bloomberg.com/news/articles/2016-11-25/u-k-economy-shows-no-sign-of-brexit-effect-as-spending-rises#media-2 . Dane s³u¿ace do opracowania tego artyku³u zosta³e pobrane z Office of National Statistics. Zawieraj¹ one kwartalne informacje dotycz¹ce zmiany impaktu na ca³kowity PKB Zjednoczonego Królestwa w porównaniu do analogicznego okresu rok wczeœniej. Zarówno w biuletynie jak i w artykule autorzy stosuj¹ wykresy s³upkowe. W moim przekonaniu przedstawienie takich informacji w postaci s³upków zawiera szereg wad:
+
+1. S³upki obrazuj¹ce brak zmiany (0%) s¹ przedstawione jako pusta przestrzeñ, w wyniku czego wykres ulega zaburzeniu - znajduj¹ siê liczne, nieregularne puste pola utrudniaj¹ce obserwacjê trendów i porównywanie wartoœci pomiêdzy sob¹ (problem w odró¿nieniu czy puste pole oznacza przerwê, czy brak danych)
+2. Czêœæ s³upków  przyjmuje du¿e wartoœci ujemne, w wyniku czego oœ z zaznaczonym czasem jest znacznie oddalona od pozosta³ych s³upków co, po uwzglêdnieniu zerowych s³upków, utrudnia odczytanie wartoœci dla danych okresów czasu.
+3. W moim przekonaniu do analizy danych pogrupowanych dla ró¿nych okresów czasu wygodniejsze s¹ wykresy liniowe z zaznaczonymi punktami - ³atwiej mi na nich analizowaæ trendy i porównywaæ wartoœci pomiêdzy sob¹.
+
+Uwa¿am, ¿e w wykonanym przeze mnie wykresie przydatna by³aby dodatkowa linia x=0, aby widoczny by³ moment, gdy otrzymywane s¹ wartoœci ujemne, niestety ze wzglêdów problemów technicznych nie zosta³a zaimplementowana w interaktywnym wykresie.
+ 
+```{r   message = FALSE, warning= FALSE}
+library(rCharts)
+library(reshape2)
+
+dane <- matrix(c(0.1 ,0, 0.3 ,-0.4 ,0.5 ,-0.3 ,0.7 ,0, 0.8,
+  0.2 ,0.1 ,0, 0.3 ,-0.3 ,0.5 ,-0.1 ,-0.4 ,0.3,
+  0.9 ,0, 0, 0.7 ,0.2 ,-0.1 ,-0.4 ,0.4 ,-0.7,
+  -0.1 ,0, 0, 0.7 ,0.1 ,0.2 ,1.1 ,0.9 ,0.3,
+  0.5 ,0, 0.1 ,0, 0.3 ,0.3 ,0.7 ,1.1 ,-0.4,
+  0.4 ,0, 0.2 ,-0.4 ,0.1 ,0, -0.3 ,-0.6 ,0.2,
+  0.6 ,-0.1 ,0.1 ,-0.1 ,0.2 ,0.2 ,-0.1 ,0.2 ,-0.3,
+  0.3 ,0, 0, -0.1 ,-0.2 ,-0.2 ,1.3 ,0.9 ,0.4,
+  0.4 ,0.1 ,0.1 ,-0.4 ,0, -0.1 ,0, 0.1 ,0,
+  0.5 ,0.1 ,0, 0.9 ,0.3 ,0.1 ,-0.3 ,0.4 ,-0.8,
+  0.4 ,0, 0.1 ,-0.7 ,0.2 ,0.1 ,0.2 ,-0.5 ,0.7),byrow = TRUE, ncol=9)
+  
+  
+danedf <- data.frame(dane)
+
+nazwy <- c("Households", "Non-profit org", "Government", "Gros capital formation", 
+           "Fixed Capital Formation", "Business investment", "Total Exports", 
+           "less Total imports","Net Trade")
+
+colnames(danedf) <- nazwy
+czas <- c("14Q1", "14Q2", "14Q3", "14Q4", "15Q1", "15Q2", "15Q3", "15Q4", "16Q1", "16Q2", "16Q3")
+
+
+danedfT <- melt(danedf, variable.name = "type", value.name = "value")
+
+czasTrue <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)
+endDane <- cbind( rep(czasTrue,9),danedfT)
+names(endDane)[1] <- "time"
+
+daneFinal <- endDane[endDane$type %in% c("Households", "Government", "Fixed Capital Formation", "Net Trade"),]
+
+
+p1 <- nPlot(value ~ time, data = daneFinal, group="type", type = "lineChart")
+p1$xAxis(tickValues = "#! function (x) {    
+    tickvalues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+         return tickvalues;
+         } !#")
+p1$xAxis(tickFormat = "#! function (x) {
+    tickformat = ['14Q1', '14Q2', '14Q3', '14Q4', '15Q1', '15Q2', '15Q3',
+'15Q4', '16Q1', '16Q2', '16Q3'];
+    return tickformat[x-1];
+} !#")
+p1$yAxis(axisLabel = 'Contribution to GDP (% Change) ')
+p1$chart(color = c('red', 'blue', 'orange', 'green'))
+p1$chart(margin = list(left = 80))
+p1$xAxis(axisLabel = 'Quarter')
+p1$setTemplate(afterScript = '<style>
+  .nv-point {
+    stroke-opacity: 1!important;
+    stroke-width: 6px!important;
+    fill-opacity: 1!important;
+  } 
+</style>'
+)
+p1$save("Brexit.html", standalone = TRUE)
+```
+
