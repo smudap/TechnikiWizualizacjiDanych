@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- affinity group data, circle rotation, auto-resize svg image, chord function, configuration -->
+<head>
+  <title>Wykres przerywań przez posłów</title>
+  <link href="https://fonts.googleapis.com/css?family=Exo+2:900" rel="stylesheet">
+</head>
+<style>
+
+#visual {
+  font: 14px sans-serif;
+}
+
+#main {
+float:left;
+width: 820px;
+}
+#side {
+padding-top: 160px;
+float:left;
+width:10px;
+}
+
+table {
+  font-family: 'Arial';
+  margin: 10px auto;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+  border-bottom: 2px solid #666666;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+table tr:hover {
+  background: #f4f4f4;
+}
+table tr:hover td {
+  color: #555;
+}
+table th, table td {
+  color: #999;
+  border: 1px solid #eee;
+  padding: 6px 4px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+table th {
+  background: #666666;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+table th.last {
+  border-right: none;
+}
+table caption {
+  color: #999;
+  padding: 6px 4px;
+  border-collapse: collapse;
+
+  fill-opacity: 1.00;
+  font-size: 17px;
+  stroke: #000000;
+  stroke-width: 1.5px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.chord path {
+  fill-opacity: .67;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+.group text{
+  fill-opacity: 1.00;
+  font-size: 17px;
+  stroke: #000000;
+  stroke-width: .5px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.Podpisy{
+  fill-opacity: 1.00;
+  font-size: 50px;
+  stroke: #000000;
+  stroke-width: 1.5px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+@media only screen and (min-device-width: 800) and (max-device-width: 1600px) {
+  #visual {
+    -webkit-user-select: none;
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (min-device-width: 800) and (max-device-width: 1600px) {
+  #visual {
+    -webkit-user-select: none;
+  }
+}
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var visual = document.getElementById("visual");
+
+var matrix = [
+[0,0,0,0,0,48,91,74,55,10],
+[0,0,0,0,0,19,46,154,16,10],
+[0,0,0,0,0,258,1323,1069,2433,485],
+[0,0,0,0,0,513,263,3334,934,167],
+[0,0,0,0,0,12,12,107,10,11],
+[48,19,258,513,12,0,0,0,0,0],
+[91,46,1323,263,12,0,0,0,0,0],
+[74,154,1069,3334,107,0,0,0,0,0],
+[55,16,2433,934,10,0,0,0,0,0],
+[10,10,485,167,11,0,0,0,0,0]
+];
+
+var df_names = ['Kto','Komu','Procent','Liczność']
+var df = [
+['Kukiz15',"Niez.",0.36,1],
+['Kukiz15',"WiS",0.36,1],
+['N',"Niez.",0.4,1],
+['N',"WiS",0.81,2],
+["Niez.","Niez.",66.67,2],
+["Niez.","PO",33.33,1],
+['PiS',"Niez",0.36,20],
+['PiS',"WiS",0.05,3],
+['PO',"Niez",0.91,48],
+['PO',"WiS",0.27,14],
+['WiS',"PSL",100,1]
+];
+
+var przerywania = 0;
+
+for (var i = 0; i <= 4; i++) {
+  przerywania += matrix[i].reduce((a,b)=>a+b)
+}
+
+var array = [ "Kukiz15", "N", "PiS", "PO", "PSL", "Kukiz15", "N", "PiS", "PO", "PSL"];
+
+var rotation = -3.4919;
+
+var chord_options = {
+    "gnames": array,
+    "rotation": rotation,
+    //"colors": ["#000000", "#377DB8", "#F5DEB3", "#EE82EE", "#40E0D0",
+    //           "#FF6347", "#D8BFD8", "#D2B48C", "#4682B4", "#00FF7F"]
+    "colors": ["#ed2026", "#753B64", "#064f8e", "#f16913", "#006837",
+               "#f68f92", "#ba9db1", "#82a7c6", "#f8b489", "#7fb39b"]
+};
+
+var divwrap = d3.select("body").append('div')
+            .attr("id","wrap")
+
+var divmain = divwrap.append('div')
+            .attr("id","main")
+
+var divside = divwrap.append('div')
+            .attr("id","side")
+
+function Chord(container, options, matrix) {
+
+        // initialize the chord configuration variables
+        var config = {
+            width: 800,
+            height: 800,
+            rotation: 0,
+            textgap: 20,
+            colors: ["#FFFFFF", "#377DB8", "#F5DEB3", "#EE82EE", "#40E0D0", "#FF6347", "#D8BFD8", "#D2B48C", "#4682B4", "#00FF7F"]
+        };
+
+        if (options) {
+            extend(config, options);
+        }
+
+        var offset = Math.PI * config.rotation,
+            width = config.width,
+            height = config.height,
+            textgap = config.textgap
+            colors = config.colors;
+
+        var viewBoxDimensions = "0 0 " + width + " " + height,
+            aspect = width / height;
+
+        if (config.gnames) {
+            gnames = config.gnames;
+        } else {
+            gnames = [];
+            for (var i=97; i<matrix.length; i++) {
+                gnames.push(String.fromCharCode(i));
+            }
+        }
+
+        var chord = d3.layout.chord()
+            .padding(.05)
+            .sortSubgroups(d3.descending)
+            .matrix(matrix);
+
+        var innerRadius = Math.min(width, height) * .28,
+            outerRadius = innerRadius * 1.1;
+
+        var fill = d3.scale.ordinal()
+            .domain(d3.range(matrix.length-1))
+            .range(colors);
+
+
+        var svg = divmain.append("svg")
+            .attr("id", "visual")
+            .attr("viewBox", viewBoxDimensions)
+            .attr("preserveAspectRatio", "xMinYMid")
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        var g = svg.selectAll("g.group")
+            .data(chord.groups)
+          .enter()
+          .append("svg:g")
+            .attr("class", "group");
+
+        g.append("svg:path")
+            .style("fill", function(d) { return fill(d.index); })
+            .style("stroke", function(d) { return fill(d.index); })
+            .attr("id", function(d, i) { return "group" + d.index; })
+            .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius).startAngle(startAngle).endAngle(endAngle))
+            .on("mouseover", fade(.05))
+            .on("mouseout", fade(1));
+
+        g.append("svg:text")
+            .each(function(d)
+            {
+                d.angle = (d.startAngle + d.endAngle) * 180 / Math.PI / 2 ;
+            })
+            .attr("x", function(d)
+              {
+                if (d.angle < 90) { return Math.sin( ( d.angle + 90 + 3) * Math.PI/180 ) * (outerRadius + textgap) }
+                else { return Math.sin( ( d.angle + 90 + 0) * Math.PI/180 ) * (outerRadius + textgap) }
+              })
+            .attr("y", function(d)
+              {
+                if (d.angle < 90) { return -Math.cos( ( d.angle + 90 + 3) * Math.PI/180 ) * (outerRadius + textgap) }
+                else { return -Math.cos( ( d.angle + 90 + 0) * Math.PI/180 ) * (outerRadius + textgap) }
+              })
+            //.attr("font-weight","Bold")
+            //.attr("font-family","Exo 2")
+            //.style("font-size", "0.45cm")
+            //.attr("stroke","black")
+            //.attr("stroke-width","1cm")
+            .attr("fill", function(d) { return d.index <= 4 ? "#ff2b2b" : "#0dc113" })
+            .attr("text-anchor", function(d) { return d.angle > 90 && d.angle < 270 ? "end" : "start" })
+            .text(function(d) { return gnames[d.index]; });
+
+        svg.append("g")
+            .attr("class", "chord")
+          .selectAll("path")
+            .data(chord.chords)
+          .enter()
+          .append("path")
+            .attr("d", d3.svg.chord().radius(innerRadius).startAngle(startAngle).endAngle(endAngle))
+            .style("fill", function(d) { return fill(d.source.index); })
+            .style("opacity", 1)
+          .append("svg:title")
+            .text(function(d) {
+                return "Partia " + gnames[d.source.index] + " przerwała " + d.source.value + " razy partii " + gnames[d.target.index]; });
+
+        // Nowe
+        var g2 = d3.select("g")
+
+        g2.selectAll("line")
+            .data([1])
+          .enter().append("g:line")
+            .attr("x1",-1.5*outerRadius)
+            .attr("y1",0)
+            .attr("x2",1.5*outerRadius)
+            .attr("y2",0)
+            .attr("stroke-width",4)
+            .attr("stroke","black")
+            .attr("stroke-dasharray",[20,10])
+            .attr("stroke-opacity",0.7)
+
+        g2.append("text")
+            .attr("class","Podpisy")
+            .attr("x",0)
+            .attr("y",outerRadius+5*textgap)
+            .attr("fill","#ff2b2b")
+            .attr("text-anchor","middle")
+            .text("Ile razy oni przerywali?")
+
+        g2.append("text")
+            .attr("class","Podpisy")
+            .attr("x",0)
+            .attr("y",-outerRadius-3*textgap)
+            .attr("fill","#0dc113")
+            .attr("text-anchor","middle")
+            .text("Ile razy im przerywano?")
+
+
+        // helper functions start here
+
+        function startAngle(d) {
+            return d.startAngle + offset;
+        }
+
+        function endAngle(d) {
+            return d.endAngle + offset;
+        }
+
+        function extend(a, b) {
+            for( var i in b ) {
+                a[ i ] = b[ i ];
+            }
+        }
+
+        // Returns an event handler for fading a given chord group.
+        function fade(opacity) {
+
+            return function(g, i) {
+
+                if (opacity == 1)
+                  {
+                    svg.selectAll(".group text")
+                      .filter(function(d)
+                        {
+                          return matrix[i][d.index] != 0 || d.index==i
+                        })
+                      .text(function(self) { return gnames[self.index]; })
+                  }
+                else
+                  {
+                    svg.selectAll(".group text")
+                      .filter(function(d)
+                        {
+                          return matrix[i][d.index] != 0 || d.index==i
+                        })
+                      .text(function(self)
+                        {
+                          if(self.index==i)
+                          {
+                            return gnames[self.index] + ": " + (matrix[self.index].reduce( (a,b)=>a+b )/przerywania*100).toFixed(2) + "%";
+                          }
+                          else
+                          {
+                            return gnames[self.index] + ": " + ( (matrix[self.index][i])/matrix[i].reduce( (a,b)=>a+b )*100 ).toFixed(2) + "%";
+                          }
+                        })
+                  }
+
+                svg.selectAll(".chord path")
+                    .filter(function(d)
+                    {
+                      return d.source.index != i && d.target.index != i;
+                    })
+                    .transition()
+                    .style("opacity", opacity)
+
+            };
+        }
+
+        window.onresize = function() {
+            var targetWidth = (window.innerWidth < width)? window.innerWidth : width;
+
+            var svg = d3.select("#visual")
+                .attr("width", targetWidth)
+                .attr("height", targetWidth / aspect);
+        }
+
+}
+
+function tabulate(data, columns) {
+    var table = divside.append("table")
+            .attr("style", "margin-left: 20px"),
+        tcaption = table.append("caption").text("Ilość przerywań dla pozostałych partii")
+        thead = table.append("thead"),
+        tbody = table.append("tbody");
+
+    // append the header row
+    thead.append("tr")
+        .selectAll("th")
+        .data(columns)
+        .enter()
+        .append("th")
+            .text(function(self) { return df_names[self]; });
+
+    // create a row for each object in the data
+    var rows = tbody.selectAll("tr")
+        .data(data)
+        .enter()
+        .append("tr");
+
+    // create a cell in each row for each column
+    var cells = rows.selectAll("td")
+        .data(function(row) {
+            return columns.map(function(column) {
+                return {column: column, value: row[column]};
+            });
+        })
+        .enter()
+        .append("td")
+        .attr("style", "font-family: Exo 2") // sets the font style
+            .html(function(d) { return d.value; });
+
+    return table;
+}
+
+window.onload = function() {
+    Chord(visual, chord_options, matrix);
+    tabulate(df, ['0',"1", "2","3"]);
+
+}
+
+d3.select(self.frameElement).style("height", "600px");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+---
+title: "Jak oceniany jest rz¹d Beaty Szyd³o w rocznicê zaprzysiê¿enia?"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+W ostatnim tygodniu trafi³am na akryku³ prezentuj¹cy wyniki sonda¿u, maj¹cego na celu ocenê rz¹du Beaty Szyd³o po roku od zaprzysiê¿enia (http://forsal.pl/galerie/992971,duze-zdjecie,1,pis-nieco-znieksztalcony-po-roku-rzadow.html)
+
+Niestety, nie wszystkie dane na wykresach s¹ czytelne i s¹ sprzeczne z nasz¹ intuicj¹ ( "Trudno powiedzieæ" znajduje siê na koñcu opinii ).£atwo zauwa¿yæ, ¿e podane liczby nie sumuj¹ siê do 100%. Mo¿e to wynikaæ z zaokr¹gleñ.
+Postanowi³am siê skupiæ na dwóch typach wykresów, ktore pojawi³y siê w artykule. 
+
+Pierwszy z nich dotyczy oceny dzia³añ Beaty Szyd³o. Zwizualizowa³am wyniki w podziale na wiek (analogicznie mo¿na post¹piæ z podzia³em na miejsce zamieszkania). Doda³am równie¿ dane ogólne, aby stanowi³y punkt odniesienia. 
+Poniewa¿ opinia "Trudno powiedzieæ" jest po³o¿ona w œrodku, a jej wartoœci rozk³adaj¹ siê symetrycznie wzglêdem zera, du¿o ³atwiej jest zauwa¿yæ fakt, ¿e we wszystkich grupach wiekowych Pani premier ma wiêcej przeciwników ni¿ zwolenników. 
+Poni¿ej zamieœci³am tabelê z danymi.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(ggplot2)
+library(reshape2)
+library(RColorBrewer)
+library(dplyr)
+library(ggthemes)
+library(stringr)
+library(xtable)
+
+tab<-read.csv("C:/Users/Agnieszka/Downloads/dane.csv",h=T, sep=",")
+
+poz<-c("Zdecydowanie \nnegatywnie", "Raczej \nnegatywnie", "Trudno \npowiedzieæ", "Raczej \npoztywnie",  "Zdecydowanie \npozytywnie")
+
+ile<-length(tab[1,])-1
+numcenter<-ceiling(ile/2)+1
+tab$midvalues<-tab[,numcenter]/2
+tab2<-cbind(tab[,1],tab[,2:ceiling(ile/2)],
+            tab$midvalues,tab$midvalues,tab[,numcenter:ile+1])
+colnames(tab2)<-c("outcome",poz[1:floor(ile/2)],"midlow",
+                  "midhigh",poz[numcenter:ile])
+
+
+ile<-length(tab[1,])-1
+temp.rows<-length(tab2[,1])
+pal<-brewer.pal((ile-1),"RdBu")
+pal[ceiling(ile/2)]<-"#DFDFDF"
+legend.pal<-pal
+pal<-c(pal[1:(ceiling(ile/2)-1)], pal[ceiling(ile/2)], 
+       pal[ceiling(ile/2)], pal[(ceiling(ile/2)+1):(ile-1)])
+tab3<-melt(tab2,id="outcome")
+tab3$col<-rep(pal,each=temp.rows)
+highs<-na.omit(tab3[(length(tab3[,1])/2)+1:length(tab3[,1]),])
+lows<-na.omit(tab3[1:(length(tab3[,1])/2),])
+lows <- lows[rev(rownames(lows)),]
+
+
+ggplot() + geom_bar(data=highs, aes(x = factor(outcome, levels=c("[55- ]","[45-54]", "[35-44]","[25-34]","[18-24]","Ogó³em" )), y=value, fill=col), position="stack", stat="identity") +
+  geom_bar(data=lows, aes(x = factor(outcome, levels=c("[55- ]","[45-54]", "[35-44]","[25-34]","[18-24]","Ogó³em" )), y=-value, fill=col), position="stack", stat="identity") +
+  geom_hline(yintercept = 0, color =c("white")) +
+  scale_fill_identity("Opinia", labels = poz, breaks=legend.pal, guide="legend") + 
+  coord_flip() +
+  labs(title=" Jak oceniane s¹ dzia³ania Beaty Szyd³o \njako premier rz¹du zjednoczonej prawicy? (wed³ug wieku)", y="[%]",x="") +
+  theme(plot.title = element_text(size=14, hjust=0)) +
+  theme(axis.text.y = element_text(hjust=0)) +
+  theme(legend.position = "bottom")+
+  scale_y_continuous(breaks=c(-60,-40, -20, 0 ,20, 40,60), labels=c("60","40","20","0","20","40","60"))
+```
+```{r results='asis', echo=FALSE}
+tabela<-tab[,-7]
+colnames(tabela)<-c("Stan",poz)
+print(xtable(tabela),type='html')
+```
+
+
+
+
+Kolejny wykres, który wzbudzi³ moj¹ ciekawoœæ dotyczy oceny skutecznoœci dzia³añ rz¹du w ró¿nych obszarach. 
+Kolumny zosta³y uszeregowane wzglêdem malej¹cej wartoœci oceny "Najlepszej" dla poszczególnych dziedziñ. Od razu widaæ, ¿e najmiej przychylnych opinii zebra³a polityka spo³eczna. Wykres jest teraz bardziej czytelny, a w celu uzyskania dok³adnych informacji poda³am na dole tabelê. Unikamy w ten sposób "wciskania" na si³ê wartoœci, co by³o jednym z powodów nieczytelnoœci wyjœciowego wykresu.
+
+
+
+
+
+### W jakim obszarze rz¹d radzi sobie:
+```{r, warning=FALSE, message=FALSE, echo=FALSE,out.width = '800px', out.height = '200px'}
+library(grid)
+library(ggplot2)
+library(gridExtra)
+library(xtable)
+options(xtable.floating = FALSE)
+options(xtable.timestamp = "")
+
+
+data <- data.frame(
+  Obszar = c("polityka \nspo³eczna", "polityka \ngospodarcza", "zabezpiecznie \nbezpieczeñstwa", "edukacja", "polityka \nzagraniczna", "obrona \nnarodowa", "polityka \nkulturalna", "¿adne", "nie mam \nzadania"),
+  Najlepiej = c(13,4.5,3.3,3.1,2.8,2.6,1.2,32.6,37.1),
+  Najgorzej=c(17.1,8.5,8.2,6.5,6,2.6,2.3,10.5,38.4)
+)
+
+data$Obszar<-reorder(data$Obszar, data$Najlepiej, max)
+
+g3<-ggplot(data,aes(x=1,y=Obszar))+
+  geom_text(aes(label=Obszar), size=2.5)+
+  geom_segment(aes(x=0.94,xend=0.96,yend=Obszar))+
+  geom_segment(aes(x=1.04,xend=1.065,yend=Obszar))+
+  ggtitle("")+
+  ylab("[%]")+
+  scale_x_continuous(expand=c(0,0),limits=c(0.94,1.065))+
+  theme(axis.title=element_blank(),
+        panel.grid=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        panel.background=element_blank(),
+        axis.text.x=element_text(color=NA),
+        axis.ticks.x=element_line(color=NA),
+        plot.margin = unit(c(1,-1,1,-1), "mm"))
+
+g1 <- ggplot(data = data, aes(x = Obszar, y = Najlepiej, fill=Obszar)) +
+      geom_bar(stat = "identity") + 
+      ggtitle("Najlepiej") +
+      theme(axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank(),
+        axis.text.x = element_text(size=8),
+        plot.margin = unit(c(1,-1,1,0), "mm"))+
+      scale_y_reverse(expand=c(0,0.8)) +     
+      coord_flip()+guides(fill=FALSE)+
+      scale_fill_brewer(palette="RdYlBu")
+
+
+g2 <- ggplot(data = data, aes(x = Obszar, y = Najgorzej, fill=Obszar)) +
+  geom_bar(stat = "identity") + 
+  ggtitle("Najgorzej") +
+  theme(axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank(),
+        axis.text.x = element_text(size=8),
+        plot.margin = unit(c(1,0,1,-1), "mm")) +
+  scale_y_continuous(expand=c(0,0), limits=c(0,41))+
+  coord_flip()+guides(fill=FALSE)+ 
+  scale_fill_brewer(palette="RdYlBu") +
+  xlab(NULL)
+
+gg1 <- ggplot_gtable(ggplot_build(g1))
+gg2 <- ggplot_gtable(ggplot_build(g2))
+gg3 <- ggplot_gtable(ggplot_build(g3))
+
+grid.arrange(gg1,gg3,gg2,ncol=3,widths=c(4/9,1/9,4/9))
+```
+
+
+
+```{r results='asis', echo=FALSE}
+print(xtable(data),type='html')
+```
+

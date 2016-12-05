@@ -1,0 +1,37 @@
+---
+title: "Systemy podatkowe œwiata"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+W ostatnim tygodniu trafi³am na poni¿szy artyku³ http://forsal.pl/artykuly/995131,paying-taxes-najlepsze-systemy-podatkowe-swiata-jak-polska-wypada-na-tle-innych-panstw.html . Zamieszczony jest w nim wykres, który postawowi³am wykonaæ z u¿yciem pakietu rCharts. \\
+Poniewa¿ jakoœæ grafiki pozostawia wiele do ¿yczenia, wartoœci do wykresu zaczerpnê³am u Ÿród³a. \\
+Na moim wykresie postawoni³am u¿yæ zamiast nazw pañstw, odpowiadaj¹cym im skrótów. Ponadto doda³am swój dodatkowy podzia³ ( filtr) na pañstwa beneluksu, Ba³kany, kraje œródziemnomorskie, Skandynawiê, wyspy, Polskê i jej s¹siadów oraz inne. Oczywiœcie ten mo¿na dowolnie zmieniaæ, jednak mi wydawa³ siê naturalny i mo¿liwie interesuj¹cy odbiorcê. 
+Uwa¿am, ¿e ten typ wykresu niesie ze sob¹ bardzo du¿o informacji. Mo¿na wybraæ kolumny po³o¿one obok siebie, jak i skumulowane wartoœci. Istnieje mo¿liwoœæ wyboru jednego interesuj¹cego typu podatku i porównywaæ go zarówno pomiedzy wszystkimi pañstwami, jak i wybranymi w grupie filtra. 
+
+```{r, echo=TRUE, message=FALSE}
+library(reshape2)
+library(rCharts)
+
+data<-read.csv("C:/Users/Agnieszka/Downloads/taxespd.csv", h=T, sep=",")
+colnames(data)=c("Kraj","Skrot","Profit","Labour","Other","Filtr")
+d2<-melt(data)
+
+n1 <- nPlot(value ~ Skrot, data = d2, group = "variable", type = 'multiBarChart')
+n1$chart(reduceXTicks = FALSE)
+n1$chart(tooltipContent = "#! function(key, x, y, e){ 
+  return 'Kraj: ' + e.point.Kraj +'<br>' +e.point.value +'%'
+         } !#")
+n1$xAxis(staggerLabels = TRUE)
+n1$addFilters("Filtr")
+n1$setTemplate(afterScript='<style> svg text {font-size: 9px;}</style>')
+n1$chart(color = c('#2c7fb8', '#7fcdbb', '#f03b20'))
+#n1$set(width = 1000, height = 800)
+n1$save("PodatkiPD7.html", standalone = TRUE)
+
+
+```

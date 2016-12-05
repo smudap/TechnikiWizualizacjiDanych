@@ -1,0 +1,494 @@
+---
+title: "Techniki Wizualizacji Danych<br>Projekt 1, faza 2"
+author: "Olga Przypaśniak, Piotr Smuda, Bartosz Topolski"
+date: "10 listopada 2016"
+output:
+  revealjs::revealjs_presentation:
+    theme: white
+    transition: slide
+    background_transition: slide
+    center: true
+    reveal_options:
+      slideNumber: true
+---
+
+```{r, echo = FALSE, message = FALSE, include = FALSE}
+library(sejmRP)
+library(stringi)
+library(dplyr)
+library(xml2)
+library(XML)
+library(data.table)
+library(ggplot2)
+library(tidyr)
+library(ggrepel)
+library(scales)
+library(knitr)
+library(shiny)
+library(gridExtra)
+library(grid)
+```
+
+```{r, echo = FALSE, message = FALSE, include = FALSE, cache = TRUE}
+source("votings_disproportions.R", encoding = "utf8", echo = FALSE)
+source("statements-interruptions.R", encoding = "utf8", echo = FALSE)
+```
+
+
+
+# Która partia najczęściej przerywa innym?
+
+##
+
+```{r, echo = FALSE}
+kluby_przerywacze
+```
+
+## Tabela z danymi
+
+```{r, echo = FALSE, comment = ""}
+library("knitr")
+colnames(statements_with_reaction_sum)[2:9] <- stri_sub(colnames(statements_with_reaction_sum)[2:9], 1, -5)
+kable(statements_with_reaction_sum)
+```
+
+<small>Uwaga: Każdy wiersz w tabeli zawiera informację, jaki klub i ile razy przerywał
+klubowi z pierwszej kolumny.</small>
+
+## Kod
+
+```{r, eval = FALSE, echo = TRUE}
+statements_with_reaction <- statements[stri_detect_regex(statements$statement, "\\("),]
+statements_with_reaction_copy <- statements_with_reaction
+
+nr_cores <- detectCores()
+cluster <- makeCluster(nr_cores - 1)
+clusterExport(cluster, list("statements_with_reaction", "votes",
+                            "statements_match_deputies_ids", "deputies"))
+clusterEvalQ(cluster, library(sejmRP))
+clusterEvalQ(cluster, library(dplyr))
+clusterEvalQ(cluster, library(stringi))
+
+statements_with_reaction$id_deputy <- parSapply(cluster, statements_with_reaction$surname_name,
+                                                function(x){
+                                                   x <- unlist(stri_extract_all_regex(x, "(?<=Pose. ).+"))
+                                                   as.character(statements_match_deputies_ids(x, deputies)[1])
+                                                })
+
+statements_with_reaction$club <- parSapply(cluster, statements_with_reaction$id_deputy,
+                                           function(x){
+                                              votes_filtered <- votes %>% filter(id_deputy == x)
+                                              which_one <- which.max(votes_filtered$id_voting)
+                                              votes_filtered$club[which_one]
+                                           })
+
+stopCluster(cluster)
+
+statements_reaction <- unlist(stri_extract_all_regex(statements_with_reaction$statement,
+                                                     "\\([^\\)]+?\\)"))
+
+interrupting_deputies <- unlist(stri_extract_all_regex(statements_reaction,
+                                                       "(?<=\\([Pp]ose. )[^\\)]+?(?=:)"))
+interrupting_deputies <- interrupting_deputies[!is.na(interrupting_deputies)]
+interrupting_deputies[which(interrupting_deputies == "Danuta Pietraszewska skanduje")] <- "Danuta Pietraszewska"
+interrupting_deputies <- sort(table(interrupting_deputies), decreasing = TRUE)
+interrupting_deputies_names <- names(interrupting_deputies)
+interrupting_deputies <- as.numeric(interrupting_deputies)
+interrupting_deputies <- data.frame(surname_name = interrupting_deputies_names,
+                                    nr_of_interruptions = interrupting_deputies, stringsAsFactors = FALSE)
+
+cluster <- makeCluster(nr_cores - 1)
+clusterExport(cluster, list("interrupting_deputies", "votes",
+                            "statements_match_deputies_ids", "deputies"))
+clusterEvalQ(cluster, library(sejmRP))
+clusterEvalQ(cluster, library(dplyr))
+clusterEvalQ(cluster, library(stringi))
+
+interrupting_deputies$id_deputy <- parSapply(cluster, interrupting_deputies$surname_name, function(x){
+   as.character(statements_match_deputies_ids(x, deputies)[1])
+})
+
+interrupting_deputies$club <- parSapply(cluster, interrupting_deputies$id_deputy, function(x){
+   votes_filtered <- votes %>% filter(id_deputy == x)
+   which_one <- which.max(votes_filtered$id_voting)
+   votes_filtered$club[which_one]
+})
+
+stopCluster(cluster)
+
+clubs_names <- sort(unique(interrupting_deputies$club))
+clubs_empty <- numeric(length(clubs_names))
+names(clubs_empty) <- clubs_names
+
+cluster <- makeCluster(nr_cores - 1)
+clusterExport(cluster, list("statements_with_reaction", "votes",
+                            "statements_match_deputies_ids", "deputies", "clubs_names", "clubs_empty",
+                            "interrupting_deputies"))
+clusterEvalQ(cluster, library(sejmRP))
+clusterEvalQ(cluster, library(dplyr))
+clusterEvalQ(cluster, library(stringi))
+
+who_interrupt_list <- parLapply(cluster, statements_with_reaction$statement, function(x){
+   deputies_who_interrupted <- unlist(stri_extract_all_regex(x, "(?<=\\([Pp]ose. )[^\\)]+?(?=:)"))
+   n <- length(deputies_who_interrupted)
+   if(n > 0 && !is.na(deputies_who_interrupted)){
+      clubs_new <- clubs_empty
+      for(i in 1:n){
+         which_club <- interrupting_deputies %>%
+            filter(surname_name == deputies_who_interrupted[i]) %>%
+            select(club) %>%
+            as.character()
+         clubs_new[which_club] = clubs_new[which_club] + 1
+      }
+      return(clubs_new)
+   } else {
+      return(clubs_empty)
+   }
+})
+
+stopCluster(cluster)
+
+who_interrupt_list_skanduje <- who_interrupt_list[[3353]][-9]
+who_interrupt_list_skanduje["PO"] <- who_interrupt_list_skanduje["PO"] + 1
+who_interrupt_list[[3353]] <- who_interrupt_list_skanduje
+
+who_interrupt_table <- do.call("rbind", who_interrupt_list)
+
+statements_with_reaction <- cbind(statements_with_reaction, who_interrupt_table)
+
+statements_with_reaction_sum <- statements_with_reaction %>% group_by(club) %>%
+   summarise(ED_sum = sum(ED),
+             Kukiz15_sum = sum(Kukiz15),
+             N_sum = sum(N),
+             niez._sum = sum(niez.),
+             PiS_sum = sum(PiS),
+             PO_sum = sum(PO),
+             PSL_sum = sum(PSL),
+             WiS_sum = sum(WiS))
+
+interrupting_deputies_summary <- interrupting_deputies %>% group_by(club) %>%
+   summarise(interruptions = sum(nr_of_interruptions)) %>% 
+   mutate(interruptions_percentage = 100 * interruptions / sum(interruptions))
+
+interrupting_deputies_summary_up <- interrupting_deputies %>% group_by(club) %>%
+   summarise(interruptions = sum(nr_of_interruptions)) %>% 
+   filter(!(club %in% c("WiS", "niez."))) %>%
+   mutate(interruptions_percentage = 100 * interruptions / sum(interruptions))
+```
+
+# Które partie sobie przerywają?
+
+##
+
+```{r, echo = FALSE}
+grid_arrange_shared_legend(Kukiz15_pie_chart, N_pie_chart, PiS_pie_chart, PO_pie_chart, ncol = 2, nrow = 2, position = "right")
+```
+
+##
+
+```{r, echo = FALSE, message = FALSE}
+p3
+```
+<small>
+Szerokości słupków na dolnej osi wykresu pokazują jak często przerywano danej partii.
+Na każdym słupku pokazny jest procentowy udział w przerywaniu danej partii przez posłów z klubów odpowiednio (patrząc od dołu) PO, PiS, N, Kukiz15, ED oraz PSL. </small>
+
+## Kod
+
+```{r, eval = FALSE, echo = TRUE}
+statements_with_reaction <- statements[stri_detect_regex(statements$statement, "\\("),]
+statements_with_reaction_copy <- statements_with_reaction
+
+nr_cores <- detectCores()
+cluster <- makeCluster(nr_cores - 1)
+clusterExport(cluster, list("statements_with_reaction", "votes",
+                            "statements_match_deputies_ids", "deputies"))
+clusterEvalQ(cluster, library(sejmRP))
+clusterEvalQ(cluster, library(dplyr))
+clusterEvalQ(cluster, library(stringi))
+
+statements_with_reaction$id_deputy <- parSapply(cluster, statements_with_reaction$surname_name,
+                                                function(x){
+                                                   x <- unlist(stri_extract_all_regex(x, "(?<=Pose. ).+"))
+                                                   as.character(statements_match_deputies_ids(x, deputies)[1])
+                                                })
+
+statements_with_reaction$club <- parSapply(cluster, statements_with_reaction$id_deputy,
+                                           function(x){
+                                              votes_filtered <- votes %>% filter(id_deputy == x)
+                                              which_one <- which.max(votes_filtered$id_voting)
+                                              votes_filtered$club[which_one]
+                                           })
+
+stopCluster(cluster)
+
+statements_reaction <- unlist(stri_extract_all_regex(statements_with_reaction$statement,
+                                                     "\\([^\\)]+?\\)"))
+
+interrupting_deputies <- unlist(stri_extract_all_regex(statements_reaction,
+                                                       "(?<=\\([Pp]ose. )[^\\)]+?(?=:)"))
+interrupting_deputies <- interrupting_deputies[!is.na(interrupting_deputies)]
+interrupting_deputies[which(interrupting_deputies == "Danuta Pietraszewska skanduje")] <- "Danuta Pietraszewska"
+interrupting_deputies <- sort(table(interrupting_deputies), decreasing = TRUE)
+interrupting_deputies_names <- names(interrupting_deputies)
+interrupting_deputies <- as.numeric(interrupting_deputies)
+interrupting_deputies <- data.frame(surname_name = interrupting_deputies_names,
+                                    nr_of_interruptions = interrupting_deputies, stringsAsFactors = FALSE)
+
+cluster <- makeCluster(nr_cores - 1)
+clusterExport(cluster, list("interrupting_deputies", "votes",
+                            "statements_match_deputies_ids", "deputies"))
+clusterEvalQ(cluster, library(sejmRP))
+clusterEvalQ(cluster, library(dplyr))
+clusterEvalQ(cluster, library(stringi))
+
+interrupting_deputies$id_deputy <- parSapply(cluster, interrupting_deputies$surname_name, function(x){
+   as.character(statements_match_deputies_ids(x, deputies)[1])
+})
+
+interrupting_deputies$club <- parSapply(cluster, interrupting_deputies$id_deputy, function(x){
+   votes_filtered <- votes %>% filter(id_deputy == x)
+   which_one <- which.max(votes_filtered$id_voting)
+   votes_filtered$club[which_one]
+})
+
+stopCluster(cluster)
+
+clubs_names <- sort(unique(interrupting_deputies$club))
+clubs_empty <- numeric(length(clubs_names))
+names(clubs_empty) <- clubs_names
+
+cluster <- makeCluster(nr_cores - 1)
+clusterExport(cluster, list("statements_with_reaction", "votes",
+                            "statements_match_deputies_ids", "deputies", "clubs_names", "clubs_empty",
+                            "interrupting_deputies"))
+clusterEvalQ(cluster, library(sejmRP))
+clusterEvalQ(cluster, library(dplyr))
+clusterEvalQ(cluster, library(stringi))
+
+who_interrupt_list <- parLapply(cluster, statements_with_reaction$statement, function(x){
+   deputies_who_interrupted <- unlist(stri_extract_all_regex(x, "(?<=\\([Pp]ose. )[^\\)]+?(?=:)"))
+   n <- length(deputies_who_interrupted)
+   if(n > 0 && !is.na(deputies_who_interrupted)){
+      clubs_new <- clubs_empty
+      for(i in 1:n){
+         which_club <- interrupting_deputies %>%
+            filter(surname_name == deputies_who_interrupted[i]) %>%
+            select(club) %>%
+            as.character()
+         clubs_new[which_club] = clubs_new[which_club] + 1
+      }
+      return(clubs_new)
+   } else {
+      return(clubs_empty)
+   }
+})
+
+stopCluster(cluster)
+
+who_interrupt_list_skanduje <- who_interrupt_list[[3353]][-9]
+who_interrupt_list_skanduje["PO"] <- who_interrupt_list_skanduje["PO"] + 1
+who_interrupt_list[[3353]] <- who_interrupt_list_skanduje
+
+who_interrupt_table <- do.call("rbind", who_interrupt_list)
+
+statements_with_reaction <- cbind(statements_with_reaction, who_interrupt_table)
+
+statements_with_reaction_sum <- statements_with_reaction %>% group_by(club) %>%
+   summarise(ED_sum = sum(ED),
+             Kukiz15_sum = sum(Kukiz15),
+             N_sum = sum(N),
+             niez._sum = sum(niez.),
+             PiS_sum = sum(PiS),
+             PO_sum = sum(PO),
+             PSL_sum = sum(PSL),
+             WiS_sum = sum(WiS))
+
+statements_with_reaction_sum_up <- statements_with_reaction_sum %>%
+   filter(club %in% c("PiS", "PO", "N", "Kukiz15"))
+statements_with_reaction_sum_up <- mutate(statements_with_reaction_sum_up, Lacznie = apply(statements_with_reaction_sum_up[,-1], 1, sum))
+
+club <- stri_sub(names(statements_with_reaction_sum_up[,-c(1, 10)]), to = -5)
+statements_pie_chart_data <- sapply(1:4, function(x){
+   100 * as.numeric(statements_with_reaction_sum_up[x,-c(1, 10)]) / as.numeric(statements_with_reaction_sum_up[x, 10])
+})
+statements_pie_chart_data <- cbind(club, as.data.frame(statements_pie_chart_data))
+for(i in 2:5){
+   names(statements_pie_chart_data)[i] <- as.character(statements_with_reaction_sum_up[i-1,1])
+}
+
+Kukiz15_pie_chart_data <- statements_pie_chart_data %>%
+   filter(!(club %in% c("WiS", "niez.")))
+
+N_pie_chart_data <- statements_pie_chart_data %>%
+   filter(!(club %in% c("WiS", "niez.", "ED"))) 
+
+PiS_pie_chart_data <- statements_pie_chart_data %>%
+   filter(!(club %in% c("WiS", "niez.")))
+
+PO_pie_chart_data <- statements_pie_chart_data %>%
+   filter(!(club %in% c("WiS", "niez.", "PSL","ED"))) 
+```
+
+# Treść wszystkich przerwań
+
+##
+
+```{r, echo = FALSE, comment = ""}
+print(interrupting_deputies_reaction_table, right = FALSE)
+```
+
+## Kod
+
+```{r, eval = FALSE, echo = TRUE}
+statements_with_reaction <- statements[stri_detect_regex(statements$statement, "\\("),]
+statements_with_reaction_copy <- statements_with_reaction
+
+nr_cores <- detectCores()
+cluster <- makeCluster(nr_cores - 1)
+clusterExport(cluster, list("statements_with_reaction", "votes",
+                            "statements_match_deputies_ids", "deputies"))
+clusterEvalQ(cluster, library(sejmRP))
+clusterEvalQ(cluster, library(dplyr))
+clusterEvalQ(cluster, library(stringi))
+
+statements_with_reaction$id_deputy <- parSapply(cluster, statements_with_reaction$surname_name,
+                                                function(x){
+                                                   x <- unlist(stri_extract_all_regex(x, "(?<=Pose. ).+"))
+                                                   as.character(statements_match_deputies_ids(x, deputies)[1])
+                                                })
+
+statements_with_reaction$club <- parSapply(cluster, statements_with_reaction$id_deputy,
+                                           function(x){
+                                              votes_filtered <- votes %>% filter(id_deputy == x)
+                                              which_one <- which.max(votes_filtered$id_voting)
+                                              votes_filtered$club[which_one]
+                                           })
+
+stopCluster(cluster)
+
+statements_reaction <- unlist(stri_extract_all_regex(statements_with_reaction$statement,
+                                                     "\\([^\\)]+?\\)"))
+
+interrupting_deputies_reaction_table <- statements_reaction[unlist(stri_detect_regex(statements_reaction,
+                                                                                     "\\([Pp]ose.[^\\)]+?:"))]
+interrupting_deputies_reaction_table <- unlist(stri_replace_all_regex(interrupting_deputies_reaction_table, "[\\n\\r]", ""))
+interrupting_deputies_reaction_table <- do.call("rbind", stri_match_all_regex(interrupting_deputies_reaction_table,
+                                                                              "\\((([Pp]ose. .+?): (.+?))\\)"))
+interrupting_deputies_reaction_table <- as.data.frame(interrupting_deputies_reaction_table[, 2], stringsAsFactors = FALSE)
+names(interrupting_deputies_reaction_table) <- c("Kto: co powiedział")
+```
+
+# Które partie głosują jednomyślnie?
+
+##
+
+```{r, echo = FALSE}
+jednomyslnosc_plot
+```
+<small>
+Uwaga: głosowanie danej partii rozumiemy jako jednomyślne, jeśli co najwyżej 5% głosów partii było innych niż najczęstszy wynik wśród jej członków. 
+</small>
+
+## Kod
+
+
+```{r, eval = FALSE, echo = TRUE}
+votes_spread <- dcast.data.table(as.data.table(votes), id_voting+club~vote)
+colnames(votes_spread)[5] <- 'Wstrzymal_sie'
+przeciw <- function(x,y,z){
+  apply(cbind(x,y,z), MARGIN = 1, FUN = function(x) return(sum(x) - max(x)))
+}
+votes_spread[, przeciw_klubowi := przeciw(Za, Przeciw, Wstrzymal_sie)]
+votes_spread[, niejednoglosnie := (przeciw_klubowi >= (Nieobecny + Przeciw + Wstrzymal_sie + Za)*0.05)]
+```
+
+```{r, eval = TRUE, echo = FALSE}
+kable(head(votes_spread), col.names = c("id", "club", "Nieob.", "Prz.", "Wst.", "Za", "przeciw_klubowi", "niejednoglosnie"))
+```
+
+## 
+
+```{r, eval = FALSE, echo = TRUE}
+niejednoglosnie_counts <- votes_spread[, .(count = .N), .(club, niejednoglosnie)]
+niejednoglosnie_counts <- niejednoglosnie_counts[, .(niejednoglosnie, count = count/sum(count)), club]
+
+niejednoglosnie_counts %>%
+  spread(niejednoglosnie, count, fill = 0) %>%
+  arrange(`FALSE`) %>%
+  filter(!(club %in% c("ED", "niez."))) -> dane_plot
+```
+```{r, eval = TRUE, echo = FALSE}
+kable(head(niejednoglosnie_counts))
+```
+
+# Które partie głosują podobnie?
+
+##
+
+```{r, echo = FALSE}
+heatmapa
+```
+<small>
+Uwaga: głosowanie dwóch partii rozumiemy jako zgodne, jeśli zagłosowały one (większościowo) za tą samą opcją.
+</small>
+
+## Kod
+
+```{r, eval = FALSE, echo = TRUE}
+club_votes <- as.data.table(votes)[ , .(vote = names(sort(table(vote), decreasing = TRUE))[1]), .(id_voting, club)]
+club_votes <- dcast.data.table(club_votes, id_voting~club, value.var = "vote")
+
+```
+```{r, eval = TRUE, echo = FALSE}
+kable(head(club_votes[, 1:5, with = FALSE]))
+
+```
+
+##
+
+```{r, eval = FALSE, echo = TRUE}
+heatmap_table <- data.table()
+for(i in 1:8){
+  name <- clubs_ordered[i]
+  tmp <- data.table(club1 = rep(name, times = 8), club2 = clubs_ordered[1:8])
+  perc <- numeric(8)
+  for(j in 1:8){
+    name2 <- clubs_ordered[j]
+    perc[j] = mean(club_votes[,name, with = FALSE] == club_votes[,name2, with = FALSE], na.rm = T)
+  }
+  tmp[, perc := perc]
+  heatmap_table <- rbind(heatmap_table, tmp)}
+```
+
+```{r, eval = TRUE, echo = FALSE}
+kable(head(heatmap_table))
+
+```
+
+# Którzy posłowie najczęściej wagarują?
+
+##
+
+```{r, echo = FALSE}
+nieobecnosci_plot+
+  geom_text_repel(aes(label = show) ,arrow = arrow(length = unit(0.01, 'npc')), nudge_y = 0.05)
+```
+
+## Kod
+
+```{r, eval = FALSE, echo = TRUE}
+votes %>%
+  group_by(id_deputy, club) %>%
+  summarise(srednia_nieobecnosc = mean(vote == "Nieobecny"),
+            srednia_wstrzymanie = mean(vote == "Wstrzymał się"),
+            srednia_za = mean(vote == "Za"),
+            srednia_przeciw = mean(vote == "Przeciw")) %>%
+  arrange(-srednia_nieobecnosc) %>%
+  left_join(deputies) %>% 
+  select(surname_name, srednia_nieobecnosc, club) -> nieobecnosci
+```
+
+```{r, eval = TRUE, echo = FALSE}
+kable(head(nieobecnosci %>% filter(!(surname_name %in% c("Tomczykiewicz Tomasz", "Górski Artur")))))
+```
