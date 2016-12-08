@@ -1,0 +1,245 @@
+---
+title: "PD9"
+author: "Marta Jóźwik"
+date: "9 grudnia 2016"
+output: html_document
+---
+
+Tym razem znów zajęłam się wylresem z Dziennika Gazety Prawnej z 7 grudnia (str A5).Były na min przedstawione wyniki poskich uczniów gimnazjum (w międzynarodowym badaniu PISA) względem średnich wyników tego badania. Zauważyłam że główny problem jest taki, że wykres zaczyna się od 480, a nie od zera, dlatego różnice wydają się tak wielkie. Natomiast jeśli narysować wszytskie wykresy od 0 to praktycznie nie widać różnic. Dlatego potanowiłam umieścić obie wersje na zmieniającym się wykresie, żeby móc dostrzec zmiany ale też mieć świadomość z jakiej perspektywy należy na nie patrzeć. Wykres został stworzony w jsfiddle.net. Poniżej adres:
+
+https://jsfiddle.net/zf3kgk6e/9/
+
+i kod:
+```{r, eval=F}
+html:
+<div class="hello">
+
+  <svg width="800" height="600">
+    <rect x="1" y="5" width="800" height="0" />
+    </svg>
+</div>
+
+
+css:
+div.hello{
+  background-color: white;
+}
+
+java:
+
+ var w = 800,
+   h = 600
+   
+   var y = d3.scale.linear()
+   .domain([0, 200])
+   .range([0, h])
+
+   var y = d3.scale.linear()
+   .domain([0, 550])
+   .range([0, w])
+
+var danekr = [{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"nauki przyrodnicze","kraj":"OECD","wartosc2006":498,"wartosc2009":501,"wartosc2012":501,"wartosc2015":493,"y":110,"kolor":"blue"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":508,"wartosc2009":500,"wartosc2012":518,"wartosc2015":506,"y":150,"kolor":"red"},
+{"przedmiot":"czytanie","kraj":"OECD","wartosc2006":492,"wartosc2009":493,"wartosc2012":496,"wartosc2015":493,"y":160,"kolor":"blue"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":495,"wartosc2009":495,"wartosc2012":518,"wartosc2015":504,"y":200,"kolor":"red"},
+{"przedmiot":"matematyka","kraj":"OECD","wartosc2006":498,"wartosc2009":496,"wartosc2012":494,"wartosc2015":490,"y":210,"kolor":"blue"},] 
+
+var danekr2=[{"wart":"0","miejsce":5},{"wart":"100","miejsce":100},
+{"wart":"200","miejsce":200},{"wart":"300","miejsce":300},
+{"wart":"400","miejsce":400},
+{"wart":"500","miejsce":500}]
+
+var svg = d3.select("svg")
+
+
+ var tytul = svg.append("text")
+        .attr("x", 0 )          
+        .attr("y", 30)  
+        .style("font-size", "20px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("Wyniki egzaminów gimnazjalnych: Polska i OECD")
+         .transition()
+  		 .delay(15000)
+       .text("Teraz w przybliżeniu")
+        
+var podtytul = svg.append("text")
+        .attr("x", 0 )          
+        .attr("y", 50)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("w roku 2006")
+        .transition()
+  		 .delay(6000)
+        .text("w roku 2009")
+        .transition()
+  		 .delay(9000)
+        .text("w roku 2012")
+        .transition()
+  		 .delay(12000)
+        .text("w roku 2015")
+        .transition()
+        .delay(15000)
+       .text("rok 2006")
+       .transition()
+        .delay(18000)
+       .text("rok 2009")
+       .transition()
+        .delay(21000)
+       .text("rok 2012")
+       .transition()
+        .delay(24000)
+       .text("rok 2015")
+        
+var oznaczenia = svg.append("rect")
+        .attr("x", 100 )          
+        .attr("y", 310)  
+        .attr("width", 50)
+   .attr("height", 20)
+   .style("fill", "red")
+   
+   var oznaczenia2 = svg.append("rect")
+        .attr("x", 200 )          
+        .attr("y", 310)  
+        .attr("width", 50)
+   .attr("height", 20)
+   .style("fill", "blue")
+   
+   var oznaczenia3 = svg.append("text")
+        .attr("x", 100 )          
+        .attr("y", 298)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("Polska")
+        
+           var oznaczenia4 = svg.append("text")
+        .attr("x", 200 )          
+        .attr("y", 298)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("OECD")
+        
+        
+var os = svg.append("rect")
+.attr("x", 0 )          
+ .attr("y", 250)  
+ .attr("width", 550)
+   .attr("height", 2)
+   .style("fill", "black")
+   
+   
+var tick1 = svg.append("text")
+        .attr("x", 5 )          
+        .attr("y", 265)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("0")
+        .transition()
+        .delay(15000)
+        .text("480")
+        var tick2 = svg.append("text")
+        .attr("x", 100 )          
+        .attr("y", 265)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("100")
+        .transition()
+        .delay(15000)
+        .text("490")
+        var tick3 = svg.append("text")
+        .attr("x", 200 )          
+        .attr("y", 265)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("200")
+         .transition()
+        .delay(15000)
+        .text("500")
+        var tick4 = svg.append("text")
+        .attr("x", 300 )          
+        .attr("y", 265)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("300")
+         .transition()
+        .delay(15000)
+        .text("510")
+        var tick5 = svg.append("text")
+        .attr("x", 400 )          
+        .attr("y", 265)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("400")
+         .transition()
+        .delay(15000)
+        .text("520")
+        var tick6 = svg.append("text")
+        .attr("x", 500 )          
+        .attr("y", 265)  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+        .text("500")
+         .transition()
+        .delay(15000)
+        .text("530")
+        
+        
+ svg.selectAll("rect")
+   .data(danekr).enter().append("rect")
+   .attr("y",  function(d, i) {return d.y})
+   .attr("x",  0)
+   .attr("width", function(d, i) {return d.wartosc2006})
+   .attr("height", 20)
+   .style("fill", function(d, i) {return d.kolor})
+   .transition()
+   .delay(3000)
+   .transition()
+   .duration(3000)
+   .attr("width", function(d, i) {return d.wartosc2009})
+    .duration(3000)
+   .attr("width", function(d, i) {return d.wartosc2012})
+   .duration(3000)
+   .attr("width", function(d, i) {return d.wartosc2015})
+    .transition()
+        .delay(15000)
+        .attr("width", function(d, i) {return (d.wartosc2006-480)*10})
+         .transition()
+        .duration(3000)
+        .attr("width", function(d, i) {return (d.wartosc2009-480)*10})
+        .transition()
+        .duration(3000)
+        .attr("width", function(d, i) {return (d.wartosc2012-480)*10})
+        .transition()
+        .duration(3000)
+        .attr("width", function(d, i) {return (d.wartosc2015-480)*10})
+   
+ svg.selectAll("text")
+ .data(danekr).enter().append("text") 
+ .attr("x", 10)
+ .attr("y",function(d,i) {return d.y-12})
+ .text(function(d,i){return d.przedmiot})
+ .style("font-size", "16px")
+    .style("font-weight", "bold")
+        .style("font-family", "Helvetica")
+   
+```
