@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="a_data_002/d3.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="a_data_002/result-light.css">
+  
+
+  
+
+  <style type="text/css">
+     div.hello{
+  background-color: #dddd11;
+}
+  </style>
+
+  <title></title>
+
+  
+    
+
+
+
+
+<script type="text/javascript">//<![CDATA[
+window.onload=function(){
+var danekr=[
+   {
+     "tytul1": "Przeciętna liczba mieszkań na 1000 ludzi",
+     "tytul2": "Przeciętna liczba mieszkań na 1000 ludzi",
+     "tytul3": "Przeciętna liczba mieszkań na 1000 ludzi",
+     "tytul4": "Przeciętna liczba mieszkań na 1000 ludzi",
+     "miejsce":70,
+     "miejscex":10
+   },
+   {
+     "tytul1": "Rok 2011",
+     "tytul2": "Rok 2015",
+     "tytul3": "Rok 2011 w podziale na miasta i wsie",
+     "tytul4": "Rok 2015 w podziale na miasta i wsie",
+     "miejsce":20,
+     "miejscex":120
+   },
+      {
+     "tytul1": "353",
+     "tytul2": "353->367",
+     "tytul3": "miasta: 392",
+     "tytul4": "miasta: 392->411",
+     "miejsce":120,
+     "miejscex":120
+   },
+         {
+     "tytul1": " ",
+     "tytul2": " ",
+     "tytul3": "wsie: 292",
+     "tytul4": "wsie: 292->302",
+     "miejsce":180,
+     "miejscex":120
+   }
+   ]
+   
+   var danekr2=[
+   {
+     "tytul1": "Przeciętna liczba osób w jednym mieszkaniu",
+     "tytul2": "Przeciętna liczba osób w jednym mieszkaniu",
+     "tytul3": "Przeciętna liczba osób w jednym mieszkaniu",
+     "tytul4": "Przeciętna liczba osób w jednym mieszkaniu",
+     "miejscey":50,
+     "miejscex":10
+   },
+      {
+     "tytul1": "2.84",
+     "tytul2": "2.84->2.72",
+     "tytul3": "miasta: 2.55",
+     "tytul4": "miasta: 2.55->2.43",
+     "miejscey":160,
+     "miejscex":50,
+   },
+         {
+     "tytul1": " ",
+     "tytul2": " ",
+     "tytul3": "wsie: 3.43",
+     "tytul4": "wsie: 3.43->3.32",
+     "miejscey":180,
+     "miejscex":180
+   },
+            {
+     "tytul1": "Wykres z Gazety Prawnej z 30 list. (str. A14)" ,
+     "tytul2": " Wykres z Gazety Prawnej z 30 list. (str. A14)",
+     "tytul3": "Wykres z Gazety Prawnej z 30 list. (str. A14)",
+     "tytul4": "Wykres z Gazety Prawnej z 30 list. (str. A14)",
+     "miejscey":200,
+     "miejscex":10
+   }
+   ]
+   
+
+var svg=d3.select("svg")
+var selection = svg.selectAll("rect")
+  .data([{"wartpocz":353,"kolor1":"blue","wartkon":353,"wartpocz2":392,"wartkon2":392,"miejsce":80},{"wartkon":367,"kolor1":"red","wartpocz":1,"wartpocz2":1,"wartkon2":411,"miejsce":90},
+  {"wartkon":1,"kolor1":"blue","wartpocz":1,"wartpocz2":292,"wartkon2":292,"miejsce":140},
+  {"wartkon":1,"kolor1":"red","wartpocz":1,"wartpocz2":1,"wartkon2":302,"miejsce":150}])
+ 
+svg.selectAll("rect")
+selection
+  .attr("x", 0)
+  .attr("y",function(d,i) { return 80+10*i })
+  .attr("width",  function(d,i) { return d.wartpocz; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+ .transition()
+ .duration(3000)
+   .attr("x", 0)
+  .attr("y", function(d,i) { return 80+10*i })
+  .attr("width", function(d,i) { return d.wartkon; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+  .attr("fill-opacity",0.5)
+     .transition()
+ .delay(3000)
+   .transition()
+ .duration(3000)
+   .attr("x", 0)
+  .attr("y", function(d,i) { return d.miejsce })
+  .attr("width", function(d,i) { return d.wartpocz2; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+  .attr("fill-opacity",0.5)
+    .transition()
+ .duration(3000)
+   .attr("x", 0)
+  .attr("y", function(d,i) { return d.miejsce })
+  .attr("width", function(d,i) { return d.wartkon2; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+  .attr("fill-opacity",0.5)
+  
+  svg.selectAll("text")
+ .data(danekr).enter().append("text") 
+ .attr("fill","black")
+ .attr("x",function(d,i){return d.miejscex})
+ .attr("y",function(d,i){return d.miejsce})
+ .text(function(d,i){return d.tytul1})
+ .transition()
+ .delay(3000)
+ .text(function(d,i){return d.tytul2})
+    .transition()
+ .delay(6000)
+ .text(function(d,i){return d.tytul3})
+   .transition()
+ .delay(12000)
+ .text(function(d,i){return d.tytul4})
+ 
+
+ var svg2=d3.select("svg.hello2")
+var selection2 = svg2.selectAll("rect")  .data([{"wartpocz":2.84,"kolor1":"blue","wartkon":2.84,"wartpocz2":2.55,"wartkon2":2.55,"miejsce":80},{"wartkon":2.72,"kolor1":"red","wartpocz":0,"wartpocz2":0,"wartkon2":2.43,"miejsce":100}, {"wartkon":0,"kolor1":"blue","wartpocz":0,"wartpocz2":3.43,"wartkon2":3.43,"miejsce":200}, {"wartkon":0,"kolor1":"red","wartpocz":0,"wartpocz2":0,"wartkon2":3.32,"miejsce":220}])
+svg2.selectAll("rect")
+selection2
+  .attr("x",function(d,i) { return 80+20*i })
+  .attr("y",60)
+  .attr("width",  30)
+  .attr("height", function(d,i) { return 30*d.wartpocz; })
+  .style("fill", function(d,i) { return d.kolor1; })
+  .transition()
+ .duration(3000)
+  .attr("height", function(d,i) { return 30*d.wartkon; })
+  .attr("fill-opacity",0.5)
+      .transition()
+ .delay(3000)
+   .transition()
+ .duration(3000)
+   .attr("x", function(d,i) { return d.miejsce })
+  .attr("height", function(d,i) { return 30*d.wartpocz2; })
+      .transition()
+ .duration(3000)
+  .attr("height", function(d,i) { return 30*d.wartkon2; })
+
+svg2.selectAll("text")
+ .data(danekr2).enter().append("text") 
+ .attr("fill","black")
+ .attr("x",function(d,i){return d.miejscex})
+ .attr("y",function(d,i){return d.miejscey})
+ .text(function(d,i){return d.tytul1})
+ .transition()
+ .delay(3000)
+ .text(function(d,i){return d.tytul2})
+    .transition()
+ .delay(6000)
+ .text(function(d,i){return d.tytul3})
+   .transition()
+ .delay(12000)
+ .text(function(d,i){return d.tytul4})
+ 
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+   <div class="hello">
+   <svg width="500" height="200">
+   <rect x="0" y="80" width="392" height="20" style="fill: rgb(0, 0, 255);" fill-opacity="0.5"></rect>
+   <rect x="0" y="90" width="411" height="20" style="fill: rgb(255, 0, 0);" fill-opacity="0.5"></rect>
+    <rect x="0" y="140" width="292" height="20" style="fill: rgb(0, 0, 255);" fill-opacity="0.5"></rect>
+   <rect x="0" y="150" width="302" height="20" style="fill: rgb(255, 0, 0);" fill-opacity="0.5"></rect>
+   <text fill="black" x="10" y="70">Przeciętna liczba mieszkań na 1000 ludzi</text><text fill="black" x="120" y="20">Rok 2015 w podziale na miasta i wsie</text><text fill="black" x="120" y="120">miasta: 392-&gt;411</text><text fill="black" x="120" y="180">wsie: 292-&gt;302</text></svg>
+     <svg class="hello2" width="500" height="200">
+   <rect x="80" y="60" width="30" height="76.5" style="fill: blue;" fill-opacity="0.5"></rect>
+   <rect x="100" y="60" width="30" height="72.9" style="fill: red;" fill-opacity="0.5"></rect>
+    <rect x="200" y="60" width="30" height="102.9" style="fill: blue;" fill-opacity="0.5"></rect>
+   <rect x="220" y="60" width="30" height="99.6" style="fill: red;" fill-opacity="0.5"></rect>
+   <text fill="black" x="10" y="50">Przeciętna liczba osób w jednym mieszkaniu</text><text fill="black" x="50" y="160">miasta: 2.55-&gt;2.43</text><text fill="black" x="180" y="180">wsie: 3.43-&gt;3.32</text><text fill="black" x="10" y="200">Wykres z Gazety Prawnej z 30 list. (str. A14)</text></svg>
+  </div>
+
+  
+   
+  
+
+
+
+
+</body></html>

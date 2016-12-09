@@ -32,4 +32,4 @@ Innowacyjność.
 
 
 Punkty:
-
+85/100
