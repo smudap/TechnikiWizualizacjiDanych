@@ -1,0 +1,84 @@
+---
+title: "Projekt II faza I"
+author: "Ewa Baranowska, Paulina Popiołek, Bartosz Topolski"
+date: "9 grudnia 2016"
+output: html_document
+---
+
+# Dofinansowania z Ministerstwa Sportu a sukcesy olimpijskie - zależność?
+
+\newline  
+\newline  
+
+### Pierwotne pytanie:   
+czy wielkość dotacji z MSiT dla sportów olimpijskich na przygotowanie się do
+Igrzysk ma wpływ na ilość medali olimpijskich w danej dyscyplinie?
+
+### Dane:
+
+#### Dofinansowania
+
+Ze strony [Biuletynu Informacji Publicznej Ministerstwa Sportu i Turystyki](https://bip.msit.gov.pl/)
+pobraliśmy dane dotyczące finansowania sportów wyczynowych. Dane były porozrzucane 
+po 1 a czasem kilkudziesięciu pdfach dla każdego roku (były to skany dokumentów z tabelami lub dokumenty zamienione na pdfy). Przykładowa strona z wynikami: (https://bip.msit.gov.pl/bip/finansowanie-zadan/sport-wyczynowy/2010-rok/479,Wyniki-konkursu-ofert-na-2010-rok-sport-kwalifikowany.html). Po żmudnym spisaniu tych kwot do tabeli otrzymaliśmy wstępne dane postaci:
+```{r, echo=F}
+library(knitr)
+load("dofinansowania.rda")
+kable(head(dofinansowania[,-c(14)],38))
+```
+
+
+W tabeli mamy informacje na temat:
+
+ * dyscyplin, które były finansowane,
+ * czy była to dyscyplina zimowa czy letnia,
+ * konkretnych kwot dofinansowania w poszczególnych latach (łącznie kwoty na przygotowania do Igrzysk, MŚ i ME!).
+    
+Jak widać mamy dostęp do danych z lat 2006 - 2016 (czyli przekrój 10 lat). W tym czasie odbyły się:
+
+ * 3 olimpiady letnie (2008, 2012, 2016), 
+ * 3 zimowe (2006, 2010, 2014). 
+    
+więc będzie można zobaczyć 6-krotnie (2 razy po 3) jak dany 4-letni cykl dofinansowań przygotowań wpłynął na sukcesy na tych olimpiadach.
+
+Jak wspomniane było wcześniej dane są wstępne, gdyż będziemy starali się jeszcze wyjaśnić braki dla niektórych dyscyplin lub małoprawdopodobne zmiany dofinansowania o rząd wielkości. Szczególnym rokiem w tej kwestii jest rok 2010, gdzie mamy niepowtarzające się nigdzie indziej braki. Dane dla tego roku były zamieszczone w 34 oddzielnych pdfach i możliwym wytłumaczeniem jest niezałączenie jednego na stronie. Niemniej trzeba temu jeszcze się przyjrzeć i jeśli nie uda się uzyskać tych danych będzie trzeba zastanowić się jak taką sytuację braków danych/niepełnych informacji uwzględnić na wykresie.
+
+#### Olimpiady
+
+Drugą część danych stanowią dane na temat medali olimpijskich. Przetworzone wstępnie dane dotyczą letnich igrzysk i mają taką postać:
+
+```{r, echo=F}
+load("olimpijczycy.rda")
+kable(head(olimpijczycy, 50))
+```
+
+W tabeli mamy informacje na temat:
+
+ * roku, w którym uzyskalismy medal,
+ * dyscypliny
+ * konkretnej konkurencji olimpijskiej
+ * oraz informacji czy była to konkurencja zespołowa czy indywidualna,
+ * nazwiska olimpiczyka,
+ * informacji personalnych olimpijczyka (płeć, rok urodzenia, wiek),
+ * kruszcza zdobytego medalu (brąz, srebro, złoto).
+    
+Tabela ta daje nam możliwość uzyskania informacji o zdobytych medalach także dla lat wcześniejszych niż 2006 rok, co umożliwi nam zanalizowanie historii medalowej i jej wpływu na finansowanie.
+
+Będziemy starali się uzyskać podobne informacje również dla olimpiad zimowych.
+    
+Dane z obu tabel połączymy i postaramy się odpowiedzieć na konkretniejsze pytania (główne i poboczne), które nasuwają się nam po wstępnej analizie tych dostępnych informacji (a więc podsumowując):
+
+ * jaka jest zależność między dofinansowaniem a liczbą medali (więcej medali => więcej pieniędzy albo więcej pieniędzy => więcej medali?, zatem przebieg czasowy: przyczyna - skutek)
+ * wpływ historycznych osiągnięć na nominalną (z 2006 roku) kwotę dofinansowań dla danych dyscyplin,
+ * czy kwota dofinansowania jest większa dla sportów drużynowych/indywidualnych (=> można zliczyć ilość konkurencji olimpijskich per dyscyplina i liczbę reprezentantów Polski w danym roku w danej konkurencji by unormować te dane).
+ * jak wygląda porównanie finansowania i ilości medali dla igrzysk letnich i zimowych,
+ * jak wygląda zmiana finansowania dla: a) nowych dyscyplin olimpijskich, po tym jak zostały włączone do olimpiad ( o ile uda nam się uzupełnić dla nich braki z lat poprzednich), tj. dla golfa i rugby, b) wycofanych dyscyplin olimpijskich, tj. baseballa i softballa,
+ * ogólne informacje: która dyscyplina najbardziej finansowana (bezwzględnie, względnie do ilości medali), czy finansowania dla wszystkich dyscyplin z czasem rosną/maleją
+ * czy kolor krążka ma znaczenie dla dofinansowania,
+ * czy są dyscypliny bez sukcesów na jakiejkolwiek olimpiadzie, lecz mimo to z wysokim finansowaniem ( i na odwrót, małe kwoty...).
+ 
+ 
+Mając te dane i konkretne pytania w następnej fazie postaramy się dobrać do nich odpowiedni sposób wizualizacji.
+   
+
+
