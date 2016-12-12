@@ -1,0 +1,8411 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='nv.d3.css'>
+    <link rel='stylesheet' href='rNVD3.css'>
+    
+    <script src='http://code.jquery.com/jquery-1.8.2.min.js' type='text/javascript'></script>
+    <script src="https://d3js.org/d3.v3.min.js" type='text/javascript'></script>
+    <script src='https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js' type='text/javascript'></script>
+    <script src='https://github.com/d3/d3-plugins/blob/master/fisheye/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 950px;
+      height: 700px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart4ece358c32a2' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart4ece358c32a2()
+    });
+    function drawchart4ece358c32a2(){  
+      var opts = {
+ "dom": "chart4ece358c32a2",
+"width":    950,
+"height":    700,
+"x": "Rok",
+"y": "liczba_medali",
+"group": "Zawody",
+"type": "multiBarChart",
+"encoding": "UTF-8",
+"id": "chart4ece358c32a2" 
+},
+        data = [
+ {
+ "nazwisko": "Czesław Białas",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1955,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Beck",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1955,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Beck",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1956,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Rusinowicz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1958,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1958,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1958,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1959,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1960,
+"medal": "Złoto",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1960,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1960,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1960,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1960,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1961,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1962,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Rudolf Kozłowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1962,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1963,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 35,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1964,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jerzy Kaczkowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1965,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1965,
+"medal": "Srebro",
+"Wiek": 36,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1965,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Rudolf Kozłowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1965,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 37,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 39,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 39,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1968,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1969,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1969,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Wojnowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 36,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 36,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1971,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1972,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1972,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1972,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1972,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Wojnowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Leszek Skorupa",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1975,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1975,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Korcz ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1975,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1975,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1975,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1975,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Łostowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Kazimierz Czarnecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1976,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Kazimierz Czarnecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1976,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1976,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Rabczewski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1977,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Rabczewski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1978,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Golik",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1978,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1979,
+"medal": "Złoto",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1979,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1979,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Witold Walo",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1979,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1980,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1981,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1981,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Mandra",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Golik",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1983,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1983,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1983,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1983,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1984,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1984,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mirosław Chlebosz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1984,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1985,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1986,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1986,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1986,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1986,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1987,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1987,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bogdan Bakuła",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1988,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1988,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mirosław Dąbrowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1989,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1989,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1990,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gorzelniak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1990,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1990,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Banaszak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1991,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Siemion",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1992,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Banaszak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1992,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Malak",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1992,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1993,
+"medal": "Brąz",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1993,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1995,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Dariusz Osuch",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1996,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1996,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1997,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Siemion",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1997,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mariusz Jędra ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1997,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Drzazga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1997,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1997,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 17,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dariusz Osuch",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1998,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Złoto",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Mariusz Jędra ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Złoto",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2000,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Robert Dołęga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2000,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Grzegorz Kleszcz",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Mariusz Rytkowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2002,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2002,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2003,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2003,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Drzazga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2003,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2004,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2004,
+"medal": "Złoto",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2004,
+"medal": "Złoto",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2004,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2005,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2005,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2005,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2006,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2006,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2006,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2006,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2007,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Magdalena Ufnal",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2008,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Robert Dołęga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2008,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2009,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2009,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2010,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2010,
+"medal": "Złoto",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2010,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2010,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2012,
+"medal": "Złoto",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2012,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2012,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2013,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2014,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tomasz Zieliński ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2014,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2015,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2015,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2015,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tomasz Zieliński ",
+"Zawody": "Igrzyska Olimpijskie",
+"Rok": 2016,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1955,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Beck",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1955,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Beck",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1956,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Rusinowicz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1958,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1958,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1958,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1959,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1960,
+"medal": "Złoto",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1960,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1960,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1960,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1960,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1961,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1962,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Rudolf Kozłowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1962,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1963,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1964,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jerzy Kaczkowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1965,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1965,
+"medal": "Srebro",
+"Wiek": 36,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1965,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Rudolf Kozłowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1965,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 37,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 39,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 39,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1968,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1969,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1969,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Wojnowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 35,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 36,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 36,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1971,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1972,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1972,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1972,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1972,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Wojnowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Leszek Skorupa",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1975,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1975,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Korcz ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1975,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1975,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1975,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1975,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Łostowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Kazimierz Czarnecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1976,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Kazimierz Czarnecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1976,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1976,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Rabczewski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1977,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Rabczewski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1978,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Golik",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1978,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1979,
+"medal": "Złoto",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1979,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1979,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Witold Walo",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1979,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1980,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1981,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1981,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Mandra",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Golik",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1983,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1983,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1983,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1983,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1984,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1984,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mirosław Chlebosz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1984,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1985,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1986,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1986,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1986,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1986,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1987,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1987,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bogdan Bakuła",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1988,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1988,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mirosław Dąbrowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1989,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1989,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1990,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gorzelniak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1990,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1990,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Banaszak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1991,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Siemion",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1992,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Banaszak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1992,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Malak",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1992,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1993,
+"medal": "Brąz",
+"Wiek": 18,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1993,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1995,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Dariusz Osuch",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1996,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1996,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1997,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Siemion",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1997,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mariusz Jędra ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1997,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Drzazga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1997,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1997,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 17,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dariusz Osuch",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1998,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Złoto",
+"Wiek": 18,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 19,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Mariusz Jędra ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Złoto",
+"Wiek": 18,
+"ile":              1,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2000,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Robert Dołęga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2000,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Grzegorz Kleszcz",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Mariusz Rytkowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2002,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2002,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2003,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2003,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Drzazga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2003,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2004,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2004,
+"medal": "Złoto",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2004,
+"medal": "Złoto",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2004,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2005,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2005,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2005,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2006,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2006,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2006,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2006,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2007,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Magdalena Ufnal",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2008,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Robert Dołęga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2008,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2009,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2009,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2010,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2010,
+"medal": "Złoto",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2010,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2010,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2012,
+"medal": "Złoto",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2012,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2012,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2013,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2014,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tomasz Zieliński ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2014,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2015,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2015,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2015,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tomasz Zieliński ",
+"Zawody": "Mistrzostwa Europy",
+"Rok": 2016,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1955,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Beck",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1955,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Beck",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1956,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1956,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Rusinowicz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1957,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1958,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1958,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1958,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Czesław Białas",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Czepułkowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1959,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1960,
+"medal": "Złoto",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1960,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1960,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Bochenek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1960,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Jankowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1960,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1961,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1961,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1962,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Rudolf Kozłowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1962,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1962,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1963,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1963,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 35,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1964,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jerzy Kaczkowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1965,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1965,
+"medal": "Srebro",
+"Wiek": 36,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1965,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Rudolf Kozłowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1965,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1965,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Ireneusz Paliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 37,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1966,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gołąb",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 39,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 39,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Złoto",
+"Wiek": 33,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1968,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1969,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1969,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1969,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Wojnowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mieczysław Nowak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 35,
+"ile":              0,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 35,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              6,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1970,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              7,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Henryk Trębicki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 36,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Baszanowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 36,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Walter Szołtysek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1971,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1971,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1971,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Norbert Ozimek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1972,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1972,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1972,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1972,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1972,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Wojnowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1973,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Leszek Skorupa",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1974,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1975,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1975,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Korcz ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1975,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1975,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1975,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zygmunt Smalcerz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1975,
+"medal": "Złoto",
+"Wiek": 34,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jan Łostowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1976,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Kazimierz Czarnecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1976,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Kazimierz Czarnecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1976,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1976,
+"medal": "Złoto",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Grzegorz Cziura ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Rabczewski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1977,
+"medal": "Srebro",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1977,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Rabczewski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1978,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Golik",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1978,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Zbigniew Kaczmarek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1978,
+"medal": "Srebro",
+"Wiek": 32,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1979,
+"medal": "Złoto",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1979,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1979,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Witold Walo",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1979,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1980,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Dembończyk",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1980,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1981,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1981,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Antoni Pawlak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Mandra",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1982,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Golik",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1982,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1983,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1983,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1983,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Stefan Leletko",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1983,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1984,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1984,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mirosław Chlebosz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1984,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1985,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1986,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1986,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1986,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Seweryn",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1986,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bernard Piekorz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1987,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1987,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bogdan Bakuła",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1988,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1988,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mirosław Dąbrowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1989,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1989,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Jacek Gutowski",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1990,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marek Gorzelniak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1990,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1990,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Banaszak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1991,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Siemion",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1992,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Piotr Banaszak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1992,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Malak",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1992,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1993,
+"medal": "Brąz",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1993,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1995,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Dariusz Osuch",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1995,
+"medal": "Srebro",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1996,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1996,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Andrzej Cofalik",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1997,
+"medal": "Złoto",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Krzysztof Siemion",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1997,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Mariusz Jędra ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1997,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Drzazga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1997,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Waldemar Kosiński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1997,
+"medal": "Brąz",
+"Wiek": 32,
+"ile":              1,
+"liczba_medali":              5,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 17,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dariusz Osuch",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1998,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1998,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Złoto",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Brąz",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Mariusz Jędra ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Złoto",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 1999,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 18,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Beata Prei",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2000,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Robert Dołęga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2000,
+"medal": "Srebro",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2000,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Złoto",
+"Wiek": 19,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Grzegorz Kleszcz",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              3,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Srebro",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              3,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2001,
+"medal": "Brąz",
+"Wiek": 20,
+"ile":              1,
+"liczba_medali":              4,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2002,
+"medal": "Złoto",
+"Wiek": 20,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Mariusz Rytkowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2002,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2002,
+"medal": "Srebro",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2003,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Andrzej Kozłowski ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2003,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tadeusz Drzazga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2003,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2004,
+"medal": "Brąz",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Agata Wróbel",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2004,
+"medal": "Złoto",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2004,
+"medal": "Złoto",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2004,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2005,
+"medal": "Srebro",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2005,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2005,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2006,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Dominika Misterska-Zasowska",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2006,
+"medal": "Srebro",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2006,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2006,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2006,
+"medal": "Srebro",
+"Wiek": 25,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Paweł Najdek",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 34,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2007,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2007,
+"medal": "Brąz",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Magdalena Ufnal",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2008,
+"medal": "Brąz",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Robert Dołęga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2008,
+"medal": "Brąz",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Szymon Kołecki",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2008,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2009,
+"medal": "Złoto",
+"Wiek": 27,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2009,
+"medal": "Brąz",
+"Wiek": 21,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2010,
+"medal": "Złoto",
+"Wiek": 21,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marcin Dołęga",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2010,
+"medal": "Złoto",
+"Wiek": 28,
+"ile":              1,
+"liczba_medali":              2,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marieta Gotfryd",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2010,
+"medal": "Brąz",
+"Wiek": 30,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2010,
+"medal": "Srebro",
+"Wiek": 22,
+"ile":              0,
+"liczba_medali":              2,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 22,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2011,
+"medal": "Brąz",
+"Wiek": 27,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2012,
+"medal": "Złoto",
+"Wiek": 23,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2012,
+"medal": "Brąz",
+"Wiek": 28,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Marzena Karpińska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2012,
+"medal": "Złoto",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2013,
+"medal": "Brąz",
+"Wiek": 29,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2014,
+"medal": "Złoto",
+"Wiek": 25,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tomasz Zieliński ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2014,
+"medal": "Srebro",
+"Wiek": 24,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Adrian Zieliński",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2015,
+"medal": "Srebro",
+"Wiek": 26,
+"ile":              1,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Aleksandra Klejnowska ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2015,
+"medal": "Brąz",
+"Wiek": 33,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "K" 
+},
+{
+ "nazwisko": "Bartłomiej Bonk",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2015,
+"medal": "Złoto",
+"Wiek": 31,
+"ile":              0,
+"liczba_medali":              1,
+"płeć": "M" 
+},
+{
+ "nazwisko": "Tomasz Zieliński ",
+"Zawody": "Mistrzostwa Świata",
+"Rok": 2016,
+"medal": "Złoto",
+"Wiek": 26,
+"ile":              0,
+"liczba_medali":              0,
+"płeć": "M" 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .color([ "#ff7f00", "#b2df8a", "#1f78b4" ])
+  .reduceXTicks(false)
+          
+        chart.xAxis
+  .axisLabel("Rok")
+  .staggerLabels(true)
+
+        
+        
+        chart.yAxis
+  .axisLabel("Liczba zdobytych medali")
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>
