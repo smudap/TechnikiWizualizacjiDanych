@@ -1,0 +1,150 @@
+---
+title: "Praca Domowa 9"
+author: "Maksymilian Mazur"
+date: "12 listopada 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Wykres życia i panowania Jagiellonów
+
+W ramach pracy domowej przygotowałem oś czasu przedstawiającą okres panowania poszczególnych królów Polski z dynastii Jagiellonów. Kod został napisany przy wykorzystaniu biblioteki D3.js i może zostać wykonany pod adresem: https://jsfiddle.net/eze0d5os/8/
+ 
+ 
+####Fragment `CSS`:
+```{r, eval = FALSE}
+div.out {
+}
+```
+
+####Fragment `HTML`:
+```{r, eval = FALSE}
+<div class="out">
+<svg width="500" height="400">
+  <g class="g1">
+  </g>
+  <g class="g2">
+  </g>
+  <g class=g3/>
+  </g>
+  <g class=g4/>
+</svg>
+</div>
+```
+
+####Fragment `JAVASCRIPT`:
+```{r, eval = FALSE}
+var data = [
+  {"im": "Władysław II", "ur": 1362, "zm": 1434, "pPan": 1386, "kPan": 1434},
+  {"im": "Władysław III", "ur": 1424, "zm": 1444, "pPan": 1434, "kPan": 1444},
+  {"im": "Kazimierz IV", "ur": 1427, "zm": 1492, "pPan": 1447, "kPan": 1492},
+  {"im": "Jan I", "ur": 1459, "zm": 1501, "pPan": 1492, "kPan": 1501},
+  {"im": "Aleksander", "ur": 1461, "zm": 1506, "pPan": 1501, "kPan": 1506},
+  {"im": "Zygmunt I", "ur": 1467, "zm": 1548, "pPan": 1506, "kPan": 1548},
+  {"im": "Zygmunt II", "ur": 1520, "zm": 1572, "pPan": 1548, "kPan": 1572}
+]
+
+var tytul = [{ "pan":"Wykres życia i panowania Jagiellonów"}]
+    
+  var  format = d3.format(",d");
+
+var scale = d3.scale.linear()
+  .domain([1350, 1600])
+  .range([120, 500])
+  .clamp([100, 500])
+
+var svg = d3.select("div.out svg")
+
+var labels = svg.selectAll("g2")
+  .data(data)
+  
+labels.enter().append("text")
+  .attr("x", function(d,i) { return 0 })
+  .attr("y", function(d,i) { return i*50+50+15})
+  .attr("width", function(d,i) { return 100; })
+  .attr("height", 20)
+  .style("fill", "black")
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "20px")
+  .attr("fill", "red")
+  .text(function(d,i) { return d.im })
+
+var chartTitle = svg.selectAll("g4")
+										.data(tytul)
+
+chartTitle.enter().append("text")
+  .attr("x", 130)
+  .attr("y",30)
+  .attr("width", function(d,i) { return 100; })
+  .attr("height", 20)
+  .style("fill", "black")
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "20px")
+  .text("Wykres życia i panowania Jagiellonów")
+
+var selection = svg.selectAll("g1")
+  .data(data)
+
+selection.enter().append("rect")
+  .attr("x", function(d,i) { return scale(0) })
+  .attr("y", function(d,i) { return i*50+50 })
+  .attr("width", function(d,i) { return 0; })
+  .attr("height", 20)
+  .style("fill", "steelblue")
+
+selection
+  .transition()
+  .duration(3000)
+    .attr("x", function(d,i) { return scale(d.ur); })
+  .attr("y", function(d,i) { return i*50+50})
+    .attr("width", function(d,i) { return scale(d.pPan)-scale(d.ur); })
+    .style("fill", "steelblue")
+    
+var panowanie = svg.selectAll("g3")
+  .data(data)
+
+panowanie.enter().append("rect")
+  .attr("x", function(d,i) { return scale(0) })
+  .attr("y", function(d,i) { return i*50+50 })
+  .attr("width", function(d,i) { return 0; })
+  .attr("height", 20)
+  .style("fill", "Gold")
+
+panowanie
+  .transition()
+  .duration(3000)
+    .attr("x", function(d,i) { return scale(d.pPan); })
+  .attr("y", function(d,i) { return i*50+50})
+    .attr("width", function(d,i) { return scale(d.kPan)-scale(d.pPan); })
+    .style("fill", "Gold")
+    
+var line = d3.svg.line()
+        .x(100)
+        .y(200)
+
+ var svgContainer = d3.select("body").append("svg")
+ 																			.attr("x",50)
+                                      .attr("width", 600)
+                                      .attr("height", 50)
+ 
+ var axisScale = d3.scale.linear()
+                          .domain([0, 100])
+                          .range([0, 400])
+
+var xAxis = d3.svg.axis()
+                   .scale(scale)
+                   
+var xAxisGroup = svgContainer.append("g")
+                             .call(xAxis
+                             		.ticks(5)
+                             		.tickFormat(d3.format(".")))
+                             .selectAll("text")  
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" )
+```
