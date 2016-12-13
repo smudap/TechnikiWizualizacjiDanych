@@ -1,0 +1,39 @@
+---
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE, out.width = '1000px', out.height = '800px'}
+setwd("C:/Users/E540/Desktop/SMAD - rok 2/Techniki wizualizacji/Projekt 2 - sport")
+dane<-read.csv("olimpijczycy.csv", sep=';', h=T)
+
+library(ggplot2)
+library(plotly)
+kolory<-ifelse(dane$medal=='Z', '#bfa100', ifelse(dane$medal=='S', '#909090','#532900'))
+
+facet_wrap_names <- c(
+  `K` = "KOBIETY",
+  `M` = "MĘŻCZYŹNI"
+)
+
+g<-ggplot(dane, aes(x=olimpiada, y=wiek, color=medal, 
+                    text=paste("medalista:", olimpijczyk, "<br>dyscyplina:", 
+                               dyscyplina, "<br>konkurencja:", konkurencja)))+
+  geom_jitter(width=3, height=0, size=1, stroke=2)+
+  scale_color_manual(values=c('#532900', '#909090', '#bfa100'))+
+  scale_x_discrete(labels=seq(1920,2020,4), limits=seq(1920,2020,4), expand=c(0,3))+
+  facet_wrap(~plec, nrow=2, labeller = as_labeller(facet_wrap_names))+
+  theme(panel.background=element_rect(fill = 'white'), 
+        panel.grid.major=element_line(colour='gray'),
+        legend.position="none", plot.margin=unit(c(1,1,1,1), "cm"),
+        text=element_text(size=14, face="bold"),
+        plot.title=element_text(margin=margin(b=0.5, unit="cm"), hjust=0, size=20, face="bold"),
+        axis.text.x = element_text(angle=45))+
+  ggtitle("Wiek medalistów letnich igrzysk olimpijskich")+
+  xlab("")+
+  ylab("")
+
+p<-ggplotly(g, legend=FALSE)
+p
+
+```
+

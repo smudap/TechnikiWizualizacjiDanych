@@ -32,9 +32,9 @@ Blok 1 - Grafika statyczna
 Blok 2 - Grafika interaktywna / internetowa
 
 * [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [rCharts](http://pbiecek.github.io/Przewodnik/Wizualizacja/jak_tworzyc_interaktywne_wykresy.html), [2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly), [shiny](http://pbiecek.github.io/Przewodnik/Programowanie/jak_tworzyc_aplikajce.html), [eurostat](https://github.com/rOpenGov/eurostat/blob/master/vignettes/2015-RJournal/lahti-huovari-kainu-biecek.md)
-* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [RBokeh](http://hafen.github.io/rbokeh/#preview) / [ggiraph](https://github.com/davidgohel/ggiraph), [vegalite1](https://github.com/hrbrmstr/vegalite), [vegalite2](https://idl.cs.washington.edu/files/2017-VegaLite-InfoVis.pdf)
-* [8] W: Prezentacja projektu 2/1; L: [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html)
-* [9] W: Prezentacje studentów (tematy poniżej); L: [plotly](https://plot.ly/r/getting-started/)
+* [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [Wladcy Polski](https://pl.wikipedia.org/wiki/W%C5%82adcy_Polski), [Tutorial D3](http://vadim.ogievetsky.com/IntroD3/#1), [JS fiddle](https://jsfiddle.net/), [Time line](https://github.com/jiahuang/d3-timeline)
+* [8] W: Prezentacja projektu 2/1; L: [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html), [d31](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Zajecia/pisa.html), [d32](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Zajecia/timelines.html)
+* [9] W: Prezentacje studentów (tematy poniżej); L: [RBokeh](http://hafen.github.io/rbokeh/#preview) / [ggiraph](https://github.com/davidgohel/ggiraph), [vegalite1](https://github.com/hrbrmstr/vegalite), [vegalite2](https://idl.cs.washington.edu/files/2017-VegaLite-InfoVis.pdf)
 * [10] W: Prezentacja projektu 2/2; L: BrainStorming
 
 Blok 3 - Grafika informatywna

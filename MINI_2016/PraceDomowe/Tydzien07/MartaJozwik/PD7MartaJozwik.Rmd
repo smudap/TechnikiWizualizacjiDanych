@@ -1,0 +1,71 @@
+---
+title: "PD7"
+author: "Marta JóŸwik"
+date: "24 listopada 2016"
+output: html_document
+---
+
+Trafi³am w Dzienniku Gazecie Prawnej z 23. listopada na artyku³ (str B6) o iloœci spraw s¹dowych rozpatrywanych przez s¹dy przed i po  up³ywie 12 mieisêcy. Samego wykresu iloœci spraw nie zmienia³am, ale pod nim znajdowa³y siê okrêgi maj¹ce ukazywaæ procentowy udzia³ spraw nierozwi¹zanych (we wszytskich w danym roku). Jak to na wykresach ko³owych trudno by³o porównaæ icgh wielkoœæ, dlatego zamiast kó³ pomyœa³am o zrobieniu stacked bars. Teraz du¿o lepiej widaæ poszczególne proporcje i od razu widzimy te¿ prze³o¿enie na iloœæ. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Iloœæ [w mln] spraw wp³ywaj¹cych do s¹du w podziale na rozpatrzone w ci¹gu 12 miesiêcy i po 12 miesi¹cach.
+
+```{r , echo=FALSE,comment = NA, results = 'asis',eval=F}
+library(rCharts)
+## utility function to add required assets such as CSS and JS libraries
+# add_lib_assets <- function(lib, cdn = F, css = NULL) {
+#     assets = get_assets(get_lib(lib), cdn = cdn)
+#     if (!is.null(css)) {
+#         assets$css = c(assets$css, css)
+#     }
+#     styles <- lapply(assets$css, function(style) {
+#         sprintf("<link rel='stylesheet' href=%s>", style)
+#     })
+# 
+#     scripts <- lapply(assets$jshead, function(script) {
+#         sprintf("<script type='text/javascript' src=%s></script>", script)
+#     })
+#     cat(paste(c(styles, scripts), collapse = "\n"))
+# }
+
+# get assets from online repositories
+#add_lib_assets("NVD3", cdn = TRUE, css = #"http://rawgithub.com/ramnathv/rCharts/master/inst/libraries/nvd3/css/rNVD3.css")
+
+
+
+library(rCharts)
+procent=c(8,8.6,9.9,11.3,12.7)
+ilosc=c(13.6,14.0,15.2,14.6,15.2)
+ilosc2<-ilosc*procent/100
+ilosc1=ilosc-ilosc2
+proc<-c(ilosc2,ilosc1)/ilosc*100
+dane2<-data.frame(ilosc=c(ilosc2,ilosc1),
+                 rok=c(2011,2012,2013,2014,2015,2011,2012,2013,2014,2015),
+                 typ=c(rep("sprawy opoznione > 12 mies.",5),rep("sprawy nieopoznione",5)),
+                 procent=proc)
+
+
+
+p2 <- nPlot(ilosc ~ rok, group='typ',data = dane2, type = "multiBarChart")
+p2$xAxis(axisLabel = 'Rok')
+p2$yAxis(axisLabel = 'Ilosc wplywajacych spraw sadowych')
+p2$chart(tooltipContent = "#! function(key, x, y, e){ 
+         return  'ilosc spraw:' +y +
+' mln  (' + e.point.procent +'%)'
+         } !#")
+#p2$set(width = 750, height = 590)
+#p2$print('iframesrc', include_assets=TRUE)
+p2$save("C:/Users/Marta/Desktop/TWD/pd7wyk.html")
+```
+
+
+<iframe src="pd7wyk.html" width=900 height=420>
+
+</iframe>
+
+
+
+
