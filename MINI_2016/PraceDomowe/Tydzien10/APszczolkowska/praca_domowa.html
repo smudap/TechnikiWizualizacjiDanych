@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  
+  <style type="text/css">
+  	div {
+    width: 150px;          
+    height: 20px;         
+    padding: 2px;       
+    font: 14px sans-serif;    
+    background: #aaaaaa; 
+    border: 1px;    
+    border-radius: 5px;     
+  	}
+  	div.wykres {
+    width: 800px;          
+    height:1000px;         
+    background: white; 
+  	}
+
+	div.tooltip { 
+    
+position: absolute;     
+    
+text-align: left;     
+    
+width: 220px;          
+    
+height: 30px;         
+    
+padding: 2px;       
+    
+font: 12px sans-serif;    
+    
+background: #f7fcb9; 
+    
+border: 0px;    
+    
+border-radius: 3px;     
+    
+pointer-events: none;     
+
+}
+
+
+  </style>
+</head>
+<body>
+	<div onclick="skladka()">Wysokość skladki</div>
+	<div onclick="zarobek()">Średnie zarobki</div>
+	<div onclick="procent()">Procentowy udział</div>
+	
+
+<div class="wykres">
+	<svg width="800" height="1060">
+	<text x="200" y="45" >Ranking cen OC w Europie</text>
+	<text x="10" y="90" >Bulgaria</text>
+	<text x="10" y="140" >Włochy</text>
+	<text x="10" y="190" >Estonia</text>
+	<text x="10" y="240" >Czechy</text>
+	<text x="10" y="290" >Słowenia</text>
+	<text x="10" y="340" >Austria</text>
+	<text x="10" y="390" >Portugalia</text>
+	<text x="10" y="440" >Francja</text>
+	<text x="10" y="490" >Polska</text>
+	<text x="10" y="540" >Niemcy</text>
+	<text x="10" y="590" >Hiszpania</text>
+	<text x="10" y="640" >Belgia</text>
+	<text x="10" y="690" >Wielka Brytania</text>
+	<text x="10" y="740" >Finlandia</text>
+	<text x="10" y="790" >Dania</text>
+	<text x="10" y="840" >Łotwa</text>
+	<text x="10" y="890" >Szwecja</text>
+	<text x="10" y="940" >Holandia</text>
+	<text x="10" y="990" >Irlandia</text>
+	<text x="10" y="1040" >Węgry</text>
+	
+	</svg>
+</div>
+
+<script>
+ var w = 800,
+   h = 600
+   
+   var y = d3.scale.linear()
+   .domain([0, 200])
+   .range([0, h])
+
+   var y = d3.scale.linear()
+   .domain([0, 600])
+   .range([0, w])
+
+var danekr = [
+{"kraj":"Bułgaria","skladka":69,"zarobek":409,"procent":16.9,"y":95,"kolor":"blue"},
+{"kraj":"Włochy","skladka":313,"zarobek":2410,"procent":13,"y":145,"kolor":"blue"},
+{"kraj":"Estonia","skladka":113,"zarobek":887,"procent":12.7,"y":195,"kolor":"blue"},
+{"kraj":"Czechy","skladka":123,"zarobek":970,"procent":12.7,"y":245,"kolor":"blue"},
+{"kraj":"Slowenia","skladka":225,"zarobek":1803,"procent":12.5,"y":295,"kolor":"blue"},
+{"kraj":"Austria","skladka":356,"zarobek":3264,"procent":10.7,"y":345,"kolor":"blue"},
+{"kraj":"Portugalia","skladka":141,"zarobek":1376,"procent":10.2,"y":395,"kolor":"blue"},
+{"kraj":"Francja","skladka":300,"zarobek":2965,"procent":10.1,"y":445,"kolor":"blue"},
+{"kraj":"Polska","skladka":86,"zarobek":865,"procent":9.7,"y":495,"kolor":"red"},
+{"kraj":"Niemcy","skladka":284,"zarobek":2995,"procent":9.5,"y":545,"kolor":"blue"},
+{"kraj":"Hiszpania","skladka":210,"zarobek":2291,"procent":9.4,"y":595,"kolor":"blue"},
+{"kraj":"Belgia","skladka":321,"zarobek":3551,"procent":9.0,"y":645,"kolor":"blue"},
+{"kraj":"Wielka Brytania","skladka":273,"zarobek":3160,"procent":8.6,"y":695,"kolor":"blue"},
+{"kraj":"Finlandia","skladka":285,"zarobek":3341,"procent":8.5,"y":745,"kolor":"blue"},
+{"kraj":"Dania","skladka":359,"zarobek":4561,"procent":7.9,"y":795,"kolor":"blue"},
+{"kraj":"Łotwa","skladka":55,"zarobek":716,"procent":7.7,"y":845,"kolor":"blue"},
+{"kraj":"Szwecja","skladka":279,"zarobek":3579,"procent":7.7,"y":895,"kolor":"blue"},
+{"kraj":"Holandia","skladka":216,"zarobek":3541,"procent":7.4,"y":945,"kolor":"blue"},
+{"kraj":"Irlandia","skladka":242,"zarobek":3949,"procent":6.1,"y":995,"kolor":"blue"},
+{"kraj":"Wegry","skladka":49,"zarobek":845,"procent":5.8,"y":1045,"kolor":"blue"}
+
+] 
+
+var div = d3.select("body").append("div") 
+                  
+.attr("class", "tooltip")       
+                  
+.style("opacity", 0);
+ 
+var svg = d3.select("svg")
+
+svg.selectAll("rect")
+   .data(danekr).enter().append("rect")
+   .attr("y",  function(d, i) {return d.y})
+   .attr("x",  0)
+   .attr("width", function(d, i) {return d.skladka})
+   .attr("height", 20)
+   .style("fill", function(d, i) {return d.kolor})
+   
+
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+ 
+                
+	.style("opacity", .9);    
+         
+	 div .html("Składka: " + d.skladka + "€"+ "\n Zarobki:"+ d.zarobek + "€" +" Procent:"+ d.procent +"%")  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+                
+.style("opacity", 0);
+              
+})   
+   
+   
+var skladka = function() {
+
+	var wykres = d3.select("svg")
+	svg.selectAll(".txt").remove()
+	wykres.select("text")
+		.text("Wysokość składki OC w przeliczeniu na jednego mieszkańca")
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .attr("width", function(d, i) {return d.skladka})
+	   
+	svg.selectAll(".txt")
+    .data(danekr)
+    .enter()
+    .append("text")
+    .attr("class", "txt")
+	
+    .attr("x", 110)
+    .attr("y", function(d, i) {
+       return (d.y-5)
+    })
+    .attr("fill","black")
+    .text(function(d, i) {return d.skladka+ "€"})
+	   
+}
+
+var zarobek = function() {
+	var wykres = d3.select("svg")
+	svg.selectAll(".txt").remove()
+	wykres.select("text")
+		.text("Średnie miesięczne wynagrodzenie w przeliczeniu na jednego mieszkańca")
+	wykres.selectAll("rect")
+	   .data(danekr)
+	
+	   .attr("width", function(d, i) {return (d.zarobek*600/4000)})
+	   
+	svg.selectAll(".txt")
+    .data(danekr)
+    .enter()
+    .append("text")
+    .attr("class", "txt")
+	
+    .attr("x", 110)
+    .attr("y", function(d, i) {
+       return (d.y-5)
+    })
+    .attr("fill","black")
+    .text(function(d, i) {return d.zarobek+ "€"})
+
+}
+
+var procent = function() {
+
+	var wykres = d3.select("svg")
+	svg.selectAll(".txt").remove()
+	wykres.select("text")
+		.text("Jaki procent średniego wynagrodzenia stanowi składka OC?")
+	wykres.selectAll("rect")
+	   .data(danekr)
+	
+	   .attr("width", function(d, i) {return d.procent})
+	   
+	svg.selectAll(".txt")
+    .data(danekr)
+    .enter()
+    .append("text")
+    .attr("class", "txt")
+	
+    .attr("x", 110)
+    .attr("y", function(d, i) {
+       return (d.y-5)
+    })
+    .attr("fill","black")
+    .text(function(d, i) {return d.procent + "%"})
+}
+
+
+</script>
+
+</body>
+</html>
