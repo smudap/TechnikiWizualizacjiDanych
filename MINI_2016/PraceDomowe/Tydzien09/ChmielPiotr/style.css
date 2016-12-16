@@ -1,0 +1,22 @@
+.output {
+  margin-top: 200px;
+}
+.x{
+    width: 99%;
+    position: fixed;
+    z-index: 999;
+    background: #fff;
+    top:0;
+}
+.x svg{
+    width: 99%;
+}
+.title{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+body{
+  background: #fff;
+}

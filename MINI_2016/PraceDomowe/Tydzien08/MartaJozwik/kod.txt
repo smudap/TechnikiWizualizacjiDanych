@@ -1,0 +1,194 @@
+adres:https://jsfiddle.net/j8js0L30/13/
+
+html:
+<div class="hello">
+   <svg width="500" height="200">
+   <rect x="50" y="50" width="100" height="100"/>
+   <rect x="50" y="50" width="100" height="100"/>
+    <rect x="50" y="50" width="100" height="100"/>
+   <rect x="50" y="50" width="100" height="100"/>
+   </svg>
+     <svg class="hello2" width="500" height="200">
+   <rect x="50" y="50" width="100" height="100"/>
+   <rect x="50" y="50" width="100" height="100"/>
+    <rect x="50" y="50" width="100" height="100"/>
+   <rect x="50" y="50" width="100" height="100"/>
+   </svg>
+   <svg class="hello3" width="500" height="200">
+   <rect x="1" y="1" width="1" height="1"/>
+   </svg>
+  </div>
+
+
+css:
+ div.hello{
+  background-color: #dddd11;
+}
+
+java:
+var danekr=[
+   {
+     "tytul1": "Przeciêtna liczba mieszkañ na 1000 ludzi",
+     "tytul2": "Przeciêtna liczba mieszkañ na 1000 ludzi",
+     "tytul3": "Przeciêtna liczba mieszkañ na 1000 ludzi",
+     "tytul4": "Przeciêtna liczba mieszkañ na 1000 ludzi",
+     "miejsce":70,
+     "miejscex":10
+   },
+   {
+     "tytul1": "Rok 2011",
+     "tytul2": "Rok 2015",
+     "tytul3": "Rok 2011 w podziale na miasta i wsie",
+     "tytul4": "Rok 2015 w podziale na miasta i wsie",
+     "miejsce":20,
+     "miejscex":120
+   },
+      {
+     "tytul1": "353",
+     "tytul2": "353->367",
+     "tytul3": "miasta: 392",
+     "tytul4": "miasta: 392->411",
+     "miejsce":120,
+     "miejscex":120
+   },
+         {
+     "tytul1": " ",
+     "tytul2": " ",
+     "tytul3": "wsie: 292",
+     "tytul4": "wsie: 292->302",
+     "miejsce":180,
+     "miejscex":120
+   }
+   ]
+   
+   var danekr2=[
+   {
+     "tytul1": "Przeciêtna liczba osób w jednym mieszkaniu",
+     "tytul2": "Przeciêtna liczba osób w jednym mieszkaniu",
+     "tytul3": "Przeciêtna liczba osób w jednym mieszkaniu",
+     "tytul4": "Przeciêtna liczba osób w jednym mieszkaniu",
+     "miejscey":50,
+     "miejscex":10
+   },
+      {
+     "tytul1": "2.84",
+     "tytul2": "2.84->2.72",
+     "tytul3": "miasta: 2.55",
+     "tytul4": "miasta: 2.55->2.43",
+     "miejscey":160,
+     "miejscex":50,
+   },
+         {
+     "tytul1": " ",
+     "tytul2": " ",
+     "tytul3": "wsie: 3.43",
+     "tytul4": "wsie: 3.43->3.32",
+     "miejscey":180,
+     "miejscex":180
+   },
+            {
+     "tytul1": "Wykres z Gazety Prawnej z 30 list. (str. A14)" ,
+     "tytul2": " Wykres z Gazety Prawnej z 30 list. (str. A14)",
+     "tytul3": "Wykres z Gazety Prawnej z 30 list. (str. A14)",
+     "tytul4": "Wykres z Gazety Prawnej z 30 list. (str. A14)",
+     "miejscey":200,
+     "miejscex":10
+   }
+   ]
+   
+
+var svg=d3.select("svg")
+var selection = svg.selectAll("rect")
+  .data([{"wartpocz":353,"kolor1":"blue","wartkon":353,"wartpocz2":392,"wartkon2":392,"miejsce":80},{"wartkon":367,"kolor1":"red","wartpocz":1,"wartpocz2":1,"wartkon2":411,"miejsce":90},
+  {"wartkon":1,"kolor1":"blue","wartpocz":1,"wartpocz2":292,"wartkon2":292,"miejsce":140},
+  {"wartkon":1,"kolor1":"red","wartpocz":1,"wartpocz2":1,"wartkon2":302,"miejsce":150}])
+ 
+svg.selectAll("rect")
+selection
+  .attr("x", 0)
+  .attr("y",function(d,i) { return 80+10*i })
+  .attr("width",  function(d,i) { return d.wartpocz; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+ .transition()
+ .duration(3000)
+   .attr("x", 0)
+  .attr("y", function(d,i) { return 80+10*i })
+  .attr("width", function(d,i) { return d.wartkon; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+  .attr("fill-opacity",0.5)
+     .transition()
+ .delay(3000)
+   .transition()
+ .duration(3000)
+   .attr("x", 0)
+  .attr("y", function(d,i) { return d.miejsce })
+  .attr("width", function(d,i) { return d.wartpocz2; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+  .attr("fill-opacity",0.5)
+    .transition()
+ .duration(3000)
+   .attr("x", 0)
+  .attr("y", function(d,i) { return d.miejsce })
+  .attr("width", function(d,i) { return d.wartkon2; })
+  .attr("height", 20)
+  .style("fill", function(d,i) { return d.kolor1; })
+  .attr("fill-opacity",0.5)
+  
+  svg.selectAll("text")
+ .data(danekr).enter().append("text") 
+ .attr("fill","black")
+ .attr("x",function(d,i){return d.miejscex})
+ .attr("y",function(d,i){return d.miejsce})
+ .text(function(d,i){return d.tytul1})
+ .transition()
+ .delay(3000)
+ .text(function(d,i){return d.tytul2})
+    .transition()
+ .delay(6000)
+ .text(function(d,i){return d.tytul3})
+   .transition()
+ .delay(12000)
+ .text(function(d,i){return d.tytul4})
+ 
+
+ var svg2=d3.select("svg.hello2")
+var selection2 = svg2.selectAll("rect")  .data([{"wartpocz":2.84,"kolor1":"blue","wartkon":2.84,"wartpocz2":2.55,"wartkon2":2.55,"miejsce":80},{"wartkon":2.72,"kolor1":"red","wartpocz":0,"wartpocz2":0,"wartkon2":2.43,"miejsce":100}, {"wartkon":0,"kolor1":"blue","wartpocz":0,"wartpocz2":3.43,"wartkon2":3.43,"miejsce":200}, {"wartkon":0,"kolor1":"red","wartpocz":0,"wartpocz2":0,"wartkon2":3.32,"miejsce":220}])
+svg2.selectAll("rect")
+selection2
+  .attr("x",function(d,i) { return 80+20*i })
+  .attr("y",60)
+  .attr("width",  30)
+  .attr("height", function(d,i) { return 30*d.wartpocz; })
+  .style("fill", function(d,i) { return d.kolor1; })
+  .transition()
+ .duration(3000)
+  .attr("height", function(d,i) { return 30*d.wartkon; })
+  .attr("fill-opacity",0.5)
+      .transition()
+ .delay(3000)
+   .transition()
+ .duration(3000)
+   .attr("x", function(d,i) { return d.miejsce })
+  .attr("height", function(d,i) { return 30*d.wartpocz2; })
+      .transition()
+ .duration(3000)
+  .attr("height", function(d,i) { return 30*d.wartkon2; })
+
+svg2.selectAll("text")
+ .data(danekr2).enter().append("text") 
+ .attr("fill","black")
+ .attr("x",function(d,i){return d.miejscex})
+ .attr("y",function(d,i){return d.miejscey})
+ .text(function(d,i){return d.tytul1})
+ .transition()
+ .delay(3000)
+ .text(function(d,i){return d.tytul2})
+    .transition()
+ .delay(6000)
+ .text(function(d,i){return d.tytul3})
+   .transition()
+ .delay(12000)
+ .text(function(d,i){return d.tytul4})
