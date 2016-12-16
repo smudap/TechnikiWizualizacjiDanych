@@ -1,0 +1,77 @@
+---
+title: "Kartogramy a Brexit"
+author: "Techniki Wizualizacji Danych<br><br>Piotr Smuda"
+
+output:
+  revealjs::revealjs_presentation:
+    theme: white
+    transition: convex
+    background_transition: convex
+    center: true
+    reveal_options:
+      slideNumber: true
+---
+
+# Definicja i zastosowanie
+
+## Definicja 
+
+<b>Kartogram</b> jest to jedna z kartograficznych metod prezentacji, sposób przedstawienia średniej wartości dowolnego zjawiska w określonych jednostkach przestrzennych (administracyjnych lub geometrycznych) zwanych polami podstawowymi lub jednostkami odniesienia.
+
+## Przykładowe zastosowanie
+
+Często używa się tej metody do przedstawienia gęstości zaludnienia w określonych jednostkach administracyjnych (województwach, państwach, itp.).
+
+# Mapa a kartogramy
+
+## Mapa
+
+![](brexit_map.png)
+
+## Kartogramy
+
+![](brexit_cartograms.png)
+
+# Ale...
+
+## 
+
+Kartogramy są mało czytelne dla osób niezaznajomionych <br> z geografią.
+
+##
+
+Rozpoznawanie i porównywanie obszarów jest ciężkie.
+
+![](brexit_issue1.png)
+
+##
+
+Utrata informacji wynikających z obszarów geograficznych.
+
+![](brexit_issue2.png)
+
+##
+
+Kartogramy są cięższe do oznaczania.
+
+![](brexit_issue3.png)
+
+##
+
+Są inne sposoby do pokazania tego samego problemu.
+
+![](brexit_issue4.png)
+
+# Ale ale...
+
+## Kartogramy mogą być nadal fajne
+
+![](brexit_nice_cartogram.png)
+
+# Bibliografia
+
+## Bibliografia
+
+- http://vis4.net/blog/posts/to-cartogram-or-not-to-cartogram-the-brexit/
+- http://www.viewsoftheworld.net/?p=676
+- https://pl.wikipedia.org/wiki/Kartogram
