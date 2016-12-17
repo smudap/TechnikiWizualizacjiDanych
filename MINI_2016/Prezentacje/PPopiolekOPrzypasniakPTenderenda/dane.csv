@@ -1,0 +1,51 @@
+typ_wykresu;dokladne;wyniki;roznice;osoba
+pie;65;66;-1;1
+exploded;10;10;0;1
+doughnut;70;70;0;1
+larger slice;60;60;0;1
+area value;35;40;-5;1
+pie;65;60;5;2
+exploded;10;10;0;2
+doughnut;70;70;0;2
+larger slice;60;60;0;2
+area value;35;30;5;2
+pie;65;65;0;3
+exploded;10;22;-12;3
+doughnut;70;65;5;3
+larger slice;60;65;-5;3
+area value;35;30;5;3
+pie;65;67;-2;4
+exploded;10;8;2;4
+doughnut;70;70;0;4
+larger slice;60;60;0;4
+area value;35;40;-5;4
+pie;65;64;1;5
+exploded;10;18;-8;5
+doughnut;70;70;0;5
+larger slice;60;60;0;5
+area value;35;36;-1;5
+pie;65;63;2;6
+exploded;10;10;0;6
+doughnut;70;63;7;6
+larger slice;60;63;-3;6
+area value;35;40;-5;6
+pie;65;65;0;7
+exploded;10;13;-3;7
+doughnut;70;65;5;7
+larger slice;60;65;-5;7
+area value;35;30;5;7
+pie;65;66;-1;8
+exploded;10;10;0;8
+doughnut;70;70;0;8
+larger slice;60;60;0;8
+area value;35;30;5;8
+pie;65;63;2;9
+exploded;10;13;-3;9
+doughnut;70;63;7;9
+larger slice;60;59;1;9
+area value;35;41;-6;9
+pie;65;63;2;10
+exploded;10;10;0;10
+doughnut;70;63;7;10
+larger slice;60;63;-3;10
+area value;35;30;5;10
