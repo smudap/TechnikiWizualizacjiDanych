@@ -25,15 +25,19 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput("variable", "Countries to analyze",
-                         choices = wybrane_kraje, selected = c("Poland", "Bulgaria")),
-      radioButtons("size", "Size to analyze",
-                         choices = wybrane_rozmiary, selected = "Total")
+                         choices = wybrane_kraje, selected = c("Poland", "Bulgaria"))
     ),
     
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("distPlot"),
-       plotOutput("distPlot2")
+      tabsetPanel(
+      tabPanel("Agricultural Area",
+               p("Analysis of the ratio of agricultural areas to countries area"),
+               plotOutput("distPlot")),
+      tabPanel("Gross Output from agricultural area",
+               p("Analysis of the standard output for different countries"),
+               plotOutput("distPlot2"))
+    )
     )
   )
 ))
