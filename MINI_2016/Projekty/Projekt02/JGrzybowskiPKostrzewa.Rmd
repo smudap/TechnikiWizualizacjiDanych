@@ -1,0 +1,81 @@
+---
+title: "Projekt2"
+author: "Paulina Kostrzewa & Jan Grzybowski"
+date: "28 listopada 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(eurostat)
+library(knitr)
+#require(devtools)
+#install_github('ramnathv/rCharts')
+library(rCharts)
+chartH <- 550
+```
+
+# Dane o produkcji mleka
+```{r warning=FALSE, message=FALSE}
+###Mleko krowie tag00037
+tabela1 <- get_eurostat('tag00037')
+tabela1$nazwa_kraju<-label_eurostat(tabela1)$geo
+tabela1$time<-substring(tabela1$time, 1,4)
+tabela1<-tabela1[,-c(1,2)]
+#tabela1$values[which(is.na(tabela1$values)==TRUE)]<-0
+tabela1<-tabela1[-which(tabela1$geo=='EU28'),]
+#tabela1<-tabela1[-which(tabela1$geo=='EU27'),]
+colnames(tabela1)[3]<-"Mleko"
+kable(head(tabela1))
+```
+
+# Dane o iloœci krów
+```{r warning=FALSE, message=FALSE}
+###liczba Krow tag00014
+tabela2 <- get_eurostat('tag00014')
+tabela2$nazwa_kraju<-label_eurostat(tabela2)$geo
+tabela2$time<-substring(tabela2$time, 1,4)
+tabela2<-tabela2[,-c(1,2,3)]
+#tabela2$values[which(is.na(tabela2$values)==TRUE)]<-0
+tabela2<-tabela2[-which(tabela2$geo=='EU28'),]
+tabela2<-tabela2[-which(tabela2$geo=='EU27'),]
+colnames(tabela2)[3]<-"Krowy"
+kable(head(tabela2))
+```
+
+# Wykresy
+
+```{r}
+dane <- merge(tabela1,tabela2, all=FALSE)
+dane <- na.omit(dane)
+dane <- dane[dane$Mleko > 4000,]
+# dane$nazwa_kraju[dane$nazwa_kraju == "Germany (until 1990 former territory of the FRG)"] <- "Germany"
+dane$stosunek<-dane$Mleko/dane$Krowy
+kable(head(dane))
+```
+
+
+```{r message = FALSE}
+n1 <- nPlot(Mleko ~ time, group = "nazwa_kraju", data = dane, type = 'lineChart')
+n1$set(width = 750, height = chartH)
+n1$save("rCharts1.html", standalone=TRUE)
+
+```
+<iframe style="width:780px; height:650px" src="rCharts1.html">
+</iframe>
+
+```{r}
+n2 <- nPlot(Krowy ~ time, group = "nazwa_kraju", data = dane, type = 'lineChart')
+n2$set(width = 750, height = chartH)
+n2$save("rCharts2.html", standalone=TRUE)
+```
+<iframe style="width:780px; height:650px" src="rCharts2.html">
+</iframe>
+
+```{r}
+n3 <- nPlot(stosunek ~ time, group = "nazwa_kraju", data = dane, type = 'multiBarChart')
+n3$set(width = 750, height = 550)
+n3$save("rCharts3.html", standalone=TRUE)
+```
+<iframe style="width:780px; height:650px" src="rCharts3.html">
+</iframe>

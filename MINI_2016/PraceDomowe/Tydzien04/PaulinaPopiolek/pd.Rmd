@@ -1,0 +1,23 @@
+---
+title: "Praca domowa"
+author: "Paulina Popio³ek"
+date: "6 listopada 2016"
+output: html_document
+---
+
+W ostatnim czasie trafi³am na [publikacjê](http://stat.gov.pl/obszary-tematyczne/roczniki-statystyczne/roczniki-statystyczne/rocznik-demograficzny-2016,3,10.html) "Rocznika Demograficznego 2016" wydan¹ przez GUS.
+Znalaz³ siê w niej m.in. wykres dotycz¹cy odsetka rozwodów w 2015 r. w zale¿noœci od liczby posiadanych dzieci.
+
+![image](C:\Users\Paulina\Desktop\III semestr\Techniki wizualizacji danych\Praca domowa 2\wykres.png)
+
+Przede wszystkim rzuca siê w oczy z³e roz³o¿enie danych - suma odsetków daje nam 99,9%. Jest to wynikiem z³ego zaokr¹glenia przez komputer. Na stronie 251 w.w. publikacji mo¿emy znaleŸæ nastêpuj¹ce dane dotycz¹ce liczby dzieci rozwiedzionych ma³¿eñstw:
+
+| Ogó³em | bez dzieci | z 1 dzieckiem | z 2 dzieci | z 3 dzieci | z 4 dzieci lub wiêcej  |
+|:------:|:----------:|:-------------:|:----------:|:----------:|:----------------------:|
+|  67296 |    28152   |     24581     |    12149   |    1914    |           500          |
+
+Proponowa³abym zamieniæ powy¿szy wykres na nastêpuj¹cy:
+
+![image](C:\Users\Paulina\Desktop\III semestr\Techniki wizualizacji danych\Praca domowa 2\moj_wykres.png)
+
+Wed³ug mnie w tej wersji wykres jest bardziej przejrzysty, schludny. Zastosowa³am analogiczn¹ kolorystykê, jak w oryginale, poniewa¿ intuicyjnie oddaje ona zwiêkszanie siê liczby dzieci wraz z ciemniejszym kolorem. Kwestia z niesumowaniem siê danych do 100% by³a trudna do poprawienia. Przyjê³am, ¿e najlepiej bêdzie zwiêkszyæ o 0,1% odsetek ma³¿eñstw z 3 dzieci, ze wzglêdu na odpowiednie rozwiniêcia dziesiêtne tych u³amków. Ponadto zaleca³abym umieszczanie wykresu wraz z powy¿sz¹ tabel¹, w której umieszczone s¹ licznoœci poszczególnych grup. 
