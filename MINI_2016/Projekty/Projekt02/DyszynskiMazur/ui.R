@@ -9,7 +9,9 @@
 
 library(shiny)
 
-wybrane_kraje <- c("Hungary","Bulgaria","Poland","Italy","Finland","Spain","Germany","France", "United Kingdom")
+wybrane_kraje <- c("Hungary","Bulgaria","Poland","Italy",
+                   "Finland","Spain","Germany","France",
+                   "United Kingdom","Netherlands","Malta")
 
 wybrane_rozmiary <- c("Less than 2 ha","From 2 to 4.9 ha","From 5 to 9.9 ha", "From 10 to 19.9 ha",
                       "100 ha or over","Total")
@@ -32,9 +34,9 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(
       tabPanel("Agricultural Area",
-               p("Analysis of the ratio of agricultural areas to countries area"),
+               p("Analysis of the ratio of agricultural areas to country area"),
                plotOutput("distPlot")),
-      tabPanel("Gross Output from agricultural area",
+      tabPanel("Standard Output from agricultural area",
                p("Analysis of the standard output for different countries"),
                plotOutput("distPlot2"))
     )
