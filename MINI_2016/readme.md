@@ -39,7 +39,7 @@ Blok 2 - Grafika interaktywna / internetowa
 
 Blok 3 - Grafika informatywna
 
-* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: [ZwyczajeTramwaje](https://www.dropbox.com/s/1egykiaefhmz5v4/wybraneKolumny.rda?dl=0)
+* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: [ZwyczajeTramwaje](https://www.dropbox.com/s/1egykiaefhmz5v4/wybraneKolumny.rda?dl=0), [ggmap](http://stat405.had.co.nz/ggmap.pdf)
 * [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: [DiagrammeR](https://github.com/rich-iannone/DiagrammeR)
 * [13] W: Prezentacja projektu 3/1; L: L: [ggvis+shiny](http://ggvis.rstudio.com/interactivity.html)
 * [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy)
