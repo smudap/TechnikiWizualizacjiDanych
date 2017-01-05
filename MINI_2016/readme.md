@@ -56,6 +56,38 @@ Zaliczenie jest oparte o trzy składowe:
 
 Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa ocena.
 
+# Projekt 3 - CNK
+
+Doświadczenia z poprzednimi projektami pokazują, że lepiej wychodzą konkretnie narzucone projekty. Więc na trzeci projekt mam dla państwa coś specjalnego.
+
+W Centrum Nauki Kopernik prowadzone są badania nad poziomem zainteresowania dzieci eksponatami i związkiem pomiędzy tą ciekawością a ‘metryczkowymi’ cechami dzieci.
+
+Interesujące artykułu na ten temat to
+* W Koperniku badają, co budzi ciekawość dzieci
+http://www.kopernik.org.pl/news/n/w-koperniku-badaja-co-budzi-ciekawosc-dzieci/
+* Budujemy kapitał naukowy
+http://www.kopernik.org.pl/dla-nauczycieli/do-poczytania/budujemy-kapital-naukowy/
+* Centrum Nauki Kopernik dla przyszłych naukowców
+http://warszawa.wyborcza.pl/warszawa/1,34862,21186256,centrum-nauki-kopernik-dla-przyszlych-naukowcow.html
+
+Jaki jest ten związek i jak go pokazać w czytelny sposób?
+To jest wyzwanie na nasz 3 projekt.
+
+Forma prezentacji danych dowolna. 
+Z jedną tylko regułą. Statyczna wizualizacja danych powinna być wydrukowana lub narysowana lub ulepiona na plakacie formatu A2/A3 (można wydrukować a można namalować kredkami). Interaktywną prezentacje można prezentować na komputerze, ale nawet ona musi mieć wydrukowaną statyczną wersję. Każdy zespół będzie miał od 5 do 10 minut na prezentację swojej wizualizacji. 
+
+Wizualizacje będą oceniali pracownicy CNK z prośbą by ocenili (1) estetykę – czy jest ładne, (2) czytelność – czy umiem przeczytać i wiem o co chodzi (3) informatywność  - czy dowiedziałem się czegoś nowego/ciekawego.
+
+Wyniki zaprezentujemy (obie grupy) w Centrum Nauki Kopernik 27 stycznia w godzinach 14-15
+(gdyby ktoś z poniedziałkowej grupy nie mógł dotrzeć w tym czasie do CNK z uwagi na inne zajęcia, proszę o dostarczenie swojej prezentacji przez kolegę/koleżankę).
+
+Próbną prezentację pokażemy sobie i omówimy na zajęciach 16 i 20 stycznia.
+
+Do dyspozycji mamy dane dla 132 dzieci. Mamy wyniki z kwestionariusza (zawór rodziców, aspiracje dziecka, oceny, płeć, szkoła) oraz wyniki z obserwacji (które dziecko ogląda który eksponat, jak długo go ogląda i z kim).
+
+* Dane kwestionariuszowe https://www.dropbox.com/s/tsiyzg8giu89u6l/dane_kwestionariuszowe.xlsx?dl=0
+* Dane obserwacyjne https://www.dropbox.com/s/wsrfjqm7r7l344b/dane_obserwacyjne.xlsx?dl=0
+
 # Projekty
 
 Projekty można realizować w zespołach 2-3 osobowych. 
