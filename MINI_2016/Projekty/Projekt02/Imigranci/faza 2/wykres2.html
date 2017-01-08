@@ -1,0 +1,1900 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <style type="text/css">
+  	div.guzik {
+		width: 150px;          
+		height: 20px;         
+		padding: 1px;       
+		font: 14px sans-serif;    
+		background: #ccccb3; 
+		border: 1px;    
+		border-radius: 5px;
+  	}
+
+	
+	div.tooltip { 
+		position: absolute;     
+		text-align: center;     
+		width: 340px;          
+		height: 38px;         
+		padding: 2px;       
+		font: 16px sans-serif;    
+		background: white; 
+		border: 0px;
+		border-radius: 5px;
+		-webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+		-moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+		box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);	
+		pointer-events: none;
+	}
+  </style>
+
+<script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+
+</head>
+<body>
+	<text x="200" y="45"><font size = "7"><b>Powody migracji w różnych krajach ze względu na wiek</b></font><br><br></text>
+	<div class="guzik" onclick="setPolska()"><center><font size = "3">Polska</font></center></div>
+	<div class="guzik" onclick="setWB()"><center><font size = "3">Wielka Brytania</font></center></div>
+	<div class="guzik" onclick="setSzwajcaria()"><center><font size = "3">Szwajcaria</font></center></div>
+<div class="wykres">
+	<svg width="900" height="600">
+
+		<text class="kraj" x="0" y="15">Wybrany kraj:</text>
+
+		<circle class="k1" cx="175" cy="74" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k1" cx="255" cy="74" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k1" cx="335" cy="74" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k1" cx="406" cy="74" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k1" cx="475" cy="74" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k1" cx="550" cy="74" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k1" cx="634" cy="74" r="25" stroke="black" fill="#ffffff" />
+
+		<circle class="k2" cx="175" cy="139" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k2" cx="255" cy="139" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k2" cx="335" cy="139" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k2" cx="406" cy="139" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k2" cx="475" cy="139" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k2" cx="550" cy="139" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k2" cx="634" cy="139" r="25" stroke="black" fill="#ffffff" />
+
+		<circle class="k3" cx="335" cy="200" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k3" cx="175" cy="200" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k3" cx="255" cy="200" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k3" cx="406" cy="200" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k3" cx="475" cy="200" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k3" cx="550" cy="200" r="25" stroke="black" fill="#ffffff" />
+		<circle class="k3" cx="634" cy="200" r="25" stroke="black" fill="#ffffff" />
+		
+
+		<text class="inne" x='20' y='79'> Od 15 do 24 lat </text>
+		<text class="inne" x='20' y='144'> Od 25 do 54 lat </text>
+		<text class="inne" x='20' y='204'> Od 55 do 64 lat </text>
+
+		<text class="inne" x='20' y='40'> Wiek \ Powód </text>
+		
+		<text class="inne" x='145' y='40'> Edukacja </text> 
+		<text class="inne" x='230' y='40'> Rodzina </text>
+		<text class="inne" x='320' y='40'> Azyl </text>
+		<text class="inne" x='390' y='40'> Brak </text>
+		<text class="inne" x='460' y='40'> Inne </text>
+		<text class="inne" x='530' y='40'> Praca </text>
+		<text class="inne" x='600' y='40'> Brak pracy </text>
+
+		<text class="k1" x='162' y='79' fill="red">  </text>
+		<text class="k1" x='242' y='79' fill="red">  </text>
+		<text class="k1" x='323' y='79' fill="red">  </text>
+		<text class="k1" x='393' y='79' fill="red">  </text>
+		<text class="k1" x='462' y='79' fill="red">  </text>
+		<text class="k1" x='538' y='79' fill="red">  </text>
+		<text class="k1" x='622' y='79' fill="red">  </text>
+
+		<text class="k2" x='162' y='144' fill="red">  </text>
+		<text class="k2" x='242' y='144' fill="red">  </text>
+		<text class="k2" x='323' y='144' fill="red">  </text>
+		<text class="k2" x='393' y='144' fill="red">  </text>
+		<text class="k2" x='462' y='144' fill="red">  </text>
+		<text class="k2" x='538' y='144' fill="red">  </text>
+		<text class="k2" x='622' y='144' fill="red">  </text>
+
+		<text class="k3" x='162' y='204' fill="red">  </text>
+		<text class="k3" x='242' y='204' fill="red">  </text>
+		<text class="k3" x='323' y='204' fill="red">  </text>
+		<text class="k3" x='393' y='204' fill="red">  </text>
+		<text class="k3" x='462' y='204' fill="red">  </text>
+		<text class="k3" x='538' y='204' fill="red">  </text>
+		<text class="k3" x='622' y='204' fill="red">  </text>
+
+	</svg>
+</div>
+
+<script>
+
+ var width = 800,
+	height = 700,
+	colors = d3.scale.linear()
+		.domain([0, 100])
+    	.range(["#fff2df", "#ffa500"]),
+	data_migration = [
+  {   "FIELD1":254 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Austria" ,"values":"25.8" ,"gradient":25.8  },
+  {   "FIELD1":257 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Austria" ,"values":"46.1" ,"gradient":46.1  },
+  {   "FIELD1":260 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":520 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":263 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":266 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":269 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":255 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Austria" ,"values":"67.9" ,"gradient":67.9  },
+  {   "FIELD1":258 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Austria" ,"values":"69.9" ,"gradient":69.9  },
+  {   "FIELD1":261 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Austria" ,"values":"61" ,"gradient":61  },
+  {   "FIELD1":521 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":264 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Austria" ,"values":"75.2" ,"gradient":75.2  },
+  {   "FIELD1":267 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Austria" ,"values":"90.4" ,"gradient":90.4  },
+  {   "FIELD1":270 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Austria" ,"values":"77.1" ,"gradient":77.1  },
+  {   "FIELD1":256 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":259 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Austria" ,"values":"41.6" ,"gradient":41.6  },
+  {   "FIELD1":262 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Austria" ,"values":"65.5" ,"gradient":65.5  },
+  {   "FIELD1":522 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":265 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Austria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":268 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Austria" ,"values":"46.8" ,"gradient":46.8  },
+  {   "FIELD1":271 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Austria" ,"values":"37.5" ,"gradient":37.5  },
+  {   "FIELD1":1 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":4 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Belgium" ,"values":"13.1" ,"gradient":13.1  },
+  {   "FIELD1":7 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":10 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":13 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":16 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":19 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":2 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Belgium" ,"values":"66" ,"gradient":66  },
+  {   "FIELD1":5 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Belgium" ,"values":"56.7" ,"gradient":56.7  },
+  {   "FIELD1":8 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Belgium" ,"values":"50.3" ,"gradient":50.3  },
+  {   "FIELD1":11 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Belgium" ,"values":"53.6" ,"gradient":53.6  },
+  {   "FIELD1":14 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Belgium" ,"values":"67.4" ,"gradient":67.4  },
+  {   "FIELD1":17 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Belgium" ,"values":"91" ,"gradient":91  },
+  {   "FIELD1":20 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Belgium" ,"values":"69.7" ,"gradient":69.7  },
+  {   "FIELD1":3 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":6 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Belgium" ,"values":"37" ,"gradient":37  },
+  {   "FIELD1":9 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":12 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Belgium" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":15 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Belgium" ,"values":"53.7" ,"gradient":53.7  },
+  {   "FIELD1":18 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Belgium" ,"values":"64.8" ,"gradient":64.8  },
+  {   "FIELD1":21 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Belgium" ,"values":"49.6" ,"gradient":49.6  },
+  {   "FIELD1":24 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":22 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":25 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":27 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":28 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":29 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":30 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":23 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":26 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":31 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Bulgaria" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":133 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Croatia" ,"values":"39.5" ,"gradient":39.5  },
+  {   "FIELD1":131 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Croatia" ,"values":"70.6" ,"gradient":70.6  },
+  {   "FIELD1":134 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Croatia" ,"values":"60.1" ,"gradient":60.1  },
+  {   "FIELD1":136 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Croatia" ,"values":"54.9" ,"gradient":54.9  },
+  {   "FIELD1":138 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Croatia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":139 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Croatia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":141 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Croatia" ,"values":"51.4" ,"gradient":51.4  },
+  {   "FIELD1":143 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Croatia" ,"values":"74.7" ,"gradient":74.7  },
+  {   "FIELD1":132 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Croatia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":135 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Croatia" ,"values":"30.2" ,"gradient":30.2  },
+  {   "FIELD1":137 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Croatia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":140 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Croatia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":142 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Croatia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":144 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Croatia" ,"values":"29.7" ,"gradient":29.7  },
+  {   "FIELD1":163 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Cyprus" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":165 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Cyprus" ,"values":"21.3" ,"gradient":21.3  },
+  {   "FIELD1":168 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Cyprus" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":172 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Cyprus" ,"values":"100" ,"gradient":100  },
+  {   "FIELD1":175 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Cyprus" ,"values":"89" ,"gradient":89  },
+  {   "FIELD1":164 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Cyprus" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":166 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Cyprus" ,"values":"66.9" ,"gradient":66.9  },
+  {   "FIELD1":169 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Cyprus" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":170 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Cyprus" ,"values":"62" ,"gradient":62  },
+  {   "FIELD1":173 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Cyprus" ,"values":"92.4" ,"gradient":92.4  },
+  {   "FIELD1":176 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Cyprus" ,"values":"71.1" ,"gradient":71.1  },
+  {   "FIELD1":167 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Cyprus" ,"values":"43.5" ,"gradient":43.5  },
+  {   "FIELD1":171 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Cyprus" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":174 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Cyprus" ,"values":"74.4" ,"gradient":74.4  },
+  {   "FIELD1":177 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Cyprus" ,"values":"68.6" ,"gradient":68.6  },
+  {   "FIELD1":32 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":35 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Czech Republic" ,"values":"24.4" ,"gradient":24.4  },
+  {   "FIELD1":532 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":531 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":533 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":42 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Czech Republic" ,"values":"100" ,"gradient":100  },
+  {   "FIELD1":45 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":33 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Czech Republic" ,"values":"87.1" ,"gradient":87.1  },
+  {   "FIELD1":36 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Czech Republic" ,"values":"73.1" ,"gradient":73.1  },
+  {   "FIELD1":38 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":535 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":40 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Czech Republic" ,"values":"86.4" ,"gradient":86.4  },
+  {   "FIELD1":43 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Czech Republic" ,"values":"84.3" ,"gradient":84.3  },
+  {   "FIELD1":46 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Czech Republic" ,"values":"84.7" ,"gradient":84.7  },
+  {   "FIELD1":34 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":37 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Czech Republic" ,"values":"48.7" ,"gradient":48.7  },
+   {   "FIELD1":538 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":39 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Czech Republic" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":41 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Czech Republic" ,"values":"67.2" ,"gradient":67.2  },
+  {   "FIELD1":44 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Czech Republic" ,"values":"55.4" ,"gradient":55.4  },
+  {   "FIELD1":47 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Czech Republic" ,"values":"81.9" ,"gradient":81.9  },
+  {   "FIELD1":71 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Estonia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":69 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Estonia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":72 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Estonia" ,"values":"77.5" ,"gradient":77.5  },
+  {   "FIELD1":75 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Estonia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":77 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Estonia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":70 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Estonia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":73 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Estonia" ,"values":"59.4" ,"gradient":59.4  },
+  {   "FIELD1":74 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Estonia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":76 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Estonia" ,"values":"65.4" ,"gradient":65.4  },
+  {   "FIELD1":78 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Estonia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":333 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":336 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Finland" ,"values":"40.7" ,"gradient":40.7  },
+  {   "FIELD1":339 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":542 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":343 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":546 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1},
+  {   "FIELD1":348 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":334 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Finland" ,"values":"74.3" ,"gradient":74.3  },
+  {   "FIELD1":337 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Finland" ,"values":"68" ,"gradient":68  },
+  {   "FIELD1":340 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Finland" ,"values":"49.9" ,"gradient":49.9  },
+  {   "FIELD1":342 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":344 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Finland" ,"values":"55.3" ,"gradient":55.3  },
+  {   "FIELD1":346 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Finland" ,"values":"88.4" ,"gradient":88.4  },
+  {   "FIELD1":349 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Finland" ,"values":"80.6" ,"gradient":80.6  },
+  {   "FIELD1":335 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":338 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Finland" ,"values":"52.7" ,"gradient":52.7  },
+  {   "FIELD1":341 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":544 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":345 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":347 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":350 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Finland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":116 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"France" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":119 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"France" ,"values":"19.9" ,"gradient":19.9  },
+  {   "FIELD1":126 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"France" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":117 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"France" ,"values":"75.8" ,"gradient":75.8  },
+  {   "FIELD1":120 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"France" ,"values":"61.3" ,"gradient":61.3  },
+  {   "FIELD1":122 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"France" ,"values":"60.7" ,"gradient":60.7  },
+  {   "FIELD1":124 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"France" ,"values":"75.7" ,"gradient":75.7  },
+  {   "FIELD1":127 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"France" ,"values":"89.9" ,"gradient":89.9  },
+  {   "FIELD1":129 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"France" ,"values":"78.1" ,"gradient":78.1  },
+  {   "FIELD1":118 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"France" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":121 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"France" ,"values":"41.1" ,"gradient":41.1  },
+  {   "FIELD1":123 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"France" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":125 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"France" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":128 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"France" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":130 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"France" ,"values":"54.8" ,"gradient":54.8  },
+  {   "FIELD1":48 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":51 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Germany" ,"values":"40.5" ,"gradient":40.5  },
+  {   "FIELD1":54 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":57 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":60 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":63 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":66 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":49 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Germany" ,"values":"69.8" ,"gradient":69.8  },
+  {   "FIELD1":52 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Germany" ,"values":"73.6" ,"gradient":73.6  },
+  {   "FIELD1":55 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Germany" ,"values":"61" ,"gradient":61  },
+  {   "FIELD1":58 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Germany" ,"values":"37.4" ,"gradient":37.4  },
+  {   "FIELD1":61 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Germany" ,"values":"73.4" ,"gradient":73.4  },
+  {   "FIELD1":64 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Germany" ,"values":"92.8" ,"gradient":92.8  },
+  {   "FIELD1":67 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Germany" ,"values":"81" ,"gradient":81  },
+  {   "FIELD1":50 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":53 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Germany" ,"values":"62.5" ,"gradient":62.5  },
+  {   "FIELD1":56 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Germany" ,"values":"49.4" ,"gradient":49.4  },
+  {   "FIELD1":59 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Germany" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":62 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Germany" ,"values":"64.4" ,"gradient":64.4  },
+  {   "FIELD1":65 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Germany" ,"values":"66.7" ,"gradient":66.7  },
+  {   "FIELD1":68 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Germany" ,"values":"62.5" ,"gradient":62.5  },
+  {   "FIELD1":579 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Greece" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":80 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Greece" ,"values":"17" ,"gradient":17  },
+  {   "FIELD1":83 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Greece" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":85 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Greece" ,"values":"8.8" ,"gradient":8.8  },
+  {   "FIELD1":88 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Greece" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":91 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Greece" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":94 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Greece" ,"values":"52.2" ,"gradient":52.2  },
+  {   "FIELD1":79 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Greece" ,"values":"73.2" ,"gradient":73.2  },
+  {   "FIELD1":81 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Greece" ,"values":"37.8" ,"gradient":37.8  },
+  {   "FIELD1":84 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Greece" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":86 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Greece" ,"values":"58.2" ,"gradient":58.2  },
+  {   "FIELD1":89 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Greece" ,"values":"50.5" ,"gradient":50.5  },
+  {   "FIELD1":92 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Greece" ,"values":"50.1" ,"gradient":50.1  },
+  {   "FIELD1":95 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Greece" ,"values":"63.9" ,"gradient":63.9  },
+  {   "FIELD1":578 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Greece" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":82 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Greece" ,"values":"24.6" ,"gradient":24.6  },
+  {   "FIELD1":584 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Greece" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":87 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Greece" ,"values":"47.1" ,"gradient":47.1  },
+  {   "FIELD1":90 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Greece" ,"values":"37.2" ,"gradient":37.2  },
+  {   "FIELD1":93 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Greece" ,"values":"53.8" ,"gradient":53.8  },
+  {   "FIELD1":96 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Greece" ,"values":"42.4" ,"gradient":42.4  },
+  {   "FIELD1":224 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Hungary" ,"values":"30.5" ,"gradient":30.5  },
+  {   "FIELD1":233 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Hungary" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":236 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Hungary" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":223 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Hungary" ,"values":"78.5" ,"gradient":78.5  },
+  {   "FIELD1":225 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Hungary" ,"values":"68.6" ,"gradient":68.6  },
+  {   "FIELD1":227 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Hungary" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":229 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Hungary" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":231 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Hungary" ,"values":"86.9" ,"gradient":86.9  },
+  {   "FIELD1":234 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Hungary" ,"values":"90.1" ,"gradient":90.1  },
+  {   "FIELD1":237 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Hungary" ,"values":"85.7" ,"gradient":85.7  },
+  {   "FIELD1":226 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Hungary" ,"values":"43.3" ,"gradient":43.3  },
+  {   "FIELD1":228 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Hungary" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":230 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Hungary" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":232 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Hungary" ,"values":"67.8" ,"gradient":67.8  },
+  {   "FIELD1":235 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Hungary" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":238 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Hungary" ,"values":"60.5" ,"gradient":60.5  },
+  {   "FIELD1":145 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Italy" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":148 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Italy" ,"values":"20.4" ,"gradient":20.4  },
+   {   "FIELD1":511 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Italy" ,"values":"NA" ,"gradient":-1},
+  {   "FIELD1":513 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Italy" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":515 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Italy" ,"values":"NA" ,"gradient":-1 },
+  {   "FIELD1":157 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Italy" ,"values":"84.9" ,"gradient":84.9  },
+  {   "FIELD1":160 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Italy" ,"values":"47.8" ,"gradient":47.8  },
+  {   "FIELD1":146 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Italy" ,"values":"62.8" ,"gradient":62.8  },
+  {   "FIELD1":149 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Italy" ,"values":"50.5" ,"gradient":50.5  },
+  {   "FIELD1":151 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Italy" ,"values":"66.7" ,"gradient":66.7  },
+  {   "FIELD1":153 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Italy" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":155 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Italy" ,"values":"73.4" ,"gradient":73.4  },
+  {   "FIELD1":158 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Italy" ,"values":"79.4" ,"gradient":79.4  },
+  {   "FIELD1":161 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Italy" ,"values":"75.3" ,"gradient":75.3  },
+  {   "FIELD1":147 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Italy" ,"values":"72" ,"gradient":72  },
+  {   "FIELD1":150 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Italy" ,"values":"38.7" ,"gradient":38.7  },
+  {   "FIELD1":152 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Italy" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":154 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Italy" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":156 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Italy" ,"values":"36.1" ,"gradient":36.1  },
+  {   "FIELD1":159 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Italy" ,"values":"73.6" ,"gradient":73.6  },
+  {   "FIELD1":162 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Italy" ,"values":"71.1" ,"gradient":71.1  },
+  {   "FIELD1":180 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":178 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Latvia" ,"values":"79.4" ,"gradient":79.4  },
+  {   "FIELD1":181 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Latvia" ,"values":"82.1" ,"gradient":82.1  },
+  {   "FIELD1":183 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":184 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":186 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":188 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":190 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":179 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":182 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Latvia" ,"values":"51" ,"gradient":51  },
+  {   "FIELD1":185 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":187 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":189 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":191 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Latvia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":194 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":192 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":195 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Lithuania" ,"values":"83.7" ,"gradient":83.7  },
+  {   "FIELD1":197 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":199 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":201 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":193 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":196 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Lithuania" ,"values":"59.1" ,"gradient":59.1  },
+  {   "FIELD1":198 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":200 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":202 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Lithuania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":203 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":205 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":208 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":211 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":214 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":217 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":220 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":204 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":206 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Luxembourg" ,"values":"73.8" ,"gradient":73.8  },
+  {   "FIELD1":209 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":212 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":215 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Luxembourg" ,"values":"77.2" ,"gradient":77.2  },
+  {   "FIELD1":218 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Luxembourg" ,"values":"93" ,"gradient":93  },
+  {   "FIELD1":221 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Luxembourg" ,"values":"83.4" ,"gradient":83.4  },
+  {   "FIELD1":207 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Luxembourg" ,"values":"39.8" ,"gradient":39.8  },
+  {   "FIELD1":210 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":213 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":216 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Luxembourg" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":219 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Luxembourg" ,"values":"59.8" ,"gradient":59.8  },
+  {   "FIELD1":222 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Luxembourg" ,"values":"46.2" ,"gradient":46.2  },
+  {   "FIELD1":239 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":242 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":246 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":249 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":240 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":243 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Malta" ,"values":"80.7" ,"gradient":80.7  },
+  {   "FIELD1":245 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":247 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Malta" ,"values":"61.2" ,"gradient":61.2  },
+  {   "FIELD1":250 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Malta" ,"values":"86.5" ,"gradient":86.5  },
+  {   "FIELD1":252 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":241 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":244 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":248 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":251 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":253 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Malta" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":392 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Norway" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":395 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Norway" ,"values":"33.2" ,"gradient":33.2  },
+  {   "FIELD1":398 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Norway" ,"values":"33.5" ,"gradient":33.5  },
+  {   "FIELD1":401 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Norway" ,"values":"42.4" ,"gradient":42.4  },
+  {   "FIELD1":404 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Norway" ,"values":"45.6" ,"gradient":45.6  },
+  {   "FIELD1":407 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Norway" ,"values":"100" ,"gradient":100  },
+  {   "FIELD1":410 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Norway" ,"values":"31.4" ,"gradient":31.4  },
+  {   "FIELD1":393 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Norway" ,"values":"76.1" ,"gradient":76.1  },
+  {   "FIELD1":396 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Norway" ,"values":"70.6" ,"gradient":70.6  },
+  {   "FIELD1":399 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Norway" ,"values":"63.4" ,"gradient":63.4  },
+  {   "FIELD1":402 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Norway" ,"values":"73.1" ,"gradient":73.1  },
+  {   "FIELD1":405 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Norway" ,"values":"73.2" ,"gradient":73.2  },
+  {   "FIELD1":408 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Norway" ,"values":"89.8" ,"gradient":89.8  },
+  {   "FIELD1":411 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Norway" ,"values":"77.3" ,"gradient":77.3  },
+  {   "FIELD1":394 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Norway" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":397 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Norway" ,"values":"72.4" ,"gradient":72.4  },
+  {   "FIELD1":400 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Norway" ,"values":"31.2" ,"gradient":31.2  },
+  {   "FIELD1":403 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Norway" ,"values":"77.5" ,"gradient":77.5  },
+  {   "FIELD1":406 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Norway" ,"values":"54.3" ,"gradient":54.3  },
+  {   "FIELD1":409 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Norway" ,"values":"61.5" ,"gradient":61.5  },
+  {   "FIELD1":412 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Norway" ,"values":"80.6" ,"gradient":80.6  },
+
+  {   "FIELD1":272 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":274 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":277 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":592 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":571 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":581 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1   },
+  {   "FIELD1":582 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1 },
+  {   "FIELD1":273 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Poland" ,"values":"75.1" ,"gradient":75.1  },
+  {   "FIELD1":275 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Poland" ,"values":"72" ,"gradient":72  },
+  {   "FIELD1":278 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":593 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":279 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":281 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Poland" ,"values":"83" ,"gradient":83  },
+  {   "FIELD1":282 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Poland" ,"values":"91.2" ,"gradient":91.2  },
+  {   "FIELD1":282 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":276 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":574 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":563 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":280 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":553 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":283 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Poland" ,"values":"NA" ,"gradient":-1  },
+
+  {   "FIELD1":284 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":287 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Portugal" ,"values":"29.1" ,"gradient":29.1  },
+  {   "FIELD1":590 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":292 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":295 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":298 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":301 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":285 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Portugal" ,"values":"91.8" ,"gradient":91.8  },
+  {   "FIELD1":288 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Portugal" ,"values":"75.9" ,"gradient":75.9  },
+  {   "FIELD1":290 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":293 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Portugal" ,"values":"76.1" ,"gradient":76.1  },
+  {   "FIELD1":296 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Portugal" ,"values":"74.4" ,"gradient":74.4  },
+  {   "FIELD1":299 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Portugal" ,"values":"80.9" ,"gradient":80.9  },
+  {   "FIELD1":302 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Portugal" ,"values":"74.2" ,"gradient":74.2  },
+   {   "FIELD1":585 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":289 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Portugal" ,"values":"50.2" ,"gradient":50.2  },
+  {   "FIELD1":291 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":294 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":297 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Portugal" ,"values":"41.2" ,"gradient":41.2  },
+  {   "FIELD1":300 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":303 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Portugal" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":304 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Romania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":306 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Romania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":308 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Romania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":309 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Romania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":305 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Romania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":307 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Romania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":310 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Romania" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":326 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Slovakia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":325 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Slovakia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":327 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Slovakia" ,"values":"73.6" ,"gradient":73.6  },
+  {   "FIELD1":331 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Slovakia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":328 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Slovakia" ,"values":"41" ,"gradient":41  },
+  {   "FIELD1":329 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Slovakia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":330 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Slovakia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":332 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Slovakia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":313 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Slovenia" ,"values":"22.1" ,"gradient":22.1  },
+  {   "FIELD1":322 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Slovenia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":311 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Slovenia" ,"values":"79.2" ,"gradient":79.2  },
+  {   "FIELD1":314 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Slovenia" ,"values":"69.1" ,"gradient":69.1  },
+  {   "FIELD1":316 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Slovenia" ,"values":"87.1" ,"gradient":87.1  },
+  {   "FIELD1":318 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Slovenia" ,"values":"80.9" ,"gradient":80.9  },
+  {   "FIELD1":320 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Slovenia" ,"values":"86.3" ,"gradient":86.3  },
+  {   "FIELD1":323 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Slovenia" ,"values":"79.8" ,"gradient":79.8  },
+  {   "FIELD1":312 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Slovenia" ,"values":"43.9" ,"gradient":43.9  },
+  {   "FIELD1":315 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Slovenia" ,"values":"30.8" ,"gradient":30.8  },
+  {   "FIELD1":317 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Slovenia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":319 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Slovenia" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":321 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Slovenia" ,"values":"39.1" ,"gradient":39.1  },
+  {   "FIELD1":324 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Slovenia" ,"values":"33.2" ,"gradient":33.2  },
+  {   "FIELD1":97 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Spain" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":100 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Spain" ,"values":"18.3" ,"gradient":18.3  },
+  {   "FIELD1":503 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Spain" ,"values":"NA" ,"gradient":-1 },
+  {   "FIELD1":505 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Spain" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":107 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Spain" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":110 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Spain" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":113 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Spain" ,"values":"46.6" ,"gradient":46.6  },
+  {   "FIELD1":98 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Spain" ,"values":"65.5" ,"gradient":65.5  },
+  {   "FIELD1":101 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Spain" ,"values":"52" ,"gradient":52  },
+  {   "FIELD1":103 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Spain" ,"values":"42.9" ,"gradient":42.9  },
+  {   "FIELD1":105 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Spain" ,"values":"48.8" ,"gradient":48.8  },
+  {   "FIELD1":108 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Spain" ,"values":"62.7" ,"gradient":62.7  },
+  {   "FIELD1":111 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Spain" ,"values":"66.7" ,"gradient":66.7  },
+  {   "FIELD1":114 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Spain" ,"values":"64.2" ,"gradient":64.2  },
+  {   "FIELD1":99 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Spain" ,"values":"39.5" ,"gradient":39.5  },
+  {   "FIELD1":102 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Spain" ,"values":"32.4" ,"gradient":32.4  },
+  {   "FIELD1":104 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Spain" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":106 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Spain" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":109 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Spain" ,"values":"31.2" ,"gradient":31.2  },
+  {   "FIELD1":112 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Spain" ,"values":"44.5" ,"gradient":44.5  },
+  {   "FIELD1":115 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Spain" ,"values":"55.7" ,"gradient":55.7  },
+  {   "FIELD1":351 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":354 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Sweden" ,"values":"30.9" ,"gradient":30.9  },
+  {   "FIELD1":357 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":360 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":563 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1 },
+  {   "FIELD1":365 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":368 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":352 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Sweden" ,"values":"84.3" ,"gradient":84.3  },
+  {   "FIELD1":355 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Sweden" ,"values":"72.8" ,"gradient":72.8  },
+  {   "FIELD1":358 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Sweden" ,"values":"65.2" ,"gradient":65.2  },
+  {   "FIELD1":361 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Sweden" ,"values":"73.7" ,"gradient":73.7  },
+  {   "FIELD1":363 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Sweden" ,"values":"75.5" ,"gradient":75.5  },
+  {   "FIELD1":366 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Sweden" ,"values":"95" ,"gradient":95  },
+  {   "FIELD1":369 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Sweden" ,"values":"69.8" ,"gradient":69.8  },
+  {   "FIELD1":353 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":356 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Sweden" ,"values":"65.9" ,"gradient":65.9  },
+  {   "FIELD1":359 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Sweden" ,"values":"51.2" ,"gradient":51.2  },
+  {   "FIELD1":362 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":364 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Sweden" ,"values":"49.5" ,"gradient":49.5  },
+  {   "FIELD1":367 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Sweden" ,"values":"67.3" ,"gradient":67.3  },
+  {   "FIELD1":370 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Sweden" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":513 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"Switzerland" ,"values":"NA" ,"gradient":-1 },
+  {   "FIELD1":415 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"Switzerland" ,"values":"59.6" ,"gradient":59.6  },
+  {   "FIELD1":418 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"Switzerland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":527 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"Switzerland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":423 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"Switzerland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":426 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Switzerland" ,"values":"100" ,"gradient":100  },
+  {   "FIELD1":429 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"Switzerland" ,"values":"82.9" ,"gradient":82.9  },
+  {   "FIELD1":413 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"Switzerland" ,"values":"79.8" ,"gradient":79.8  },
+  {   "FIELD1":416 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"Switzerland" ,"values":"73.2" ,"gradient":73.2  },
+  {   "FIELD1":419 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"Switzerland" ,"values":"83.3" ,"gradient":83.3  },
+  {   "FIELD1":421 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"Switzerland" ,"values":"53.6" ,"gradient":53.6  },
+  {   "FIELD1":424 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"Switzerland" ,"values":"87.1" ,"gradient":87.1  },
+  {   "FIELD1":427 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Switzerland" ,"values":"93.3" ,"gradient":93.3  },
+  {   "FIELD1":430 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"Switzerland" ,"values":"83.5" ,"gradient":83.5  },
+  {   "FIELD1":414 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"Switzerland" ,"values":"47.7" ,"gradient":47.7  },
+  {   "FIELD1":417 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"Switzerland" ,"values":"58.1" ,"gradient":58.1  },
+  {   "FIELD1":420 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"Switzerland" ,"values":"76.9" ,"gradient":76.9  },
+  {   "FIELD1":422 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"Switzerland" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":425 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"Switzerland" ,"values":"61.3" ,"gradient":61.3  },
+  {   "FIELD1":428 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Switzerland" ,"values":"70.7" ,"gradient":70.7  },
+  {   "FIELD1":431 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"Switzerland" ,"values":"76.8" ,"gradient":76.8  },
+  {   "FIELD1":371 ,"reason":"Education reasons" ,"age":"From 15 to 24 years" ,"geo":"United Kingdom" ,"values":"28.4" ,"gradient":28.4  },
+  {   "FIELD1":374 ,"reason":"Family reasons" ,"age":"From 15 to 24 years" ,"geo":"United Kingdom" ,"values":"33.6" ,"gradient":33.6  },
+  {   "FIELD1":377 ,"reason":"International protection or asylum" ,"age":"From 15 to 24 years" ,"geo":"United Kingdom" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":380 ,"reason":"No response" ,"age":"From 15 to 24 years" ,"geo":"United Kingdom" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":383 ,"reason":"Other" ,"age":"From 15 to 24 years" ,"geo":"United Kingdom" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":386 ,"reason":"Work, job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"United Kingdom" ,"values":"87.9" ,"gradient":87.9  },
+  {   "FIELD1":389 ,"reason":"Work, no job found before migrating" ,"age":"From 15 to 24 years" ,"geo":"United Kingdom" ,"values":"87.4" ,"gradient":87.4  },
+  {   "FIELD1":372 ,"reason":"Education reasons" ,"age":"From 25 to 54 years" ,"geo":"United Kingdom" ,"values":"75" ,"gradient":75  },
+  {   "FIELD1":375 ,"reason":"Family reasons" ,"age":"From 25 to 54 years" ,"geo":"United Kingdom" ,"values":"66.9" ,"gradient":66.9  },
+  {   "FIELD1":378 ,"reason":"International protection or asylum" ,"age":"From 25 to 54 years" ,"geo":"United Kingdom" ,"values":"54" ,"gradient":54  },
+  {   "FIELD1":381 ,"reason":"No response" ,"age":"From 25 to 54 years" ,"geo":"United Kingdom" ,"values":"81.6" ,"gradient":81.6  },
+  {   "FIELD1":384 ,"reason":"Other" ,"age":"From 25 to 54 years" ,"geo":"United Kingdom" ,"values":"75.5" ,"gradient":75.5  },
+  {   "FIELD1":387 ,"reason":"Work, job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"United Kingdom" ,"values":"94.4" ,"gradient":94.4  },
+  {   "FIELD1":390 ,"reason":"Work, no job found before migrating" ,"age":"From 25 to 54 years" ,"geo":"United Kingdom" ,"values":"87.8" ,"gradient":87.8  },
+  {   "FIELD1":373 ,"reason":"Education reasons" ,"age":"From 55 to 64 years" ,"geo":"United Kingdom" ,"values":"80.1" ,"gradient":80.1  },
+  {   "FIELD1":376 ,"reason":"Family reasons" ,"age":"From 55 to 64 years" ,"geo":"United Kingdom" ,"values":"51.4" ,"gradient":51.4  },
+  {   "FIELD1":379 ,"reason":"International protection or asylum" ,"age":"From 55 to 64 years" ,"geo":"United Kingdom" ,"values":"41.3" ,"gradient":41.3  },
+  {   "FIELD1":382 ,"reason":"No response" ,"age":"From 55 to 64 years" ,"geo":"United Kingdom" ,"values":"NA" ,"gradient":-1  },
+  {   "FIELD1":385 ,"reason":"Other" ,"age":"From 55 to 64 years" ,"geo":"United Kingdom" ,"values":"61.6" ,"gradient":61.6  },
+  {   "FIELD1":388 ,"reason":"Work, job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"United Kingdom" ,"values":"72.6" ,"gradient":72.6  },
+  {   "FIELD1":391 ,"reason":"Work, no job found before migrating" ,"age":"From 55 to 64 years" ,"geo":"United Kingdom" ,"values":"66.8" ,"gradient":66.8  }]
+
+var	svg = d3.select("svg"),
+	text = d3.select("text")
+
+
+svg.selectAll("text.k1")
+ .style("fill", "#FFFFFF")
+
+svg.selectAll("text.k2")
+ .style("fill", "#FFFFFF")
+
+svg.selectAll("text.k3")
+ .style("fill", "#FFFFFF")
+
+
+
+var setWB = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Wielka Brytania")
+
+	svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "United Kingdom" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "United Kingdom" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "United Kingdom" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "United Kingdom" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "United Kingdom" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "United Kingdom" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+var setNorwegia = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Norwegia")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Norway" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Norway" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Norway" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Norway" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Norway" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Norway" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+
+var setBelgia = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Belgia")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Belgium" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Belgium" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Belgium" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Belgium" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Belgium" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Belgium" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+
+var setCzechy = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Czechy")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Czech Republic" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Czech Republic" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Czech Republic" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Czech Republic" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Czech Republic" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Czech Republic" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+
+var setNiemcy = function(){
+
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Niemcy")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Germany" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Germany" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Germany" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Germany" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Germany" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Germany" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+
+var setGrecja = function(){
+
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Grecja")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Greece" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Greece" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Greece" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Greece" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Greece" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Greece" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+
+var setHiszpania = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Hiszpania")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Spain" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Spain" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Spain" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Spain" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Spain" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Spain" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+var setWlochy = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Wlochy")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Italy" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Italy" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Italy" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Italy" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Italy" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Italy" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+var setAustria = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Austria")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Austria" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Austria" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Austria" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Austria" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Austria" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Austria" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+var setPolska = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Polska")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Poland" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Poland" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Poland" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Poland" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Poland" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Poland" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+var setPortugalia = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Portugalia")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Portugal" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Portugal" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Portugal" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Portugal" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Portugal" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Portugal" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+
+var setFinlandia = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Finlandia")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Finland" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Finland" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Finland" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Finland" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Finland" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Finland" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+var setSzwecja = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Szwecja")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Sweden" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Sweden" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Sweden" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Sweden" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Sweden" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Sweden" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+
+var setSzwajcaria = function(){
+	svg.select("text.kraj")
+		.text("Wybrany kraj: Szwajcaria")
+
+	svg.selectAll("circle.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Switzerland" &&
+            el.age == "From 25 to 54 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Switzerland" &&
+            el.age == "From 15 to 24 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+    svg.selectAll("circle.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Switzerland" &&
+            el.age == "From 55 to 64 years";
+    }))
+    .style("fill","#ffffff")
+    .transition()
+    .duration(1500)
+    .style("fill", function(d,i){
+    	if (d.gradient<0){
+    		return "#FFFFFF"
+    	} else {
+    		return colors(d.gradient)
+    	}
+    })
+
+	svg.selectAll("text.k1")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Switzerland" &&
+            el.age == "From 15 to 24 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k2")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Switzerland" &&
+            el.age == "From 25 to 54 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+	svg.selectAll("text.k3")
+	.data(data_migration.filter(function (el) {
+        return el.geo == "Switzerland" &&
+            el.age == "From 55 to 64 years";
+    }))
+	.text(function(d,i){return d.values})
+    .style("fill", "#FFFFFF")
+	.transition()
+    .duration(2500)
+    .style("font-size", 14)
+    .style("fill", "#000000")
+
+
+}
+
+</script>
+
+</body>
+</html>
