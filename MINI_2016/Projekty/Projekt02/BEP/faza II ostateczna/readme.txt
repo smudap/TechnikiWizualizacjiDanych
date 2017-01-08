@@ -4,3 +4,9 @@ Wykresy zostały omówione w filmie, który znajduje się pod adresem:
 
 https://www.youtube.com/watch?v=unoOiuAH344.
 
+
+Autorzy:
+Ewa Baranowska
+Paulina Popiołek
+Bartosz Topolski
+
