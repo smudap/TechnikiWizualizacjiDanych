@@ -1,0 +1,122 @@
+---
+title: "Projekt II - `eurostat`"
+author: "Magdalena Mazurek, Dorota Łępicka, Piotr Smuda"
+date: "9 grudnia 2016"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE}
+library(ggplot2)
+library(plotly)
+library(rCharts)
+library(knitr)
+library(xtable)
+library(devtools)
+library(dplyr)
+library(eurostat)
+```
+
+## Alkohol vis palenie tytoniu
+
+```{r, echo=FALSE,message=FALSE,results='asis',comment=NA, warning=FALSE}
+
+dat <- get_eurostat(id = "hlth_ehis_al1i", time_format = "num") #alc
+
+dat1 <- get_eurostat(id = "hlth_ehis_sk3i", time_format = "num")
+
+dat <- label_eurostat(dat)
+
+dat1 <- label_eurostat(dat1)
+
+dane1<- dat %>% filter( quantile=="Total" ,  frequenc=="Every week", age=="Total")
+dane1<-dane1[,-c(1,2,3,5,7)]
+
+dane2<- dat1 %>% filter(quantile=="Total" , smoking=="Total" , age=="Total")
+dane2<-dane2[,-c(1,2,3,5,7)]
+dane2<-dane2[-c(which(dane2$geo %in% c("France","Netherlands"))),]
+
+dane<- merge(x=dane1, y=dane2, by=c("geo", "sex"), all.x = TRUE)
+
+colnames(dane)<-c("kraj","plec","alkohol","papierosy")
+
+levels(dane$kraj)<-c("UE","Belgia","Bułgaria","Czechy","Dania","Niemcy","Estonia",
+        "Grecja","Hiszpania","Chorwacja","Włochy","Cypr","Łotwa","Litwa","Luksemburg",
+        "Węgry","Malta","Austria","Polska","Portugalia","Rumunia","Słowenia","Słowacja",
+        "Finlandia","Szwecja","Wielka Brytania","Norwegia","Turcja")
+
+levels(dane$plec)<-c("Kobiety","Mężczyźni","Total")
+
+
+p<-ggplot(data=dane[-which(dane$plec=="Total"),], aes(x=alkohol, y=papierosy))+
+  geom_point(aes(color=kraj, shape=plec), size=3)+
+  scale_shape_manual(values=c(19,17), name="Płeć:")+
+  scale_color_manual(values=rainbow(28),name="Kraj:")+
+  theme_grey() + 
+  theme(axis.text.x = element_text(hjust = 0.5, size=12, face="bold"),
+        axis.text.y = element_text(hjust = 0.9, vjust=0.5, size=12, face="bold"),
+        axis.title.x = element_text(hjust = 0.5, size=12, face="bold"),
+        axis.title.y = element_text(hjust = 0.5, size=12, face="bold"),
+        plot.title=element_text(margin=margin(b=0.5, unit="cm"), hjust=0, size=18, face="bold"),
+         plot.margin=unit(c(1,1,0.5,0), "cm"))+
+  xlab("Procent osób spożywających alkohol co najmniej raz w tygodniu")+
+  ylab("Procent osób palących papierosy" )+
+  ggtitle("Zależność spożycia alkoholu od palenia tytoniu w 2014r.")+
+  scale_y_continuous(expand = c(0, 0.03),limits=c(0,45))+
+  scale_x_continuous(expand = c(0, 0.1), limits=c(0,55))
+
+
+
+p %>%  ggplotly(originalData = FALSE)%>% layout(showlegend = c(TRUE,FALSE),autosize = F, width = 1000, height = 500)
+
+```
+```{r, echo=FALSE}
+
+```
+
+
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(RCHART_WIDTH = 1000, RCHART_HEIGHT = 500)
+```
+
+## Powody migracji do Polski
+
+```{r, echo=FALSE,results='asis',comment=NA, message=FALSE}
+query <- search_eurostat("migrants" ,type="all")
+dane <- get_eurostat(query$code[20], time_format = "num")
+dane_l <- label_eurostat(dane)
+
+wykres1 <- dane_l %>% filter(sex=="Total", geo=="Poland", duration=="Total", reason!="Total") %>%
+  filter(!is.na(values))
+
+pl <- nPlot(values ~ reason , group = "age", data = wykres1, type = "multiBarHorizontalChart")
+pl$yAxis(axisLabel = 'Percentage of imigrants')
+pl$chart(margin = list(left = 200))
+pl$print('chart1', include_assets=T)
+
+
+```
+
+
+## Powody migracji dla osób w przedziale wiekowym 15 - 64 lata
+
+```{r, echo=FALSE, results='asis',comment=NA, message=FALSE}
+wykres2 <- dane_l %>% 
+  filter(sex=="Total", duration=="Total", reason!="Total", age=="From 15 to 64 years") %>%
+  filter(!is.na(values))
+
+levels(wykres2$geo)[4] <- "Germany (until 1990)"
+
+pl2 <- nPlot(values ~ geo , group = "reason", data = wykres2, type = "multiBarHorizontalChart")
+pl2$yAxis(axisLabel = 'Percentage of imigrants')
+pl2$chart(margin = list(left = 170))
+pl2$print('chart2', include_assets=T)
+
+```
+
+
+
+
+
+
+
