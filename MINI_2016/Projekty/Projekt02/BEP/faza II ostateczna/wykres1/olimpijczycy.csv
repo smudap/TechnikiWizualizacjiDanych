@@ -1,0 +1,525 @@
+olimpiada;medal;olimpijczyk;rok_urodzenia;wiek;plec;dyscyplina;konkurencja
+1924;B;Krolikiewicz Adam;1894;30;M;jezdziectwo;individual
+1924;S;Lange Jozef;1897;27;M;kolarstwo;Team Pursuit (4000m)
+1924;S;Lazarski Jan;1892;32;M;kolarstwo;Team Pursuit (4000m)
+1924;S;Stankiewicz Tomasz;1902;22;M;kolarstwo;Team Pursuit (4000m)
+1924;S;Szymczyk Franciszek;1892;32;M;kolarstwo;Team Pursuit (4000m)
+1928;B;Antoniewicz Michal;1897;31;M;jezdziectwo;team
+1928;S;Antoniewicz Michal;1897;31;M;jezdziectwo;team
+1928;B;Birkholz Leszek Leon;1904;24;M;wioslarstwo;four-oared shell with coxswain (4-)
+1928;B;Bronikowski Franciszek;1907;21;M;wioslarstwo;four-oared shell with coxswain (4-)
+1928;B;De Rommel (Baron) Karol;1888;40;M;jezdziectwo;team
+1928;B;Drewek Boleslaw;1903;25;M;wioslarstwo;four-oared shell with coxswain (4-)
+1928;B;Friedrich Tadeusz;1903;25;M;szermierka;sabre team
+1928;S;Gzowski Kazimierz;1901;27;M;jezdziectwo;team
+1928;B;Jankowski Edmund;1903;25;M;wioslarstwo;four-oared shell with coxswain (4-)
+1928;Z;Konopacka Halina;1900;28;K;lekkoatletyka;discus throw
+1928;B;Laskowski Kazimierz;1899;29;M;szermierka;sabre team
+1928;B;Malecki Aleksander S.;1901;27;M;szermierka;sabre team
+1928;B;Ormanowski Bernard;1907;21;M;wioslarstwo;four-oared shell with coxswain (4-)
+1928;B;Papée Adam;1895;33;M;szermierka;sabre team
+1928;B;Segda Wladyslaw;1895;33;M;szermierka;sabre team
+1928;S;Szosland Kazimierz;1891;37;M;jezdziectwo;team
+1928;B;Trenkwald Jozef;1897;31;M;jezdziectwo;team
+1928;B;Zabielski Jerzy;1897;31;M;szermierka;sabre team
+1932;B;Braun Jerzy;1911;21;M;wioslarstwo;four-oared shell with coxswain (4-)
+1932;S;Braun Jerzy;1911;21;M;wioslarstwo;pair-oared shell with coxswain (2+)
+1932;B;Budzinski Henryk;1904;28;M;wioslarstwo;coxless pair (2-)
+1932;B;Dobrowolski Wladyslaw;1896;36;M;szermierka;sabre team
+1932;B;Friedrich Tadeusz;1903;29;M;szermierka;sabre team
+1932;B;Kobylinski Edward;1908;24;M;wioslarstwo;four-oared shell with coxswain (4-)
+1932;B;Krenz-Mikolajczak Janusz;1907;25;M;wioslarstwo;coxless pair (2-)
+1932;Z;Kusocinski Janusz;1907;25;M;lekkoatletyka;10000m
+1932;B;Lubicz-Nycz Leszek;1899;33;M;szermierka;sabre team
+1932;B;Papée Adam;1895;37;M;szermierka;sabre team
+1932;B;Segda Wladyslaw;1895;37;M;szermierka;sabre team
+1932;B;Skolimowski Jerzy;1907;25;M;wioslarstwo;four-oared shell with coxswain (4-)
+1932;S;Skolimowski Jerzy;1907;25;M;wioslarstwo;pair-oared shell with coxswain (2+)
+1932;B;Slazak Janusz;1907;25;M;wioslarstwo;four-oared shell with coxswain (4-)
+1932;S;Slazak Janusz;1907;25;M;wioslarstwo;pair-oared shell with coxswain (2+)
+1932;B;Suski Marian;1905;27;M;szermierka;sabre team
+1932;B;Urban Stanislaw;1907;25;M;wioslarstwo;four-oared shell with coxswain (4-)
+1932;B;Wajsowna Jadwiga;1912;20;K;lekkoatletyka;discus throw
+1932;Z;Walasiewicz Stanislawa;1911;21;K;lekkoatletyka;100m
+1936;B;Karas Wladyslaw;1893;43;M;strzelectwo;50m rifle prone (60 shots)
+1936;S;Kawecki Zdzislaw;1902;34;M;jezdziectwo;team
+1936;S;Kulesza Seweryn;1900;36;M;jezdziectwo;team
+1936;B;Kwasniewska-Maleszewska Marja Jadwiga;1913;23;K;lekkoatletyka;javelin throw
+1936;S;Roycewicz Henryk;1898;38;M;jezdziectwo;team
+1936;B;Ustupski Jerzy;1911;25;M;wioslarstwo;double sculls (2x)
+1936;B;Verey Roger;1912;24;M;wioslarstwo;double sculls (2x)
+1936;S;Wajsowna Jadwiga;1912;24;K;lekkoatletyka;discus throw
+1936;S;Walasiewicz Stanislawa;1911;25;K;lekkoatletyka;100m
+1948;B;Antkiewicz Aleksy;1923;25;M;boks;54 - 58kg (featherweight)
+1952;S;Antkiewicz Aleksy;1923;29;M;boks;57 - 60kg (lightweight)
+1952;Z;Chychla Zygmunt;1926;26;M;boks;63.5 - 67kg (welterweight)
+1952;S;Jokiel Jerzy;1931;21;M;gimnastyka;floor exercises
+1952;B;Kocerka Teodor;1927;25;M;wioslarstwo;single sculls (1x)
+1956;Z;Dunska-Krzesinska Elzbieta;1934;22;K;lekkoatletyka;long jump
+1956;B;Horzonek-Jokiel Dorota;1934;22;K;gimnastyka;team, portable apparatus
+1956;B;Kot Natalia;1938;18;K;gimnastyka;team, portable apparatus
+1956;S;Kuszewski Marian Zygmunt;1933;23;M;szermierka;sabre team
+1956;B;Niedzwiedzki Henryk;1933;23;M;boks;54 - 57kg (featherweight)
+1956;B;Nowak-Stachow Danuta;1934;22;K;gimnastyka;team, portable apparatus
+1956;S;Pawlas Zygmunt;1930;26;M;szermierka;sabre team
+1956;S;Pawlowski Jerzy;1932;24;M;szermierka;sabre individual
+1956;S;Pawlowski Jerzy;1932;24;M;szermierka;sabre team
+1956;S;Piatkowski Andrzej Ryszard;1934;22;M;szermierka;sabre team
+1956;B;Pietrzykowski Zbigniew;1934;22;M;boks;67 - 71kg (light-middleweight)
+1956;B;Rakoczy Helena;1921;35;K;gimnastyka;team, portable apparatus
+1956;S;Sidlo Janusz;1933;23;M;lekkoatletyka;javelin throw
+1956;S;Smelczynski Adam;1930;26;M;strzelectwo;trap (125 targets)
+1956;B;Szczerbinska Lidia;1934;22;K;gimnastyka;team, portable apparatus
+1956;B;Wilkowna-Slizowska Barbara;1935;21;K;gimnastyka;team, portable apparatus
+1956;S;Zablocki Wojciech;1930;26;M;szermierka;sabre team
+1956;B;Zielinski Marian;1929;27;M;podnoszenie ciezarow;56 - 60kg, total (featherweight)
+1956;S;Zub Ryszard;1934;22;M;szermierka;sabre team
+1960;S;Adamski Jerzy;1937;23;M;boks;54 - 57kg (featherweight)
+1960;B;Bendig Brunon;1938;22;M;boks;51 - 54kg (bantamweight)
+1960;B;Bochenek Jan;1931;29;M;podnoszenie ciezarow;75 - 82.5kg, total (light-heavyweight)
+1960;B;Drogosz Leszek (Lech);1933;27;M;boks;63.5 - 67kg (welterweight)
+1960;S;Dunska-Krzesinska Elzbieta;1934;26;K;lekkoatletyka;long jump
+1960;B;Herrmann-Gorecka-Richter Halina;1938;22;K;lekkoatletyka;4x100m relay
+1960;B;Jesionowska-Gerwin Celina;1933;27;K;lekkoatletyka;4x100m relay
+1960;S;Jozwiakowska-Bieda Jaroslawa;1937;23;K;lekkoatletyka;high jump
+1960;B;Kaplaniak Stefan;1933;27;M;kajakarstwo;K-2 1000m (kayak double)
+1960;B;Kasprzyk Marian;1939;21;M;boks;60 - 63.5kg (light-welterweight)
+1960;B;Kocerka Teodor;1927;33;M;wioslarstwo;single sculls (1x)
+1960;Z;Krzyszkowiak Zdzislaw;1929;31;M;lekkoatletyka;3000m steeplechase
+1960;S;Kuszewski Marian Zygmunt;1933;27;M;szermierka;sabre team
+1960;B;Lerczak-Janiszewska Barbara;1936;24;K;lekkoatletyka;4x100m relay
+1960;S;Ochyra Emil Antoni;1936;24;M;szermierka;sabre team
+1960;Z;Palinski Ireneusz;1932;28;M;podnoszenie ciezarow;75 - 82.5kg, total (light-heavyweight)
+1960;S;Pawlowski Jerzy;1932;28;M;szermierka;sabre team
+1960;Z;Pazdzior Kazimierz;1935;25;M;boks;57 - 60kg (lightweight)
+1960;S;Piatkowski Andrzej Ryszard;1934;26;M;szermierka;sabre team
+1960;S;Pietrzykowski Zbigniew;1934;26;M;boks;75 - 81kg (light-heavyweight)
+1960;B;Rut Tadeusz;1931;29;M;lekkoatletyka;hammer throw
+1960;Z;Schmidt Jozef;1935;25;M;lekkoatletyka;triple jump
+1960;B;Trojanowski Tadeusz Hipolit;1933;27;M;zapasy;52 - 57kg (bantamweight)
+1960;S;Walasek Tadeusz;1936;24;M;boks;71-75kg
+1960;B;Walkowiak-Pilecka Daniela;1935;25;K;kajakarstwo;K-1 500m (kayak single)
+1960;B;Wieczorek-Cieply Teresa Barbara;1937;23;K;lekkoatletyka;4x100m relay
+1960;S;Zablocki Wojciech;1930;30;M;szermierka;sabre team
+1960;B;Zielinski Wladyslaw;1935;25;M;kajakarstwo;K-2 1000m (kayak double)
+1960;B;Zimny Kazimierz;1935;25;M;lekkoatletyka;5000m
+1960;S;Zub Ryszard;1934;26;M;szermierka;sabre team
+1964;B;Badenski Andrzej;1943;21;M;lekkoatletyka;400m
+1964;Z;Baszanowski Waldemar;1935;29;M;podnoszenie ciezarow;60 - 67.5kg, total (lightweight)
+1964;B;Czajkowska Krystyna;1936;28;K;siatkowka;siatkowka
+1964;S;Dudziak Marjan;1941;23;M;lekkoatletyka;4x100m relay
+1964;S;Foik Marjan;1933;31;M;lekkoatletyka;4x100m relay
+1964;Z;Franke Egon;1935;29;M;szermierka;foil individual
+1964;S;Franke Egon;1935;29;M;szermierka;foil team
+1964;B;Golimowska Marja;1932;32;K;siatkowka;siatkowka
+1964;Z;Grudzien Jozef;1939;25;M;boks;57 - 60kg (lightweight)
+1964;B;Grzesiak Jozef;1941;23;M;boks;67 - 71kg (light-middleweight)
+1964;Z;Herrmann-Gorecka-Richter Halina;1938;26;K;lekkoatletyka;4x100m relay
+1964;B;Jakubowska Krystyna;1942;22;K;siatkowka;siatkowka
+1964;Z;Kasprzyk Marian;1939;25;M;boks;63.5 - 67kg (welterweight)
+1964;B;Klobukowska Ewa;1946;18;K;lekkoatletyka;100m
+1964;Z;Klobukowska Ewa;1946;18;K;lekkoatletyka;4x100m relay
+1964;B;Kordaczuk Danuta;1939;25;K;siatkowka;siatkowka
+1964;B;Krupa Krystyna;1939;25;K;siatkowka;siatkowka
+1964;Z;Kulej Jerzy;1940;24;M;boks;60 - 63.5kg (light-welterweight)
+1964;B;Ledwig Jozefa;1935;29;K;siatkowka;siatkowka
+1964;S;Maniak Wieslaw Jan;1938;26;M;lekkoatletyka;4x100m relay
+1964;B;Marko-Ksiazek Jadwiga;1939;25;K;siatkowka;siatkowka
+1964;B;Nowak Mieczyslaw;1936;28;M;podnoszenie ciezarow;56 - 60kg, total (featherweight)
+1964;B;Ochyra Emil Antoni;1936;28;M;szermierka;sabre team
+1964;S;Olech Artur;1940;24;M;boks;- 51kg (flyweight)
+1964;B;Palinski Ireneusz;1932;32;M;podnoszenie ciezarow;82.5 - 90kg, total (middle-heavyweight)
+1964;S;Parulski Ryszard Wladyslaw;1938;26;M;szermierka;foil team
+1964;B;Pawlowski Jerzy;1932;32;M;szermierka;sabre team
+1964;B;Piatkowski Andrzej Ryszard;1934;30;M;szermierka;sabre team
+1964;B;Pietrzykowski Zbigniew;1934;30;M;boks;75 - 81kg (light-heavyweight)
+1964;S;Rozycki Jan;1939;25;M;szermierka;foil team
+1964;B;Rutkowska Jadwiga;1934;30;K;siatkowka;siatkowka
+1964;Z;Schmidt Jozef;1935;29;M;lekkoatletyka;triple jump
+1964;S;Skrudlik Zbigniew;1934;30;M;szermierka;foil team
+1964;B;Sliwka Marja;1935;29;K;siatkowka;siatkowka
+1964;B;Szczesniewska Zofia;1943;21;K;siatkowka;siatkowka
+1964;S;Szewinska Irena;1946;18;K;lekkoatletyka;200m
+1964;Z;Szewinska Irena;1946;18;K;lekkoatletyka;4x100m relay
+1964;S;Szewinska Irena;1946;18;K;lekkoatletyka;long jump
+1964;B;Walasek Tadeusz;1936;28;M;boks;71-75kg
+1964;Z;Wieczorek-Cieply Teresa Barbara;1937;27;K;lekkoatletyka;4x100m relay
+1964;S;Wieczorek-Cieply Teresa Barbara;1937;27;K;lekkoatletyka;80m hurdles
+1964;S;Woyda Witold;1939;25;M;szermierka;foil team
+1964;B;Zablocki Wojciech;1930;34;M;szermierka;sabre team
+1964;S;Zielinski Andrzej;1936;28;M;lekkoatletyka;4x100m relay
+1964;B;Zielinski Marian;1929;35;M;podnoszenie ciezarow;60 - 67.5kg, total (lightweight)
+1964;B;Zub Ryszard;1934;30;M;szermierka;sabre team
+1968;B;Andrzejewski Bogdan;1942;26;M;szermierka;épée team
+1968;B;Askielowicz Halina;1947;21;K;siatkowka;siatkowka
+1968;B;Barburski Kazimierz;1942;26;M;szermierka;épée team
+1968;Z;Baszanowski Waldemar;1935;33;M;podnoszenie ciezarow;60 - 67.5kg, total (lightweight)
+1968;B;Butkiewicz Michal;1942;26;M;szermierka;épée team
+1968;B;Chmielnicka Lidia;1939;29;K;siatkowka;siatkowka
+1968;B;Czajkowska Krystyna;1936;32;K;siatkowka;siatkowka
+1968;B;Dragan Stanislaw;1941;27;M;boks;75 - 81kg (light-heavyweight)
+1968;B;Franke Egon;1935;33;M;szermierka;foil team
+1968;B;Golab Marek;1940;28;M;podnoszenie ciezarow;82.5 - 90kg, total (middle-heavyweight)
+1968;B;Gonsior Bogdan;1937;31;M;szermierka;épée team
+1968;S;Grudzien Jozef;1939;29;M;boks;57 - 60kg (lightweight)
+1968;B;Hermela-Niemczyk Barbara Wieslawa;1943;25;K;siatkowka;siatkowka
+1968;B;Jakubowska Krystyna;1942;26;K;siatkowka;siatkowka
+1968;B;Kierzkowski Janusz;1947;21;M;kolarstwo;1km time trial
+1968;B;Krupa Krystyna;1939;29;K;siatkowka;siatkowka
+1968;Z;Kulej Jerzy;1940;28;M;boks;60 - 63.5kg (light-welterweight)
+1968;B;Ledwig Jozefa;1935;33;K;siatkowka;siatkowka
+1968;B;Lisewski Adam;1944;24;M;szermierka;foil team
+1968;B;Marko-Ksiazek Jadwiga;1939;29;K;siatkowka;siatkowka
+1968;B;Nielaba Henryk;1933;35;M;szermierka;épée team
+1968;S;Olech Artur;1940;28;M;boks;48 - 51kg (flyweight)
+1968;B;Ostromecka Krystyna;1948;20;K;siatkowka;siatkowka
+1968;B;Ozimek Norbert;1945;23;M;podnoszenie ciezarow;75 - 82.5kg, total (light-heavyweight)
+1968;B;Parulski Ryszard Wladyslaw;1938;30;M;szermierka;foil team
+1968;Z;Pawlowski Jerzy;1932;36;M;szermierka;sabre individual
+1968;B;Porzec Elzbieta;1945;23;K;siatkowka;siatkowka
+1968;B;Skrudlik Zbigniew;1934;34;M;szermierka;foil team
+1968;B;Skrzypczak Hubert;1943;25;M;boks;- 48kg (light-flyweight)
+1968;B;Szczesniewska Zofia;1943;25;K;siatkowka;siatkowka
+1968;B;Szewinska Irena;1946;22;K;lekkoatletyka;100m
+1968;Z;Szewinska Irena;1946;22;K;lekkoatletyka;200m
+1968;B;Trebicki Henryk;1940;28;M;podnoszenie ciezarow;- 56kg, total (bantamweight)
+1968;B;Wiecha Wanda;1946;22;K;siatkowka;siatkowka
+1968;B;Woyda Witold;1939;29;M;szermierka;foil team
+1968;Z;Zapedzki Jozef;1929;39;M;strzelectwo;25m rapid fire pistol (60 shots)
+1968;B;Zielinski Marian;1929;39;M;podnoszenie ciezarow;60 - 67.5kg, total (lightweight)
+1972;Z;Anczok Zygmunt;1946;26;M;pilka nozna;pilka nozna
+1972;S;Barcik Edward;1950;22;M;kolarstwo;team time trial
+1972;B;Bek Andrzej;1951;21;M;kolarstwo;2000m tandem
+1972;B;Blazynski Leszek;1949;23;M;boks;48 - 51kg (flyweight)
+1972;Z;Cmikiewicz Leslaw;1948;24;M;pilka nozna;pilka nozna
+1972;Z;Dabrowski Marek;1949;23;M;szermierka;foil team
+1972;Z;Deyna Kazimierz;1947;25;M;pilka nozna;pilka nozna
+1972;Z;Gadocha Robert;1946;26;M;pilka nozna;pilka nozna
+1972;Z;Godel Arkadiusz;1952;20;M;szermierka;foil team
+1972;Z;Gorgon Jerzy;1949;23;M;pilka nozna;pilka nozna
+1972;B;Gortat Janusz;1948;24;M;boks;75 - 81kg (light-heavyweight)
+1972;Z;Gut Zbigniew;1949;23;M;pilka nozna;pilka nozna
+1972;Z;Kaczmarek Jerzy;1948;24;M;szermierka;foil team
+1972;B;Kaczmarek Zbigniew;1946;26;M;podnoszenie ciezarow;60 - 67.5kg, total (lightweight)
+1972;B;Katus Ryszard;1947;25;M;lekkoatletyka;decathlon
+1972;Z;Kmiecik Kazimierz;1951;21;M;pilka nozna;pilka nozna
+1972;B;Kocot Benedykt;1954;18;M;kolarstwo;2000m tandem
+1972;Z;Komar Wladyslaw;1940;32;M;lekkoatletyka;shot put
+1972;Z;Kostka Hubert;1940;32;M;pilka nozna;pilka nozna
+1972;Z;Koziejowski Lech;1949;23;M;szermierka;foil team
+1972;Z;Kraska Jerzy;1951;21;M;pilka nozna;pilka nozna
+1972;B;Kwiecinski Czeslaw;1943;29;M;zapasy;82 - 90kg (light-heavyweight)
+1972;Z;Lato Grzegorz;1950;22;M;pilka nozna;pilka nozna
+1972;B;Lipien Kazimierz;1949;23;M;zapasy;57 - 62kg (featherweight)
+1972;S;Lis Lucjan;1950;22;M;kolarstwo;team time trial
+1972;Z;Lubanski Wlodzimierz;1947;25;M;pilka nozna;pilka nozna
+1972;Z;Marx Joachim;1944;28;M;pilka nozna;pilka nozna
+1972;Z;Maszczyk Zygmunt;1945;27;M;pilka nozna;pilka nozna
+1972;Z;Ostafinski Marjan;1946;26;M;pilka nozna;pilka nozna
+1972;S;Ozimek Norbert;1945;27;M;podnoszenie ciezarow;75 - 82.5kg, total (light-heavyweight)
+1972;B;Piszcz Rafal Maciej;1940;32;M;kajakarstwo;K-2 1000m (kayak double)
+1972;S;Rudkowski Wieslaw;1946;26;M;boks;67 - 71kg (light-middleweight)
+1972;Z;Smalcerz Zygmunt;1941;31;M;podnoszenie ciezarow;- 52kg, total (flyweight)
+1972;Z;Szczepanski Jan;1939;33;M;boks;57 - 60kg (lightweight)
+1972;B;Szewinska Irena;1946;26;K;lekkoatletyka;200m
+1972;Z;Szoltysik Zygfryd;1942;30;M;pilka nozna;pilka nozna
+1972;S;Szozda Stanislaw;1950;22;M;kolarstwo;team time trial
+1972;S;Szurkowski Ryszard;1946;26;M;kolarstwo;team time trial
+1972;B;Szuszkiewicz Wladyslaw;1938;34;M;kajakarstwo;K-2 1000m (kayak double)
+1972;S;Szydlowska Irena;1928;44;K;lucznictwo;individual FITA round
+1972;Z;Szymanowski Antoni;1951;21;M;pilka nozna;pilka nozna
+1972;Z;Szymczak Ryszard;1944;28;M;pilka nozna;pilka nozna
+1972;Z;Woyda Witold;1939;33;M;szermierka;foil individual
+1972;Z;Woyda Witold;1939;33;M;szermierka;foil team
+1972;S;Zajkowski Antoni;1948;24;M;judo;63 - 70kg (half-middleweight)
+1972;Z;Zapedzki Jozef;1929;43;M;strzelectwo;25m rapid fire pistol (60 shots)
+1976;B;Antczak Zdzislaw;1947;29;M;pilka reczna;pilka reczna
+1976;Z;Bebel Bronislaw;1949;27;M;siatkowka;siatkowka
+1976;S;Beniger Jan;1950;26;M;pilka nozna;pilka nozna
+1976;B;Blazynski Leszek;1949;27;M;boks;48 - 51kg (flyweight)
+1976;Z;Bosek Ryszard;1950;26;M;siatkowka;siatkowka
+1976;B;Brzozowski Janusz;1951;25;M;pilka reczna;pilka reczna
+1976;B;Ciesla Piotr;1955;21;M;pilka reczna;pilka reczna
+1976;S;Cmikiewicz Leslaw;1948;28;M;pilka nozna;pilka nozna
+1976;B;Czarnecki Kazimierz;1948;28;M;podnoszenie ciezarow;60 - 67.5kg, total (lightweight)
+1976;S;Cziura Grzegorz;1952;24;M;podnoszenie ciezarow;- 56kg, total (bantamweight)
+1976;S;Deyna Kazimierz;1947;29;M;pilka nozna;pilka nozna
+1976;B;Gawlikowski Wieslaw;1951;25;M;strzelectwo;skeet (125 targets)
+1976;Z;Gawlowski Wieslaw;1950;26;M;siatkowka;siatkowka
+1976;B;Gmyrek Jan;1951;25;M;pilka reczna;pilka reczna
+1976;S;Gorgon Jerzy;1949;27;M;pilka nozna;pilka nozna
+1976;B;Gortat Janusz;1948;28;M;boks;75 - 81kg (light-heavyweight)
+1976;B;Greszkiewicz Jerzy;1950;26;M;strzelectwo;50m running target (30+30 shots)
+1976;S;Gronowicz Andrzej;1951;25;M;kajakarstwo;C-2 500m (canoe double)
+1976;S;Jaremski Zbigniew;1949;27;M;lekkoatletyka;4x400m relay
+1976;B;Kaluzinski Alfred;1952;24;M;pilka reczna;pilka reczna
+1976;Z;Karbarz Marek;1950;26;M;siatkowka;siatkowka
+1976;S;Kasperczak Henryk;1946;30;M;pilka nozna;pilka nozna
+1976;B;Klempel Jerzy;1953;23;M;pilka reczna;pilka reczna
+1976;S;Kmiecik Kazimierz;1951;25;M;pilka nozna;pilka nozna
+1976;B;Kosedowski Leszek;1954;22;M;boks;54 - 57kg (featherweight)
+1976;B;Kuchta Zygfryd;1944;32;M;pilka reczna;pilka reczna
+1976;B;Kwiecinski Czeslaw;1943;33;M;zapasy;82 - 90kg (light-heavyweight)
+1976;Z;Lasko Lech;1956;20;M;siatkowka;siatkowka
+1976;S;Lato Grzegorz;1950;26;M;pilka nozna;pilka nozna
+1976;Z;Lipien Kazimierz;1949;27;M;zapasy;57 - 62kg (featherweight)
+1976;Z;Lubiejewski Zbigniew;1949;27;M;siatkowka;siatkowka
+1976;S;Malinowski Bronislaw;1951;25;M;lekkoatletyka;3000m steeplechase
+1976;S;Maszczyk Zygmunt;1945;31;M;pilka nozna;pilka nozna
+1976;B;Melcer Jerzy;1949;27;M;pilka reczna;pilka reczna
+1976;S;Mowlik Piotr;1951;25;M;pilka nozna;pilka nozna
+1976;S;Mytnik Tadeusz;1949;27;M;kolarstwo;team time trial
+1976;B;Nowicki Mieczyslaw;1951;25;M;kolarstwo;individual road race
+1976;S;Nowicki Mieczyslaw;1951;25;M;kolarstwo;team time trial
+1976;S;Ogaza Roman;1952;24;M;pilka nozna;pilka nozna
+1976;S;Opara Jerzy;1948;28;M;kajakarstwo;C-2 500m (canoe double)
+1976;S;Pietrzyk Jerzy;1955;21;M;lekkoatletyka;4x400m relay
+1976;S;Podlas Ryszard;1954;22;M;lekkoatletyka;4x400m relay
+1976;B;Przybysz Ryszard;1950;26;M;pilka reczna;pilka reczna
+1976;Z;Pyciak-Peciak Janusz;1949;27;M;piecioboj nowoczesny;Individual competition
+1976;B;Rozmiarek Henryk;1949;27;M;pilka reczna;pilka reczna
+1976;S;Rudy Wojciech;1952;24;M;pilka nozna;pilka nozna
+1976;B;Rutkowski Tadeusz;1951;25;M;podnoszenie ciezarow;91 - 110kg, total (heavyweight)
+1976;Z;Rybaczewski Miroslaw;1952;24;M;siatkowka;siatkowka
+1976;Z;Rybicki Jerzy;1953;23;M;boks;67 - 71kg (light-middleweight)
+1976;Z;Sadalski Wlodzimierz;1949;27;M;siatkowka;siatkowka
+1976;Z;Skorek Edward;1943;33;M;siatkowka;siatkowka
+1976;B;Skrzydlewski Andrzej;1946;30;M;zapasy;90 - 100kg (heavyweight)
+1976;Z;Slusarski Tadeusz;1950;26;M;lekkoatletyka;pole vault
+1976;B;Sokolowski Andrzej;1948;28;M;pilka reczna;pilka reczna
+1976;Z;Stefanski Wlodzimierz;1949;27;M;siatkowka;siatkowka
+1976;S;Szarmach Andrzej;1950;26;M;pilka nozna;pilka nozna
+1976;B;Szczerba Kazimierz;1954;22;M;boks;60 - 63.5kg (light-welterweight)
+1976;Z;Szewinska Irena;1946;30;K;lekkoatletyka;400m
+1976;S;Szozda Stanislaw;1950;26;M;kolarstwo;team time trial
+1976;S;Szurkowski Ryszard;1946;30;M;kolarstwo;team time trial
+1976;S;Szymanowski Antoni;1951;25;M;pilka nozna;pilka nozna
+1976;B;Szymczak Andrzej;1948;28;M;pilka reczna;pilka reczna
+1976;B;Talaj Marian;1950;26;M;judo;63 - 70kg (half-middleweight)
+1976;S;Tomaszewski Jan;1948;28;M;pilka nozna;pilka nozna
+1976;S;Wawrowski Henryk;1949;27;M;pilka nozna;pilka nozna
+1976;S;Werner Jan;1946;30;M;lekkoatletyka;4x400m relay
+1976;S;Wieczorek Henryk;1949;27;M;pilka nozna;pilka nozna
+1976;B;Wojczak Mieczyslaw;1951;25;M;pilka reczna;pilka reczna
+1976;Z;Wojtowicz Tomasz;1953;23;M;siatkowka;siatkowka
+1976;Z;Wszola Jacek;1956;20;M;lekkoatletyka;high jump
+1976;Z;Zarzycki Zbigniew;1946;30;M;siatkowka;siatkowka
+1976;B;Zielinski Wlodzimierz;1955;21;M;pilka reczna;pilka reczna
+1976;S;Zmuda Wladyslaw;1954;22;M;pilka nozna;pilka nozna
+1980;B;Adach Kazimierz;1957;23;M;boks;57 - 60kg (lightweight)
+1980;S;Bierla Roman;1957;23;M;zapasy;90 - 100kg (heavyweight)
+1980;S;Bobik Janusz;1955;25;M;jezdziectwo;team
+1980;S;Chronowski Ludomir;1959;21;M;szermierka;épée team
+1980;B;Cichon Aleksander;1958;22;M;zapasy;82 - 90kg (light-heavyweight)
+1980;B;Czopek Agnieszka;1964;16;K;plywanie;400m individual medley
+1980;B;Dembonczyk Tadeusz;1955;25;M;podnoszenie ciezarow;- 56kg, total (bantamweight)
+1980;S;Dluzewska Malgorzata;1958;22;K;wioslarstwo;pair without coxswain (2-)
+1980;S;Dolgowicz Jan;1954;26;M;zapasy;74 - 82kg (middleweight)
+1980;S;Dunecki Leszek;1956;24;M;lekkoatletyka;4x100m relay
+1980;S;Hartman Wieslaw;1950;30;M;jezdziectwo;team
+1980;S;Jablkowski Piotr;1958;22;M;szermierka;épée team
+1980;S;Kielan Urszula;1960;20;K;lekkoatletyka;high jump
+1980;S;Koscianska Czeslawa;1959;21;K;wioslarstwo;pair without coxswain (2-)
+1980;B;Kosedowski Krzysztof;1960;20;M;boks;54 - 57kg (featherweight)
+1980;Z;Kowalczyk Jan;1941;39;M;jezdziectwo;individual
+1980;S;Kowalczyk Jan;1941;39;M;jezdziectwo;team
+1980;Z;Kozakiewicz Wladyslaw;1953;27;M;lekkoatletyka;pole vault
+1980;S;Kozicki Marian;1941;39;M;jezdziectwo;team
+1980;B;Koziejowski Lech;1949;31;M;szermierka;foil team
+1980;B;Kubiak Ryszard;1950;30;M;wioslarstwo;four-oared shell with coxswain (4-)
+1980;S;Lang Czes³aw;1955;25;M;kolarstwo;individual road race
+1980;B;Langer Lucyna;1956;24;K;lekkoatletyka;100m hurdles
+1980;S;Licznerski Zenon;1954;26;M;lekkoatletyka;4x100m relay
+1980;S;Lipien Josef;1949;31;M;zapasy;52 - 57kg (bantamweight)
+1980;S;Lis Andrzej;1959;21;M;szermierka;épée team
+1980;Z;Malinowski Bronislaw;1951;29;M;lekkoatletyka;3000m steeplechase
+1980;B;Nowak Grzegorz;1954;26;M;wioslarstwo;four-oared shell with coxswain (4-)
+1980;B;Pawlowski Janusz;1959;21;M;judo;60 - 65kg (half-lightweight)
+1980;B;Robak Adam;1957;23;M;szermierka;foil team
+1980;B;Rutkowski Tadeusz;1951;29;M;podnoszenie ciezarow;+ 110kg, total (super heavyweight)
+1980;B;Rybicki Jerzy;1953;27;M;boks;71-75kg
+1980;B;Sandurski Adam;1953;27;M;zapasy;+ 100kg (super heavyweight)
+1980;B;Seweryn Marek;1957;23;M;podnoszenie ciezarow;56 - 60kg, total (featherweight)
+1980;S;Skrzecz Pawel;1957;23;M;boks;75 - 81kg (light-heavyweight)
+1980;S;Slusarski Tadeusz;1950;30;M;lekkoatletyka;pole vault
+1980;B;Stadniuk Ryszard;1951;29;M;wioslarstwo;four-oared shell with coxswain (4-)
+1980;S;Stecyk Wladyslaw;1951;29;M;zapasy;48 - 52kg (flyweight)
+1980;B;Stellak Grzegorz;1951;29;M;wioslarstwo;four-oared shell with coxswain (4-)
+1980;S;Strzalka Mariusz;1959;21;M;szermierka;épée team
+1980;S;Supron Andrzej;1952;28;M;zapasy;62 - 68kg (lightweight)
+1980;S;Swornowski Leszek;1955;25;M;szermierka;épée team
+1980;B;Sypniewski Marian;1955;25;M;szermierka;foil team
+1980;B;Szczerba Kazimierz;1954;26;M;boks;63.5 - 67kg (welterweight)
+1980;B;Tomasiak Adam;1953;27;M;wioslarstwo;four-oared shell with coxswain (4-)
+1980;S;Woronin Marian;1956;24;M;lekkoatletyka;4x100m relay
+1980;S;Wszola Jacek;1956;24;M;lekkoatletyka;high jump
+1980;B;Wysoczanska Barbara;1949;31;K;szermierka;foil individual
+1980;S;Zwolinski Krzysztof;1959;21;M;lekkoatletyka;4x100m relay
+1980;B;Zych Boguslaw;1951;29;M;szermierka;foil team
+1988;B;Dopierala Marek;1960;28;M;kajakarstwo;C-2 1000m (canoe double)
+1988;S;Dopierala Marek;1960;28;M;kajakarstwo;C-2 500m (canoe double)
+1988;B;Dydak Jan;1968;20;M;boks;63.5 - 67kg (welterweight)
+1988;B;Dylewska-Swiatowiak Izabela;1968;20;K;kajakarstwo;K-1 500m (kayak single)
+1988;S;Glab Andrzej;1966;22;M;zapasy;- 48kg (light-flyweight)
+1988;B;Golota Andrzej;1968;20;M;boks;81 - 91kg (heavyweight)
+1988;S;Halupczok Joachim;1968;20;M;kolarstwo;team time trial
+1988;S;Jaskula Zenon;1962;26;M;kolarstwo;team time trial
+1988;B;Lbik Marek;1958;30;M;kajakarstwo;C-2 1000m (canoe double)
+1988;S;Lbik Marek;1958;30;M;kajakarstwo;C-2 500m (canoe double)
+1988;Z;Legien Waldemar;1963;25;M;judo;71 - 78kg (half-middleweight)
+1988;S;Lesniewski Marek;1963;25;M;kolarstwo;team time trial
+1988;S;Olech Janusz;1965;23;M;szermierka;sabre individual
+1988;S;Pawlowski Janusz;1959;29;M;judo;60 - 65kg (half-lightweight)
+1988;B;Petrich Henryk;1959;29;M;boks;75 - 81kg (light-heavyweight)
+1988;S;Sypytkowski Andrzej;1963;25;M;kolarstwo;team time trial
+1988;B;Tracz Jozef;1964;24;M;zapasy;68 - 74kg (welterweight)
+1988;B;Wojdat Artur;1968;20;M;plywanie;400m freestyle
+1988;Z;Wronski Andrzej;1965;23;M;zapasy;90 - 100kg (heavyweight)
+1988;B;Zarenkiewicz Janusz;1959;29;M;boks;+ 91kg (super heavyweight)
+1988;B;Zawada Slawomir;1965;23;M;podnoszenie ciezarow;82.5 - 90kg, total (middle-heavyweight)
+1992;B;Bartnik Wojciech;1967;25;M;boks;75 - 81kg (light-heavyweight)
+1992;B;Bialkowski Dariusz;1970;22;M;kajakarstwo;K-2 1000m (kayak double)
+1992;B;Broniewski Kajetan;1963;29;M;wioslarstwo;single sculls (1x)
+1992;S;Brzeczek Jerzy;1971;21;M;pilka nozna;pilka nozna
+1992;B;Cieslak Michal;1968;24;M;wioslarstwo;four-oared shell with coxswain (4-)
+1992;Z;Czyzowicz Maciej;1962;30;M;piecioboj nowoczesny;Team competition
+1992;B;Dylewska-Swiatowiak Izabella;1968;24;K;kajakarstwo;K-1 500m (kayak single)
+1992;S;Freimut Maciej;1967;25;M;kajakarstwo;K-2 500m (kayak double)
+1992;S;Gesior Dariusz;1969;23;M;pilka nozna;pilka nozna
+1992;Z;Gozdziak Dariusz;1962;30;M;piecioboj nowoczesny;Team competition
+1992;S;Jalocha Marcin;1971;21;M;pilka nozna;pilka nozna
+1992;B;Jankowski Wojciech;1963;29;M;wioslarstwo;four-oared shell with coxswain (4-)
+1992;S;Juskowiak Andrzej;1970;22;M;pilka nozna;pilka nozna
+1992;B;Kielpikowski Piotr;1962;30;M;szermierka;foil team
+1992;S;Kobylanski Andrzej;1970;22;M;pilka nozna;pilka nozna
+1992;B;Kotowicz Grzegorz;1973;19;M;kajakarstwo;K-2 1000m (kayak double)
+1992;S;Kowalczyk Wojciech;1972;20;M;pilka nozna;pilka nozna
+1992;S;Kozminski Marek;1971;21;M;pilka nozna;pilka nozna
+1992;B;Krzesinski Adam;1965;27;M;szermierka;foil team
+1992;B;Ksiazkiewicz Malgorzata;1967;25;K;strzelectwo;50m rifle 3 positions (3x20 shots)
+1992;S;Kurpiewski Wojciech;1966;26;M;kajakarstwo;K-2 500m (kayak double)
+1992;S;Lapinski Tomasz;1969;23;M;pilka nozna;pilka nozna
+1992;B;Lasicki Maciej;1965;27;M;wioslarstwo;four-oared shell with coxswain (4-)
+1992;Z;Legien Waldemar;1963;29;M;judo;78 - 86kg (middleweight)
+1992;B;Malak Waldemar;1970;22;M;podnoszenie ciezarow;90 - 100kg, total (first-heavyweight)
+1992;B;Partyka Artur;1969;23;M;lekkoatletyka;high jump
+1992;S;Siemion Krzysztof;1966;26;M;podnoszenie ciezarow;75 - 82.5kg, total (light-heavyweight)
+1992;B;Siess Cezary;1968;24;M;szermierka;foil team
+1992;Z;Skrzypaszek Arkadiusz;1968;24;M;piecioboj nowoczesny;Individual competition
+1992;Z;Skrzypaszek Arkadiusz;1968;24;M;piecioboj nowoczesny;Team competition
+1992;B;Sobczak Ryszard;1967;25;M;szermierka;foil team
+1992;S;Staniek Ryszard;1971;21;M;pilka nozna;pilka nozna
+1992;S;Stepien Piotr;1963;29;M;zapasy;74 - 82kg (middleweight)
+1992;B;Streich Jacek;1967;25;M;wioslarstwo;four-oared shell with coxswain (4-)
+1992;S;Swierczewski Piotr;1972;20;M;pilka nozna;pilka nozna
+1992;B;Sypniewski Marian;1955;37;M;szermierka;foil team
+1992;S;Szukala Rafal;1971;21;M;plywanie;100m butterfly
+1992;B;Tomiak Tomasz;1967;25;M;wioslarstwo;four-oared shell with coxswain (4-)
+1992;S;Tracz Jozef;1964;28;M;zapasy;68 - 74kg (welterweight)
+1992;S;Waldoch Tomasz;1971;21;M;pilka nozna;pilka nozna
+1992;B;Wolczaniecki Sergiusz;1964;28;M;podnoszenie ciezarow;82.5 - 90kg, total (middle-heavyweight)
+1996;B;Cofalik Andrzej;1968;28;M;podnoszenie ciezarow;76 - 83kg, total (light-heavyweight)
+1996;B;Dzieciol Iwona;1975;21;K;lucznictwo;team (FITA Olympic round - 70m)
+1996;S;Fafinski Jacek;1970;26;M;zapasy;82 - 90kg (light-heavyweight)
+1996;S;Kielpikowski Piotr;1962;34;M;szermierka;foil team
+1996;B;Klata Katarzyna;1972;24;K;lucznictwo;team (FITA Olympic round - 70m)
+1996;Z;Korzeniowski Robert;1968;28;M;lekkoatletyka;50km walk
+1996;S;Krzesinski Adam;1965;31;M;szermierka;foil team
+1996;Z;Kusznierewicz Mateusz;1975;21;M;zeglarstwo;single-handed dinghy (Finn)
+1996;B;Markiewicz Piotr;1973;23;M;kajakarstwo;K-1 500m (kayak single)
+1996;Z;Mauer Renata;1969;27;K;strzelectwo;10m air rifle (40 shots)
+1996;B;Mauer Renata;1969;27;K;strzelectwo;50m rifle 3 positions (3x20 shots)
+1996;Z;Nastula Pawel;1970;26;M;judo;90 - 100kg (half-heavyweight)
+1996;B;Nowicka Joanna;1966;30;K;lucznictwo;team (FITA Olympic round - 70m)
+1996;S;Partyka Artur;1969;27;M;lekkoatletyka;high jump
+1996;S;Rzepkowski Miroslaw;1959;37;M;strzelectwo;skeet (125 targets)
+1996;S;Sobczak Ryszard;1967;29;M;szermierka;foil team
+1996;S;Szczepanska Aneta;1974;22;K;judo;61 - 66kg (middleweight)
+1996;B;Tracz Jozef;1964;32;M;zapasy;68 - 74kg (welterweight)
+1996;Z;Wolny Ryszard;1969;27;M;zapasy;62 - 68kg (lightweight)
+1996;Z;Wronski Andrzej;1965;31;M;zapasy;90 - 100kg (heavyweight)
+1996;Z;Zawadzki Wlodzimierz;1967;29;M;zapasy;57 - 62kg (featherweight)
+2000;S;Baraszkiewicz Pawel;1977;23;M;kajakarstwo;C-2 500m (canoe double)
+2000;B;Bialkowski Dariusz;1970;30;M;kajakarstwo;K-4 1000m (kayak four)
+2000;B;Blanik Leszek;1977;23;M;gimnastyka;vault
+2000;S;Gruchala Sylwia;1971;29;K;szermierka;foil team
+2000;S;Jedraszko Daniel;1976;24;M;kajakarstwo;C-2 500m (canoe double)
+2000;S;Kolecki Szymon;1981;19;M;podnoszenie ciezarow;94kg
+2000;S;Kolomanski Krzysztof;1973;27;M;kajakarstwo;C-2 (canoe double)
+2000;Z;Korzeniowski Robert;1968;32;M;lekkoatletyka;20km walk
+2000;Z;Korzeniowski Robert;1968;32;M;lekkoatletyka;50km walk
+2000;B;Kotowicz Grzegorz;1973;27;M;kajakarstwo;K-4 1000m (kayak four)
+2000;Z;Kucharski Tomasz;1974;26;M;wioslarstwo;lightweight double sculls (2x)
+2000;Z;Mauer Renata;1969;31;K;strzelectwo;50m rifle 3 positions (3x20 shots)
+2000;S;Mroczkiewicz Magdalena;1979;21;K;szermierka;foil team
+2000;B;Pastuszka Aneta;1978;22;K;kajakarstwo;K-2 500m (kayak double)
+2000;S;Rybicka Anna;1977;23;K;szermierka;foil team
+2000;B;Seroczynski Adam;1974;26;M;kajakarstwo;K-4 1000m (kayak four)
+2000;Z;Skolimowska Kamila;1982;18;K;lekkoatletyka;hammer throw
+2000;B;Sokolowska Kulesza Beata;1974;26;K;kajakarstwo;K-2 500m (kayak double)
+2000;S;Staniszewski Michal;1973;27;M;kajakarstwo;C-2 (canoe double)
+2000;Z;Sycz Robert;1973;27;M;wioslarstwo;lightweight double sculls (2x)
+2000;S;Szewczyk Barbara;1970;30;K;szermierka;foil team
+2000;B;Witkowski Marek;1974;26;M;kajakarstwo;K-4 1000m (kayak four)
+2000;S;Wrobel Agata;1981;19;K;podnoszenie ciezarow;+ 75kg
+2000;Z;Ziolkowski Szymon;1976;24;M;lekkoatletyka;hammer throw
+2004;B;Gruchala Sylwia;1971;33;K;szermierka;foil individual
+2004;S;Jedrzejczak Otylia;1983;21;K;plywanie;100m butterfly
+2004;Z;Jedrzejczak Otylia;1983;21;K;plywanie;200m butterfly
+2004;S;Jedrzejczak Otylia;1983;21;K;plywanie;400m freestyle
+2004;Z;Korzeniowski Robert;1968;36;M;lekkoatletyka;50km walk
+2004;Z;Kucharski Tomasz;1974;30;M;wioslarstwo;lightweight double sculls (2x)
+2004;B;Kusznierewicz Mateusz;1975;29;M;zeglarstwo;single-handed dinghy (Finn)
+2004;B;Pastuszka Aneta;1978;26;K;kajakarstwo;K-2 500m (kayak double)
+2004;B;Rogowska Anna;1981;23;K;lekkoatletyka;pole vault
+2004;B;Sokolowska Kulesza Beata;1974;30;K;kajakarstwo;K-2 500m (kayak double)
+2004;Z;Sycz Robert;1973;31;M;wioslarstwo;lightweight double sculls (2x)
+2004;B;Wrobel Agata;1981;23;K;podnoszenie ciezarow;+ 75kg
+2008;S;Andrzejuk Robert;1975;33;M;szermierka;épée team
+2008;S;Bernatajtys Milosz;1982;26;M;wioslarstwo;lightweight coxless four (4-)
+2008;Z;Blanik Leszek;1977;31;M;gimnastyka;vault
+2008;Z;Jelinski Michal;1980;28;M;wioslarstwo;quadruple sculls without coxswain (4x)
+2008;Z;Kolbowicz Marek;1971;37;M;wioslarstwo;quadruple sculls without coxswain (4x)
+2008;S;Kolecki Szymon;1981;27;M;podnoszenie ciezarow;94kg
+2008;S;Konieczna Aneta;1978;30;K;kajakarstwo;K-2 500m (kayak double)
+2008;Z;Korol Adam;1974;34;M;wioslarstwo;quadruple sculls without coxswain (4x)
+2008;Z;Majewski Tomasz;1981;27;M;lekkoatletyka;shot put
+2008;S;Malachowski Piotr;1983;25;M;lekkoatletyka;discus throw
+2008;S;Mikolajczyk Beata;1985;23;K;kajakarstwo;K-2 500m (kayak double)
+2008;S;Motyka Tomasz;1981;27;M;szermierka;épée team
+2008;S;Pawelczak Bartlomiej;1982;26;M;wioslarstwo;lightweight coxless four (4-)
+2008;S;Pawlowski Lukasz;1983;25;M;wioslarstwo;lightweight coxless four (4-)
+2008;S;Randa Pawel;1979;29;M;wioslarstwo;lightweight coxless four (4-)
+2008;Z;Wasielewski Konrad;1984;24;M;wioslarstwo;quadruple sculls without coxswain (4x)
+2008;S;Wiercioch Adam;1980;28;M;szermierka;épée team
+2008;B;Wieszczek Agnieszka;1983;25;K;zapasy;63 - 72kg
+2008;S;Wloszczowska Maja;1983;25;K;kolarstwo;cross-country
+2008;S;Zawrotniak Radoslaw;1981;27;M;szermierka;épée team
+2012;Z;Majewski Tomasz;1981;31;M;lekkoatletyka;shot put
+2012;Z;Zielinski Adrian;1989;23;M;podnoszenie ciezarow;85 kg
+2012;S;Wlodarczyk Anita;1985;27;K;lekkoatletyka;hammer throw
+2012;S;Bogacka Sylwia;1981;31;K;strzelectwo;10m air rifle
+2012;B;Mikolajczyk Beata;1985;27;K;kajakarstwo;K-2 500m (kayak double)
+2012;B;Naja Karolina;1990;22;K;kajakarstwo;K-2 500m (kayak double)
+2012;B;Bonk Bartlomiej;1984;28;M;podnoszenie ciezarow;105 kg
+2012;B;Fularczyk Magdalena;1986;26;K;wioslarstwo;double sculls (2x)
+2012;B;Michalska Julia;1985;27;K;wioslarstwo;double sculls (2x)
+2012;B;Janikowski Damian;1989;23;M;zapasy;84 kg
+2012;B;Miarczynski Przemyslaw;1979;33;M;zeglarstwo;windsurfing RS: X class
+2012;B;Noceti Klepacka Zofia;1986;26;K;zeglarstwo;windsurfing RS: X class
+2016;B;Majka Rafal;1989;27;M;kolarstwo;individual road race
+2016;Z;Wlodarczyk Anita;1985;31;K;lekkoatletyka;hammer throw
+2016;Z;Fularczyk Kozlowska Magdalena;1986;30;K;wioslarstwo;double sculls (2x)
+2016;Z;Madaj Natalia;1988;28;K;wioslarstwo;double sculls (2x)
+2016;S;Malachowski Piotr;1983;33;M;lekkoatletyka;discus throw
+2016;S;Walczykiewicz Marta;1987;29;K;kajakarstwo;K-1 200m (kayak single)
+2016;S;Wloszczowska Maja;1983;33;K;kolarstwo;cross-country
+2016;B;Michalik Monika;1980;36;K;zapasy;63 kg
+2016;B;Nowacka Oktawia;1991;25;K;piecioboj nowoczesny;Individual competition
+2016;B;Nowicki Wojciech;1989;27;M;lekkoatletyka;hammer throw
+2016;B;Mikolajczyk Beata;1985;31;K;kajakarstwo;K-2 500m (kayak double)
+2016;B;Naja Karolina;1990;26;K;kajakarstwo;K-2 500m (kayak double)
+2016;B;Ciaciuch Monika;1992;24;K;wioslarstwo;quadruple sculls without coxswain (4x)
+2016;B;Kobus Agnieszka;1990;26;K;wioslarstwo;quadruple sculls without coxswain (4x)
+2016;B;Leszczynska Joanna;1988;28;K;wioslarstwo;quadruple sculls without coxswain (4x)
+2016;B;Springwald Maria;1991;25;K;wioslarstwo;quadruple sculls without coxswain (4x)
