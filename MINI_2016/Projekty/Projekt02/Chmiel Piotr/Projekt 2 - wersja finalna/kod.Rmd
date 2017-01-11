@@ -1,0 +1,352 @@
+---
+title: "Projekt 2"
+author: "Piotr Chmiel"
+date: "18 grudnia 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE, cache=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+library(sejmRP)
+library(ggplot2)
+library(dplyr)
+library(stringi)
+library(ggplot2)
+library(reshape2)
+
+statements <- get_statements_table()
+statements8 <- statements %>% filter(nr_term_of_office == "8")
+
+head(statements8,2)
+
+applauses <- data.frame(table(statements8[grepl(statements8$statement, pattern = "\\(Oklas"), "surname_name"]))
+dane<-get_filtered_votes( dates = c("2015-11-12", "2016-12-12"))
+
+nieobecni <- dane%>% filter(vote=="Nieobecny") %>%
+  group_by(surname_name, club) %>%
+  summarise(count=n())
+
+
+poslowie <- get_filtered_votes(terms_of_office = c(8,8))
+poslowie <- poslowie %>% filter(id_voting == 7861)
+poslowie$surname <- unlist(stri_extract_all_regex(poslowie$surname_name,pattern="^[a-zA-ZęĘóÓąĄśŚłŁżŻźŹćĆńŃ]+"))
+
+poslowie$oklaski <- 0
+poslowie$nieob <- 0
+poslowie$przerywal <-0
+
+
+
+for(i in 1:460)
+{
+  rows <- applauses %>% filter(grepl(applauses$Var1, pattern = poslowie[i,"surname"]))
+  poslowie$oklaski[i] <- sum(rows$Freq)
+}
+
+nieobecni$surname_name[1]
+for(i in 1:460)
+{
+  for(j in 1:477)
+  {
+    if (poslowie$surname_name[i] == nieobecni$surname_name[j])
+    {
+        poslowie$nieob[i] <- nieobecni$count[j]
+        break
+    }
+  }
+}
+
+przerwania <- data.frame(table(statements8[grepl(statements8$statement, pattern = "\\("), "surname_name"]))
+
+
+przerwanie <- stri_extract_all_regex(statements8$statement, "(?<=\\(Pose)[[^()].]*(?=\\))" )
+
+lista <- lapply(1:length(przerwanie), function(x){
+    surname_name = statements8$surname_name[x]
+    tmp_przerwanie = przerwanie[[x]]
+    df <- data.frame(surname_name=surname_name,
+                     break_st=stri_sub(tmp_przerwanie,3))
+  return(df)
+})
+dane_przerywanie <- do.call("rbind", lista)
+
+dd <- dane_przerywanie%>%
+  group_by(surname_name) %>%
+  summarise(count=n())
+
+poselCopy <- poslowie
+
+poselCopy$przerwano <- 0
+bob <- data.frame(lapply(dane_przerywanie, as.character), stringsAsFactors=FALSE)
+
+splitted <- unlist(strsplit(poselCopy$surname_name[1], " "))
+nn <- paste(splitted[2]," ",splitted[1], sep = "")
+
+
+poselCopy$obecnosc <- 1912 - poselCopy$nieob
+
+for(i in 1:460)
+{
+  splitted <- unlist(strsplit(poselCopy$surname_name[i], " "))
+  nn <- paste(splitted[2]," ",splitted[1], sep = "")
+  
+  for(j in 1:nrow(dd))
+  {
+    if (length(grep(nn, dd$surname_name[j]))>0)
+    {
+        poselCopy$przerwano[i] <- poselCopy$przerwano[i] + dd$count
+    }
+  }
+  #print(i)
+  #print(poselCopy$przerwano[i])
+}
+
+
+
+for(i in 1:460)
+{
+  splitted <- unlist(strsplit(poselCopy$surname_name[i], " "))
+  nn <- paste(splitted[2]," ",splitted[1], sep = "")
+  
+  for(j in 1:nrow(dane_przerywanie))
+  {
+    if (!is.na(bob$break_st[j]))
+    {
+      przerywajacy <- unlist(strsplit(bob$break_st[j], ":"))[1]
+      if (nn == przerywajacy)
+      {
+          poselCopy$przerywal[i] <- poselCopy$przerywal[i] + 1
+      }
+    }
+  }
+    #print(i)
+    #print(poselCopy$przerywal[i])
+}
+
+
+nieobecniClub <- poselCopy %>%
+      group_by(surname_name, club, nieob, obecnosc) %>%
+      summarise(count=n())
+    
+    top5 <- arrange(nieobecniClub ,desc(nieob))
+    top5 <- top5 %>%
+      group_by(club) %>%
+      top_n(n = 5, wt = nieob)
+      
+      
+mdat = melt(top5, id.vars=c("surname_name", "club"),
+            measure.vars=c("nieob", "obecnosc"))
+
+plot_1 = ggplot(mdat, aes(x=reorder(surname_name, -value), y=value, fill=variable)) +
+         geom_bar(position="dodge", stat="identity")
+plot_1 <- plot_1 + facet_grid(. ~ club,scales = "free_x")
+    
+         
+         
+plot_1 <- plot_1 + theme(axis.text.x = element_text(angle = 90, hjust= 1, vjust = 0.5)) +  xlab("Nazwisko i imię posła") + ylab("Rozkład nieobecności/obecności")
+plot_1 <- plot_1 + scale_fill_discrete(name="Legenda",
+                         labels=c("Nieobecny", "Obecny"))
+plot_1 
+
+poselCopy$przerwanoZOklas <- 0
+poselCopy$przerwanoZOklas <-poselCopy$oklaski + poselCopy$przerwano
+
+przerywalPrzerywanoClub <- poselCopy %>%
+      group_by(surname_name, club, przerywal, przerwanoZOklas) %>%
+      summarise(count=n())
+    
+    top5 <- arrange(przerywalPrzerywanoClub ,desc(przerywal))
+    top5 <- top5 %>%
+      group_by(club) %>%
+      top_n(n = 5, wt = przerywal)
+      
+      
+mdat = melt(top5, id.vars=c("surname_name", "club"),
+            measure.vars=c("przerywal", "przerwanoZOklas"))
+
+plot_2 = ggplot(mdat, aes(x=reorder(surname_name, -value), y=value, fill=variable)) +
+         geom_bar(position="dodge", stat="identity")
+plot_2 <- plot_2 + facet_grid(. ~ club,scales = "free_x")
+    
+         
+         
+plot_2 <- plot_2 + theme(axis.text.x = element_text(angle = 90, hjust= 1, vjust = 0.5)) +  xlab("Nazwisko i imię posła") + ylab("Rozkład przerwań")
+plot_2 <- plot_2 + scale_fill_discrete(name="Legenda",
+                         labels=c("Przerywał", "Przerwano"))
+plot_2 
+
+
+
+
+
+przerywalPrzerywanoClub <- poselCopy %>%
+      group_by(surname_name, club, przerwano, oklaski) %>%
+      summarise(count=n())
+    
+    top5 <- arrange(przerywalPrzerywanoClub ,desc(przerwano))
+    top5 <- top5 %>%
+      group_by(club) %>%
+      top_n(n = 5, wt = oklaski)
+      
+      
+mdat = melt(top5, id.vars=c("surname_name", "club"),
+            measure.vars=c("przerwano", "oklaski"))
+
+plot_3 = ggplot(mdat, aes(x=reorder(surname_name, -value), y=value, fill=variable)) +
+         geom_bar(position="dodge", stat="identity")
+plot_3 <- plot_3 + facet_grid(. ~ club,scales = "free_x")
+    
+         
+         
+plot_3 <- plot_3 + theme(axis.text.x = element_text(angle = 90, hjust= 1, vjust = 0.5)) +  xlab("Nazwisko i imię posła") + ylab("Rozkład przerwań")
+plot_3 <- plot_3 + scale_fill_discrete(name="Legenda",
+                         labels=c("Przerwał Poseł X", "Przerwano Oklaskami"))
+plot_3 
+
+
+
+poselCopy$ZebralBraw <-0
+poselCopy$DawalBraw <-0
+
+for(i in 1:460)
+{
+  splitted <- unlist(strsplit(poselCopy$surname_name[i], " "))
+  nn <- paste(splitted[2]," ",splitted[1], sep = "")
+  
+  for(j in 1:nrow(bob))
+  {
+    if (!is.na(bob$break_st[j]))
+    {
+      if (length(grep("Brawo", bob$break_st[j]))>0)
+      {
+        przerywajacy <- unlist(strsplit(bob$break_st[j], ":"))[1]
+        if (nn == przerywajacy)
+        {
+            poselCopy$DawalBraw[i] <- poselCopy$DawalBraw[i] + 1
+        }
+        
+          if (length(grep(nn, bob$surname_name[j]))>0)
+          {
+              poselCopy$ZebralBraw[i] <- poselCopy$ZebralBraw[i] + 1
+          }
+      }
+    }
+  }
+  #print(i)
+  #print(poselCopy$ZebralBraw[i])
+  #print(poselCopy$DawalBraw[i])
+
+}
+
+
+
+brawa <- poselCopy %>%
+      group_by(surname_name, club, ZebralBraw) %>%
+      summarise(count=n())
+    
+    top5 <- arrange(brawa ,desc(ZebralBraw))
+    top5 <- top5 %>%
+      group_by(club) %>%
+      top_n(n = 5, wt = ZebralBraw)
+      
+  top5 <- top5 %>% filter(ZebralBraw > 0)
+
+plot_4 = ggplot(top5, aes(x=reorder(surname_name, -ZebralBraw), y=ZebralBraw, fill=club)) +
+         geom_bar(position="dodge", stat="identity")
+plot_4 <- plot_4 + facet_grid(. ~ club,scales = "free_x")
+    
+         
+         
+plot_4 <- plot_4 + theme(axis.text.x = element_text(angle = 90, hjust= 1, vjust = 0.5)) +  xlab("Nazwisko i imię posła") + ylab("Otrzymane brawa")
+plot_4 <- plot_4 + scale_fill_discrete(name="Legenda")
+plot_4 
+
+
+brawa <- poselCopy %>%
+      group_by(surname_name, club, DawalBraw) %>%
+      summarise(count=n())
+    
+    top5 <- arrange(brawa ,desc(DawalBraw))
+    top5 <- top5 %>%
+      group_by(club) %>%
+      top_n(n = 5, wt = DawalBraw)
+    
+  top5 <- top5 %>% filter(DawalBraw > 0)
+
+plot_5 = ggplot(top5, aes(x=reorder(surname_name, -DawalBraw), y=DawalBraw, fill=club)) +
+         geom_bar(position="dodge", stat="identity")
+plot_5 <- plot_5 + facet_grid(. ~ club,scales = "free_x")
+    
+         
+         
+plot_5 <- plot_5 + theme(axis.text.x = element_text(angle = 90, hjust= 1, vjust = 0.5)) +  xlab("Nazwisko i imię posła") + ylab("Dawane brawa")
+plot_5 <- plot_5 + scale_fill_discrete(name="Legenda")
+plot_5 
+
+
+
+kobiety <- 0
+mezczyzni <- 0
+
+for(j in 1:nrow(bob))
+  {
+    if (!is.na(bob$break_st[j]))
+    {
+        przerywajacy <- unlist(strsplit(bob$break_st[j], ":"))[1]
+        przerywajacy <- unlist(strsplit(przerywajacy, " "))[1]
+        print(przerywajacy)
+        if (endsWith(przerywajacy, "a"))
+        {
+            kobiety <- kobiety + 1
+        }
+        else
+        {
+        mezczyzni <- mezczyzni + 1
+        }
+    }
+  }
+
+for(i in 1:460)
+{
+  splitted <- unlist(strsplit(poselCopy$surname_name[i], " "))
+  if (endsWith(splitted[2], "a"))
+        {
+            kobiety <- kobiety + 1
+        }
+        else
+        {
+        mezczyzni <- mezczyzni + 1
+        }
+}
+#129 kobiet - 10192 przerwan
+#10192 / 129
+#331 mezczyzn - 13269 przerwan
+#13269/331
+
+```
+
+#Nieobecność/Obecność
+``` {r}
+plot_1
+```
+
+#Przerwał/Przerwano
+``` {r}
+plot_2
+```
+
+#Przerwano Oklaskami/Przerwał Poseł
+``` {r}
+plot_3
+```
+
+#Dawał braw
+``` {r}
+plot_5
+```
+
+#Otrzymał braw
+``` {r}
+plot_4
+```

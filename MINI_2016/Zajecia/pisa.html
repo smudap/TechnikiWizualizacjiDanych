@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <style type="text/css">
+  	div {
+    width: 150px;          
+    height: 20px;         
+    padding: 2px;       
+    font: 14px sans-serif;    
+    background: #aaaaaa; 
+    border: 1px;    
+    border-radius: 5px;     
+  	}
+  	div.wykres {
+    width: 800px;          
+    height:600px;         
+    background: white; 
+  	}
+  </style>
+</head>
+<body>
+	<div onclick="set2006()">PISA 2006</div>
+	<div onclick="set2009()">PISA 2009</div>
+	<div onclick="set2012()">PISA 2012</div>
+	<div onclick="set2015()">PISA 2015</div>
+<div class="wykres">
+	<svg width="800" height="600">
+	<text x="200" y="45" >PISA 2006</text>
+	<text x="10" y="95" >Science</text>
+	<text x="10" y="145" >Reading</text>
+	<text x="10" y="195" >Mathematics</text>
+	</svg>
+</div>
+
+<script>
+ var w = 800,
+   h = 600
+   
+   var x = d3.scale.linear()
+   .domain([0, 200])
+   .range([0, h])
+
+   var y = d3.scale.linear()
+   .domain([0, 550])
+   .range([0, w])
+
+var danekr = [{"przedmiot":"","kraj":"Polska","wartosc2006":498,"wartosc2009":508,"wartosc2012":526,"wartosc2015":501,"y":100,"kolor":"red"},
+{"przedmiot":"nauki przyrodnicze","kraj":"OECD","wartosc2006":498,"wartosc2009":501,"wartosc2012":501,"wartosc2015":493,"y":110,"kolor":"blue"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":508,"wartosc2009":500,"wartosc2012":518,"wartosc2015":506,"y":150,"kolor":"red"},
+{"przedmiot":"czytanie","kraj":"OECD","wartosc2006":492,"wartosc2009":493,"wartosc2012":496,"wartosc2015":493,"y":160,"kolor":"blue"},
+{"przedmiot":"","kraj":"Polska","wartosc2006":495,"wartosc2009":495,"wartosc2012":518,"wartosc2015":504,"y":200,"kolor":"red"},
+{"przedmiot":"matematyka","kraj":"OECD","wartosc2006":498,"wartosc2009":496,"wartosc2012":494,"wartosc2015":490,"y":210,"kolor":"blue"},] 
+
+
+var svg = d3.select("svg")
+
+svg.selectAll("rect")
+   .data(danekr).enter().append("rect")
+   .attr("y",  function(d, i) {return d.y})
+   .attr("x",  0)
+   .attr("width", function(d, i) {return (d.wartosc2006-480)*10})
+   .attr("height", 20)
+   .style("fill", function(d, i) {return d.kolor})
+
+var set2006 = function() {
+	var wykres = d3.select("svg")
+	wykres.select("text")
+		.text("PISA 2006")
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(300)
+	   .attr("width", function(d, i) {return (d.wartosc2006-480)*10})
+}
+
+var set2009 = function() {
+	var wykres = d3.select("svg")
+	wykres.select("text")
+		.text("PISA 2009")
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(300)
+	   .attr("width", function(d, i) {return (d.wartosc2009-480)*10})
+}
+
+var set2012 = function() {
+	var wykres = d3.select("svg")
+	wykres.select("text")
+		.text("PISA 2012")
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(300)
+	   .attr("width", function(d, i) {return (d.wartosc2012-480)*10})
+}
+
+var set2015 = function() {
+	var wykres = d3.select("svg")
+	wykres.select("text")
+		.text("PISA 2015")
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(300)
+	   .attr("width", function(d, i) {return (d.wartosc2015-480)*10})
+}
+</script>
+
+</body>
+</html>

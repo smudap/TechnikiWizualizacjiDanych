@@ -1,0 +1,53 @@
+---
+title: "Wykresy kołowe - eksperyment"
+author: "Paulina Popiołek, Olga Przypaśniak, Patryk Tenderenda"
+date: "16 grudnia 2016"
+output: pdf_document
+---
+
+Eksperyment polegał na pokazaniu osobom obecnym na zajęciach 5 wykresów kołowych (lub zbliżonych). Osoby te musiały wskazać, jaki procent został zaznaczony kolorem niebieskim.
+
+Przedstawione wykresy wyglądały następująco:
+
+![image](all.png)
+
+Dokładne wartości procentów zaznaczone na wykresach kolorem niebieskim to:
+
+* ,,pie''-> $65\%$,
+* ,,exploded'' -> $10\%$,
+* ,,doughnut'' -> $70\%$,
+* ,,larger slice'' -> $60\%$,
+* ,,area value'' -> $35\%$.
+
+Zebrane dane zostały umieszczone w pliku *dane.csv*, na podstawie którego otrzymano następujące wykresy przedziałów ufności dla błędu oraz błędu bezwzględnego mierzonego jako różnica (odpowiednio moduł różnicy) między prawdziwą a wskazaną wartością procentu.
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, fig.height=3, fig.width=5, fig.align='center'}
+library(dplyr)
+library(ggplot2)
+
+data <- read.csv("dane.csv", h=T, sep=";")
+
+dataAggregated <- data%>%
+  group_by(typ_wykresu) %>%
+  summarize(meanError = mean(roznice),
+            ci95Error = sd(roznice)*1.96/sqrt(n()),
+            meanAbsError = mean(abs(roznice)),
+            ci95AbsError = sd(abs(roznice))*1.96/sqrt(n()))
+
+ggplot(dataAggregated, aes(x=typ_wykresu, y=meanError)) + 
+  geom_point()+
+  geom_hline(yintercept=0, linetype='dashed')+
+  geom_errorbar(aes(ymin=meanError-ci95Error, ymax=meanError+ci95Error), width=.2,
+                position=position_dodge(0.05))+
+  labs(x = NULL, y = "Error")+
+  scale_x_discrete(limits=c("pie", "exploded", "doughnut", "larger slice", "area value"))
+
+ggplot(dataAggregated, aes(x=typ_wykresu, y=meanAbsError)) + 
+  geom_point()+
+  geom_hline(yintercept=0, linetype='dashed')+
+  geom_errorbar(aes(ymin=meanAbsError-ci95AbsError, ymax=meanAbsError+ci95AbsError), width=.2,
+                position=position_dodge(0.05))+
+  labs(x = NULL, y = "Absolute Error")+
+  scale_x_discrete(limits=c("pie", "exploded", "doughnut", "larger slice", "area value"))
+```
+

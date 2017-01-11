@@ -1,0 +1,946 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js' charset='utf-8'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js' charset='utf-8'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.js' charset='utf-8'></script>
+
+<h1>
+Rozk³ad si³y defensywnej 10ciu najlepszych dru¿yn w sezonach od roku 2000
+</h1>
+
+<div id = 'inline' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawinline()
+    });
+    function drawinline(){  
+      var opts = {
+ "dom": "inline",
+"width":   1300,
+"height":    600,
+"x": "Year",
+"y": "DefenceInd",
+"group": "Team",
+"type": "lineWithFocusChart",
+"id": "inline" 
+},
+        data = [
+ {
+ "Team": "CLE",
+"Year":              1,
+"DefenceInd": 3745 
+},
+{
+ "Team": "DAL",
+"Year":              1,
+"DefenceInd": 3829 
+},
+{
+ "Team": "DEN",
+"Year":              1,
+"DefenceInd": 3549 
+},
+{
+ "Team": "GSW",
+"Year":              1,
+"DefenceInd": 3611 
+},
+{
+ "Team": "HOU",
+"Year":              1,
+"DefenceInd": 3472 
+},
+{
+ "Team": "IND",
+"Year":              1,
+"DefenceInd": 3645 
+},
+{
+ "Team": "LAC",
+"Year":              1,
+"DefenceInd": 3566 
+},
+{
+ "Team": "LAL",
+"Year":              1,
+"DefenceInd": 3637 
+},
+{
+ "Team": "MIA",
+"Year":              1,
+"DefenceInd": 3400 
+},
+{
+ "Team": "SAN",
+"Year":              1,
+"DefenceInd": 3856 
+},
+{
+ "Team": "CLE",
+"Year":              2,
+"DefenceInd": 3525 
+},
+{
+ "Team": "DAL",
+"Year":              2,
+"DefenceInd": 3844 
+},
+{
+ "Team": "DEN",
+"Year":              2,
+"DefenceInd": 3093 
+},
+{
+ "Team": "GSW",
+"Year":              2,
+"DefenceInd": 3680 
+},
+{
+ "Team": "HOU",
+"Year":              2,
+"DefenceInd": 3393 
+},
+{
+ "Team": "IND",
+"Year":              2,
+"DefenceInd": 4038 
+},
+{
+ "Team": "LAC",
+"Year":              2,
+"DefenceInd": 3524 
+},
+{
+ "Team": "LAL",
+"Year":              2,
+"DefenceInd": 3708 
+},
+{
+ "Team": "MIA",
+"Year":              2,
+"DefenceInd": 3539 
+},
+{
+ "Team": "SAN",
+"Year":              2,
+"DefenceInd": 3728 
+},
+{
+ "Team": "CLE",
+"Year":              3,
+"DefenceInd": 3399 
+},
+{
+ "Team": "DAL",
+"Year":              3,
+"DefenceInd": 3654 
+},
+{
+ "Team": "DEN",
+"Year":              3,
+"DefenceInd": 3223 
+},
+{
+ "Team": "GSW",
+"Year":              3,
+"DefenceInd": 3646 
+},
+{
+ "Team": "HOU",
+"Year":              3,
+"DefenceInd": 3679 
+},
+{
+ "Team": "IND",
+"Year":              3,
+"DefenceInd": 3761 
+},
+{
+ "Team": "LAC",
+"Year":              3,
+"DefenceInd": 3497 
+},
+{
+ "Team": "LAL",
+"Year":              3,
+"DefenceInd": 3663 
+},
+{
+ "Team": "MIA",
+"Year":              3,
+"DefenceInd": 3380 
+},
+{
+ "Team": "SAN",
+"Year":              3,
+"DefenceInd": 3705 
+},
+{
+ "Team": "CLE",
+"Year":              4,
+"DefenceInd": 3682 
+},
+{
+ "Team": "DAL",
+"Year":              4,
+"DefenceInd": 3700 
+},
+{
+ "Team": "DEN",
+"Year":              4,
+"DefenceInd": 3828 
+},
+{
+ "Team": "GSW",
+"Year":              4,
+"DefenceInd": 3543 
+},
+{
+ "Team": "HOU",
+"Year":              4,
+"DefenceInd": 3625 
+},
+{
+ "Team": "IND",
+"Year":              4,
+"DefenceInd": 3589 
+},
+{
+ "Team": "LAC",
+"Year":              4,
+"DefenceInd": 3383 
+},
+{
+ "Team": "LAL",
+"Year":              4,
+"DefenceInd": 3585 
+},
+{
+ "Team": "MIA",
+"Year":              4,
+"DefenceInd": 3367 
+},
+{
+ "Team": "SAN",
+"Year":              4,
+"DefenceInd": 4011 
+},
+{
+ "Team": "CLE",
+"Year":              5,
+"DefenceInd": 3657 
+},
+{
+ "Team": "DAL",
+"Year":              5,
+"DefenceInd": 3820 
+},
+{
+ "Team": "DEN",
+"Year":              5,
+"DefenceInd": 3708 
+},
+{
+ "Team": "GSW",
+"Year":              5,
+"DefenceInd": 3099 
+},
+{
+ "Team": "HOU",
+"Year":              5,
+"DefenceInd": 3508 
+},
+{
+ "Team": "IND",
+"Year":              5,
+"DefenceInd": 3527 
+},
+{
+ "Team": "LAC",
+"Year":              5,
+"DefenceInd": 3569 
+},
+{
+ "Team": "LAL",
+"Year":              5,
+"DefenceInd": 3353 
+},
+{
+ "Team": "MIA",
+"Year":              5,
+"DefenceInd": 3768 
+},
+{
+ "Team": "SAN",
+"Year":              5,
+"DefenceInd": 3849 
+},
+{
+ "Team": "CLE",
+"Year":              6,
+"DefenceInd": 3542 
+},
+{
+ "Team": "DAL",
+"Year":              6,
+"DefenceInd": 3512 
+},
+{
+ "Team": "DEN",
+"Year":              6,
+"DefenceInd": 3864 
+},
+{
+ "Team": "GSW",
+"Year":              6,
+"DefenceInd": 3445 
+},
+{
+ "Team": "HOU",
+"Year":              6,
+"DefenceInd": 3422 
+},
+{
+ "Team": "IND",
+"Year":              6,
+"DefenceInd": 3613 
+},
+{
+ "Team": "LAC",
+"Year":              6,
+"DefenceInd": 3756 
+},
+{
+ "Team": "LAL",
+"Year":              6,
+"DefenceInd": 3535 
+},
+{
+ "Team": "MIA",
+"Year":              6,
+"DefenceInd": 3726 
+},
+{
+ "Team": "SAN",
+"Year":              6,
+"DefenceInd": 3558 
+},
+{
+ "Team": "CLE",
+"Year":              7,
+"DefenceInd": 3503 
+},
+{
+ "Team": "DAL",
+"Year":              7,
+"DefenceInd": 3432 
+},
+{
+ "Team": "DEN",
+"Year":              7,
+"DefenceInd": 3557 
+},
+{
+ "Team": "GSW",
+"Year":              7,
+"DefenceInd": 3603 
+},
+{
+ "Team": "HOU",
+"Year":              7,
+"DefenceInd": 3610 
+},
+{
+ "Team": "IND",
+"Year":              7,
+"DefenceInd": 3550 
+},
+{
+ "Team": "LAC",
+"Year":              7,
+"DefenceInd": 3568 
+},
+{
+ "Team": "LAL",
+"Year":              7,
+"DefenceInd": 3515 
+},
+{
+ "Team": "MIA",
+"Year":              7,
+"DefenceInd": 3603 
+},
+{
+ "Team": "SAN",
+"Year":              7,
+"DefenceInd": 3599 
+},
+{
+ "Team": "CLE",
+"Year":              8,
+"DefenceInd": 3720 
+},
+{
+ "Team": "DAL",
+"Year":              8,
+"DefenceInd": 3926 
+},
+{
+ "Team": "DEN",
+"Year":              8,
+"DefenceInd": 3949 
+},
+{
+ "Team": "GSW",
+"Year":              8,
+"DefenceInd": 3586 
+},
+{
+ "Team": "HOU",
+"Year":              8,
+"DefenceInd": 3558 
+},
+{
+ "Team": "IND",
+"Year":              8,
+"DefenceInd": 3705 
+},
+{
+ "Team": "LAC",
+"Year":              8,
+"DefenceInd": 3350 
+},
+{
+ "Team": "LAL",
+"Year":              8,
+"DefenceInd": 4305 
+},
+{
+ "Team": "MIA",
+"Year":              8,
+"DefenceInd": 3585 
+},
+{
+ "Team": "SAN",
+"Year":              8,
+"DefenceInd": 3847 
+},
+{
+ "Team": "CLE",
+"Year":              9,
+"DefenceInd": 3747 
+},
+{
+ "Team": "DAL",
+"Year":              9,
+"DefenceInd": 3615 
+},
+{
+ "Team": "DEN",
+"Year":              9,
+"DefenceInd": 3820 
+},
+{
+ "Team": "GSW",
+"Year":              9,
+"DefenceInd": 3656 
+},
+{
+ "Team": "HOU",
+"Year":              9,
+"DefenceInd": 3529 
+},
+{
+ "Team": "IND",
+"Year":              9,
+"DefenceInd": 3667 
+},
+{
+ "Team": "LAC",
+"Year":              9,
+"DefenceInd": 3463 
+},
+{
+ "Team": "LAL",
+"Year":              9,
+"DefenceInd": 3699 
+},
+{
+ "Team": "MIA",
+"Year":              9,
+"DefenceInd": 3778 
+},
+{
+ "Team": "SAN",
+"Year":              9,
+"DefenceInd": 3688 
+},
+{
+ "Team": "CLE",
+"Year":             10,
+"DefenceInd": 4037 
+},
+{
+ "Team": "DAL",
+"Year":             10,
+"DefenceInd": 3982 
+},
+{
+ "Team": "DEN",
+"Year":             10,
+"DefenceInd": 3607 
+},
+{
+ "Team": "GSW",
+"Year":             10,
+"DefenceInd": 3453 
+},
+{
+ "Team": "HOU",
+"Year":             10,
+"DefenceInd": 3447 
+},
+{
+ "Team": "IND",
+"Year":             10,
+"DefenceInd": 3638 
+},
+{
+ "Team": "LAC",
+"Year":             10,
+"DefenceInd": 3144 
+},
+{
+ "Team": "LAL",
+"Year":             10,
+"DefenceInd": 3673 
+},
+{
+ "Team": "MIA",
+"Year":             10,
+"DefenceInd": 3530 
+},
+{
+ "Team": "SAN",
+"Year":             10,
+"DefenceInd": 3453 
+},
+{
+ "Team": "CLE",
+"Year":             11,
+"DefenceInd": 3374 
+},
+{
+ "Team": "DAL",
+"Year":             11,
+"DefenceInd": 3703 
+},
+{
+ "Team": "DEN",
+"Year":             11,
+"DefenceInd": 3861 
+},
+{
+ "Team": "GSW",
+"Year":             11,
+"DefenceInd": 3520 
+},
+{
+ "Team": "HOU",
+"Year":             11,
+"DefenceInd": 3230 
+},
+{
+ "Team": "IND",
+"Year":             11,
+"DefenceInd": 3698 
+},
+{
+ "Team": "LAC",
+"Year":             11,
+"DefenceInd": 3490 
+},
+{
+ "Team": "LAL",
+"Year":             11,
+"DefenceInd": 3638 
+},
+{
+ "Team": "MIA",
+"Year":             11,
+"DefenceInd": 3735 
+},
+{
+ "Team": "SAN",
+"Year":             11,
+"DefenceInd": 3569 
+},
+{
+ "Team": "CLE",
+"Year":             12,
+"DefenceInd": 2371 
+},
+{
+ "Team": "DAL",
+"Year":             12,
+"DefenceInd": 3049 
+},
+{
+ "Team": "DEN",
+"Year":             12,
+"DefenceInd": 3106 
+},
+{
+ "Team": "GSW",
+"Year":             12,
+"DefenceInd": 2571 
+},
+{
+ "Team": "HOU",
+"Year":             12,
+"DefenceInd": 2462 
+},
+{
+ "Team": "IND",
+"Year":             12,
+"DefenceInd": 3052 
+},
+{
+ "Team": "LAC",
+"Year":             12,
+"DefenceInd": 2889 
+},
+{
+ "Team": "LAL",
+"Year":             12,
+"DefenceInd": 3147 
+},
+{
+ "Team": "MIA",
+"Year":             12,
+"DefenceInd": 3008 
+},
+{
+ "Team": "SAN",
+"Year":             12,
+"DefenceInd": 3057 
+},
+{
+ "Team": "CLE",
+"Year":             13,
+"DefenceInd": 3522 
+},
+{
+ "Team": "DAL",
+"Year":             13,
+"DefenceInd": 3703 
+},
+{
+ "Team": "DEN",
+"Year":             13,
+"DefenceInd": 3897 
+},
+{
+ "Team": "GSW",
+"Year":             13,
+"DefenceInd": 3668 
+},
+{
+ "Team": "HOU",
+"Year":             13,
+"DefenceInd": 3542 
+},
+{
+ "Team": "IND",
+"Year":             13,
+"DefenceInd": 3848 
+},
+{
+ "Team": "LAC",
+"Year":             13,
+"DefenceInd": 3725 
+},
+{
+ "Team": "LAL",
+"Year":             13,
+"DefenceInd": 3737 
+},
+{
+ "Team": "MIA",
+"Year":             13,
+"DefenceInd": 3636 
+},
+{
+ "Team": "SAN",
+"Year":             13,
+"DefenceInd": 3844 
+},
+{
+ "Team": "CLE",
+"Year":             14,
+"DefenceInd": 3824 
+},
+{
+ "Team": "DAL",
+"Year":             14,
+"DefenceInd": 3574 
+},
+{
+ "Team": "DEN",
+"Year":             14,
+"DefenceInd": 3733 
+},
+{
+ "Team": "GSW",
+"Year":             14,
+"DefenceInd": 4048 
+},
+{
+ "Team": "HOU",
+"Year":             14,
+"DefenceInd": 3944 
+},
+{
+ "Team": "IND",
+"Year":             14,
+"DefenceInd": 4338 
+},
+{
+ "Team": "LAC",
+"Year":             14,
+"DefenceInd": 4093 
+},
+{
+ "Team": "LAL",
+"Year":             14,
+"DefenceInd": 3627 
+},
+{
+ "Team": "MIA",
+"Year":             14,
+"DefenceInd": 3417 
+},
+{
+ "Team": "SAN",
+"Year":             14,
+"DefenceInd": 3730 
+},
+{
+ "Team": "CLE",
+"Year":             15,
+"DefenceInd": 3788 
+},
+{
+ "Team": "DAL",
+"Year":             15,
+"DefenceInd": 4103 
+},
+{
+ "Team": "DEN",
+"Year":             15,
+"DefenceInd": 3210 
+},
+{
+ "Team": "GSW",
+"Year":             15,
+"DefenceInd": 4074 
+},
+{
+ "Team": "HOU",
+"Year":             15,
+"DefenceInd": 4398 
+},
+{
+ "Team": "IND",
+"Year":             15,
+"DefenceInd": 3686 
+},
+{
+ "Team": "LAC",
+"Year":             15,
+"DefenceInd": 3832 
+},
+{
+ "Team": "LAL",
+"Year":             15,
+"DefenceInd": 3668 
+},
+{
+ "Team": "MIA",
+"Year":             15,
+"DefenceInd": 3336 
+},
+{
+ "Team": "SAN",
+"Year":             15,
+"DefenceInd": 3802 
+},
+{
+ "Team": "CLE",
+"Year":             16,
+"DefenceInd": 3690 
+},
+{
+ "Team": "DAL",
+"Year":             16,
+"DefenceInd": 3738 
+},
+{
+ "Team": "DEN",
+"Year":             16,
+"DefenceInd": 3676 
+},
+{
+ "Team": "GSW",
+"Year":             16,
+"DefenceInd": 4182 
+},
+{
+ "Team": "HOU",
+"Year":             16,
+"DefenceInd": 3757 
+},
+{
+ "Team": "IND",
+"Year":             16,
+"DefenceInd": 3903 
+},
+{
+ "Team": "LAC",
+"Year":             16,
+"DefenceInd": 3872 
+},
+{
+ "Team": "LAL",
+"Year":             16,
+"DefenceInd": 3575 
+},
+{
+ "Team": "MIA",
+"Year":             16,
+"DefenceInd": 4131 
+},
+{
+ "Team": "SAN",
+"Year":             16,
+"DefenceInd": 4076 
+},
+{
+ "Team": "CLE",
+"Year":             17,
+"DefenceInd": 1605 
+},
+{
+ "Team": "DAL",
+"Year":             17,
+"DefenceInd": 1538 
+},
+{
+ "Team": "DEN",
+"Year":             17,
+"DefenceInd": 1673 
+},
+{
+ "Team": "GSW",
+"Year":             17,
+"DefenceInd": 1908 
+},
+{
+ "Team": "HOU",
+"Year":             17,
+"DefenceInd": 1761 
+},
+{
+ "Team": "IND",
+"Year":             17,
+"DefenceInd": 1820 
+},
+{
+ "Team": "LAC",
+"Year":             17,
+"DefenceInd": 1826 
+},
+{
+ "Team": "LAL",
+"Year":             17,
+"DefenceInd": 1753 
+},
+{
+ "Team": "MIA",
+"Year":             17,
+"DefenceInd": 1743 
+},
+{
+ "Team": "SAN",
+"Year":             17,
+"DefenceInd": 1761 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .useInteractiveGuideline(true)
+          
+        chart.xAxis
+  .tickValues( function (x) {    
+  tickvalues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+  return tickvalues;
+  } )
+  .tickFormat( function (x) {
+        tickformat = ['00-01', '01-02', '02-03', '03-04', '04-05', 
+        '05-06', '06-07', '07-08', '08-09', '09-10', '10-11', 
+        '11-12', '12-13', '13-14', '14-15', '15-16', '16-17'];
+        return tickformat[x-1];
+        } )
+
+        chart.x2Axis
+  .tickValues( function (x) {    
+    tickvalues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+         return tickvalues;
+         } )
+  .tickFormat( function (x) {
+         tickformat = ['00-01', '01-02', '02-03', '03-04', '04-05', 
+         '05-06', '06-07', '07-08', '08-09', '09-10', '10-11', 
+         '11-12', '12-13', '13-14', '14-15', '15-16', '16-17'];
+         return tickformat[x-1];
+         } )
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
