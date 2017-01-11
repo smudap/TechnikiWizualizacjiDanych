@@ -56,6 +56,11 @@ Zaliczenie jest oparte o trzy składowe:
 
 Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa ocena.
 
+# Projekt 2
+
+Komentarze do projektów (punkty wystawię jutro):
+https://docs.google.com/spreadsheets/d/1UN-5-MGXKSv-TRQDVhJEMbSxXUjGLto9Oy3mWtAVGRg/edit?usp=sharing
+
 # Projekt 3 - CNK
 
 Doświadczenia z poprzednimi projektami pokazują, że lepiej wychodzą konkretnie narzucone projekty. Więc na trzeci projekt mam dla państwa coś specjalnego.
