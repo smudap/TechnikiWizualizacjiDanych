@@ -1,0 +1,25 @@
+---
+title: "Praca domowa"
+author: "Oferowane ceny mieszkañ w grudniu 2016"
+
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+W minionym tygodniu trafi³am na akrtyku³ dotyczn¹cy œrednich cen mieszkania w wybranych miastach Polski 
+(http://www.bankier.pl/wiadomosc/Ceny-ofertowe-mieszkan-styczen-2017-Raport-Bankier-pl-7493142.html).
+
+Zamieszczon¹ tabelê z danymi postanowi³am zwizualizowaæ przy u¿yciu narzêdzia Tableau . 
+Na finalny Dashboard sk³adaj¹ siê trzy czêœci - tabela z danymi, wykres œredniej ceny na rynku wtórnym w funkcji œredniej ceny na rynku pierwotnym oraz mapa Polski z zaznaczonymi miastami. 
+Kolumny tabeli z danymi zosta³y uszeregowane wzglêdem malej¹cej ceny za mieszkanie o metra¿u do 38mkw na rynku wtórnym. 
+Wielkoœæ punktów na mapie odpowiada œredniej cenie za metr kwadratowy mieszkania w danym mieœcie na rynku pierwotnym. 
+Kolory na wykresie oraz mapie pokrywaj¹ siê ze sob¹, a umieszczone dwa filtry dla miasta i metra¿u pozwalaj¹ na szybkie wybieranie lub podœwietlanie interesuj¹cych nas wielkoœci.
+
+https://public.tableau.com/profile/publish/PdTWD/Dashboard1#!/publish-confirm
+
+Wykresy potwierdzaj¹ przypuszczenia, ¿e ,,królow¹'' rankingu jest Warszawa- to tu zap³acimy najwiêcej za metr kwadratowy mieszkania niezale¿nie od jego metra¿u i rodzaju ( rynek pierwotny i wtórny).
+Prawie wie wszystkich miastach najwiêcej zap³acimy za metr kwadratowy mieszkania o najmniejszym metra¿u ( jedynie £ódŸ nie posiada tej w³aœciwoœci). Natomiast Gdañsk charakteryzuje siê najwiêksz¹ ró¿nic¹ miêdzy cen¹ dla najmniejszego matra¿u, a pozosta³ymi dwoma.
