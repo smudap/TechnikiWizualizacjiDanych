@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+ 
+  <style type="text/css">
+	
+body { font: 12px Arial;}
+
+path { 
+
+	fill: none;
+}
+
+#chart2 .axis path
+ {
+ display: none;
+}
+
+.x.axis text {
+				stroke: grey;
+				font-family: Helvetica;
+				font-size: 14px;
+			}
+
+ .y.axis text {
+				stroke: grey;
+				font-family: Helvetica;
+				font-size: 12px;
+			}
+
+#chart2 .x.axis path {
+  display: none;
+}
+
+#chart1 .axis path
+ {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+}
+
+
+#chart1 .grid .tick {
+    stroke: grey;
+    opacity: 1;
+}
+
+#chart1.container {
+  float: left;
+}
+#chart2.container {
+  float: right;
+}
+
+div.tooltip { 
+    position: absolute;     
+    text-align: left;     
+    width: 200px;          
+    height: 80px;         
+    padding: 5px;       
+    font: 12px sans-serif;    
+    background: white; 
+    border: 100px;    
+    border-radius: 10px;     
+    pointer-events: none;     
+}
+
+#kat_2008 {
+
+cursor: pointer;
+}
+
+#kat_2012 {
+
+cursor: pointer;
+}
+
+#kat_2016 {
+
+cursor: pointer;
+}
+
+
+#wszystkie {
+
+cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<h1>Historia medalowa Polski a dofinansowania z Ministerstwa Sportu</h1>
+<h3>dla dyscyplin rozgrywanych podczas letnich igrzysk olimpijskich w latach 2006-2016</h3>
+<h1></h1>
+<div class="container" id="chart1">
+</div>
+<div class="container" id="chart2">
+</div>
+
+
+<body>
+
+<script>
+
+
+// Set the dimensions of the canvas / graph
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 450 - margin.left - margin.right,
+	height = 700 - margin.top - margin.bottom;
+
+
+jaki_sport_jaki_kolor = function(sport, kolorki){
+
+var sporty = ["badminton","baseball i softball","boks","gimnastyka","golf",
+"hokej na trawie","jeździectwo","judo","kajakarstwo","kolarstwo","koszykówka",
+"lekkoatletyka","łucznictwo","pięciobój nowoczesny","piłka nożna","piłka ręczna",
+"piłka siatkowa","pływanie","podnoszenie ciężarów","rugby","strzelectwo sportowe",
+"szermierka","taekwendo","tenis stołowy","tenis","thriathlon","wioślarstwo","zapasy","żeglarstwo"] ; 
+
+
+var numer = sporty.indexOf(sport);
+
+return kolorki[numer];
+
+}
+var kolory  = ["#E41A1C","#B23648","#815375","#4F6FA1","#3A85A8","#409388","#46A169","#4DAF4A","#629363",
+"#77777C","#8D5B96","#A6558B","#C4625D","#E1712E","#FF7F00","#FFA30E","#FFC81D","#FFEC2B","#F2E631","#D8B62E",
+"#BF862B","#A65628","#BD6253","#D46E7E","#EB7AA9","#E984B9","#CE8BAE","#B392A3","#999999"];
+		
+	
+	
+	
+// słupki rysujemy
+rysujemySlupki = function(sport,kolor){
+
+
+
+var	chart1 = d3.select("#chart1")
+	.append("svg")
+		.attr("id", "pierwszy")
+		.attr("width", width+90 + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+
+var	x = d3.scale.linear().range([0, width+90]);
+var	y = d3.scale.linear().range([height+150, height/2+150]);
+
+
+medale = [{"rok":1924,"sport":"jeździectwo","ile":1},{"rok":1924,"sport":"kolarstwo","ile":1},{"rok":1928,"sport":"jeździectwo","ile":2},{"rok":1928,"sport":"lekkoatletyka","ile":1},{"rok":1928,"sport":"szermierka","ile":1},{"rok":1928,"sport":"wioślarstwo","ile":1},{"rok":1932,"sport":"lekkoatletyka","ile":3},{"rok":1932,"sport":"szermierka","ile":1},{"rok":1932,"sport":"wioślarstwo","ile":3},{"rok":1936,"sport":"jeździectwo","ile":1},{"rok":1936,"sport":"lekkoatletyka","ile":3},{"rok":1936,"sport":"strzelectwo sportowe","ile":1},{"rok":1936,"sport":"wioślarstwo","ile":1},{"rok":1948,"sport":"boks","ile":1},{"rok":1952,"sport":"boks","ile":2},{"rok":1952,"sport":"gimnastyka","ile":1},{"rok":1952,"sport":"wioślarstwo","ile":1},{"rok":1956,"sport":"boks","ile":2},{"rok":1956,"sport":"gimnastyka","ile":1},{"rok":1956,"sport":"lekkoatletyka","ile":2},{"rok":1956,"sport":"podnoszenie ciężarów","ile":1},{"rok":1956,"sport":"strzelectwo sportowe","ile":1},{"rok":1956,"sport":"szermierka","ile":2},{"rok":1960,"sport":"boks","ile":7},{"rok":1960,"sport":"kajakarstwo","ile":2},{"rok":1960,"sport":"lekkoatletyka","ile":7},{"rok":1960,"sport":"podnoszenie ciężarów","ile":2},{"rok":1960,"sport":"szermierka","ile":1},{"rok":1960,"sport":"wioślarstwo","ile":1},{"rok":1960,"sport":"zapasy","ile":1},{"rok":1964,"sport":"boks","ile":7},{"rok":1964,"sport":"lekkoatletyka","ile":8},{"rok":1964,"sport":"piłka siatkowa","ile":1},{"rok":1964,"sport":"podnoszenie ciężarów","ile":4},{"rok":1964,"sport":"szermierka","ile":3},{"rok":1968,"sport":"boks","ile":5},{"rok":1968,"sport":"kolarstwo","ile":1},{"rok":1968,"sport":"lekkoatletyka","ile":2},{"rok":1968,"sport":"piłka siatkowa","ile":1},{"rok":1968,"sport":"podnoszenie ciężarów","ile":5},{"rok":1968,"sport":"strzelectwo sportowe","ile":1},{"rok":1968,"sport":"szermierka","ile":3},{"rok":1972,"sport":"boks","ile":4},{"rok":1972,"sport":"judo","ile":1},{"rok":1972,"sport":"kajakarstwo","ile":1},{"rok":1972,"sport":"kolarstwo","ile":2},{"rok":1972,"sport":"lekkoatletyka","ile":3},{"rok":1972,"sport":"łucznictwo","ile":1},{"rok":1972,"sport":"piłka nożna","ile":1},{"rok":1972,"sport":"podnoszenie ciężarów","ile":3},{"rok":1972,"sport":"strzelectwo sportowe","ile":1},{"rok":1972,"sport":"szermierka","ile":2},{"rok":1972,"sport":"zapasy","ile":2},{"rok":1976,"sport":"boks","ile":5},{"rok":1976,"sport":"judo","ile":1},{"rok":1976,"sport":"kajakarstwo","ile":1},{"rok":1976,"sport":"kolarstwo","ile":2},{"rok":1976,"sport":"lekkoatletyka","ile":5},{"rok":1976,"sport":"pięciobój nowoczesny","ile":1},{"rok":1976,"sport":"piłka nożna","ile":1},{"rok":1976,"sport":"piłka ręczna","ile":1},{"rok":1976,"sport":"piłka siatkowa","ile":1},{"rok":1976,"sport":"podnoszenie ciężarów","ile":3},{"rok":1976,"sport":"strzelectwo sportowe","ile":2},{"rok":1976,"sport":"zapasy","ile":3},{"rok":1980,"sport":"boks","ile":5},{"rok":1980,"sport":"jeździectwo","ile":2},{"rok":1980,"sport":"judo","ile":1},{"rok":1980,"sport":"kolarstwo","ile":1},{"rok":1980,"sport":"lekkoatletyka","ile":7},{"rok":1980,"sport":"pływanie","ile":1},{"rok":1980,"sport":"podnoszenie ciężarów","ile":3},{"rok":1980,"sport":"szermierka","ile":3},{"rok":1980,"sport":"wioślarstwo","ile":2},{"rok":1980,"sport":"zapasy","ile":7},{"rok":1988,"sport":"boks","ile":4},{"rok":1988,"sport":"judo","ile":2},{"rok":1988,"sport":"kajakarstwo","ile":3},{"rok":1988,"sport":"kolarstwo","ile":1},{"rok":1988,"sport":"pływanie","ile":1},{"rok":1988,"sport":"podnoszenie ciężarów","ile":1},{"rok":1988,"sport":"szermierka","ile":1},{"rok":1988,"sport":"zapasy","ile":3},{"rok":1992,"sport":"boks","ile":1},{"rok":1992,"sport":"judo","ile":1},{"rok":1992,"sport":"kajakarstwo","ile":3},{"rok":1992,"sport":"lekkoatletyka","ile":1},{"rok":1992,"sport":"pięciobój nowoczesny","ile":2},{"rok":1992,"sport":"piłka nożna","ile":1},{"rok":1992,"sport":"pływanie","ile":1},{"rok":1992,"sport":"podnoszenie ciężarów","ile":3},{"rok":1992,"sport":"strzelectwo sportowe","ile":1},{"rok":1992,"sport":"szermierka","ile":1},{"rok":1992,"sport":"wioślarstwo","ile":2},{"rok":1992,"sport":"zapasy","ile":2},{"rok":1996,"sport":"judo","ile":2},{"rok":1996,"sport":"kajakarstwo","ile":1},{"rok":1996,"sport":"lekkoatletyka","ile":2},{"rok":1996,"sport":"łucznictwo","ile":1},{"rok":1996,"sport":"podnoszenie ciężarów","ile":1},{"rok":1996,"sport":"strzelectwo sportowe","ile":3},{"rok":1996,"sport":"szermierka","ile":1},{"rok":1996,"sport":"zapasy","ile":5},{"rok":1996,"sport":"żeglarstwo","ile":1},{"rok":2000,"sport":"gimnastyka","ile":1},{"rok":2000,"sport":"kajakarstwo","ile":4},{"rok":2000,"sport":"lekkoatletyka","ile":4},{"rok":2000,"sport":"podnoszenie ciężarów","ile":2},{"rok":2000,"sport":"strzelectwo sportowe","ile":1},{"rok":2000,"sport":"szermierka","ile":1},{"rok":2000,"sport":"wioślarstwo","ile":1},{"rok":2004,"sport":"kajakarstwo","ile":1},{"rok":2004,"sport":"lekkoatletyka","ile":2},{"rok":2004,"sport":"pływanie","ile":3},{"rok":2004,"sport":"podnoszenie ciężarów","ile":1},{"rok":2004,"sport":"szermierka","ile":1},{"rok":2004,"sport":"wioślarstwo","ile":1},{"rok":2004,"sport":"żeglarstwo","ile":1}];
+
+	x.domain(d3.extent(medale, function(d) { return d.rok; }));
+	y.domain([0, d3.max(medale, function(d) { return d.ile; })]);
+
+// Define the axes
+
+var  rok_format = d3.format(".4");
+
+
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom")
+	.tickFormat(rok_format)
+    .tickValues([1924,1928,1932,1936,1940,1944,1948,1952,1956,1960,1964,1968,1972,1976,1980,1984,1988,1992,1996,2000,2004]);
+
+
+
+var	yAxis = d3.svg.axis().scale(y)
+	
+	.orient("left").ticks(9)
+	.outerTickSize(1)
+        .tickSize(-700, 1)
+	
+// Add the X Axis
+	chart1.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + (height/2+150) + ")")
+		.call(xAxis)
+		.selectAll("text")	
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", function(d) {
+                return "rotate(-65)" 
+                });
+
+	// Add the Y Axis
+	chart1.append("g")
+		.attr("class", "y axis")
+		.attr("class", "grid")
+		.attr("transform", "translate(-8," + (-height/2) + ")")
+		.call(yAxis);
+		
+	
+	
+	
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.rok); })
+	.y(function(d) { return y(d.ranking); })
+	.interpolate("cardinal")
+	.tension(1);
+
+	chart1.selectAll("rect")
+	   .data(medale).enter().append("rect")
+	   .attr("y",  function(d, i) {
+		 return y(d.ile)-height/2;
+	   })
+	   .filter(function(d) { return d.sport == sport })
+	   .attr("x",  function (d){ 
+				return  x(d.rok)-10
+			})
+	   .attr("width", 15)
+	   .attr("height", function(d, i) {
+		 return (height+150- y(d.ile))
+	   })
+	   .style("fill", kolor)
+		
+	
+	
+	chart1.append("text")
+		.attr('text-anchor', 'middle')
+        .attr("x", x(1952))          
+        .attr("y", y(17.3))  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")  
+        .style("font-family", "Helvetica")
+        .text("Liczba medali zdobytych w latach 1924-2004")
+        .style("opacity",1)		
+		
+
+
+
+// dodatki
+
+
+chart1.append("text")
+			.attr("id", "lab_baseball")
+			.attr("x", x(1930))          
+			.attr("y", y(13)) 
+			.style("font-size", "16px")  
+			.style("font-family", "Helvetica")
+			.text("Dyscypliny wycofane z igrzysk po olimpiadzie w 2008 roku.")
+			.style("opacity",0)
+			
+
+chart1.append("text")
+			.attr("id", "lab_rugby")
+			.attr("x", x(1930))          
+			.attr("y", y(13)) 
+			.style("font-size", "16px")  
+			.style("font-family", "Helvetica")
+			.text("Dyscyplina wycofana z igrzysk po olimpiadzie w 1924 roku,")
+			.style("opacity",0)
+			
+
+chart1.append("text")
+			.attr("id", "lab_rugby1")
+			.attr("x", x(1930))          
+			.attr("y", y(12.5)) 
+			.style("font-size", "16px")  
+			.style("font-family", "Helvetica")
+			.text("powróciła w roku 2016.")
+			.style("opacity",0)
+
+chart1.append("text")
+			.attr("id", "lab_golf")
+			.attr("x", x(1930))          
+			.attr("y", y(13)) 
+			.style("font-size", "16px")  
+			.style("font-family", "Helvetica")
+			.text("Dyscyplina wycofana z igrzysk po olimpiadzie w 1904 roku,")
+			.style("opacity",0)
+			
+
+chart1.append("text")
+			.attr("id", "lab_golf1")
+			.attr("x", x(1930))          
+			.attr("y", y(12.5)) 
+			.style("font-size", "16px")  
+			.style("font-family", "Helvetica")
+			.text(" powróciła w roku 2016.")
+			.style("opacity",0)
+		
+		
+}
+
+			
+
+
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////// wykres finansowania
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+var	x = d3.scale.linear().range([200, width*2+200]);
+var	y = d3.scale.linear().range([ 30,height+30-100]);
+
+// Define the axes
+
+var  rok_format = d3.format(".4");
+
+
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(11)
+	.tickFormat(rok_format);
+
+
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(29)
+	
+
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.rok); })
+	.y(function(d) { return y(d.ranking); })
+	.interpolate("cardinal")
+	.tension(0.9);
+
+
+var	chart2 = d3.select("#chart2")
+	.append("svg")
+		.attr("width", width*2+300 + margin.left + margin.right)
+		.attr("height", height+300 + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + (margin.top+50) + ")");
+
+// Get the data
+
+
+
+data = [{"sport":"badminton","rok":2006,"ranking":20,"kasa":"1.85 mln zł","udzialy":1.68,"ile_obecnie":0},{"sport":"baseball i softball","rok":2006,"ranking":27,"kasa":"0.61 mln zł","udzialy":0.55,"ile_obecnie":0},{"sport":"boks","rok":2006,"ranking":15,"kasa":"2.73 mln zł","udzialy":2.48,"ile_obecnie":0},{"sport":"gimnastyka","rok":2006,"ranking":17,"kasa":"2.49 mln zł","udzialy":2.26,"ile_obecnie":0},{"sport":"golf","rok":2006,"ranking":29,"kasa":"0.08 mln zł","udzialy":0.07,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2006,"ranking":16,"kasa":"2.6 mln zł","udzialy":2.37,"ile_obecnie":0},{"sport":"jeździectwo","rok":2006,"ranking":24,"kasa":"1.27 mln zł","udzialy":1.16,"ile_obecnie":0},{"sport":"judo","rok":2006,"ranking":11,"kasa":"4.55 mln zł","udzialy":4.14,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2006,"ranking":2,"kasa":"9 mln zł","udzialy":8.19,"ile_obecnie":0},{"sport":"kolarstwo","rok":2006,"ranking":9,"kasa":"5.4 mln zł","udzialy":4.91,"ile_obecnie":0},{"sport":"koszykówka","rok":2006,"ranking":18,"kasa":"2.4 mln zł","udzialy":2.18,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2006,"ranking":1,"kasa":"12.62 mln zł","udzialy":11.48,"ile_obecnie":0},{"sport":"łucznictwo","rok":2006,"ranking":22,"kasa":"1.49 mln zł","udzialy":1.36,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2006,"ranking":13,"kasa":"3.16 mln zł","udzialy":2.88,"ile_obecnie":0},{"sport":"piłka nożna","rok":2006,"ranking":26,"kasa":"0.67 mln zł","udzialy":0.61,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2006,"ranking":14,"kasa":"2.97 mln zł","udzialy":2.7,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2006,"ranking":5,"kasa":"5.95 mln zł","udzialy":5.41,"ile_obecnie":0},{"sport":"pływanie","rok":2006,"ranking":4,"kasa":"8.27 mln zł","udzialy":7.52,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2006,"ranking":10,"kasa":"5.14 mln zł","udzialy":4.67,"ile_obecnie":0},{"sport":"rugby","rok":2006,"ranking":23,"kasa":"1.29 mln zł","udzialy":1.17,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2006,"ranking":12,"kasa":"4.15 mln zł","udzialy":3.78,"ile_obecnie":0},{"sport":"szermierka","rok":2006,"ranking":6,"kasa":"5.77 mln zł","udzialy":5.25,"ile_obecnie":0},{"sport":"taekwendo","rok":2006,"ranking":19,"kasa":"2.2 mln zł","udzialy":2,"ile_obecnie":0},{"sport":"tenis","rok":2006,"ranking":25,"kasa":"1.15 mln zł","udzialy":1.05,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2006,"ranking":21,"kasa":"1.53 mln zł","udzialy":1.39,"ile_obecnie":0},{"sport":"thriathlon","rok":2006,"ranking":28,"kasa":"0.53 mln zł","udzialy":0.48,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2006,"ranking":3,"kasa":"8.8 mln zł","udzialy":8.01,"ile_obecnie":0},{"sport":"zapasy","rok":2006,"ranking":8,"kasa":"5.55 mln zł","udzialy":5.05,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2006,"ranking":7,"kasa":"5.7 mln zł","udzialy":5.19,"ile_obecnie":0},{"sport":"badminton","rok":2007,"ranking":20,"kasa":"1.8 mln zł","udzialy":1.54,"ile_obecnie":0},{"sport":"baseball i softball","rok":2007,"ranking":27,"kasa":"0.6 mln zł","udzialy":0.51,"ile_obecnie":0},{"sport":"boks","rok":2007,"ranking":16,"kasa":"2.7 mln zł","udzialy":2.31,"ile_obecnie":0},{"sport":"gimnastyka","rok":2007,"ranking":17,"kasa":"2.5 mln zł","udzialy":2.14,"ile_obecnie":0},{"sport":"golf","rok":2007,"ranking":28,"kasa":"0.09 mln zł","udzialy":0.08,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2007,"ranking":15,"kasa":"2.9 mln zł","udzialy":2.48,"ile_obecnie":0},{"sport":"jeździectwo","rok":2007,"ranking":22,"kasa":"1.5 mln zł","udzialy":1.28,"ile_obecnie":0},{"sport":"judo","rok":2007,"ranking":11,"kasa":"4.7 mln zł","udzialy":4.01,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2007,"ranking":2,"kasa":"10 mln zł","udzialy":8.54,"ile_obecnie":0},{"sport":"kolarstwo","rok":2007,"ranking":7,"kasa":"6 mln zł","udzialy":5.12,"ile_obecnie":0},{"sport":"koszykówka","rok":2007,"ranking":19,"kasa":"2.4 mln zł","udzialy":2.05,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2007,"ranking":1,"kasa":"13 mln zł","udzialy":11.1,"ile_obecnie":0},{"sport":"łucznictwo","rok":2007,"ranking":21,"kasa":"1.6 mln zł","udzialy":1.37,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2007,"ranking":13,"kasa":"3.4 mln zł","udzialy":2.9,"ile_obecnie":0},{"sport":"piłka nożna","rok":2007,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2007,"ranking":14,"kasa":"3.1 mln zł","udzialy":2.65,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2007,"ranking":5,"kasa":"8 mln zł","udzialy":6.83,"ile_obecnie":0},{"sport":"pływanie","rok":2007,"ranking":3,"kasa":"9 mln zł","udzialy":7.69,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2007,"ranking":10,"kasa":"5.4 mln zł","udzialy":4.61,"ile_obecnie":0},{"sport":"rugby","rok":2007,"ranking":25,"kasa":"1.4 mln zł","udzialy":1.2,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2007,"ranking":12,"kasa":"4.5 mln zł","udzialy":3.84,"ile_obecnie":0},{"sport":"szermierka","rok":2007,"ranking":6,"kasa":"6.2 mln zł","udzialy":5.3,"ile_obecnie":0},{"sport":"taekwendo","rok":2007,"ranking":18,"kasa":"2.4 mln zł","udzialy":2.05,"ile_obecnie":0},{"sport":"tenis","rok":2007,"ranking":23,"kasa":"1.5 mln zł","udzialy":1.28,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2007,"ranking":24,"kasa":"1.4 mln zł","udzialy":1.2,"ile_obecnie":0},{"sport":"thriathlon","rok":2007,"ranking":26,"kasa":"0.8 mln zł","udzialy":0.68,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2007,"ranking":4,"kasa":"9 mln zł","udzialy":7.69,"ile_obecnie":0},{"sport":"zapasy","rok":2007,"ranking":9,"kasa":"5.5 mln zł","udzialy":4.7,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2007,"ranking":8,"kasa":"5.7 mln zł","udzialy":4.87,"ile_obecnie":0},{"sport":"badminton","rok":2008,"ranking":20,"kasa":"2.15 mln zł","udzialy":1.63,"ile_obecnie":0},{"sport":"baseball i softball","rok":2008,"ranking":27,"kasa":"0.6 mln zł","udzialy":0.45,"ile_obecnie":0},{"sport":"boks","rok":2008,"ranking":18,"kasa":"2.7 mln zł","udzialy":2.04,"ile_obecnie":0},{"sport":"gimnastyka","rok":2008,"ranking":16,"kasa":"3.27 mln zł","udzialy":2.47,"ile_obecnie":1},{"sport":"golf","rok":2008,"ranking":28,"kasa":"0.15 mln zł","udzialy":0.11,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2008,"ranking":15,"kasa":"3.5 mln zł","udzialy":2.65,"ile_obecnie":0},{"sport":"jeździectwo","rok":2008,"ranking":22,"kasa":"2 mln zł","udzialy":1.51,"ile_obecnie":0},{"sport":"judo","rok":2008,"ranking":11,"kasa":"5.2 mln zł","udzialy":3.94,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2008,"ranking":2,"kasa":"11 mln zł","udzialy":8.33,"ile_obecnie":1},{"sport":"kolarstwo","rok":2008,"ranking":8,"kasa":"6.3 mln zł","udzialy":4.77,"ile_obecnie":1},{"sport":"koszykówka","rok":2008,"ranking":17,"kasa":"3.08 mln zł","udzialy":2.33,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2008,"ranking":1,"kasa":"14.5 mln zł","udzialy":10.97,"ile_obecnie":2},{"sport":"łucznictwo","rok":2008,"ranking":21,"kasa":"2.01 mln zł","udzialy":1.52,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2008,"ranking":14,"kasa":"4 mln zł","udzialy":3.03,"ile_obecnie":0},{"sport":"piłka nożna","rok":2008,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2008,"ranking":13,"kasa":"4.04 mln zł","udzialy":3.05,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2008,"ranking":5,"kasa":"8.5 mln zł","udzialy":6.43,"ile_obecnie":0},{"sport":"pływanie","rok":2008,"ranking":3,"kasa":"10 mln zł","udzialy":7.57,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2008,"ranking":10,"kasa":"6.01 mln zł","udzialy":4.55,"ile_obecnie":1},{"sport":"rugby","rok":2008,"ranking":25,"kasa":"1.6 mln zł","udzialy":1.21,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2008,"ranking":12,"kasa":"5.08 mln zł","udzialy":3.84,"ile_obecnie":0},{"sport":"szermierka","rok":2008,"ranking":6,"kasa":"7 mln zł","udzialy":5.3,"ile_obecnie":1},{"sport":"taekwendo","rok":2008,"ranking":19,"kasa":"2.2 mln zł","udzialy":1.67,"ile_obecnie":0},{"sport":"tenis","rok":2008,"ranking":23,"kasa":"1.9 mln zł","udzialy":1.44,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2008,"ranking":24,"kasa":"1.68 mln zł","udzialy":1.27,"ile_obecnie":0},{"sport":"thriathlon","rok":2008,"ranking":26,"kasa":"1.11 mln zł","udzialy":0.84,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2008,"ranking":4,"kasa":"9.5 mln zł","udzialy":7.19,"ile_obecnie":2},{"sport":"zapasy","rok":2008,"ranking":9,"kasa":"6.05 mln zł","udzialy":4.58,"ile_obecnie":1},{"sport":"żeglarstwo","rok":2008,"ranking":7,"kasa":"7 mln zł","udzialy":5.3,"ile_obecnie":0},{"sport":"badminton","rok":2009,"ranking":17,"kasa":"2.88 mln zł","udzialy":2.13,"ile_obecnie":0},{"sport":"baseball i softball","rok":2009,"ranking":27,"kasa":"0.45 mln zł","udzialy":0.33,"ile_obecnie":0},{"sport":"boks","rok":2009,"ranking":18,"kasa":"2.71 mln zł","udzialy":2,"ile_obecnie":0},{"sport":"gimnastyka","rok":2009,"ranking":25,"kasa":"1.24 mln zł","udzialy":0.92,"ile_obecnie":0},{"sport":"golf","rok":2009,"ranking":28,"kasa":"0.25 mln zł","udzialy":0.18,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2009,"ranking":15,"kasa":"3.7 mln zł","udzialy":2.73,"ile_obecnie":0},{"sport":"jeździectwo","rok":2009,"ranking":21,"kasa":"2.1 mln zł","udzialy":1.55,"ile_obecnie":0},{"sport":"judo","rok":2009,"ranking":13,"kasa":"4.81 mln zł","udzialy":3.55,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2009,"ranking":3,"kasa":"10.71 mln zł","udzialy":7.91,"ile_obecnie":0},{"sport":"kolarstwo","rok":2009,"ranking":9,"kasa":"6.81 mln zł","udzialy":5.03,"ile_obecnie":0},{"sport":"koszykówka","rok":2009,"ranking":16,"kasa":"3.39 mln zł","udzialy":2.5,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2009,"ranking":1,"kasa":"12.49 mln zł","udzialy":9.22,"ile_obecnie":0},{"sport":"łucznictwo","rok":2009,"ranking":20,"kasa":"2.17 mln zł","udzialy":1.6,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2009,"ranking":14,"kasa":"3.95 mln zł","udzialy":2.92,"ile_obecnie":0},{"sport":"piłka nożna","rok":2009,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2009,"ranking":8,"kasa":"7.17 mln zł","udzialy":5.3,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2009,"ranking":4,"kasa":"9.67 mln zł","udzialy":7.14,"ile_obecnie":0},{"sport":"pływanie","rok":2009,"ranking":5,"kasa":"9.05 mln zł","udzialy":6.68,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2009,"ranking":10,"kasa":"6.33 mln zł","udzialy":4.68,"ile_obecnie":0},{"sport":"rugby","rok":2009,"ranking":24,"kasa":"1.7 mln zł","udzialy":1.26,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2009,"ranking":12,"kasa":"5.12 mln zł","udzialy":3.78,"ile_obecnie":0},{"sport":"szermierka","rok":2009,"ranking":7,"kasa":"7.18 mln zł","udzialy":5.3,"ile_obecnie":0},{"sport":"taekwendo","rok":2009,"ranking":22,"kasa":"2.04 mln zł","udzialy":1.51,"ile_obecnie":0},{"sport":"tenis","rok":2009,"ranking":19,"kasa":"2.46 mln zł","udzialy":1.82,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2009,"ranking":23,"kasa":"1.88 mln zł","udzialy":1.39,"ile_obecnie":0},{"sport":"thriathlon","rok":2009,"ranking":26,"kasa":"1.15 mln zł","udzialy":0.85,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2009,"ranking":2,"kasa":"10.77 mln zł","udzialy":7.95,"ile_obecnie":0},{"sport":"zapasy","rok":2009,"ranking":11,"kasa":"5.77 mln zł","udzialy":4.26,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2009,"ranking":6,"kasa":"7.44 mln zł","udzialy":5.5,"ile_obecnie":0},{"sport":"badminton","rok":2010,"ranking":22,"kasa":"2.05 mln zł","udzialy":1.59,"ile_obecnie":0},{"sport":"baseball i softball","rok":2010,"ranking":27,"kasa":"0.25 mln zł","udzialy":0.19,"ile_obecnie":0},{"sport":"boks","rok":2010,"ranking":21,"kasa":"2.13 mln zł","udzialy":1.65,"ile_obecnie":0},{"sport":"gimnastyka","rok":2010,"ranking":18,"kasa":"2.44 mln zł","udzialy":1.89,"ile_obecnie":0},{"sport":"golf","rok":2010,"ranking":28,"kasa":"0.25 mln zł","udzialy":0.19,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2010,"ranking":16,"kasa":"3.04 mln zł","udzialy":2.36,"ile_obecnie":0},{"sport":"jeździectwo","rok":2010,"ranking":15,"kasa":"3.44 mln zł","udzialy":2.66,"ile_obecnie":0},{"sport":"judo","rok":2010,"ranking":10,"kasa":"5.72 mln zł","udzialy":4.43,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2010,"ranking":5,"kasa":"8.48 mln zł","udzialy":6.58,"ile_obecnie":0},{"sport":"kolarstwo","rok":2010,"ranking":3,"kasa":"10.6 mln zł","udzialy":8.22,"ile_obecnie":0},{"sport":"koszykówka","rok":2010,"ranking":13,"kasa":"3.8 mln zł","udzialy":2.95,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2010,"ranking":1,"kasa":"13.6 mln zł","udzialy":10.54,"ile_obecnie":0},{"sport":"łucznictwo","rok":2010,"ranking":24,"kasa":"1.6 mln zł","udzialy":1.24,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2010,"ranking":17,"kasa":"2.65 mln zł","udzialy":2.05,"ile_obecnie":0},{"sport":"piłka nożna","rok":2010,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2010,"ranking":8,"kasa":"6.02 mln zł","udzialy":4.67,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2010,"ranking":4,"kasa":"9.38 mln zł","udzialy":7.27,"ile_obecnie":0},{"sport":"pływanie","rok":2010,"ranking":7,"kasa":"6.5 mln zł","udzialy":5.04,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2010,"ranking":9,"kasa":"5.94 mln zł","udzialy":4.61,"ile_obecnie":0},{"sport":"rugby","rok":2010,"ranking":23,"kasa":"1.72 mln zł","udzialy":1.33,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2010,"ranking":14,"kasa":"3.54 mln zł","udzialy":2.74,"ile_obecnie":0},{"sport":"szermierka","rok":2010,"ranking":6,"kasa":"8.23 mln zł","udzialy":6.38,"ile_obecnie":0},{"sport":"taekwendo","rok":2010,"ranking":25,"kasa":"1.22 mln zł","udzialy":0.95,"ile_obecnie":0},{"sport":"tenis","rok":2010,"ranking":20,"kasa":"2.15 mln zł","udzialy":1.67,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2010,"ranking":19,"kasa":"2.3 mln zł","udzialy":1.78,"ile_obecnie":0},{"sport":"thriathlon","rok":2010,"ranking":26,"kasa":"0.8 mln zł","udzialy":0.62,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2010,"ranking":2,"kasa":"11.72 mln zł","udzialy":9.08,"ile_obecnie":0},{"sport":"zapasy","rok":2010,"ranking":12,"kasa":"4.24 mln zł","udzialy":3.28,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2010,"ranking":11,"kasa":"5.21 mln zł","udzialy":4.04,"ile_obecnie":0},{"sport":"badminton","rok":2011,"ranking":23,"kasa":"1.35 mln zł","udzialy":1.21,"ile_obecnie":0},{"sport":"baseball i softball","rok":2011,"ranking":27,"kasa":"0.26 mln zł","udzialy":0.23,"ile_obecnie":0},{"sport":"boks","rok":2011,"ranking":17,"kasa":"2.2 mln zł","udzialy":1.97,"ile_obecnie":0},{"sport":"gimnastyka","rok":2011,"ranking":19,"kasa":"1.8 mln zł","udzialy":1.61,"ile_obecnie":0},{"sport":"golf","rok":2011,"ranking":28,"kasa":"0.23 mln zł","udzialy":0.21,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2011,"ranking":13,"kasa":"2.75 mln zł","udzialy":2.46,"ile_obecnie":0},{"sport":"jeździectwo","rok":2011,"ranking":25,"kasa":"1.2 mln zł","udzialy":1.07,"ile_obecnie":0},{"sport":"judo","rok":2011,"ranking":15,"kasa":"2.65 mln zł","udzialy":2.37,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2011,"ranking":3,"kasa":"8.4 mln zł","udzialy":7.5,"ile_obecnie":0},{"sport":"kolarstwo","rok":2011,"ranking":8,"kasa":"5.5 mln zł","udzialy":4.91,"ile_obecnie":0},{"sport":"koszykówka","rok":2011,"ranking":12,"kasa":"3 mln zł","udzialy":2.68,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2011,"ranking":1,"kasa":"14.8 mln zł","udzialy":13.22,"ile_obecnie":0},{"sport":"łucznictwo","rok":2011,"ranking":22,"kasa":"1.5 mln zł","udzialy":1.34,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2011,"ranking":16,"kasa":"2.6 mln zł","udzialy":2.32,"ile_obecnie":0},{"sport":"piłka nożna","rok":2011,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2011,"ranking":5,"kasa":"6.55 mln zł","udzialy":5.85,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2011,"ranking":4,"kasa":"8.25 mln zł","udzialy":7.37,"ile_obecnie":0},{"sport":"pływanie","rok":2011,"ranking":10,"kasa":"5.1 mln zł","udzialy":4.56,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2011,"ranking":7,"kasa":"5.7 mln zł","udzialy":5.09,"ile_obecnie":0},{"sport":"rugby","rok":2011,"ranking":24,"kasa":"1.35 mln zł","udzialy":1.21,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2011,"ranking":14,"kasa":"2.7 mln zł","udzialy":2.41,"ile_obecnie":0},{"sport":"szermierka","rok":2011,"ranking":6,"kasa":"6.5 mln zł","udzialy":5.81,"ile_obecnie":0},{"sport":"taekwendo","rok":2011,"ranking":21,"kasa":"1.75 mln zł","udzialy":1.56,"ile_obecnie":0},{"sport":"tenis","rok":2011,"ranking":18,"kasa":"2.1 mln zł","udzialy":1.88,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2011,"ranking":20,"kasa":"1.8 mln zł","udzialy":1.61,"ile_obecnie":0},{"sport":"thriathlon","rok":2011,"ranking":26,"kasa":"0.62 mln zł","udzialy":0.55,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2011,"ranking":2,"kasa":"11 mln zł","udzialy":9.83,"ile_obecnie":0},{"sport":"zapasy","rok":2011,"ranking":9,"kasa":"5.2 mln zł","udzialy":4.64,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2011,"ranking":11,"kasa":"5.1 mln zł","udzialy":4.56,"ile_obecnie":0},{"sport":"badminton","rok":2012,"ranking":19,"kasa":"2 mln zł","udzialy":1.66,"ile_obecnie":0},{"sport":"baseball i softball","rok":2012,"ranking":27,"kasa":"0.29 mln zł","udzialy":0.24,"ile_obecnie":0},{"sport":"boks","rok":2012,"ranking":18,"kasa":"2.1 mln zł","udzialy":1.74,"ile_obecnie":0},{"sport":"gimnastyka","rok":2012,"ranking":20,"kasa":"2 mln zł","udzialy":1.66,"ile_obecnie":0},{"sport":"golf","rok":2012,"ranking":28,"kasa":"0.25 mln zł","udzialy":0.21,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2012,"ranking":14,"kasa":"2.8 mln zł","udzialy":2.32,"ile_obecnie":0},{"sport":"jeździectwo","rok":2012,"ranking":23,"kasa":"1.6 mln zł","udzialy":1.33,"ile_obecnie":0},{"sport":"judo","rok":2012,"ranking":15,"kasa":"2.75 mln zł","udzialy":2.28,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2012,"ranking":2,"kasa":"10.2 mln zł","udzialy":8.45,"ile_obecnie":1},{"sport":"kolarstwo","rok":2012,"ranking":9,"kasa":"6 mln zł","udzialy":4.97,"ile_obecnie":0},{"sport":"koszykówka","rok":2012,"ranking":12,"kasa":"3 mln zł","udzialy":2.49,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2012,"ranking":1,"kasa":"16 mln zł","udzialy":13.26,"ile_obecnie":2},{"sport":"łucznictwo","rok":2012,"ranking":24,"kasa":"1.6 mln zł","udzialy":1.33,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2012,"ranking":17,"kasa":"2.2 mln zł","udzialy":1.82,"ile_obecnie":0},{"sport":"piłka nożna","rok":2012,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2012,"ranking":5,"kasa":"7 mln zł","udzialy":5.8,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2012,"ranking":4,"kasa":"9.1 mln zł","udzialy":7.54,"ile_obecnie":0},{"sport":"pływanie","rok":2012,"ranking":10,"kasa":"6 mln zł","udzialy":4.97,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2012,"ranking":7,"kasa":"6.2 mln zł","udzialy":5.14,"ile_obecnie":2},{"sport":"rugby","rok":2012,"ranking":25,"kasa":"1.4 mln zł","udzialy":1.16,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2012,"ranking":13,"kasa":"2.85 mln zł","udzialy":2.36,"ile_obecnie":1},{"sport":"szermierka","rok":2012,"ranking":6,"kasa":"6.5 mln zł","udzialy":5.39,"ile_obecnie":0},{"sport":"taekwendo","rok":2012,"ranking":21,"kasa":"1.91 mln zł","udzialy":1.58,"ile_obecnie":0},{"sport":"tenis","rok":2012,"ranking":16,"kasa":"2.5 mln zł","udzialy":2.07,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2012,"ranking":22,"kasa":"1.8 mln zł","udzialy":1.49,"ile_obecnie":0},{"sport":"thriathlon","rok":2012,"ranking":26,"kasa":"0.9 mln zł","udzialy":0.75,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2012,"ranking":3,"kasa":"10.2 mln zł","udzialy":8.45,"ile_obecnie":1},{"sport":"zapasy","rok":2012,"ranking":11,"kasa":"5.45 mln zł","udzialy":4.52,"ile_obecnie":1},{"sport":"żeglarstwo","rok":2012,"ranking":8,"kasa":"6.1 mln zł","udzialy":5.05,"ile_obecnie":2},{"sport":"badminton","rok":2013,"ranking":21,"kasa":"0.96 mln zł","udzialy":1.39,"ile_obecnie":0},{"sport":"baseball i softball","rok":2013,"ranking":27,"kasa":"0.14 mln zł","udzialy":0.21,"ile_obecnie":0},{"sport":"boks","rok":2013,"ranking":18,"kasa":"1.05 mln zł","udzialy":1.52,"ile_obecnie":0},{"sport":"gimnastyka","rok":2013,"ranking":20,"kasa":"1 mln zł","udzialy":1.45,"ile_obecnie":0},{"sport":"golf","rok":2013,"ranking":28,"kasa":"0.13 mln zł","udzialy":0.19,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2013,"ranking":17,"kasa":"1.18 mln zł","udzialy":1.71,"ile_obecnie":0},{"sport":"jeździectwo","rok":2013,"ranking":22,"kasa":"0.86 mln zł","udzialy":1.26,"ile_obecnie":0},{"sport":"judo","rok":2013,"ranking":14,"kasa":"1.62 mln zł","udzialy":2.35,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2013,"ranking":3,"kasa":"5.63 mln zł","udzialy":8.18,"ile_obecnie":0},{"sport":"kolarstwo","rok":2013,"ranking":5,"kasa":"4.02 mln zł","udzialy":5.84,"ile_obecnie":0},{"sport":"koszykówka","rok":2013,"ranking":12,"kasa":"2.33 mln zł","udzialy":3.38,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2013,"ranking":1,"kasa":"9.13 mln zł","udzialy":13.26,"ile_obecnie":0},{"sport":"łucznictwo","rok":2013,"ranking":24,"kasa":"0.77 mln zł","udzialy":1.12,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2013,"ranking":19,"kasa":"1 mln zł","udzialy":1.45,"ile_obecnie":0},{"sport":"piłka nożna","rok":2013,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2013,"ranking":8,"kasa":"3.78 mln zł","udzialy":5.49,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2013,"ranking":4,"kasa":"4.91 mln zł","udzialy":7.14,"ile_obecnie":0},{"sport":"pływanie","rok":2013,"ranking":9,"kasa":"3.6 mln zł","udzialy":5.23,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2013,"ranking":6,"kasa":"3.87 mln zł","udzialy":5.62,"ile_obecnie":0},{"sport":"rugby","rok":2013,"ranking":25,"kasa":"0.59 mln zł","udzialy":0.85,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2013,"ranking":13,"kasa":"1.73 mln zł","udzialy":2.51,"ile_obecnie":0},{"sport":"szermierka","rok":2013,"ranking":10,"kasa":"3.59 mln zł","udzialy":5.22,"ile_obecnie":0},{"sport":"taekwendo","rok":2013,"ranking":16,"kasa":"1.31 mln zł","udzialy":1.91,"ile_obecnie":0},{"sport":"tenis","rok":2013,"ranking":15,"kasa":"1.5 mln zł","udzialy":2.18,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2013,"ranking":23,"kasa":"0.86 mln zł","udzialy":1.26,"ile_obecnie":0},{"sport":"thriathlon","rok":2013,"ranking":26,"kasa":"0.38 mln zł","udzialy":0.55,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2013,"ranking":2,"kasa":"5.67 mln zł","udzialy":8.24,"ile_obecnie":0},{"sport":"zapasy","rok":2013,"ranking":11,"kasa":"3.43 mln zł","udzialy":4.99,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2013,"ranking":7,"kasa":"3.78 mln zł","udzialy":5.49,"ile_obecnie":0},{"sport":"badminton","rok":2014,"ranking":21,"kasa":"1.67 mln zł","udzialy":1.36,"ile_obecnie":0},{"sport":"baseball i softball","rok":2014,"ranking":28,"kasa":"0.21 mln zł","udzialy":0.17,"ile_obecnie":0},{"sport":"boks","rok":2014,"ranking":20,"kasa":"1.73 mln zł","udzialy":1.41,"ile_obecnie":0},{"sport":"gimnastyka","rok":2014,"ranking":16,"kasa":"2.81 mln zł","udzialy":2.29,"ile_obecnie":0},{"sport":"golf","rok":2014,"ranking":27,"kasa":"0.26 mln zł","udzialy":0.21,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2014,"ranking":17,"kasa":"2.34 mln zł","udzialy":1.91,"ile_obecnie":0},{"sport":"jeździectwo","rok":2014,"ranking":19,"kasa":"1.77 mln zł","udzialy":1.44,"ile_obecnie":0},{"sport":"judo","rok":2014,"ranking":14,"kasa":"3.57 mln zł","udzialy":2.91,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2014,"ranking":2,"kasa":"10.66 mln zł","udzialy":8.68,"ile_obecnie":0},{"sport":"kolarstwo","rok":2014,"ranking":5,"kasa":"7.26 mln zł","udzialy":5.92,"ile_obecnie":0},{"sport":"koszykówka","rok":2014,"ranking":13,"kasa":"4.11 mln zł","udzialy":3.35,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2014,"ranking":1,"kasa":"14.79 mln zł","udzialy":12.05,"ile_obecnie":0},{"sport":"łucznictwo","rok":2014,"ranking":22,"kasa":"1.53 mln zł","udzialy":1.24,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2014,"ranking":18,"kasa":"1.97 mln zł","udzialy":1.61,"ile_obecnie":0},{"sport":"piłka nożna","rok":2014,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2014,"ranking":10,"kasa":"6.52 mln zł","udzialy":5.31,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2014,"ranking":6,"kasa":"7.24 mln zł","udzialy":5.9,"ile_obecnie":0},{"sport":"pływanie","rok":2014,"ranking":8,"kasa":"6.72 mln zł","udzialy":5.47,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2014,"ranking":7,"kasa":"6.96 mln zł","udzialy":5.67,"ile_obecnie":0},{"sport":"rugby","rok":2014,"ranking":23,"kasa":"1.26 mln zł","udzialy":1.03,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2014,"ranking":12,"kasa":"4.23 mln zł","udzialy":3.44,"ile_obecnie":0},{"sport":"szermierka","rok":2014,"ranking":11,"kasa":"5.9 mln zł","udzialy":4.81,"ile_obecnie":0},{"sport":"taekwendo","rok":2014,"ranking":25,"kasa":"1.01 mln zł","udzialy":0.82,"ile_obecnie":0},{"sport":"tenis","rok":2014,"ranking":15,"kasa":"2.84 mln zł","udzialy":2.31,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2014,"ranking":24,"kasa":"1.15 mln zł","udzialy":0.94,"ile_obecnie":0},{"sport":"thriathlon","rok":2014,"ranking":26,"kasa":"0.78 mln zł","udzialy":0.63,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2014,"ranking":3,"kasa":"9.63 mln zł","udzialy":7.85,"ile_obecnie":0},{"sport":"zapasy","rok":2014,"ranking":9,"kasa":"6.54 mln zł","udzialy":5.32,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2014,"ranking":4,"kasa":"7.3 mln zł","udzialy":5.95,"ile_obecnie":0},{"sport":"badminton","rok":2015,"ranking":21,"kasa":"1.67 mln zł","udzialy":1.51,"ile_obecnie":0},{"sport":"baseball i softball","rok":2015,"ranking":27,"kasa":"0.32 mln zł","udzialy":0.29,"ile_obecnie":0},{"sport":"boks","rok":2015,"ranking":18,"kasa":"1.94 mln zł","udzialy":1.75,"ile_obecnie":0},{"sport":"gimnastyka","rok":2015,"ranking":16,"kasa":"2.48 mln zł","udzialy":2.25,"ile_obecnie":0},{"sport":"golf","rok":2015,"ranking":28,"kasa":"0.3 mln zł","udzialy":0.27,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2015,"ranking":17,"kasa":"2.33 mln zł","udzialy":2.11,"ile_obecnie":0},{"sport":"jeździectwo","rok":2015,"ranking":20,"kasa":"1.75 mln zł","udzialy":1.59,"ile_obecnie":0},{"sport":"judo","rok":2015,"ranking":15,"kasa":"2.84 mln zł","udzialy":2.58,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2015,"ranking":2,"kasa":"9.16 mln zł","udzialy":8.3,"ile_obecnie":0},{"sport":"kolarstwo","rok":2015,"ranking":6,"kasa":"6.93 mln zł","udzialy":6.28,"ile_obecnie":0},{"sport":"koszykówka","rok":2015,"ranking":13,"kasa":"3.2 mln zł","udzialy":2.9,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2015,"ranking":1,"kasa":"13.29 mln zł","udzialy":12.04,"ile_obecnie":0},{"sport":"łucznictwo","rok":2015,"ranking":25,"kasa":"1.05 mln zł","udzialy":0.95,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2015,"ranking":24,"kasa":"1.39 mln zł","udzialy":1.26,"ile_obecnie":0},{"sport":"piłka nożna","rok":2015,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2015,"ranking":10,"kasa":"4.92 mln zł","udzialy":4.46,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2015,"ranking":7,"kasa":"6.59 mln zł","udzialy":5.97,"ile_obecnie":0},{"sport":"pływanie","rok":2015,"ranking":4,"kasa":"7.14 mln zł","udzialy":6.48,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2015,"ranking":8,"kasa":"5.52 mln zł","udzialy":5,"ile_obecnie":0},{"sport":"rugby","rok":2015,"ranking":23,"kasa":"1.46 mln zł","udzialy":1.32,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2015,"ranking":12,"kasa":"3.73 mln zł","udzialy":3.38,"ile_obecnie":0},{"sport":"szermierka","rok":2015,"ranking":11,"kasa":"4.22 mln zł","udzialy":3.82,"ile_obecnie":0},{"sport":"taekwendo","rok":2015,"ranking":19,"kasa":"1.8 mln zł","udzialy":1.63,"ile_obecnie":0},{"sport":"tenis","rok":2015,"ranking":14,"kasa":"2.9 mln zł","udzialy":2.63,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2015,"ranking":22,"kasa":"1.54 mln zł","udzialy":1.4,"ile_obecnie":0},{"sport":"thriathlon","rok":2015,"ranking":26,"kasa":"0.69 mln zł","udzialy":0.62,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2015,"ranking":3,"kasa":"8.72 mln zł","udzialy":7.9,"ile_obecnie":0},{"sport":"zapasy","rok":2015,"ranking":9,"kasa":"5.51 mln zł","udzialy":4.99,"ile_obecnie":0},{"sport":"żeglarstwo","rok":2015,"ranking":5,"kasa":"6.95 mln zł","udzialy":6.3,"ile_obecnie":0},{"sport":"badminton","rok":2016,"ranking":17,"kasa":"2.27 mln zł","udzialy":1.84,"ile_obecnie":0},{"sport":"baseball i softball","rok":2016,"ranking":28,"kasa":"0.3 mln zł","udzialy":0.25,"ile_obecnie":0},{"sport":"boks","rok":2016,"ranking":18,"kasa":"2.21 mln zł","udzialy":1.8,"ile_obecnie":0},{"sport":"gimnastyka","rok":2016,"ranking":15,"kasa":"2.94 mln zł","udzialy":2.39,"ile_obecnie":0},{"sport":"golf","rok":2016,"ranking":27,"kasa":"0.34 mln zł","udzialy":0.27,"ile_obecnie":0},{"sport":"hokej na trawie","rok":2016,"ranking":21,"kasa":"1.74 mln zł","udzialy":1.41,"ile_obecnie":0},{"sport":"jeździectwo","rok":2016,"ranking":19,"kasa":"2.04 mln zł","udzialy":1.66,"ile_obecnie":0},{"sport":"judo","rok":2016,"ranking":13,"kasa":"3.39 mln zł","udzialy":2.75,"ile_obecnie":0},{"sport":"kajakarstwo","rok":2016,"ranking":2,"kasa":"10.37 mln zł","udzialy":8.43,"ile_obecnie":2},{"sport":"kolarstwo","rok":2016,"ranking":8,"kasa":"6.42 mln zł","udzialy":5.22,"ile_obecnie":2},{"sport":"koszykówka","rok":2016,"ranking":14,"kasa":"3.2 mln zł","udzialy":2.6,"ile_obecnie":0},{"sport":"lekkoatletyka","rok":2016,"ranking":1,"kasa":"15.86 mln zł","udzialy":12.9,"ile_obecnie":3},{"sport":"łucznictwo","rok":2016,"ranking":23,"kasa":"1.62 mln zł","udzialy":1.32,"ile_obecnie":0},{"sport":"pięciobój nowoczesny","rok":2016,"ranking":24,"kasa":"1.44 mln zł","udzialy":1.17,"ile_obecnie":1},{"sport":"piłka nożna","rok":2016,"ranking":29,"kasa":"0 mln zł","udzialy":0,"ile_obecnie":0},{"sport":"piłka ręczna","rok":2016,"ranking":10,"kasa":"5.24 mln zł","udzialy":4.26,"ile_obecnie":0},{"sport":"piłka siatkowa","rok":2016,"ranking":5,"kasa":"7.99 mln zł","udzialy":6.5,"ile_obecnie":0},{"sport":"pływanie","rok":2016,"ranking":6,"kasa":"7.53 mln zł","udzialy":6.12,"ile_obecnie":0},{"sport":"podnoszenie ciężarów","rok":2016,"ranking":9,"kasa":"5.43 mln zł","udzialy":4.42,"ile_obecnie":0},{"sport":"rugby","rok":2016,"ranking":22,"kasa":"1.62 mln zł","udzialy":1.32,"ile_obecnie":0},{"sport":"strzelectwo sportowe","rok":2016,"ranking":11,"kasa":"4.8 mln zł","udzialy":3.91,"ile_obecnie":0},{"sport":"szermierka","rok":2016,"ranking":12,"kasa":"4.57 mln zł","udzialy":3.71,"ile_obecnie":0},{"sport":"taekwendo","rok":2016,"ranking":25,"kasa":"1.4 mln zł","udzialy":1.14,"ile_obecnie":0},{"sport":"tenis","rok":2016,"ranking":16,"kasa":"2.94 mln zł","udzialy":2.39,"ile_obecnie":0},{"sport":"tenis stołowy","rok":2016,"ranking":20,"kasa":"1.86 mln zł","udzialy":1.52,"ile_obecnie":0},{"sport":"thriathlon","rok":2016,"ranking":26,"kasa":"1.06 mln zł","udzialy":0.87,"ile_obecnie":0},{"sport":"wioślarstwo","rok":2016,"ranking":3,"kasa":"9.74 mln zł","udzialy":7.92,"ile_obecnie":2},{"sport":"zapasy","rok":2016,"ranking":7,"kasa":"6.63 mln zł","udzialy":5.39,"ile_obecnie":1},{"sport":"żeglarstwo","rok":2016,"ranking":4,"kasa":"8.02 mln zł","udzialy":6.52,"ile_obecnie":0}];
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) { return d.rok; }));
+	y.domain([1, d3.max(data, function(d) { return d.ranking; })]);
+
+	
+// dodawanie prostokątów odpowiadajacych za ilosc medali
+
+lacznie_medali = [{"sport":"badminton","ile":0,"ranking":20,"col":"#FFFFFF"},{"sport":"baseball i softball","ile":0,"ranking":27,"col":"#FFFFFF"},{"sport":"boks","ile":43,"ranking":15,"col":"#FF1111"},{"sport":"gimnastyka","ile":3,"ranking":17,"col":"#FFF6F6"},{"sport":"golf","ile":0,"ranking":29,"col":"#FFFFFF"},{"sport":"hokej na trawie","ile":0,"ranking":16,"col":"#FFFFFF"},{"sport":"jeździectwo","ile":6,"ranking":24,"col":"#FFE4E4"},{"sport":"judo","ile":8,"ranking":11,"col":"#FFD3D3"},{"sport":"kajakarstwo","ile":16,"ranking":2,"col":"#FFA7A7"},{"sport":"kolarstwo","ile":8,"ranking":9,"col":"#FFD3D3"},{"sport":"koszykówka","ile":0,"ranking":18,"col":"#FFFFFF"},{"sport":"lekkoatletyka","ile":50,"ranking":1,"col":"red"},{"sport":"łucznictwo","ile":2,"ranking":22,"col":"#FFF6F6"},{"sport":"pięciobój nowoczesny","ile":3,"ranking":13,"col":"#FFF6F6"},{"sport":"piłka nożna","ile":3,"ranking":26,"col":"#FFF6F6"},{"sport":"piłka ręczna","ile":1,"ranking":14,"col":"#FFFFFF"},{"sport":"piłka siatkowa","ile":3,"ranking":5,"col":"#FFF6F6"},{"sport":"pływanie","ile":6,"ranking":4,"col":"#FFE4E4"},{"sport":"podnoszenie ciężarów","ile":29,"ranking":10,"col":"#FF6060"},{"sport":"rugby","ile":0,"ranking":23,"col":"#FFFFFF"},{"sport":"strzelectwo sportowe","ile":11,"ranking":12,"col":"#FFC1C1"},{"sport":"szermierka","ile":21,"ranking":6,"col":"#FF8C8C"},{"sport":"taekwendo","ile":0,"ranking":19,"col":"#FFFFFF"},{"sport":"tenis","ile":0,"ranking":25,"col":"#FFFFFF"},{"sport":"tenis stołowy","ile":0,"ranking":21,"col":"#FFFFFF"},{"sport":"thriathlon","ile":0,"ranking":28,"col":"#FFFFFF"},{"sport":"wioślarstwo","ile":13,"ranking":3,"col":"#FFB8B8"},{"sport":"zapasy","ile":23,"ranking":8,"col":"#FF8383"},{"sport":"żeglarstwo","ile":2,"ranking":7,"col":"#FFF6F6"}];
+
+
+	 chart2.selectAll("rect").data(lacznie_medali).enter().append("rect")
+	   .attr("y", function(d) { return y(d.ranking)-6 })
+	   .attr("x",  function (d){ 
+				return  x(2003)+2;
+			})
+	   .attr("width", 50)
+	   .attr("height", function(d, i) {
+		 return 15;
+	   })
+	   .attr("fill", function(d) { return d.col;});
+         	
+// dodawanie nazw dyscyplin
+
+      
+
+	  chart2.selectAll("text").data(data).enter().append("text")
+		.attr('text-anchor', 'middle')
+		.filter(function(d) { return d.rok == 2006; })
+			.attr("id",function(d){return "sport_"+d.sport.replace(" " , "_").replace(" " , "_");})
+             .attr("x", x(2005)-25)
+             .attr("y", function(d) { return y(d.ranking)+4 })
+             .text(function(d) { return d.sport })
+			 ;
+
+
+			 
+	lacznie_medali.forEach(function(d) {
+		var r = d.ranking;
+	    var i = d.ile;
+         chart2.append("text")
+		.attr('text-anchor', 'middle')
+		.attr("x", x(2003)+27)
+		.attr("y", function(d) { return y(r)+6 })
+		.style("fill", "grey")
+		.style("font-weight", "bold")  
+		.text(function(d) { return i; })
+		;
+
+    }) 
+	
+
+	
+		
+		
+// tytuł
+
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+        .attr("x", x(2008) )          
+        .attr("y", y(-4))  
+        .style("font-size", "16px")
+        .style("font-weight", "bold")  
+        .style("font-family", "Helvetica")
+        .text("Ranking dyscyplin wg dofinansowań z Ministerstwa Sportu w latach 2006-2016")
+        .style("opacity",1)		
+		
+// etykiety sport i medale do 2006
+
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+        .attr("x",  x(2005)-25 )          
+        .attr("y", y(0))  
+        .style("font-size", "12.5px")
+        .style("font-weight", "bold")  
+        .style("font-family", "Helvetica")
+        .text("dyscyplina")
+        .style("opacity",1)		
+
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+        .attr("x",  x(2003)+27 )          
+        .attr("y", y(0))  
+        .style("font-size", "12.5px")
+        .style("font-weight", "bold")  
+        .style("font-family", "Helvetica")
+        .text("medale do 2006")
+        .style("opacity",1)			
+
+
+// kategorie
+
+
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+        .attr("x", x(2006) )          
+        .attr("y", y(-2.8))  
+        .style("font-size", "10px")
+        .style("font-weight", "bold")  
+        .style("font-family", "Helvetica")
+        .text("wybierz dyscypliny medalowe: ")
+        .style("opacity",1)	
+
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+		.attr("id","wszystkie")
+        .attr("x", x(2006) )          
+        .attr("y", y(-2))  
+        .style("font-size", "12px")
+        .style("font-weight", "bold")  
+        .style("font-family", "Helvetica")
+        .text("(wyczyść) ")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+        .style("opacity",1)			
+		
+		
+	
+	
+linie_olimpiad1 = [{"olimpiada": "2008", "rok":2008, ranking: -2}, {"olimpiada": "2008", "rok":2008, ranking: 30}]
+linie_olimpiad2 = [{"olimpiada": "2012", "rok":2012, ranking: -2}, {"olimpiada": "2012", "rok":2012, ranking: 30}]
+linie_olimpiad3 = [{"olimpiada": "2016", "rok":2016, ranking: -2}, {"olimpiada": "2016", "rok":2016, ranking: 30}]
+
+
+		chart2.append("path")
+		.attr("class", "line")
+		.attr("id","olimpiada1")
+		.attr("d", valueline(linie_olimpiad1))
+		.attr("stroke", "grey")	
+		.attr("stroke-width", "80")
+		.attr("opacity", "0.23");
+
+
+		chart2.append("path")
+		.attr("class", "line")
+		.attr("id","olimpiada2")
+		.attr("d", valueline(linie_olimpiad2))
+		.attr("stroke", "grey")	
+		.attr("stroke-width", "80")
+		.attr("opacity", "0.23");
+
+
+		chart2.append("path")
+		.attr("class", "line")
+		.attr("id","olimpiada3")
+		.attr("d", valueline(linie_olimpiad3))
+		.attr("stroke", "grey")	
+		.attr("stroke-width", "80")
+		.attr("opacity", "0.23");		
+	
+	
+			
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+		.attr("id","kat_2008")
+        .attr("x", x(2008) )          
+        .attr("y", y(-2))  
+        .style("font-size", "14px")
+        .style("font-family", "Helvetica")
+        .text("Igrzyska w Pekinie")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+        .style("opacity",1)	
+	
+chart2.append("text")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+		.attr('text-anchor', 'middle')
+        .attr("x", x(2008) )          
+        .attr("y", y(0))  
+        .style("font-size", "12.5px")
+        .style("font-family", "Helvetica")
+        .text("liczba medali: 10")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+        .style("opacity",1)		
+		
+
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+		.attr("id","kat_2012")
+        .attr("x", x(2012) )          
+        .attr("y", y(-2))  
+        .style("font-size", "14px")
+        .style("font-family", "Helvetica")
+        .text("Igrzyska w Londynie")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+        .style("opacity",1)	
+	
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+        .attr("x", x(2012) )          
+        .attr("y", y(0))  
+        .style("font-size", "12.5px")
+        .style("font-family", "Helvetica")
+        .text("liczba medali: 10")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+        .style("opacity",1)		
+		
+
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+		.attr("id","kat_2016")
+        .attr("x", x(2016) )          
+        .attr("y", y(-2))  
+        .style("font-size", "14px")
+        .style("font-family", "Helvetica")
+        .text("Igrzyska w Rio de Janeiro")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+        .style("opacity",1)	
+	
+chart2.append("text")
+		.attr('text-anchor', 'middle')
+        .attr("x", x(2016) )          
+        .attr("y", y(0))  
+        .style("font-size", "12.5px") 
+        .style("font-family", "Helvetica")
+		.style("stroke", "#333333")
+		.style("fill", "#333333")
+        .text("liczba medali: 11")
+        .style("opacity",1)	
+var count = 0;	
+
+	
+	
+	
+	// Add the valueline path.
+	var dataNest = d3.nest()
+        .key(function(d) {return d.sport;})
+        .entries(data);
+
+    // Loop through each symbol / key
+    dataNest.forEach(function(d) {
+	
+		count += 1;
+       	chart2.append("path")
+		.attr("class", "line")
+		.attr("id","line_"+d.key.replace(" " , "_").replace(" " , "_"))
+		.attr("d", valueline(d.values))
+		.attr('stroke', function(d) { 
+						return kolory[count-1]; })
+		.attr("stroke-width", "3");
+		
+
+
+    });
+
+
+	
+	
+	
+// dodajemy punkty
+
+
+	chart2.selectAll("circle").data(data).enter().append("circle")
+		.attr("id",function(d){return d.rok + "|" + d.ranking;})
+     	.attr("cx", function (d) { return x(d.rok); })
+		.attr("cy", function (d) { return y(d.ranking); })
+		.attr("r", function(d){ if (d.ile_obecnie  < 1) {
+									a = "4px";
+								} else {
+									a =  "9px";
+								}
+								
+								return a;
+								}
+								)
+		.attr("fill", function(d){ return jaki_sport_jaki_kolor(d.sport, kolory);})
+		.attr("opacity", 0.8)
+		
+		
+		
+		
+		
+		
+		
+		
+	// Add the X Axis
+	chart2.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + (height+35-100) + ")")
+		.call(xAxis);
+		
+	// druga oś x
+	
+
+
+	// Add the Y Axis
+	chart2.append("g")
+	.attr("transform", "translate(200," + 0 + ")")
+		.attr("class", "y axis")
+		.call(yAxis);
+
+			
+var	yAxis2 = d3.svg.axis().scale(y)
+	.orient("right").ticks(29)
+	
+	chart2.append("g")
+		.attr("class", "y axis")
+		.attr("transform", "translate(967," + 0 + ")")
+		.call(yAxis2);	
+
+
+		
+// dla linii interakcja		
+
+var czyZamrozicNajezdzanie =0;
+		
+chart2.selectAll("path")
+
+.on('mouseover', function(d, i){ 
+
+          d3.select(this).style("stroke-width", 10);
+		  
+		  var sporcik = d3.select(this).attr('id').substr(5).replace("_" , " ").replace("_" , " ");
+		  rysujemySlupki(sporcik,jaki_sport_jaki_kolor(sporcik,kolory));
+		  
+		 		  
+		  d3.select("#sport_"+sporcik.replace(" " , "_").replace(" " , "_"))
+		  .style("font-weight", "bold") 
+		  .style("font-size", "13.2px");
+		  
+		  
+		  if(sporcik =="baseball i softball"){
+			d3.select("#lab_baseball")
+			.style("opacity", "1");
+		  }
+		  
+		  if(sporcik =="rugby"){
+			d3.select("#lab_rugby,#lab_rugby1")
+			.style("opacity", "1");
+			d3.select("#lab_rugby1")
+			.style("opacity", "1");
+		  }
+		  
+		  if(sporcik =="golf"){
+			d3.select("#lab_golf")
+			.style("opacity", "1");
+			d3.select("#lab_golf1")
+			.style("opacity", "1");
+		  }
+		  
+		  
+		  
+          })
+		  
+
+.on('mouseout', function(d, i){ 
+          d3.select(this).style("stroke-width", 3); 
+		  d3.select("#pierwszy").remove();
+		  
+		  var sporcik = d3.select(this).attr('id').substr(5);
+		  d3.select("#sport_"+sporcik.replace(" " , "_").replace(" " , "_"))
+		  .style("font-weight", "normal") 
+		  .style("font-size", "12px");
+		  
+		  
+		  
+         })
+		 
+		 
+chart2.selectAll("#olimpiada1,#olimpiada2,#olimpiada3")
+
+.on('mouseover', function(d, i){ 
+          d3.select(this).attr("stroke-width", 80);
+          })
+	
+.on('mouseout', function(d, i){ 
+          d3.select(this).attr("stroke-width", 80); 
+         })
+		
+		
+// dla punktow interakcja
+
+var div=d3.select("body").append("div").attr("class", "tooltip").style("opacity",0)
+
+chart2
+.selectAll("circle")
+
+.on('mouseover', function(d, i){ 
+		 d3.select(this).style({stroke: 'black'}).attr("stroke-width", 3)
+         div.transition()    
+                .duration(200)    
+                .style("opacity", .9);
+				
+		if(d.ile_obecnie == 0){
+         div.html("dyscyplina: "+ d.sport + "<br/>" +
+				  "rok: " + d.rok + "<br/>" +
+				  "ranking: " + d.ranking + "<br/>"+
+				  "kwota dofinansowania: " + d.kasa + "<br/>" +
+				  "udział proc. w całym roku: " + d.udzialy + "<br/>")
+				  .style("left", (d3.event.pageX-100) + "px") 
+                .style("top", (d3.event.pageY+10) + "px");
+		}else {
+		div.html( "<b>ilość medali w tym roku: </b>" + d.ile_obecnie + "<br/>"+
+				  "dyscyplina: "+ d.sport + "<br/>" +
+				  "rok: " + d.rok + "<br/>" +
+				  "ranking: " + d.ranking + "<br/>"+
+				  "kwota dofinansowania: " + d.kasa + "<br/>" +
+				  "udział proc. w całym roku: " + d.udzialy + "<br/>"
+				   )
+		.style("left", (d3.event.pageX-100) + "px") 
+                .style("top", (d3.event.pageY+10) + "px");
+		
+		};	  
+                  
+        })
+	
+.on('mouseout', function(d, i){ 
+		d3.select(this).style({stroke: 'white'}).attr("stroke-width", 0);  
+          div.transition()    
+                .duration(500)    
+                .style("opacity", 0);
+              })
+	
+// kategorie
+
+ var lista_cal1 = ["#sport_badminton"    ,        "#sport_boks"    ,             "#sport_gimnastyka"   ,        "#sport_jeździectwo"      ,   
+  "#sport_judo"       ,          "#sport_kajakarstwo"     ,     "#sport_kolarstwo"       ,     "#sport_lekkoatletyka"       ,
+  "#sport_łucznictwo"  ,         "#sport_pięciobój_nowoczesny" ,"#sport_pływanie"        ,     "#sport_podnoszenie_ciężarów",
+ "#sport_strzelectwo_sportowe", "#sport_szermierka"       ,    "#sport_taekwendo"            ,"#sport_tenis_stołowy"       ,
+ "#sport_tenis"            ,    "#sport_wioślarstwo"      ,    "#sport_thriathlon"          , "#sport_zapasy"              ,
+ "#sport_żeglarstwo"       ,    "#sport_baseball_i_softball" , "#sport_hokej_na_trawie"    ,  "#sport_koszykówka"          ,
+ "#sport_piłka_nożna"    ,      "#sport_piłka_ręczna"    ,     "#sport_piłka_siatkowa"    ,   "#sport_rugby"               ,
+ "#sport_golf" ]
+		  
+
+ var lista_cal2 = ["#line_badminton"    ,        "#line_boks"    ,             "#line_gimnastyka"   ,        "#line_jeździectwo"      ,   
+  "#line_judo"       ,          "#line_kajakarstwo"     ,     "#line_kolarstwo"       ,     "#line_lekkoatletyka"       ,
+  "#line_łucznictwo"  ,         "#line_pięciobój_nowoczesny" ,"#line_pływanie"        ,     "#line_podnoszenie_ciężarów",
+ "#line_strzelectwo_sportowe", "#line_szermierka"       ,    "#line_taekwendo"            ,"#line_tenis_stołowy"       ,
+ "#line_tenis"            ,    "#line_wioślarstwo"      ,    "#line_thriathlon"          , "#line_zapasy"              ,
+ "#line_żeglarstwo"       ,    "#line_baseball_i_softball" , "#line_hokej_na_trawie"    ,  "#line_koszykówka"          ,
+ "#line_piłka_nożna"    ,      "#line_piłka_ręczna"    ,     "#line_piłka_siatkowa"    ,   "#line_rugby"               ,
+ "#line_golf" ]
+		  
+
+
+
+chart2.selectAll("#kat_2008")
+
+.on('click', function(d, i){ 
+          
+		  var lista = ["#sport_kajakarstwo", "#sport_kolarstwo", "#sport_lekkoatletyka", "#sport_wioślarstwo", "#sport_zapasy",
+						"#sport_podnoszenie_ciężarów", "#sport_gimnastyka","#sport_szermierka"]
+		  
+		  for(id in lista_cal1){
+		  
+		  if (lista.indexOf(lista_cal1[id]) >= 0) {
+				d3.select(lista_cal1[id])
+		  .style("font-weight", "bold") 
+		  .style("font-size", "13.2px");
+		  
+			} else{
+				d3.select(lista_cal1[id])
+		  .style("font-weight", "normal") 
+		  .style("font-size", "12px");
+		  
+			}
+		  
+		  };
+		  
+		 var lista1 = ["#line_kajakarstwo", "#line_kolarstwo", "#line_lekkoatletyka", "#line_wioślarstwo", "#line_zapasy",
+						"#line_podnoszenie_ciężarów", "#line_gimnastyka","#line_szermierka"]
+
+		      for(id in lista_cal2){
+		  
+		  if (lista1.indexOf(lista_cal2[id]) >= 0) {
+				d3.select(lista_cal2[id])
+		  .style("stroke-width", "10");
+		  
+			} else{
+				d3.select(lista_cal2[id])
+		  .style("stroke-width", "3");
+		  
+			}
+		  
+		  };
+		  
+		  
+        });
+
+chart2.selectAll("#kat_2012")
+
+.on('click', function(d, i){ 
+          
+		  var lista = ["#sport_kajakarstwo", "#sport_lekkoatletyka", "#sport_wioślarstwo", "#sport_zapasy",
+						"#sport_podnoszenie_ciężarów", "#sport_strzelectwo_sportowe","#sport_żeglarstwo"]
+		  
+		  for(id in lista_cal1){
+		  
+		  if (lista.indexOf(lista_cal1[id]) >= 0) {
+				d3.select(lista_cal1[id])
+		  .style("font-weight", "bold") 
+		  .style("font-size", "13.2px");
+		  
+			} else{
+				d3.select(lista_cal1[id])
+		  .style("font-weight", "normal") 
+		  .style("font-size", "12px");
+		  
+			}
+		  
+		  };
+		  
+		 var lista1 = ["#line_kajakarstwo", "#line_lekkoatletyka", "#line_wioślarstwo", "#line_zapasy",
+						"#line_podnoszenie_ciężarów", "#line_strzelectwo_sportowe","#line_żeglarstwo"]
+
+		     
+		     for(id in lista_cal2){
+		  
+		  if (lista1.indexOf(lista_cal2[id]) >= 0) {
+				d3.select(lista_cal2[id])
+		  .style("stroke-width", "10");
+		  
+			} else{
+				d3.select(lista_cal2[id])
+		  .style("stroke-width", "3");
+		  
+			}
+		  
+		  };
+		  
+		  
+        });	
+
+chart2.selectAll("#kat_2016")
+
+.on('click', function(d, i){ 
+          
+		  var lista = ["#sport_kajakarstwo", "#sport_kolarstwo", "#sport_lekkoatletyka", "#sport_wioślarstwo", "#sport_zapasy",
+						"#sport_pięciobój_nowoczesny"]
+		  
+		 for(id in lista_cal1){
+		  
+		  if (lista.indexOf(lista_cal1[id]) >= 0) {
+				d3.select(lista_cal1[id])
+		  .style("font-weight", "bold") 
+		  .style("font-size", "13.2px");
+		  
+			} else{
+				d3.select(lista_cal1[id])
+		  .style("font-weight", "normal") 
+		  .style("font-size", "12px");
+		  
+			}
+		  
+		  };
+		  
+		 var lista1 = ["#line_kajakarstwo", "#line_kolarstwo", "#line_lekkoatletyka", "#line_wioślarstwo", "#line_zapasy",
+						"#line_pięciobój_nowoczesny"]
+
+		     for(id in lista_cal2){
+		  
+		  if (lista1.indexOf(lista_cal2[id]) >= 0) {
+				d3.select(lista_cal2[id])
+		  .style("stroke-width", "10");
+		  
+			} else{
+				d3.select(lista_cal2[id])
+		  .style("stroke-width", "3");
+		  
+			}
+		  
+		  };
+		
+		  
+		  
+        });		
+
+chart2.selectAll("#wszystkie")
+
+.on('click', function(d, i){ 
+          
+		 
+		  for(id in lista_cal1){
+		  
+		  d3.select(lista_cal1[id])
+		  .style("font-weight", "normal") 
+		  .style("font-size", "12px");
+		  
+		  };
+		  
+		
+		     
+		  for(id in lista_cal2){
+		  
+		  d3.select(lista_cal2[id])
+		  .style("stroke-width", 3);
+		  
+		  };
+		  
+		  
+        });		
+</script>
+</body>
+</html>
+
+
+
+
