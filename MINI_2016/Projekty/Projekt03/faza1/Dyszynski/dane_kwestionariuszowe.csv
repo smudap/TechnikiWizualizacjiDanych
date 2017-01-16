@@ -1,0 +1,133 @@
+Kolum1,ID,wyk_zawod_M,wyk_zawod_T,aspiracje,NR_szkoły,NR_klasy,NR_dziennik,Plec,studiaM,studiaT,pracaM,pracaT,oceM,oceJP,oceP
+1,102,sekretarz sądowy,przedstawiciel towaru,pracownik biura,1,1,2,1,1,2,1,1,5,5,4
+2,104,wozi towar,budowlaniec,budowlaniec,1,1,4,2,1,1,1,1,2,3,3
+3,105,,pracownik firmy,pracownik banku,1,1,5,2,1,1,3,1,2,2,2
+4,107,krawcowa,murarz,rolnik,1,1,7,2,3,3,1,1,3,2,4
+5,111,ekspedientka,,pracownik hotelu; przewodnik wycieczek; tatuażystka,1,1,11,1,2,3,1,2,5,5,4
+6,112,ekspedientka,wozi towar  sklepie,przewodnik wycieczek,1,1,12,1,1,1,1,1,2,2,2
+7,113,pielęgniarka,kierowca,informator,1,1,13,2,2,2,1,1,5,4,4
+8,115,,,pilot,1,1,15,2,3,3,2,2,2,2,
+9,201,,stolarz,fryzjerka; kosmetyczka,2,2,1,1,3,3,2,1,2,2,3
+10,203,sklepowa,wulkanizator,fryzjerka; kosmetyczka; kucharka,2,2,3,1,2,3,1,1,3,3,3
+11,204,,przy żyletkach,żołnierz,2,2,4,2,3,3,1,1,4,,4
+12,205,,,,2,2,5,1,1,1,3,3,3,2,3
+13,206,,budowlaniec,uczycielka,2,2,6,1,2,2,2,1,3,3,4
+14,211,,stolarz,fryzjerka,2,2,11,1,2,1,2,1,3,2,3
+15,212,pracownik magazynu,projektant wnętrz,piłkarz,2,2,12,2,3,3,1,1,2,3,3
+16,301,ekspedientka,,policjant  stanowisku SWAG,3,3,1,2,1,1,1,3,2,2,2
+17,302,"księgowa, prowadzi sklep",właściciel firmy budowlanej,architekt wnętrz,3,3,2,1,1,1,1,1,3,4,3
+18,303,,,rehabilitant,3,3,3,2,3,3,2,1,4,4,4
+19,310,urzędniczka - wypisuje dokumenty,uczy innych pracowników firmy,instruktorka jazdy konnej,3,3,10,1,2,3,1,1,4,4,4
+20,311,pomaga ludziom szukać zawodów,pracownik firmy Opel,architekt; informatyk,3,3,11,2,1,3,1,1,3,5,5
+21,312,,"blacharz, lakiernik",piłkarz,3,3,12,2,2,3,2,1,4,5,4
+22,315,sprzedawca,górnik,medżer,3,3,15,1,2,2,1,1,3,5,4
+23,318,,robi szyby,antyterrorysta - jlepiej GROM,3,3,18,2,2,3,2,1,3,3,3
+24,319,sprzedawca,stawia zki drogowe itd.,lekarz,3,3,19,2,3,3,1,1,3,3,3
+25,401,właściciel firmy internetowej,elektryk,lekarz,3,4,1,1,1,2,1,1,4,5,4
+26,405,zajmuje się studentami,zajmuje się zwierzętami,fryzjerka; aktorka,3,4,5,1,3,3,1,1,3,4,3
+27,407,,,strażak; weteryrz,3,4,7,2,3,3,2,3,,,
+28,408,pracownik socjalny,handlowiec,"nie mam planów  jutro, a co dopiero  przyszłość",3,4,8,2,1,2,1,1,5,5,5
+29,411,,elektryk,nie wiem jeszcze jaki zawód chcę wykonywać w przyszłości,3,4,11,1,1,1,1,1,4,4,4
+30,412,,,weteryrzem lub jeśli nie wyjdzie to fryzjerką,3,4,12,1,3,3,2,3,3,3,3
+31,414,kasjerka,budowlaniec,chciałbym tworzyć gry komputerowe,3,4,14,2,1,3,1,1,4,4,4
+32,417,,maszynista,sportowiec; piłka noż,3,4,17,2,3,3,1,1,5,5,4
+33,501,krawcowa,mechanik,uczycielka przyrody; weteryrka; dekoratorka wnętrz,4,5,1,1,1,1,1,1,4,3,5
+34,502,pielęgniarka,,strażak; mechanik,4,5,2,2,3,3,1,2,4,3,2
+35,503,sprzedawca,handlarz,chciałbym być fryzjerem,4,5,3,2,1,1,1,1,3,3,3
+36,505,,malarz budowlany,adwokat,4,5,5,1,1,2,2,1,3,4,5
+37,510,kierownik,kierowca,sprzedawca; strażak; kierowca zawodowy,4,5,10,2,3,3,1,1,4,3,4
+38,512,sprzedawczyni,spawacz,strażak; kierowca ciężarówki,4,5,12,2,2,2,1,1,4,3,2
+39,517,,w begerach,rolniczy,4,5,17,2,3,3,2,1,3,3,2
+40,602,,spawacz,policja CBŚ,4,6,2,1,2,2,2,1,5,3,4
+41,603,,listonosz,nie wiem,4,6,3,2,3,3,2,1,5,5,4
+42,606,kucharka,rolnik,rolnik,4,6,6,2,1,1,1,1,3,2,5
+43,608,,ma firmę,,4,6,8,2,3,3,2,1,2,3,3
+44,612,opiekunka w Niemczech,rolnik,lekarz; chirurg,4,6,12,2,3,3,1,1,5,3,4
+45,614,,ma firmę,piłkarz,4,6,14,2,1,3,2,1,2,2,2
+46,616,,mechanik,fotograf,4,6,16,1,2,2,2,1,2,4,4
+47,617,,uczyciel,chciałbym zostać uczycielem jak mój tata,4,6,17,2,1,1,2,1,4,4,4
+48,702,doradca rolniczy,"obróbka drew, ok dachowe",youtuber; architekt; pływak,5,7,2,2,1,1,1,1,5,4,3
+49,704,sprzedaje w sklepie z gazetami,pracuje w firmie produkującej ok,informatyk; pilot samolotu,5,7,4,2,3,3,1,1,6,4,5
+50,706,elektryk,robot drogowy,uczyciel,5,7,6,2,1,1,1,1,6,5,5
+51,707,jest pracownikiem socjalnym,jest kierownikiem firmy budowlanej,kierownik stadniny konnej,5,7,7,1,1,2,1,1,4,4,5
+52,708,sklepowa,robi bramy,piłkarstwo i z kolegą rolnictwo,5,7,8,2,3,3,1,1,3,3,2
+53,709,sprzedawca,blacharz,informatyk,5,7,9,2,2,2,1,1,3,4,3
+54,710,sklepowa,hydraulik,jbardziej chciałabym być piosenkarką,5,7,10,1,2,3,1,1,4,4,4
+55,712,,elektryk,rachmistrz; mechanik samochodowy,5,7,12,2,1,3,3,1,3,3,3
+56,714,pracuje w lodziarni,,chciałbym zostać policjantem lub kucharzem,5,7,14,2,1,3,1,3,4,4,4
+57,803,rolnik,rolnik,policjant; strażak,5,8,3,1,3,1,1,1,3,4,5
+58,806,"tak, jest kucharką",posiada firmę ogrodzeniową,jbardziej interesuje mnie praca prawnika i architekta,5,8,6,1,1,1,1,1,3,5,4
+59,808,,,rolnik; piłkarz,5,8,8,2,1,3,3,3,3,3,3
+60,809,pielęgniarką,,"chciałbym być leśniczym, będę miał kontakt z przyrodą",5,8,9,2,3,3,1,3,2,3,3
+61,810,,mechanik,"chciałabym zostać lekarzem, ponieważ lubię pomagać innym",5,8,10,1,1,3,2,1,5,5,5
+62,901,,,piłkarz,6,9,1,2,,,1,,1,3,2
+63,905,,,ścigać się kładami i motorami,6,9,5,2,,,1,,2,2,3
+64,907,sprzedawca,firma TFP,piosenkarka,6,9,7,1,,,1,1,5,5,5
+65,908,,drwal,nie wiem,6,9,8,2,2,2,2,1,2,3,3
+66,910,rolnik/ogrodnik,ślusarz,"jeździć konno, akrobatka",6,9,10,1,1,1,2,1,2,3,3
+67,911,krawcowa,kierowca,instruktor jazdy konnej,6,9,11,1,,,1,1,4,5,4
+68,1004,krawcowa,gospodarz,kucharka,6,10,4,1,,,1,1,4,5,5
+69,1005,skręca kubełki,,malarka,6,10,5,1,,,1,,4,5,6
+70,1006,sprzedawca,stolarz,fryzjerka,6,10,6,1,,,1,1,2,4,3
+71,1010,sprzedawca,murarz,"groomer, behawiorystka",6,10,10,1,2,2,1,1,4,5,5
+72,1017,sprzedawca,tokarz,architekt ogrodów,6,10,17,1,,,2,1,2,3,3
+73,1102,mager w dużej firmie,nie mam taty,leśnik,7,11,2,2,,,1,,4,4,4
+74,1105,głów księgowa,drukarz,fotografia,7,11,5,1,1,1,1,1,4,5,4
+75,1107,,jeździ  wózkach widłowych,"chciałam zostać piosenkarką, ale interesuje się fotografią i florystyką",7,11,7,1,,,2,1,4,4,3
+76,1108,,wyrabia sery,,7,11,8,1,,,2,1,2,3,3
+77,1114,SEKRETARKA,,"architektura, projektant wnętrz, malarstwo",7,11,14,1,1,1,1,,4,5,4
+78,1202,w masarni,,dentystą (orygil pisownia dętystą) oraz lekarzem (oryg. Pis. -lekażem) i po pracy zajmować się zwierzętami,7,12,2,1,1,,1,,4,5,4
+79,1203,uczyciel,uczyciel,aktorką lub reżyserką,7,12,3,2,1,1,1,1,4,5,4
+80,1204,,weteryrię,architektem,7,12,4,2,1,1,,1,3,3,4
+82,1206,,leśniczy,fotografem,7,12,6,1,,,,1,4,4,4
+83,1208,pracuje w magazynie,pracuje w magazynie,"harcerzem (orygil pisowania charcerzem), drużynowym",7,12,8,1,1,1,1,1,,,
+84,1209,fryzjer,kierowca,lekarzem pediatrą,7,12,9,1,1,1,1,1,3,5,4
+85,1210,,informatyk,informatyk,7,12,10,2,1,1,2,1,5,5,4
+86,1213,,,biolog,7,12,13,1,1,1,1,1,6,6,6
+87,1501,sprzątaczka szkol,kierowca ciężarówki,nie wiem,9,15,1,1,2,2,1,1,4,4,4
+88,1506,pomaga w remizie,rolnik,hodowca koni,9,15,6,1,1,,1,1,3,3,2
+89,1511,,"""w szpitalu""",chemik,9,15,11,2,1,1,2,1,4,4,4
+90,1513,pracuje w gminie,,wychowawca w-f,9,15,13,1,1,,1,,3,4,3
+91,1517,,monter okien,lekarz lub uczyciel historii,9,15,17,1,1,1,2,1,4,6,5
+92,1520,sprzedawczyni,górnik,chemik,9,15,20,2,1,1,1,1,3,3,2
+93,1522,sprzedawczyni,,architekt,9,15,22,1,,,1,2,3,3,2
+94,1607,szyje,górnik,"pływak, weteryrz",10,16,7,1,,,1,1,4,4,5
+95,1608,sprzedawczyni,budowniczy,nie wiem,10,16,8,2,1,1,1,1,3,3,3
+96,1609,pracuje w ZUK,"""pracuje w oknodomie""",tester gier,10,16,9,1,1,1,1,1,3,4,4
+97,1612,sprzątaczka,elektryk,kucharka,10,16,12,2,1,1,2,1,4,5,6
+98,1613,,,e-sport,10,16,13,2,,,2,1,2,3,3
+99,1617,kucharka szkol,"prawia, montuje różne rzeczy",adwokat,10,16,17,2,1,1,1,1,4,4,5
+100,1618,prowadzi firmę,prowadzi firmę,"model, sportowiec, projektant mody i wnętrz, kierowca rajdowy, firma autoczęsci nowe i używane",10,16,18,2,,,1,1,3,3,4
+101,1620,,nie wiem,nie wiem,10,16,20,1,1,1,1,1,4,4,5
+102,1703,uczyciel,Policjant,Informatyk - programista,11,17,3,2,1,1,1,1,4,5,4
+103,1707,,,Nie wiem,11,17,7,1,1,1,2,1,4,4,5
+104,1709,Pracuje w sklepie,Buduje,Chciałbym być policjantem,11,17,9,2,3,3,1,1,3,4,3
+105,1710,Pracuje u notariusza,Właściciel sklepów,jbardziej chiałabym zostać prawnikiem lub dziennikarzem telewizyjnym,11,17,10,1,2,2,1,1,4,5,5
+106,1711,Pracuje u notariusza,Jest szefem sklepów,"Bym chciałabyć fryzjerką, ale jeszcze się zastawiam",11,17,11,1,2,2,1,1,3,4,3
+107,1712,Dok pomocy społecznej,Kierowca tira,Jeszcze nie wiem,11,17,12,2,3,3,1,1,4,3,4
+108,1803,,Piekarz,,11,18,3,2,1,3,,1,3,4,5
+109,1804,Pielęgniarka,Krawiec,Chciałabym być weneryrzem,11,18,4,1,1,3,1,1,3,4,4
+110,1805,,Mechanik,Piłkarz,11,18,5,2,,3,2,1,5,5,5
+111,1806,,,Sportowiec,11,18,6,2,1,1,3,2,4,5,5
+112,1807,Dentysta,Sport,Sportowiec,11,18,7,2,1,1,1,1,3,4,5
+113,1811,Sprzątaczka,Spawacz,Jeździć koparą lub buldożerem,11,18,11,2,3,3,1,1,,,
+114,1812,Konstruktorka,Kierowca tira,Aktorka,11,18,12,1,1,3,1,1,5,6,5
+115,1901,kontrole w izbie,kontrole w izbie,piłkarz,12,19,1,2,1,1,1,1,4,,
+116,1903,,mechanik samochodowy,piłkarz,12,19,3,2,,1,1,1,3,4,3
+117,1905,fryzjerka,kierowca,sprzedawca w sklepie zoologicznym lub architekt wnętrz,12,19,5,2,,,1,1,2,3,3
+118,1906,uczycielka,informatyk,nie wiem,12,19,6,1,1,1,1,1,3,4,3
+119,1907,,technolog,nie wiem,12,19,7,1,1,1,2,1,4,4,5
+120,1909,kadrowa w ZUS,przedstawiciel handlowy,prezydent USA,12,19,9,1,1,1,1,1,5,5,5
+121,1915,farmaceutka,inzynier,lekarz,12,19,15,1,1,1,1,1,5,5,6
+122,2003,celnik,celnik,psycholog dziecięcy,12,20,3,1,1,1,1,1,3,4,4
+123,2006,uczycielka,mechanik,"fotograf, stewardesa",12,20,6,1,1,1,1,1,4,5,5
+124,2009,uczycielka,policjant,lekarz,12,20,9,1,1,1,1,1,4,5,5
+125,2015,pedagog szkolny,informatyk,stewardesa,12,20,15,1,1,1,1,1,4,5,6
+126,2018,nieruchomości,branża budowla,"piosenkarka, aktorka, pisarka",12,20,18,1,1,1,1,1,3,4,4
+127,3503,w rolnictwie,w rolnictwie,fryzjer i policjantka,21,35,3,1,3,3,1,1,3,4,3
+128,3507,szyje,,mechanik,21,35,7,2,3,3,1,1,2,2,2
+129,3514,sprzedawca,elektryk,nie wiem,21,35,14,2,1,3,1,1,5,3,4
+130,3607,uczycielka,kurator,farmaceutka lub projektantka,21,36,7,1,1,1,1,1,4,4,3
+131,3613,w biurze,właściciel piekarni,architekt,21,36,13,2,3,3,1,1,5,3,3
+132,3619,,składa meble,fryzjerka lub opiekunka do dzieci,21,36,19,1,1,2,2,1,4,3,3
+133,3621,,mechanik samochodowy,sportowiec,21,36,21,2,3,1,2,1,5,4,4
