@@ -39,10 +39,10 @@ Blok 2 - Grafika interaktywna / internetowa
 
 Blok 3 - Grafika informatywna
 
-* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: 
-* [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: [DiagrammeR](https://github.com/rich-iannone/DiagrammeR)
+* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: [ZwyczajeTramwaje](https://www.dropbox.com/s/1egykiaefhmz5v4/wybraneKolumny.rda?dl=0), [ggmap](http://stat405.had.co.nz/ggmap.pdf), [Linie](https://www.dropbox.com/s/oqrduyarze5z4v8/linie.zip?dl=0)
+* [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: [DiagrammeR](https://github.com/rich-iannone/DiagrammeR), [igraph1](http://kateto.net/networks-r-igraph), [igraph2](http://kateto.net/network-visualization), [rozkłady pociągów](http://marlenacompton.com/?tag=edward-tufte)
 * [13] W: Prezentacja projektu 3/1; L: L: [ggvis+shiny](http://ggvis.rstudio.com/interactivity.html)
-* [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy)
+* [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy), [ZanieczyszczeniePowietrze](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/gios-pjp-zanieczyszczenie.csv)
 * [15] W: Prezentacja projektu 3/2
 
 
@@ -55,6 +55,43 @@ Zaliczenie jest oparte o trzy składowe:
 * Punkty z prezentacji wybranego tematu. Prezentacja oceniona w skali 0-25.
 
 Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa ocena.
+
+# Projekt 2
+
+Komentarze do projektów (punkty wystawię jutro):
+https://docs.google.com/spreadsheets/d/1UN-5-MGXKSv-TRQDVhJEMbSxXUjGLto9Oy3mWtAVGRg/edit?usp=sharing
+
+# Projekt 3 - CNK
+
+Doświadczenia z poprzednimi projektami pokazują, że lepiej wychodzą konkretnie narzucone projekty. Więc na trzeci projekt mam dla państwa coś specjalnego.
+
+W Centrum Nauki Kopernik prowadzone są badania nad poziomem zainteresowania dzieci eksponatami i związkiem pomiędzy tą ciekawością a ‘metryczkowymi’ cechami dzieci.
+
+Interesujące artykułu na ten temat to
+* W Koperniku badają, co budzi ciekawość dzieci
+http://www.kopernik.org.pl/news/n/w-koperniku-badaja-co-budzi-ciekawosc-dzieci/
+* Budujemy kapitał naukowy
+http://www.kopernik.org.pl/dla-nauczycieli/do-poczytania/budujemy-kapital-naukowy/
+* Centrum Nauki Kopernik dla przyszłych naukowców
+http://warszawa.wyborcza.pl/warszawa/1,34862,21186256,centrum-nauki-kopernik-dla-przyszlych-naukowcow.html
+
+Jaki jest ten związek i jak go pokazać w czytelny sposób?
+To jest wyzwanie na nasz 3 projekt.
+
+Forma prezentacji danych dowolna. 
+Z jedną tylko regułą. Statyczna wizualizacja danych powinna być wydrukowana lub narysowana lub ulepiona na plakacie formatu A2/A3 (można wydrukować a można namalować kredkami). Interaktywną prezentacje można prezentować na komputerze, ale nawet ona musi mieć wydrukowaną statyczną wersję. Każdy zespół będzie miał od 5 do 10 minut na prezentację swojej wizualizacji. 
+
+Wizualizacje będą oceniali pracownicy CNK z prośbą by ocenili (1) estetykę – czy jest ładne, (2) czytelność – czy umiem przeczytać i wiem o co chodzi (3) informatywność  - czy dowiedziałem się czegoś nowego/ciekawego.
+
+Wyniki zaprezentujemy (obie grupy) w Centrum Nauki Kopernik 27 stycznia w godzinach 14-15
+(gdyby ktoś z poniedziałkowej grupy nie mógł dotrzeć w tym czasie do CNK z uwagi na inne zajęcia, proszę o dostarczenie swojej prezentacji przez kolegę/koleżankę).
+
+Próbną prezentację pokażemy sobie i omówimy na zajęciach 16 i 20 stycznia.
+
+Do dyspozycji mamy dane dla 132 dzieci. Mamy wyniki z kwestionariusza (zawór rodziców, aspiracje dziecka, oceny, płeć, szkoła) oraz wyniki z obserwacji (które dziecko ogląda który eksponat, jak długo go ogląda i z kim).
+
+* Dane kwestionariuszowe https://www.dropbox.com/s/tsiyzg8giu89u6l/dane_kwestionariuszowe.xlsx?dl=0
+* Dane obserwacyjne https://www.dropbox.com/s/wsrfjqm7r7l344b/dane_obserwacyjne.xlsx?dl=0
 
 # Projekty
 
