@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="d3-timeline.js"></script>
+
+  <style type="text/css">
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      font-family: sans-serif;
+      font-size: 10px;
+    }
+
+div.tooltip { 
+    position: absolute;     
+    text-align: left;     
+    width: 150px;          
+    height: 69px;         
+    padding: 2px;       
+    font: 12px sans-serif;    
+    background: #f7fcb9; 
+    border: 0px;    
+    border-radius: 3px;     
+    pointer-events: none;     
+}
+    .timeline-label {
+      font-family: sans-serif;
+      font-size: 12px;
+    }
+
+    #timeline2 .axis {
+      transform: translate(0px,40px);
+      -ms-transform: translate(0px,40px); /* IE 9 */
+      -webkit-transform: translate(0px,40px); /* Safari and Chrome */
+      -o-transform: translate(0px,40px); /* Opera */
+      -moz-transform: translate(0px,40px); /* Firefox */
+    }
+    
+    .coloredDiv {
+      height:20px; width:20px; float:left;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function() {
+      var labelTestData = [
+{label: "A", times: [{"profile": "A","user": "11","interval": "2016-05-20 - 2016-06-19","color":"darkgrey", "starting_time": 1463702400000, "ending_time": 1466294400000}, {"profile": "A","user": "1727","interval": "2016-06-19 - 2016-06-19","color":"gainsboro", "starting_time": 1466294400000, "ending_time": 1466294400000}, {"profile": "A","user": "6813","interval": "2016-06-20 - 2016-07-11","color":"darkgrey", "starting_time": 1466380800000, "ending_time": 1468195200000}, {"profile": "A","user": "1647","interval": "2016-10-02 - 2016-10-21","color":"gainsboro", "starting_time": 1475366400000, "ending_time": 1477008000000}]},
+{label: "B", times: [{"profile": "B","user": "12","interval": "2016-05-24 - 2016-06-22","color":"darkgrey", "starting_time": 1464048000000, "ending_time": 1466553600000}, {"profile": "B","user": "0b7a","interval": "2016-06-23 - 2016-06-24","color":"gainsboro", "starting_time": 1466640000000, "ending_time": 1466726400000}, {"profile": "B","user": "0643","interval": "2016-06-30 - 2016-07-03","color":"darkgrey", "starting_time": 1467244800000, "ending_time": 1467504000000}, {"profile": "B","user": "c937","interval": "2016-10-13 - 2016-10-20","color":"gainsboro", "starting_time": 1476316800000, "ending_time": 1476921600000}]},
+{label: "C", times: [{"profile": "C","user": "13","interval": "2016-05-22 - 2016-06-21","color":"darkgrey", "starting_time": 1463875200000, "ending_time": 1466467200000}, {"profile": "C","user": "ec7f","interval": "2016-06-24 - 2016-07-25","color":"gainsboro", "starting_time": 1466726400000, "ending_time": 1469404800000}, {"profile": "C","user": "0470","interval": "2016-07-25 - 2016-08-25","color":"darkgrey", "starting_time": 1469404800000, "ending_time": 1472083200000}, {"profile": "C","user": "d28c","interval": "2016-10-17 - 2016-10-20","color":"gainsboro", "starting_time": 1476662400000, "ending_time": 1476921600000}]},
+{label: "D", times: [{"profile": "D","user": "14","interval": "2016-05-14 - 2016-06-12","color":"darkgrey", "starting_time": 1463184000000, "ending_time": 1465689600000}, {"profile": "D","user": "90ff","interval": "2016-06-27 - 2016-07-24","color":"gainsboro", "starting_time": 1466985600000, "ending_time": 1469318400000}, {"profile": "D","user": "4a98","interval": "2016-08-08 - 2016-09-07","color":"darkgrey", "starting_time": 1470614400000, "ending_time": 1473206400000}, {"profile": "D","user": "d56e","interval": "2016-09-10 - 2016-10-11","color":"gainsboro", "starting_time": 1473465600000, "ending_time": 1476144000000}, {"profile": "D","user": "d05f","interval": "2016-10-12 - 2016-10-20","color":"darkgrey", "starting_time": 1476230400000, "ending_time": 1476921600000}]},
+{label: "E", times: [{"profile": "E","user": "15","interval": "2016-05-02 - 2016-05-02","color":"darkgrey", "starting_time": 1462147200000, "ending_time": 1462147200000}, {"profile": "E","user": "3fc7","interval": "2016-05-05 - 2016-05-29","color":"gainsboro", "starting_time": 1462406400000, "ending_time": 1464480000000}, {"profile": "E","user": "5955","interval": "2016-05-29 - 2016-06-27","color":"darkgrey", "starting_time": 1464480000000, "ending_time": 1466985600000}, {"profile": "E","user": "3019","interval": "2016-10-19 - 2016-10-20","color":"gainsboro", "starting_time": 1476835200000, "ending_time": 1476921600000}]},
+{label: "F", times: [{"profile": "F","user": "16","interval": "2016-01-10 - 2016-02-07","color":"darkgrey", "starting_time": 1452384000000, "ending_time": 1454803200000}, {"profile": "F","user": "7419","interval": "2016-02-08 - 2016-03-02","color":"gainsboro", "starting_time": 1454889600000, "ending_time": 1456876800000}, {"profile": "F","user": "8585","interval": "2016-03-03 - 2016-03-10","color":"darkgrey", "starting_time": 1456963200000, "ending_time": 1457568000000}, {"profile": "F","user": "2c49","interval": "2016-03-19 - 2016-03-25","color":"gainsboro", "starting_time": 1458345600000, "ending_time": 1458864000000}]}
+      ];
+
+      var width = 1200;
+      var div = d3.select("body").append("div") 
+                  .attr("class", "tooltip")       
+                  .style("opacity", 0);
+
+      function timelineHover() {
+        var chart = d3.timeline()
+          .width(width)
+          .stack()
+          .margin({left:70, right:30, top:0, bottom:0})
+          .beginning(1451602800000) // we can optionally add beginning and ending times to speed up rendering a little
+          .ending(   1480546800000)
+          .tickFormat({
+              format: d3.time.format("%b"),
+              tickTime: d3.time.months,
+              tickInterval: 1,
+              tickSize: 6
+            })
+          .hover(function (d, i, datum) {
+          // d is the current rendering object
+          // i is the index during d3 rendering
+          // datum is the id object
+            var div = $('#hoverRes');
+            var colors = chart.colors();
+            div.find('.coloredDiv').css('background-color', colors(i))
+            div.find('#name').text(datum.label);
+          })
+          .click(function (d, i, datum) {
+            alert(datum.label);
+          })
+          .scroll(function (x, scale) {
+            $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
+          });
+
+        var svg = d3.select("#timeline3").append("svg").attr("width", width)
+          .datum(labelColorTestData).call(chart);
+      }
+
+      function timelineLabelColor() {
+        var chart = d3.timeline()
+          .beginning(1451602800000) // we can optionally add beginning and ending times to speed up rendering a little
+          .ending(   1480546800000)
+          .stack() // toggles graph stacking
+          .margin({left:70, right:30, top:0, bottom:0})
+          .showAxisTop()
+          .tickFormat({
+              format: d3.time.format("%b"),
+              tickTime: d3.time.months,
+              tickInterval: 1,
+              tickSize: 6
+            })
+          ;
+        var svg = d3.select("#timeline6").append("svg").attr("width", width)
+          .datum(labelTestData)
+          .call(chart)
+          ;
+        svg
+        .selectAll("rect")
+        .on('mouseover', function(d, i){ 
+          d3.select(this).style({stroke: 'black'}).attr("stroke-width", 3); 
+          div.transition()    
+                .duration(200)    
+                .style("opacity", .9);    
+          div .html("Profile: " + d.profile + "<br/>User: " + d.user + "<br/>Active between:</br> " + d.interval + "</br>(click to open)")  
+                .style("left", (d3.event.pageX) + "px")   
+                .style("top", (d3.event.pageY + 12) + "px");  
+        })
+        .on('mouseout', function(d, i){ 
+          d3.select(this).style({stroke: 'white'}).attr("stroke-width", 0); 
+          div.transition()    
+                .duration(500)    
+                .style("opacity", 0);
+              })
+        .on('click', function(d, i){ 
+          window.open("http://google.com/", '_blank'); 
+        });
+      }
+
+      timelineLabelColor();
+    }
+  </script>
+</head>
+<body>
+
+  <div>
+    <div id="timeline6"></div>
+  </div>
+
+</body>
+</html>

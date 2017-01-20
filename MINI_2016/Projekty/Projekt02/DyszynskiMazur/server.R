@@ -44,7 +44,7 @@ shinyServer(function(input, output) {
                    &  geo  %in% input$variable
                    & legtype == "Total")
     
-    sset$time <- as.character(sset$time)
+    sset$time <- substr(as.character(sset$time),1,4)
     
     summed <- aggregate(values ~ geo + time, sset, sum)
     summed$values <- summed$values/10000
@@ -56,8 +56,11 @@ shinyServer(function(input, output) {
     
     
     ggplot(summedRatio, aes(x=time, y=areaRatio, group=Country, color=Country)) +
-      geom_line(size=2) +  ylab("Ratio of total agricultural area to total country area [promiles]") 
-    
+      geom_line(size=2) +  
+      ylab("Total Agricultural area to Total Country Area [%]") + 
+      theme(axis.title.x=element_blank()) +
+      ylim(c(0,3))
+  
   
   })
   output$distPlot2 <- renderPlot({
@@ -71,22 +74,30 @@ shinyServer(function(input, output) {
     labeled <- label_eurostat(estat)
     labeled <- na.omit(labeled)
     # Tylko wybrane kraje i pola
+    labeled[labeled$geo %like% 'Germany',]$geo <- "Germany"
     wybrane_pola <- c("Euro: Standard output (SO)", "ha: Utilised agricultural area")
+    
+    '%!in%' <- function(x,y)!('%in%'(x,y))
     sset <- subset(labeled, geo %in% input$variable
                    & indic_ef %in% wybrane_pola
-                   & agrarea %in% input$size
+                   & agrarea != 'Zero ha'
                    & legtype == "Total")
     
     sset$time <- as.character(sset$time)
     # Sumowanie wartości z grupowaniem po typie (euro/hektar) i kraju
-    summed <- aggregate(values ~ indic_ef + geo, sset, sum)
+    summed <- aggregate(values ~ indic_ef + geo + agrarea, sset, sum)
     # Zamiana par rzędów z euro i hektarami na kolumny
     wide <- spread(summed, indic_ef, values)
-    wide$avg <- wide[,2] / wide[,3]
+    wide$avg <- wide[,4] / wide[,3]
     
-    ggplot(wide, aes(x=geo, y=avg)) +
-      labs(x = "Country", y = "Euro / ha: Average output / area") +
-      geom_point(shape=1)
+      poziomy <- c("Less than 2 ha","From 2 to 4.9 ha","From 5 to 9.9 ha",
+                   "From 10 to 19.9 ha","From 20 to 29.9 ha","From 30 to 49.9 ha",
+                   "From 50 to 99.9 ha","100 ha or over","Total")
+      wide$agrarea <- factor(wide$agrarea, levels =poziomy)
+
+    ggplot(wide, aes(x=geo, y=avg, fill=agrarea)) +
+      geom_bar(position="dodge",stat="identity") +
+      labs(x = "Country", y = "Euro / ha: Average output / area")
     
     
   })

@@ -1,0 +1,12 @@
+---
+title: "PD11"
+author: "Maksymilian Mazur"
+date: "8 stycznia 2017"
+output: html_document
+---
+
+
+
+## Zadluzenie Rumunii
+
+W ramach pracy domowej spróbowalem przedstawic wykres zadluzenia dla wybranych krajów Unii dostepny w artykule na bloombergu: https://www.bloomberg.com/news/articles/2016-12-30/romanian-social-democrat-grindeanu-secures-mandate-as-premier . Glówna zmiana jaka próbowalem uzyskac jest uwyraznienie róznicy pomiedzy momentem gdy przekroczony zostaje limit unijny zadluzenia i zmiana z danych rzeczywistych na przewidywania. Wykres wykonany zostal w tableau i dostepny jest tutaj: https://public.tableau.com/profile/maksymilian2530#!/vizhome/PracaDomowaZadluzenie/Sheet1

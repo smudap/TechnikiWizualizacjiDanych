@@ -1,0 +1,946 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js' charset='utf-8'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js' charset='utf-8'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.js' charset='utf-8'></script>
+
+<h1>
+Rozk³ad zdobyczy punktowych 10ciu najlepszych dru¿yn w sezonach od roku 2000
+</h1>
+
+<div id = 'inline' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawinline()
+    });
+    function drawinline(){  
+      var opts = {
+ "dom": "inline",
+"width":   1300,
+"height":    600,
+"x": "Year",
+"y": "TotalPoints",
+"group": "Team",
+"type": "lineWithFocusChart",
+"id": "inline" 
+},
+        data = [
+ {
+ "Team": "CLE",
+"Year":              1,
+"TotalPoints": 8082 
+},
+{
+ "Team": "DAL",
+"Year":              1,
+"TotalPoints": 8576 
+},
+{
+ "Team": "DEN",
+"Year":              1,
+"TotalPoints": 7751 
+},
+{
+ "Team": "GSW",
+"Year":              1,
+"TotalPoints": 7668 
+},
+{
+ "Team": "LAC",
+"Year":              1,
+"TotalPoints": 7521 
+},
+{
+ "Team": "LAL",
+"Year":              1,
+"TotalPoints": 8251 
+},
+{
+ "Team": "PHO",
+"Year":              1,
+"TotalPoints": 7615 
+},
+{
+ "Team": "SAC",
+"Year":              1,
+"TotalPoints": 8343 
+},
+{
+ "Team": "SAN",
+"Year":              1,
+"TotalPoints": 7886 
+},
+{
+ "Team": "OKC",
+"Year":              1,
+"TotalPoints": 7978 
+},
+{
+ "Team": "CLE",
+"Year":              2,
+"TotalPoints": 7812 
+},
+{
+ "Team": "DAL",
+"Year":              2,
+"TotalPoints": 9737 
+},
+{
+ "Team": "DEN",
+"Year":              2,
+"TotalPoints": 6489 
+},
+{
+ "Team": "GSW",
+"Year":              2,
+"TotalPoints": 7953 
+},
+{
+ "Team": "LAC",
+"Year":              2,
+"TotalPoints": 7846 
+},
+{
+ "Team": "LAL",
+"Year":              2,
+"TotalPoints": 8294 
+},
+{
+ "Team": "PHO",
+"Year":              2,
+"TotalPoints": 7224 
+},
+{
+ "Team": "SAC",
+"Year":              2,
+"TotalPoints": 8560 
+},
+{
+ "Team": "SAN",
+"Year":              2,
+"TotalPoints": 7932 
+},
+{
+ "Team": "OKC",
+"Year":              2,
+"TotalPoints": 8014 
+},
+{
+ "Team": "CLE",
+"Year":              3,
+"TotalPoints": 7190 
+},
+{
+ "Team": "DAL",
+"Year":              3,
+"TotalPoints": 8433 
+},
+{
+ "Team": "DEN",
+"Year":              3,
+"TotalPoints": 6262 
+},
+{
+ "Team": "GSW",
+"Year":              3,
+"TotalPoints": 8400 
+},
+{
+ "Team": "LAC",
+"Year":              3,
+"TotalPoints": 7693 
+},
+{
+ "Team": "LAL",
+"Year":              3,
+"TotalPoints": 8230 
+},
+{
+ "Team": "PHO",
+"Year":              3,
+"TotalPoints": 7834 
+},
+{
+ "Team": "SAC",
+"Year":              3,
+"TotalPoints": 8342 
+},
+{
+ "Team": "SAN",
+"Year":              3,
+"TotalPoints": 7832 
+},
+{
+ "Team": "OKC",
+"Year":              3,
+"TotalPoints": 7130 
+},
+{
+ "Team": "CLE",
+"Year":              4,
+"TotalPoints": 7799 
+},
+{
+ "Team": "DAL",
+"Year":              4,
+"TotalPoints": 8743 
+},
+{
+ "Team": "DEN",
+"Year":              4,
+"TotalPoints": 8203 
+},
+{
+ "Team": "GSW",
+"Year":              4,
+"TotalPoints": 7753 
+},
+{
+ "Team": "LAC",
+"Year":              4,
+"TotalPoints": 7775 
+},
+{
+ "Team": "LAL",
+"Year":              4,
+"TotalPoints": 8016 
+},
+{
+ "Team": "PHO",
+"Year":              4,
+"TotalPoints": 7001 
+},
+{
+ "Team": "SAC",
+"Year":              4,
+"TotalPoints": 8433 
+},
+{
+ "Team": "SAN",
+"Year":              4,
+"TotalPoints": 7819 
+},
+{
+ "Team": "OKC",
+"Year":              4,
+"TotalPoints": 7964 
+},
+{
+ "Team": "CLE",
+"Year":              5,
+"TotalPoints": 8351 
+},
+{
+ "Team": "DAL",
+"Year":              5,
+"TotalPoints": 8802 
+},
+{
+ "Team": "DEN",
+"Year":              5,
+"TotalPoints": 8160 
+},
+{
+ "Team": "GSW",
+"Year":              5,
+"TotalPoints": 7431 
+},
+{
+ "Team": "LAC",
+"Year":              5,
+"TotalPoints": 8044 
+},
+{
+ "Team": "LAL",
+"Year":              5,
+"TotalPoints": 8083 
+},
+{
+ "Team": "PHO",
+"Year":              5,
+"TotalPoints": 9288 
+},
+{
+ "Team": "SAC",
+"Year":              5,
+"TotalPoints": 8909 
+},
+{
+ "Team": "SAN",
+"Year":              5,
+"TotalPoints": 8160 
+},
+{
+ "Team": "OKC",
+"Year":              5,
+"TotalPoints": 8115 
+},
+{
+ "Team": "CLE",
+"Year":              6,
+"TotalPoints": 8431 
+},
+{
+ "Team": "DAL",
+"Year":              6,
+"TotalPoints": 8130 
+},
+{
+ "Team": "DEN",
+"Year":              6,
+"TotalPoints": 8626 
+},
+{
+ "Team": "GSW",
+"Year":              6,
+"TotalPoints": 8076 
+},
+{
+ "Team": "LAC",
+"Year":              6,
+"TotalPoints": 8178 
+},
+{
+ "Team": "LAL",
+"Year":              6,
+"TotalPoints": 8253 
+},
+{
+ "Team": "PHO",
+"Year":              6,
+"TotalPoints": 8796 
+},
+{
+ "Team": "SAC",
+"Year":              6,
+"TotalPoints": 7966 
+},
+{
+ "Team": "SAN",
+"Year":              6,
+"TotalPoints": 7837 
+},
+{
+ "Team": "OKC",
+"Year":              6,
+"TotalPoints": 7783 
+},
+{
+ "Team": "CLE",
+"Year":              7,
+"TotalPoints": 7934 
+},
+{
+ "Team": "DAL",
+"Year":              7,
+"TotalPoints": 8049 
+},
+{
+ "Team": "DEN",
+"Year":              7,
+"TotalPoints": 8393 
+},
+{
+ "Team": "GSW",
+"Year":              7,
+"TotalPoints": 9177 
+},
+{
+ "Team": "LAC",
+"Year":              7,
+"TotalPoints": 7883 
+},
+{
+ "Team": "LAL",
+"Year":              7,
+"TotalPoints": 8474 
+},
+{
+ "Team": "PHO",
+"Year":              7,
+"TotalPoints": 9034 
+},
+{
+ "Team": "SAC",
+"Year":              7,
+"TotalPoints": 8260 
+},
+{
+ "Team": "SAN",
+"Year":              7,
+"TotalPoints": 8107 
+},
+{
+ "Team": "OKC",
+"Year":              7,
+"TotalPoints": 8130 
+},
+{
+ "Team": "CLE",
+"Year":              8,
+"TotalPoints": 8220 
+},
+{
+ "Team": "DAL",
+"Year":              8,
+"TotalPoints": 8825 
+},
+{
+ "Team": "DEN",
+"Year":              8,
+"TotalPoints": 8956 
+},
+{
+ "Team": "GSW",
+"Year":              8,
+"TotalPoints": 9086 
+},
+{
+ "Team": "LAC",
+"Year":              8,
+"TotalPoints": 7253 
+},
+{
+ "Team": "LAL",
+"Year":              8,
+"TotalPoints": 9813 
+},
+{
+ "Team": "PHO",
+"Year":              8,
+"TotalPoints": 8766 
+},
+{
+ "Team": "SAC",
+"Year":              8,
+"TotalPoints": 8566 
+},
+{
+ "Team": "SAN",
+"Year":              8,
+"TotalPoints": 8370 
+},
+{
+ "Team": "OKC",
+"Year":              8,
+"TotalPoints": 7021 
+},
+{
+ "Team": "CLE",
+"Year":              9,
+"TotalPoints": 8461 
+},
+{
+ "Team": "DAL",
+"Year":              9,
+"TotalPoints": 8490 
+},
+{
+ "Team": "DEN",
+"Year":              9,
+"TotalPoints": 8658 
+},
+{
+ "Team": "GSW",
+"Year":              9,
+"TotalPoints": 9059 
+},
+{
+ "Team": "LAC",
+"Year":              9,
+"TotalPoints": 7883 
+},
+{
+ "Team": "LAL",
+"Year":              9,
+"TotalPoints": 8838 
+},
+{
+ "Team": "PHO",
+"Year":              9,
+"TotalPoints": 8979 
+},
+{
+ "Team": "SAC",
+"Year":              9,
+"TotalPoints": 7259 
+},
+{
+ "Team": "SAN",
+"Year":              9,
+"TotalPoints": 8397 
+},
+{
+ "Team": "OKC",
+"Year":              9,
+"TotalPoints": 7658 
+},
+{
+ "Team": "CLE",
+"Year":             10,
+"TotalPoints": 9360 
+},
+{
+ "Team": "DAL",
+"Year":             10,
+"TotalPoints": 8734 
+},
+{
+ "Team": "DEN",
+"Year":             10,
+"TotalPoints": 8729 
+},
+{
+ "Team": "GSW",
+"Year":             10,
+"TotalPoints": 8751 
+},
+{
+ "Team": "LAC",
+"Year":             10,
+"TotalPoints": 7788 
+},
+{
+ "Team": "LAL",
+"Year":             10,
+"TotalPoints": 8339 
+},
+{
+ "Team": "PHO",
+"Year":             10,
+"TotalPoints": 8996 
+},
+{
+ "Team": "SAC",
+"Year":             10,
+"TotalPoints": 8460 
+},
+{
+ "Team": "SAN",
+"Year":             10,
+"TotalPoints": 8254 
+},
+{
+ "Team": "OKC",
+"Year":             10,
+"TotalPoints": 8446 
+},
+{
+ "Team": "CLE",
+"Year":             11,
+"TotalPoints": 7890 
+},
+{
+ "Team": "DAL",
+"Year":             11,
+"TotalPoints": 8687 
+},
+{
+ "Team": "DEN",
+"Year":             11,
+"TotalPoints": 9241 
+},
+{
+ "Team": "GSW",
+"Year":             11,
+"TotalPoints": 8595 
+},
+{
+ "Team": "LAC",
+"Year":             11,
+"TotalPoints": 7980 
+},
+{
+ "Team": "LAL",
+"Year":             11,
+"TotalPoints": 8297 
+},
+{
+ "Team": "PHO",
+"Year":             11,
+"TotalPoints": 8427 
+},
+{
+ "Team": "SAC",
+"Year":             11,
+"TotalPoints": 7918 
+},
+{
+ "Team": "SAN",
+"Year":             11,
+"TotalPoints": 8498 
+},
+{
+ "Team": "OKC",
+"Year":             11,
+"TotalPoints": 8275 
+},
+{
+ "Team": "CLE",
+"Year":             12,
+"TotalPoints": 5290 
+},
+{
+ "Team": "DAL",
+"Year":             12,
+"TotalPoints": 6293 
+},
+{
+ "Team": "DEN",
+"Year":             12,
+"TotalPoints": 6970 
+},
+{
+ "Team": "GSW",
+"Year":             12,
+"TotalPoints": 5730 
+},
+{
+ "Team": "LAC",
+"Year":             12,
+"TotalPoints": 7049 
+},
+{
+ "Team": "LAL",
+"Year":             12,
+"TotalPoints": 6758 
+},
+{
+ "Team": "PHO",
+"Year":             12,
+"TotalPoints": 6492 
+},
+{
+ "Team": "SAC",
+"Year":             12,
+"TotalPoints": 6405 
+},
+{
+ "Team": "SAN",
+"Year":             12,
+"TotalPoints": 7004 
+},
+{
+ "Team": "OKC",
+"Year":             12,
+"TotalPoints": 7054 
+},
+{
+ "Team": "CLE",
+"Year":             13,
+"TotalPoints": 8157 
+},
+{
+ "Team": "DAL",
+"Year":             13,
+"TotalPoints": 8167 
+},
+{
+ "Team": "DEN",
+"Year":             13,
+"TotalPoints": 8704 
+},
+{
+ "Team": "GSW",
+"Year":             13,
+"TotalPoints": 8190 
+},
+{
+ "Team": "LAC",
+"Year":             13,
+"TotalPoints": 8343 
+},
+{
+ "Team": "LAL",
+"Year":             13,
+"TotalPoints": 8381 
+},
+{
+ "Team": "PHO",
+"Year":             13,
+"TotalPoints": 8010 
+},
+{
+ "Team": "SAC",
+"Year":             13,
+"TotalPoints": 8393 
+},
+{
+ "Team": "SAN",
+"Year":             13,
+"TotalPoints": 8414 
+},
+{
+ "Team": "OKC",
+"Year":             13,
+"TotalPoints": 8808 
+},
+{
+ "Team": "CLE",
+"Year":             14,
+"TotalPoints": 8703 
+},
+{
+ "Team": "DAL",
+"Year":             14,
+"TotalPoints": 8597 
+},
+{
+ "Team": "DEN",
+"Year":             14,
+"TotalPoints": 8520 
+},
+{
+ "Team": "GSW",
+"Year":             14,
+"TotalPoints": 9138 
+},
+{
+ "Team": "LAC",
+"Year":             14,
+"TotalPoints": 9561 
+},
+{
+ "Team": "LAL",
+"Year":             14,
+"TotalPoints": 8331 
+},
+{
+ "Team": "PHO",
+"Year":             14,
+"TotalPoints": 8629 
+},
+{
+ "Team": "SAC",
+"Year":             14,
+"TotalPoints": 7747 
+},
+{
+ "Team": "SAN",
+"Year":             14,
+"TotalPoints": 8503 
+},
+{
+ "Team": "OKC",
+"Year":             14,
+"TotalPoints": 9079 
+},
+{
+ "Team": "CLE",
+"Year":             15,
+"TotalPoints": 8796 
+},
+{
+ "Team": "DAL",
+"Year":             15,
+"TotalPoints": 8998 
+},
+{
+ "Team": "DEN",
+"Year":             15,
+"TotalPoints": 7110 
+},
+{
+ "Team": "GSW",
+"Year":             15,
+"TotalPoints": 9016 
+},
+{
+ "Team": "LAC",
+"Year":             15,
+"TotalPoints": 9117 
+},
+{
+ "Team": "LAL",
+"Year":             15,
+"TotalPoints": 8178 
+},
+{
+ "Team": "PHO",
+"Year":             15,
+"TotalPoints": 8220 
+},
+{
+ "Team": "SAC",
+"Year":             15,
+"TotalPoints": 8280 
+},
+{
+ "Team": "SAN",
+"Year":             15,
+"TotalPoints": 8350 
+},
+{
+ "Team": "OKC",
+"Year":             15,
+"TotalPoints": 9554 
+},
+{
+ "Team": "CLE",
+"Year":             16,
+"TotalPoints": 8637 
+},
+{
+ "Team": "DAL",
+"Year":             16,
+"TotalPoints": 8533 
+},
+{
+ "Team": "DEN",
+"Year":             16,
+"TotalPoints": 8250 
+},
+{
+ "Team": "GSW",
+"Year":             16,
+"TotalPoints": 9441 
+},
+{
+ "Team": "LAC",
+"Year":             16,
+"TotalPoints": 8822 
+},
+{
+ "Team": "LAL",
+"Year":             16,
+"TotalPoints": 7982 
+},
+{
+ "Team": "PHO",
+"Year":             16,
+"TotalPoints": 8003 
+},
+{
+ "Team": "SAC",
+"Year":             16,
+"TotalPoints": 8740 
+},
+{
+ "Team": "SAN",
+"Year":             16,
+"TotalPoints": 8925 
+},
+{
+ "Team": "OKC",
+"Year":             16,
+"TotalPoints": 9202 
+},
+{
+ "Team": "CLE",
+"Year":             17,
+"TotalPoints": 3849 
+},
+{
+ "Team": "DAL",
+"Year":             17,
+"TotalPoints": 3523 
+},
+{
+ "Team": "DEN",
+"Year":             17,
+"TotalPoints": 3996 
+},
+{
+ "Team": "GSW",
+"Year":             17,
+"TotalPoints": 4349 
+},
+{
+ "Team": "LAC",
+"Year":             17,
+"TotalPoints": 4218 
+},
+{
+ "Team": "LAL",
+"Year":             17,
+"TotalPoints": 4208 
+},
+{
+ "Team": "PHO",
+"Year":             17,
+"TotalPoints": 3909 
+},
+{
+ "Team": "SAC",
+"Year":             17,
+"TotalPoints": 3678 
+},
+{
+ "Team": "SAN",
+"Year":             17,
+"TotalPoints": 3922 
+},
+{
+ "Team": "OKC",
+"Year":             17,
+"TotalPoints": 4061 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .useInteractiveGuideline(true)
+          
+        chart.xAxis
+  .tickValues( function (x) {    
+    tickvalues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+        return tickvalues;
+        } )
+  .tickFormat( function (x) {
+        tickformat = ['00-01', '01-02', '02-03', '03-04', '04-05', 
+        '05-06', '06-07', '07-08', '08-09', '09-10', '10-11', 
+        '11-12', '12-13', '13-14', '14-15', '15-16', '16-17'];
+        return tickformat[x-1];
+        } )
+
+        chart.x2Axis
+  .tickValues( function (x) {    
+    tickvalues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+         return tickvalues;
+         } )
+  .tickFormat( function (x) {
+         tickformat = ['00-01', '01-02', '02-03', '03-04', '04-05', 
+         '05-06', '06-07', '07-08', '08-09', '09-10', '10-11', 
+         '11-12', '12-13', '13-14', '14-15', '15-16', '16-17'];
+         return tickformat[x-1];
+         } )
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>

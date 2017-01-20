@@ -1,0 +1,560 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <style type="text/css">
+  	div {
+    width: 200px;          
+    height: 20px;         
+    padding: 2px;       
+    font: 14px sans-serif;    
+    background: #f4fdaf; 
+    border: 1px;    
+    border-radius: 5px;     
+  	}
+div.tips {
+    width: 200px;          
+    height: 20px;         
+    padding: 2px;       
+    font: 14px sans-serif;    
+    background: #c0dfa1; 
+    border: 1px;    
+    border-radius: 5px;     
+  	}
+div.tips2 {
+    width: 200px;          
+    height: 20px;         
+    padding: 2px;       
+    font: 14px sans-serif;    
+    background: #9fc490; 
+    border: 1px;    
+    border-radius: 5px;     
+  	}
+div.tips3 {
+    width: 200px;          
+    height: 20px;         
+    padding: 2px;       
+    font: 14px sans-serif;    
+    background: #82a3a1; 
+    border: 1px;    
+    border-radius: 5px;     
+  	}
+ div.wykres {
+    width: 800px;          
+    height:600px;         
+    background: white; 
+  	}
+ div.wykres2 {
+    width: 800px;          
+    height:600px;         
+    background: white; 
+  	}
+div.tooltip { 
+    
+position: absolute;     
+    
+text-align: left;     
+    
+width: 80px;          
+    
+height: 20px;         
+    
+padding: 2px;       
+    
+font: 12px sans-serif;    
+    
+background: #f7fcb9; 
+    
+border: 0px;    
+    
+border-radius: 3px;     
+    
+pointer-events: none;     
+
+}
+  
+
+  </style>
+</head>
+
+
+
+<body>
+	<div  onclick="set2015()">całość</div>
+	<div class="tips" onclick="set2006()">tylko rok 2017</div>
+	<div class="tips2" onclick="set2009()">tylko rok 2018</div>
+	<div class="tips3" onclick="set2012()">tylko rok 2019</div>
+	<div onclick="set20062()">tylko żołnierze zawodowi</div>
+	<div onclick="set20063()">tylko żołnierze ochotnicy</div>
+	<div onclick="set20064()">tylko pracownicy wojska</div>
+<div class="wykres">
+	<svg width="800" height="400">
+	<text x="300" y="15" >Kto znajdzie pracę w nowej formacji w latach 2017-2019</text>
+	<text x="10" y="45" >Żołnierze zawodowi</text>
+	<text x="10" y="125" >Żołnierze ochotnicy</text>
+	<text x="10" y="205" >Pracownicy wojska</text>
+	</svg>
+</div>
+
+
+
+
+<script>
+ var w = 600,
+   h = 600
+   
+   var y = d3.scale.linear()
+   .domain([0, 200])
+   .range([0, h])
+
+   var y = d3.scale.linear()
+   .domain([0, 550])
+   .range([0, w])
+
+var danekr = [{"wartosc1":1626,"wartosc2":0,"wartosc3":0,"wartosc4":1626,"y":100,"kolor":"#c0dfa1","wartosc5":1626,"y2":100,"x2":50,"wartosc6":17142,"wartosc7":318},
+{"wartosc1":0,"wartosc2":2981,"wartosc3":0,"wartosc4":2981,"y":115,"kolor":"#9fc490","wartosc5":2981,"y2":115,"x2":50,"wartosc6":31427,"wartosc7":583},
+{"wartosc1":0,"wartosc2":0,"wartosc3":4607,"wartosc4":4607,"y":130,"kolor":"#82a3a1","wartosc5":4607,"y2":130,"x2":50,"wartosc6":48569,"wartosc7":901},
+{"wartosc1":17142,"wartosc2":0,"wartosc3":0,"wartosc4":17142,"y":180,"kolor":"#c0dfa1","wartosc5":0,"y2":100,"x2":50,"wartosc6":0,"wartosc7":0},
+{"wartosc1":0,"wartosc2":31427,"wartosc3":0,"wartosc4":31427,"y":195,"kolor":"#9fc490","wartosc5":0,"y2":115,"x2":50,"wartosc6":0,"wartosc7":0},
+{"wartosc1":0,"wartosc2":0,"wartosc3":48569,"wartosc4":48569,"y":210,"kolor":"#82a3a1","wartosc5":0,"y2":130,"x2":50,"wartosc6":0,"wartosc7":0},
+{"wartosc1":318,"wartosc2":0,"wartosc3":0,"wartosc4":318,"y":260,"kolor":"#c0dfa1","wartosc5":0,"y2":100,"x2":50,"wartosc6":0,"wartosc7":0},
+{"wartosc1":0,"wartosc2":583,"wartosc3":0,"wartosc4":583,"y":275,"kolor":"#9fc490","wartosc5":0,"y2":115,"x2":50,"wartosc6":0,"wartosc7":0},
+{"wartosc1":0,"wartosc2":0,"wartosc3":901,"wartosc4":901,"y":290,"kolor":"#82a3a1","wartosc5":0,"y2":130,"x2":50,"wartosc6":0,"wartosc7":0}]
+
+var danekr2 = [{"wart1":"Żołnierze zawodowi","y":65,"x":300,"wart2":"Żołnierze ochotnicy","wart3":"Pracownicy wojska","wart4":"Zatrudnienie w latach 2017-2019","wart5":"Zatrudnienie w 2017","wart6":"Zatrudnienie w 2018","wart7":"Zatrudnienie w 2019","y2":65},
+{"wart1":"2017","y":110,"x":0,"wart2":"2017","wart3":"2017","wart4":"Żołnierze zawodowi","wart5":"Żołnierze zawodowi","wart6":"Żołnierze zawodowi","wart7":"Żołnierze zawodowi","y2":95},
+{"wart1":"2018","y":125,"x":0,"wart2":"2018","wart3":"2018","wart4":"Żołnierze ochotnicy","wart5":"Żołnierze ochotnicy","wart6":"Żołnierze ochotnicy","wart7":"Żołnierze ochotnicy","y2":175},
+{"wart1":"2019","y":140,"x":0,"wart2":"2019","wart3":"2019","wart4":"Pracownicy wojska","wart5":"Pracownicy wojska","wart6":"Pracownicy wojska","wart7":"Pracownicy wojska","y2":255}]
+
+
+var div = d3.select("body").append("div") 
+                  
+.attr("class", "tooltip")       
+                  
+.style("opacity", 0);
+ 
+ 
+
+var svg = d3.select("svg")
+
+svg.selectAll("rect")
+   .data(danekr).enter().append("rect")
+   .attr("y",  function(d, i) {return (d.y)-50})
+   .attr("x",  0)
+   .attr("width", function(d, i) {return (d.wartosc4)/100})
+   .attr("height", 20)
+   .style("fill", function(d, i) {return d.kolor})
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc4)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+
+
+
+
+
+
+var set2006 = function() {
+	var wykres = d3.select("svg")
+	wykres.selectAll("text")
+		.data(danekr2)
+		.text(function(d, i) {return (d.wart5)})
+		.attr("y",function(d, i) {return (d.y2)-50})
+		.attr("x",function(d, i) {return (d.x)})
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(3000)
+	   .attr("width", function(d, i) {return (d.wartosc1)/100})
+.attr("y",  function(d, i) {return (d.y)-50})
+  	.attr("x",  0)
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc1)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+}
+
+var set2009 = function() {
+	var wykres = d3.select("svg")
+	wykres.selectAll("text")
+		.data(danekr2)
+		.text(function(d, i) {return (d.wart6)})
+		.attr("y",function(d, i) {return (d.y2)-50})
+		.attr("x",function(d, i) {return (d.x)})
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(3000)
+	   .attr("width", function(d, i) {return (d.wartosc2)/100})
+.attr("y",  function(d, i) {return (d.y)-50})
+  	.attr("x",  0)
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc2)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+}
+
+var set2012 = function() {
+	var wykres = d3.select("svg")
+	wykres.selectAll("text")
+		.data(danekr2)
+		.text(function(d, i) {return (d.wart7)})
+		.attr("y",function(d, i) {return (d.y2)-50})
+		.attr("x",function(d, i) {return (d.x)})
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(3000)
+	   .attr("width", function(d, i) {return (d.wartosc3)/100})
+.attr("y",  function(d, i) {return (d.y)-50})
+  	.attr("x",  0)
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc3)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+}
+
+var set2015 = function() {
+	var wykres = d3.select("svg")
+	wykres.selectAll("text")
+		.data(danekr2)
+		.text(function(d, i) {return (d.wart4)})
+		.attr("y",function(d, i) {return (d.y2)-50})
+		.attr("x",function(d, i) {return (d.x)})
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+   	   .duration(3000)
+	   .attr("width", function(d, i) {return (d.wartosc4)/100})
+.attr("y",  function(d, i) {return (d.y)-50})
+  	.attr("x",  0)
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc4)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+}
+
+
+var set20062 = function() {
+	var wykres = d3.select("svg")
+	wykres.selectAll("text")
+		.data(danekr2)
+		.text(function(d, i) {return (d.wart1)})
+		.attr("y",function(d, i) {return (d.y)-50})
+		.attr("x",function(d, i) {return (d.x)})
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+  	   .duration(3000)
+	   .attr("width", function(d, i) {return (d.wartosc5)/100})
+ 	.attr("y",  function(d, i) {return (d.y2)-50})
+  	.attr("x",  50)
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc5)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+}
+
+var set20063 = function() {
+	var wykres = d3.select("svg")
+	wykres.selectAll("text")
+		.data(danekr2)
+		.text(function(d, i) {return (d.wart2)})
+		.attr("y",function(d, i) {return (d.y)-50})
+		.attr("x",function(d, i) {return (d.x)})
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+  	   .duration(3000)
+	   .attr("width", function(d, i) {return (d.wartosc6)/100})
+ 	.attr("y",  function(d, i) {return (d.y2)-50})
+  	.attr("x",  50)
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc6)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+}
+
+var set20064 = function() {
+	var wykres = d3.select("svg")
+	wykres.selectAll("text")
+		.data(danekr2)
+		.text(function(d, i) {return (d.wart3)})
+		.attr("y",function(d, i) {return (d.y)-50})
+		.attr("x",function(d, i) {return (d.x)})
+	wykres.selectAll("rect")
+	   .data(danekr)
+	   .transition()
+  	   .duration(3000)
+	   .attr("width", function(d, i) {return (d.wartosc7)/100})
+ 	.attr("y",  function(d, i) {return (d.y2)-50})
+  	.attr("x",  50)
+.on('mouseover', function(d, i){ 
+          
+		d3.select(this)
+		.style({stroke: 'black'})
+		.attr("stroke-width", 3); 
+		          
+	div.transition()    
+                
+	.duration(200)    
+                
+	.style("opacity", .9);    
+         
+	 div .html("Ilość: " + d.wartosc7)  
+                
+	.style("left", (d3.event.pageX) + "px")  
+                
+	.style("top", (d3.event.pageY + 12) + "px"); 
+			
+           
+   
+})
+   
+.on('mouseout', function(d, i){ 
+          
+	d3.select(this)
+	.style({stroke: 'white'})
+	.attr("stroke-width", 0); 
+          
+div.transition()    
+                
+.duration(500)    
+                
+.style("opacity", 0);
+              
+})
+ 
+}
+
+
+
+
+</script>
+
+</body>
+</html>
