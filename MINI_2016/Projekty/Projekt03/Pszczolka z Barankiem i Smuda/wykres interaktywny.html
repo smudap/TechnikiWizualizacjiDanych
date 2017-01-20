@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style type="text/css">
+        div.wybor {
+            width: 150px;
+            height: 20px;
+            padding: 1px;
+            font: 14px sans-serif;
+            background: steelblue;
+            border: 1px;
+            border-radius: 5px;
+        }
+
+        div.wykres {
+            width: 800px;
+            height: 700px;
+            background: white;
+        }
+
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: 350px;
+            height: 140px;
+            padding: 2px;
+            font: 16px sans-serif;
+            background: white;
+            border: 0px;
+            border-radius: 5px;
+            -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+            -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <text x="10" y="45"><font size="7"><b>Zachowanie dzieci ze względu na płeć i predyspozycje</b></font><br><br></text>
+    <div class="wykres">
+        <svg width="800" height="800">
+            <text class="opis" x='10' y='12'> Podział dzieci został dokonany ze względu na płeć oraz oceny. Głównym czynnikiem podziału dzieci na te o umyśle ścisłym </text>
+            <text class="opis" x='10' y='32'> i humanistów była ocena z matematyki. Dzieci z lepszą oceną niż 3 zostały przydzielone do grupy o umyśle ścisłym. </text>
+            <text class="opis" x='10' y='52'> Ponadto w nawiasach podano liczebność grup, a w kołach procentowy rozkład zachowań w grupach.</text>
+            <text class="zachowanie" x='10' y='560'> Patrzenie </text>
+            <text class="zachowanie" x='10' y='435'> Dotykanie </text>
+            <text class="zachowanie" x='10' y='310'> Używanie </text>
+            <text class="zachowanie" x='10' y='185'> Eksperymentowanie </text>
+            <text class="plec" x='273' y='90'> Chłopcy (64) </text>
+            <text class="plec" x='550' y='90'> Dziewczynki (65) </text>
+            <text class="predyspozycja" x='195' y='125'> Humaniści (33) </text>
+            <text class="predyspozycja" x='335' y='125'> Umysł ścisły (31) </text>
+            <text class="predyspozycja" x='492' y='125'> Humanistki (29) </text>
+            <text class="predyspozycja" x='635' y='125'> Umysł ścisły (36) </text>
+            <g id="chlopiec_human">
+                <circle class="z1" cx="250" cy="555" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z2" cx="250" cy="430" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z3" cx="250" cy="305" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z4" cx="250" cy="180" r="0" stroke="black" fill="#ffffff" />
+                <text class="z1" x='235' y='560'></text>
+                <text class="z2" x='235' y='435'></text>
+                <text class="z3" x='235' y='310'></text>
+                <text class="z4" x='235' y='185'></text>
+            </g>
+            <g id="chlopiec_scisly">
+                <circle class="z1" cx="400" cy="555" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z2" cx="400" cy="430" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z3" cx="400" cy="305" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z4" cx="400" cy="180" r="0" stroke="black" fill="#ffffff" />
+                <text class="z1" x='385' y='560'></text>
+                <text class="z2" x='385' y='435'></text>
+                <text class="z3" x='385' y='310'></text>
+                <text class="z4" x='385' y='185'></text>
+            </g>
+            <g id="dziewczynka_human">
+                <circle class="z1" cx="550" cy="555" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z2" cx="550" cy="430" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z3" cx="550" cy="305" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z4" cx="550" cy="180" r="0" stroke="black" fill="#ffffff" />
+                <text class="z1" x='535' y='560'></text>
+                <text class="z2" x='535' y='435'></text>
+                <text class="z3" x='535' y='310'></text>
+                <text class="z4" x='535' y='185'></text>
+            </g>
+            <g id="dziewczynka_scisla">
+                <circle class="z1" cx="700" cy="555" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z2" cx="700" cy="430" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z3" cx="700" cy="305" r="0" stroke="black" fill="#ffffff" />
+                <circle class="z4" cx="700" cy="180" r="0" stroke="black" fill="#ffffff" />
+                <text class="z1" x='685' y='560'></text>
+                <text class="z2" x='685' y='435'></text>
+                <text class="z3" x='685' y='310'></text>
+                <text class="z4" x='685' y='185'></text>
+            </g>
+        </svg>
+    </div>
+
+    <script>
+ var fr = d3.scale.linear()
+		.domain([0, 1049])
+		.range([20, 70]),
+     colors_b = d3.scale.linear()
+        .domain([238, 1022])
+        .range(["#b0c1ed", "#3966db"]),
+     colors_g = d3.scale.linear()
+        .domain([178, 1049])
+        .range(["#eabbe8", "#d949d1"]),
+	data_children = [
+		{
+		    "plec": "chlopcy", "predyspozycje": "humanisci", "patrzenie": 474, "patrzenie_pr": "20%", "dotykanie": 605, "dotykanie_pr": "26%", "uzywanie": 1022, "uzywanie_pr": "44%", "eksperymentowanie": 238, "eksperymentowanie_pr": "10%",
+		    "eksponaty": { "nazwy": ["WAHADŁO FOUCAULT", "BIEGANIE (3,2,1…START)", "OKNO KOPERNIKA", "OKNO KOPERNIKA", "TORDO OGNIA", "EON", "OKNO KOPERNIKA", "ALARM STATKU", "POCISK SPRĘŻONE POWIETRZE", "MAGNETYCZNY MOST", "WISZĄCE PIŁKI", "OKNO KOPERNIKA"],
+                "wartosci": [16, 13, 13, 14, 14, 10, 24, 21, 21, 11, 9, 8] }, "liczba_dzieci": { "patrzenie": 33, "dotykanie": 32, "uzywanie": 33,  "eksperymentowanie": 28 }
+		},
+		{
+		    "plec": "chlopcy", "predyspozycje": "umysl scisly", "patrzenie": 456, "patrzenie_pr": "21%", "dotykanie": 412, "dotykanie_pr": "19%", "uzywanie": 985, "uzywanie_pr": "46%", "eksperymentowanie": 290, "eksperymentowanie_pr": "14%",
+		    "eksponaty": { "nazwy": ["PIJANY KIEROWCA", "OKNO KOPERNIKA", "POJEDYNEK FAL MÓZGOWYCH", "SILNIK ROŚLINNY", "OKNO KOPERNIKA", "POCIĄGAJĄCE PRZEWODY", "ALARM STATKU", "POCISK SPRĘŻONE POWIETRZE", "WISZĄCE PIŁKI", "ŁOŻE FAKIRA", "SKAKANIE", "ZWISANIE"],
+		        "wartosci": [25, 11, 10, 12, 9, 8, 24, 20, 16, 8, 8, 7]
+		    }, "liczba_dzieci": { "patrzenie": 31, "dotykanie": 30, "uzywanie": 31, "eksperymentowanie": 26 }
+		},
+		{
+		    "plec": "dziewczynki", "predyspozycje": "humanistki", "patrzenie": 473, "patrzenie_pr": "24%", "dotykanie": 517, "dotykanie_pr": "26%", "uzywanie": 740, "uzywanie_pr": "38%", "eksperymentowanie": 224, "eksperymentowanie_pr": "12%",
+		    "eksponaty": { "nazwy": ["WAHADŁO FOUCAULT", "LATAJĄCY DYWAN", "MŁYŃSKIE KOŁO", "OKNO KOPERNIKA", "PRAWDZIWA GEOMETRIA TURY", "ODWRÓCONE WAHADŁO FOUCAULT", "ALARM STATKU", "OKNO KOPERNIKA", "LASEROWA HARFA", "WISZĄCE PIŁKI", "ALARM STATKU", "OBROTOWY STOLIK"],
+		        "wartosci": [14, 12, 12, 19, 12, 8, 40, 22, 12, 8, 7, 7]
+		    }, "liczba_dzieci": { "patrzenie": 29, "dotykanie": 29, "uzywanie": 29, "eksperymentowanie": 21 }
+		},
+        {
+            "plec": "dziewczynki", "predyspozycje": "umysl scisly", "patrzenie": 528, "patrzenie_pr": "22%", "dotykanie": 647, "dotykanie_pr": "27%", "uzywanie": 1049, "uzywanie_pr": "44%", "eksperymentowanie": 178, "eksperymentowanie_pr": "7%",
+            "eksponaty": { "nazwy": ["NURKOWANIE ", "WAHADŁO FOUCAULT", "LABIRYNT PRZESZKÓD", "OKNO KOPERNIKA", "SILNIK ROŚLINNY", "BICZE WODNE", "ALARM STATKU", "KSZTAŁTOWANIE TERENU", "LATAJĄCY DYWAN", "KSZTAŁTOWANIE TERENU", "RYSOWANIE PIASKU", "WISZĄCE PIŁKI"],
+                "wartosci": [15, 13, 11, 16, 13, 10, 56, 15, 14, 7, 7, 6]
+            }, "liczba_dzieci": { "patrzenie": 35, "dotykanie": 36, "uzywanie": 36, "eksperymentowanie": 32 }
+        }
+	],
+
+	svg = d3.select("svg"),
+	div = d3.select("body").append("div")
+			.attr("class", "tooltip")
+			.style("opacity", 0)
+
+        svg.selectAll("circle.z1")
+            .data(data_children)
+            .style("fill", function (d, i) {
+                if (d.plec == "chlopcy") {
+                    return colors_b(d.patrzenie)
+                } else {
+                    return colors_g(d.patrzenie)
+                }
+            })
+            .transition()
+            .duration(3000)
+                .attr("r", function (d, i) { return fr(d.patrzenie) })
+
+        svg.selectAll("circle.z2")
+            .data(data_children)
+            .style("fill", function (d, i) {
+                if (d.plec == "chlopcy") {
+                    return colors_b(d.dotykanie)
+                } else {
+                    return colors_g(d.dotykanie)
+                }
+            })
+            .transition()
+            .duration(3000)
+                .attr("r", function (d, i) { return fr(d.dotykanie) })
+
+        svg.selectAll("circle.z3")
+            .data(data_children)
+            .style("fill", function (d, i) {
+                if (d.plec == "chlopcy") {
+                    return colors_b(d.uzywanie)
+                } else {
+                    return colors_g(d.uzywanie)
+                }
+            })
+            .transition()
+            .duration(3000)
+                .attr("r", function (d, i) { return fr(d.uzywanie) })
+
+        svg.selectAll("circle.z4")
+            .data(data_children)
+            .style("fill", function (d, i) {
+                if (d.plec == "chlopcy") {
+                    return colors_b(d.eksperymentowanie)
+                } else {
+                    return colors_g(d.eksperymentowanie)
+                }
+            })
+            .transition()
+            .duration(3000)
+                .attr("r", function (d, i) { return fr(d.eksperymentowanie) })
+        
+        svg.selectAll("text")
+            .style("font-size", "20px")
+
+        svg.selectAll("text.plec")
+            .style("font-size", "20px")
+            .style("font-weight", "bold")
+
+        svg.selectAll("text.opis")
+            .style("font-size", "15px")
+
+        svg.selectAll("text.predyspozycja")
+            .style("font-size", "18px")
+
+        svg.selectAll("text.z1")
+            .data(data_children)
+            .style("opacity", 0)
+            .text(function (d, i) { return d.patrzenie_pr })
+            .transition()
+            .duration(6000)
+            .style("opacity", 1)
+
+        svg.selectAll("text.z2")
+            .data(data_children)
+            .style("opacity", 0)
+            .text(function (d, i) { return d.dotykanie_pr })
+            .transition()
+            .duration(6000)
+            .style("opacity", 1)
+
+        svg.selectAll("text.z3")
+            .data(data_children)
+            .style("opacity", 0)
+            .text(function (d, i) { return d.uzywanie_pr })
+            .transition()
+            .duration(6000)
+            .style("opacity", 1)
+
+        svg.selectAll("text.z4")
+            .data(data_children)
+            .style("opacity", 0)
+            .text(function (d, i) { return d.eksperymentowanie_pr })
+            .transition()
+            .duration(6000)
+            .style("opacity", 1)
+
+svg.selectAll("circle")
+	.on('mouseover', function(d, i){
+	    d3.select(this).style({ stroke: 'black' }).attr("stroke-width", 2).style("opacity", 1);
+	    var value,
+            value_exhibits,
+            value_children_number,
+	        action,
+            name_exhibit1,
+	        value_exhibit1,
+            name_exhibit2,
+	        value_exhibit2,
+            name_exhibit3,
+	        value_exhibit3;
+	    if (i % 4 == 0) {
+	        value = d.patrzenie;
+	        value_children_number = d.liczba_dzieci.patrzenie;
+	        name_exhibit1 = d.eksponaty.nazwy[0];
+	        value_exhibit1 = d.eksponaty.wartosci[0];
+	        name_exhibit2 = d.eksponaty.nazwy[1];
+	        value_exhibit2 = d.eksponaty.wartosci[1];
+	        name_exhibit3 = d.eksponaty.nazwy[2];
+	        value_exhibit3 = d.eksponaty.wartosci[2];
+	        action = "\"patrzenie\"";
+	    } else if (i % 4 == 1) {
+	        value = d.dotykanie;
+	        value_children_number = d.liczba_dzieci.dotykanie;
+	        name_exhibit1 = d.eksponaty.nazwy[3];
+	        value_exhibit1 = d.eksponaty.wartosci[3];
+	        name_exhibit2 = d.eksponaty.nazwy[4];
+	        value_exhibit2 = d.eksponaty.wartosci[4];
+	        name_exhibit3 = d.eksponaty.nazwy[5];
+	        value_exhibit3 = d.eksponaty.wartosci[5];
+	        action = "\"dotykanie\"";
+	    } else if (i % 4 == 2) {
+	        value = d.uzywanie;
+	        value_children_number = d.liczba_dzieci.uzywanie;
+	        name_exhibit1 = d.eksponaty.nazwy[6];
+	        value_exhibit1 = d.eksponaty.wartosci[6];
+	        name_exhibit2 = d.eksponaty.nazwy[7];
+	        value_exhibit2 = d.eksponaty.wartosci[7];
+	        name_exhibit3 = d.eksponaty.nazwy[8];
+	        value_exhibit3 = d.eksponaty.wartosci[8];
+	        action = "\"używanie\"";
+	    } else {
+	        value = d.eksperymentowanie;
+	        value_children_number = d.liczba_dzieci.eksperymentowanie;
+	        name_exhibit1 = d.eksponaty.nazwy[9];
+	        value_exhibit1 = d.eksponaty.wartosci[9];
+	        name_exhibit2 = d.eksponaty.nazwy[10];
+	        value_exhibit2 = d.eksponaty.wartosci[10];
+	        name_exhibit3 = d.eksponaty.nazwy[11];
+	        value_exhibit3 = d.eksponaty.wartosci[11];
+	        action = "\"eksperymentowanie\"";
+	    }
+	    div.transition()
+              .duration(200)
+              .style("opacity", 1);
+	    div.html("<b>Liczba zachowań " + action + "</b>: " + value + "<br/>" +
+                    "<b>Liczba różnych dzieci</b>: " + value_children_number + "<br/><br/>" +
+					"<b>TOP3 eksponaty</b>: <br/>1. " + name_exhibit1 + " (" + value_exhibit1 + ")<br/>2. "
+                    + name_exhibit2 + " (" + value_exhibit2 + ")<br/>3. "
+                    + name_exhibit3 + " (" + value_exhibit3 + ")")
+                .style("left", (d3.event.pageX + 10) + "px")
+                .style("top", (d3.event.pageY + 10) + "px");
+        })
+	.on('mouseout', function(d, i){
+          d3.select(this).style({stroke: 'black'}).attr("stroke-width", 1).style("opacity", 1);
+          div.transition()
+                .duration(500)
+                .style("opacity", 0);
+              })
+
+    </script>
+
+</body>
+</html>
