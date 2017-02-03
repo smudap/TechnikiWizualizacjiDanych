@@ -1,0 +1,184 @@
+---
+title: "CNK - Piotr Chmiel & Rafał Szczekutek"
+date: "15 stycznia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE, cache=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+#install.packages("readxl") # CRAN version
+
+library(readxl)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+
+# Wczytanie danych
+kwest_data <- read_excel("dane_kwestionariuszowe.xlsx")
+obs_data <- read_excel("dane_obserwacyjne.xlsx")
+
+merged_data <- merge(kwest_data, obs_data, by.x = "ID", by.y = "ID")
+
+groupedByIleOsTowPlec <- merged_data%>%
+group_by(ILE_OSTOW, Plec)%>% 
+summarise(SredniCzasWSek=mean(czas_w_sek))
+
+mdat <- melt(groupedByIleOsTowPlec, id.vars=c("ILE_OSTOW", "Plec"),
+            measure.vars=c("SredniCzasWSek", "SredniCzasWSek"))
+
+plot1 <- ggplot(mdat, aes(x=reorder(ILE_OSTOW, value), y=value, fill=factor(Plec))) + geom_bar(position="dodge", stat="identity") 
+plot1 <- plot1 + xlab("Liczba osób towarzyszących") + ylab("Czas spędzony [s]")
+plot1 <- plot1 + scale_fill_discrete(name="Płeć",
+                         labels=c("Chłopiec", "Dziewczynka"))
+
+dzieci <- obs_data%>%
+  group_by(ID)%>% 
+  summarise(LacznyCzasInterakcji=mean(czas_w_sek))
+
+rodziceStudiuja <- merge(dzieci, kwest_data, by.x = "ID", by.y = "ID")
+
+rodziceStudiuja <- rodziceStudiuja%>%
+  group_by(studiaM, studiaT)%>% 
+  summarise(SredniCzasInterakcji=mean(LacznyCzasInterakcji))
+
+rodziceStudiuja <- subset(rodziceStudiuja, studiaT != "NA")
+rodziceStudiuja <- subset(rodziceStudiuja, studiaT != "3")
+rodziceStudiuja <- subset(rodziceStudiuja, studiaM!="NA")
+rodziceStudiuja <- subset(rodziceStudiuja, studiaM!="3")
+
+rodziceStudiuja$grp <- paste(rodziceStudiuja$studiaT,rodziceStudiuja$studiaM)
+rodziceStudiuja$grp[1] <- "Oboje rodzice studiowali"
+rodziceStudiuja$grp[2] <- "Matka studiowała, ojciec nie"
+rodziceStudiuja$grp[3] <- "Matka nie studiowała, ojciec studiował"
+rodziceStudiuja$grp[4] <- "Żadne z rodziców nie studiowało"
+plot2 = ggplot(rodziceStudiuja, aes(x=reorder(grp, -SredniCzasInterakcji), y = SredniCzasInterakcji, fill=factor(1)))
+plot2 = plot2 + geom_bar(stat="identity")  
+plot2 <- plot2 + xlab("Wykształcenie rodziców") + ylab("Czas spędzony [s]")
+plot2 <- plot2 + theme(legend.position="none", axis.text.x = element_text(angle = 90, hjust = 1))
+plot2
+
+dzieci <- obs_data%>%
+  group_by(ID)%>% 
+  summarise(LacznyCzasInterakcji=mean(czas_w_sek))
+
+rodzicePracuja <- merge(dzieci, kwest_data, by.x = "ID", by.y = "ID")
+
+rodzicePracuja <- rodzicePracuja%>%
+  group_by(pracaM, pracaT)%>% 
+  summarise(SredniCzasInterakcji=mean(LacznyCzasInterakcji))
+
+rodzicePracuja <- subset(rodzicePracuja, pracaT != "NA")
+rodzicePracuja <- subset(rodzicePracuja, pracaT != "3")
+rodzicePracuja <- subset(rodzicePracuja, pracaM!="NA")
+rodzicePracuja <- subset(rodzicePracuja, pracaM!="3")
+rodzicePracuja$grp <- paste(rodzicePracuja$pracaM,rodzicePracuja$pracaT)
+rodzicePracuja$grp[1] <- "Oboje rodzice pracują"
+rodzicePracuja$grp[2] <- "Matka pracuje, ojciec nie"
+rodzicePracuja$grp[3] <- "Matka nie pracuje, ojciec pracuje"
+rodzicePracuja$grp[4] <- "Żadne z rodziców nie pracuje"
+plot3 = ggplot(rodzicePracuja, aes(x=reorder(grp, -SredniCzasInterakcji), y = SredniCzasInterakcji, fill=factor(1)))
+plot3 = plot3 + geom_bar(stat="identity")  
+plot3 <- plot3 + xlab("Czy rodzice pracują") + ylab("Czas spędzony [s]")
+plot3 <- plot3 + theme(legend.position="none", axis.text.x = element_text(angle = 90, hjust = 1))
+plot3
+merged_data$mean <= 0
+
+merged_data$mean <- rowMeans(merged_data[,c("oceM", "oceJP", "oceP")], na.rm=TRUE)
+mm <- merged_data%>%
+  group_by(mean)%>% 
+  summarise(IleDzieciMaTakaSrednia=n())
+
+
+dzieci <- merged_data%>%
+  group_by(mean, zach)%>% 
+  summarise(IleDzieciMaTakaSredniaIZachowanie=n())
+
+dzieci <- merge(mm, dzieci, by.x = "mean", by.y = "mean")
+dzieci <- subset(dzieci, zach != "NA")
+dzieci <- subset(dzieci, mean != "NaN")
+
+for(i in 1: nrow(dzieci))
+{
+  zach <- dzieci$zach[i]
+  if (zach == 2)
+  {
+    dzieci$IleDzieciMaTakaSredniaIZachowanie[i-1] = dzieci$IleDzieciMaTakaSredniaIZachowanie[i-1] + dzieci$IleDzieciMaTakaSredniaIZachowanie[i]
+  }
+  if (zach == 3)
+  {
+    dzieci$IleDzieciMaTakaSredniaIZachowanie[i-1] = dzieci$IleDzieciMaTakaSredniaIZachowanie[i-1] + dzieci$IleDzieciMaTakaSredniaIZachowanie[i]
+    dzieci$IleDzieciMaTakaSredniaIZachowanie[i-2] = dzieci$IleDzieciMaTakaSredniaIZachowanie[i-2] + dzieci$IleDzieciMaTakaSredniaIZachowanie[i]
+
+  }
+  if (zach == 4)
+  {
+    dzieci$IleDzieciMaTakaSredniaIZachowanie[i-1] = dzieci$IleDzieciMaTakaSredniaIZachowanie[i-1] + dzieci$IleDzieciMaTakaSredniaIZachowanie[i]
+    dzieci$IleDzieciMaTakaSredniaIZachowanie[i-2] = dzieci$IleDzieciMaTakaSredniaIZachowanie[i-2] + dzieci$IleDzieciMaTakaSredniaIZachowanie[i]
+    dzieci$IleDzieciMaTakaSredniaIZachowanie[i-3] = dzieci$IleDzieciMaTakaSredniaIZachowanie[i-3] + dzieci$IleDzieciMaTakaSredniaIZachowanie[i]
+  }
+}
+
+dzieci$Srednia <- 0
+
+dzieci$Srednia <- dzieci$IleDzieciMaTakaSredniaIZachowanie / dzieci$IleDzieciMaTakaSrednia
+
+
+plot4<- ggplot(dzieci, aes(x=mean, y=Srednia, fill=factor(zach))) +
+  geom_point(aes(colour = factor(zach)))+ geom_line(aes(colour = factor(zach)))
+plot4 <- plot4 + xlab("Średnia ocen") + ylab("Średnia ilość osób [%]")
+plot4
+
+
+merged_data$mean <= 0
+
+merged_data$mean <- rowMeans(merged_data[,c("oceM", "oceJP", "oceP")], na.rm=TRUE)
+mm <- merged_data%>%
+  group_by(mean)%>% 
+  summarise(IleDzieciMaTakaSrednia=n())
+
+
+dzieci <- merged_data%>%
+  group_by(mean, opis)%>% 
+  summarise(IleDzieciMaTakaSredniaIZachowanie=n())
+
+dzieci <- merge(mm, dzieci, by.x = "mean", by.y = "mean")
+dzieci <- subset(dzieci, opis != "NA")
+dzieci <- subset(dzieci, mean != "NaN")
+
+dzieci$Srednia <- 0
+
+dzieci$Srednia <- dzieci$IleDzieciMaTakaSredniaIZachowanie / dzieci$IleDzieciMaTakaSrednia
+
+
+plot5 <- ggplot(dzieci, aes(x=mean, y=Srednia, fill=factor(opis))) +
+  geom_point(aes(colour = factor(opis)))+ geom_line(aes(colour = factor(opis)))
+plot5 <- plot5 + xlab("Średnia ocen") + ylab("Średnia ilość osób [%]")
+plot5
+
+```
+
+#Średni czas spędzony przed ekspozycją w sekundach w zależności od liczby osób towarzyszących z podziałem na płeć osoby, który oglądała wystawę.
+``` {r}
+plot1
+```
+
+#Średni czas spędzony przed ekspozycją w sekundach w zależności od wykształcenia rodziców
+``` {r}
+plot2
+```
+
+#Średni czas spędzony przed ekspozycją w sekundach w zależności od tego czy rodzice pracują
+``` {r}
+plot3
+```
+
+#Zachowania uczniów w zależności od średniej ocen
+``` {r}
+plot4
+```
+
+#Czy uczniowie czytają opisy ekspozycji w zależności od średniej
+``` {r}
+plot5
+```

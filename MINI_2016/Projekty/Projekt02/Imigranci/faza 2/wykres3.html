@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <style type="text/css">
+  	div.germany {
+		width: 150px;          
+		height: 20px;         
+		padding: 1px;       
+		font: 14px sans-serif;    
+		background: steelblue; 
+		border: 1px;    
+		border-radius: 5px;
+  	}
+	
+	div.poland {
+		width: 150px;          
+		height: 20px;         
+		padding: 1px;       
+		font: 14px sans-serif;    
+		background: #d53333; 
+		border: 1px;    
+		border-radius: 5px;     
+  	}
+	
+	div.both {
+		width: 150px;          
+		height: 20px;         
+		padding: 1px;       
+		font: 14px sans-serif;    
+		background: orange; 
+		border: 1px;    
+		border-radius: 5px;
+  	}
+	
+  	div.wykres {
+		width: 800px;          
+		height: 700px;         
+		background: white; 
+  	}
+	
+	div.tooltip { 
+		position: absolute;     
+		text-align: center;     
+		width: 340px;          
+		height: 38px;         
+		padding: 2px;       
+		font: 16px sans-serif;    
+		background: white; 
+		border: 0px;
+		border-radius: 5px;
+		-webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+		-moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
+		box-shadow: 1px 1px 10px rgba(0, 0, 0, 1);	
+		pointer-events: none;
+	}
+  </style>
+</head>
+<body>
+	<text x="200" y="45"><font size = "7"><b>Populacja imigrantów ze względu na wiek i płeć</b></font><br><br></text>
+	<div class="germany" onclick="setGermany()"><center><font size = "3">Niemcy (do 1990)</font></center></div>
+	<div class="poland" onclick="setPoland()"><center><font size = "3">Polska (do 2014)</font></center></div>
+	<div class="both" onclick="setBoth()"><center><font size = "3">Oba kraje</font></center></div>
+<div class="wykres">
+	<svg width="800" height="600">
+	<text x="0" y="30">Wybrane kraje: Niemcy (do 1990), Polska (do 2014)</text>
+	<g id="germany">
+		<rect x = "0" y = "50" width = "0" height = "20" />
+		<rect x = "0" y = "100" width = "0" height = "20" />
+		<rect x = "0" y = "150" width = "0" height = "20" />
+		<rect x = "0" y = "200" width = "0" height = "20" />
+		<rect x = "0" y = "250" width = "0" height = "20" />
+		<rect x = "0" y = "300" width = "0" height = "20" />
+	</g>
+	<g id="poland">
+		<rect x = "0" y = "70" width = "0" height = "20" />
+		<rect x = "0" y = "120" width = "0" height = "20" />
+		<rect x = "0" y = "170" width = "0" height = "20" />
+		<rect x = "0" y = "220" width = "0" height = "20" />
+		<rect x = "0" y = "270" width = "0" height = "20" />
+		<rect x = "0" y = "320" width = "0" height = "20" />
+	</g>
+	</svg>
+</div>
+
+<script>
+ var width = 800,
+	height = 700,
+	fx = d3.scale.linear()
+		.domain([0, 16.884])
+		.range([0, width]),
+	fy = d3.scale.linear()
+		.domain([0, 700])
+		.range([0, height]),
+	data_migration = [
+		{"sex_age": "Kobiety od 15 do 24 lat", "age": "Od 15 do 24 lat", "sex": "Kobiety", "geo": "Niemcy (do 1990)", "value": 4.109, "y": 50, "color": "steelblue", "opacity": 0.8},
+		{"sex_age": "Mężczyźni od 15 do 24 lat", "age": "Od 15 do 24 lat", "sex": "Mężczyźni", "geo": "Niemcy (do 1990)", "value": 4.385, "y": 100, "color": "steelblue", "opacity": 0.5},
+		{"sex_age": "Kobiety od 25 do 54 lat", "age": "Od 25 do 54 lat", "sex": "Kobiety", "geo": "Niemcy (do 1990)", "value": 16.623, "y": 150, "color": "steelblue", "opacity": 0.8},
+		{"sex_age": "Mężczyźni od 25 do 54 lat", "age": "Od 25 do 54 lat", "sex": "Mężczyźni", "geo": "Niemcy (do 1990)", "value": 16.884, "y": 200, "color": "steelblue", "opacity": 0.5},
+		{"sex_age": "Kobiety od 55 do 64 lat", "age": "Od 55 do 64 lat", "sex": "Kobiety", "geo": "Niemcy (do 1990)", "value": 5.528, "y": 250, "color": "steelblue", "opacity": 0.8},
+		{"sex_age": "Mężczyźni od 55 do 64 lat", "age": "Od 55 do 64 lat", "sex": "Mężczyźni", "geo": "Niemcy (do 1990)", "value": 5.320, "y": 300, "color": "steelblue", "opacity": 0.5},
+		{"sex_age": "Kobiety od 15 do 24 lat", "age": "Od 15 do 24 lat", "sex": "Kobiety", "geo": "Polska (do 2014)", "value": 2.096, "y": 70, "color": "#d53333", "opacity": 0.8 },
+		{"sex_age": "Mężczyźni od 15 do 24 lat", "age": "Od 15 do 24 lat", "sex": "Mężczyźni", "geo": "Polska (do 2014)", "value": 2.222, "y": 120, "color": "#d53333", "opacity": 0.5 },
+		{"sex_age": "Kobiety od 25 do 54 lat", "age": "Od 25 do 54 lat", "sex": "Kobiety", "geo": "Polska (do 2014)", "value": 7.689, "y": 170, "color": "#d53333", "opacity": 0.8 },
+		{"sex_age": "Mężczyźni od 25 do 54 lat", "age": "Od 25 do 54 lat", "sex": "Mężczyźni", "geo": "Polska (do 2014)", "value": 7.833, "y": 220, "color": "#d53333", "opacity": 0.5 },
+		{"sex_age": "Kobiety od 55 do 64 lat", "age": "Od 55 do 64 lat", "sex": "Kobiety", "geo": "Polska (do 2014)", "value": 2.879, "y": 270, "color": "#d53333", "opacity": 0.8 },
+		{"sex_age": "Mężczyźni od 55 do 64 lat", "age": "Od 55 do 64 lat", "sex": "Mężczyźni", "geo": "Polska (do 2014)", "value": 2.571, "y": 320, "color": "#d53333", "opacity": 0.5 }
+	],
+	svg = d3.select("svg"),
+	svg_germany = d3.select("g.germany"),
+	svg_poland = d3.select("g.poland"),
+	div = d3.select("body").append("div")
+			.attr("class", "tooltip")
+			.style("opacity", 0)
+
+var setGermany = function() {
+	wykres = d3.select("svg")
+	wykres.select("text")
+		.text("Wybrany kraj: Niemcy (do 1990)")
+	wykres.selectAll("rect")
+	.data(data_migration)
+	.style("fill", function(d, i) {return d.color})
+	.style("opacity", function(d, i) {return d.opacity})
+  	.transition()
+  	.duration(3000)
+    	.attr("x", function(d, i) {
+    	                            if (d.geo == "Polska (do 2014)") {
+										return -1
+									} else {
+										return 0
+									}})
+    	.attr("y", function(d, i) {
+									if(d.geo == "Polska (do 2014)"){
+										return d.y / 2 + 15
+									} else {
+										return d.y / 2 + 25
+									}})
+    	.attr("width", function(d, i) {
+    	                                if (d.geo == "Polska (do 2014)") {
+											return 0
+										} else {
+											return fx(d.value)
+										}})
+    	.attr("height", 20)
+   .style("fill", function(d, i) {return d.color})
+   .style("opacity", function(d, i) {return d.opacity})
+}
+
+var setPoland = function() {
+	wykres = d3.select("svg")
+	wykres.select("text")
+		.text("Wybrany kraj: Polska (do 2014)")
+	wykres.selectAll("rect")
+	.data(data_migration)
+	.style("fill", function(d, i) {return d.color})
+	.style("opacity", function(d, i) {return d.opacity})
+  	.transition()
+  	.duration(3000)
+    	.attr("x", function(d, i) {
+									if(d.geo == "Niemcy (do 1990)"){
+										return -1
+									} else {
+										return 0
+									}})
+    	.attr("y", function(d, i) {
+									if(d.geo == "Niemcy (do 1990)"){
+										return d.y / 2 + 25
+									} else {
+										return d.y / 2 + 15
+									}})
+    	.attr("width", function(d, i) {
+										if(d.geo == "Niemcy (do 1990)"){
+											return 0
+										} else {
+											return fx(d.value)
+										}})
+    	.attr("height", 20)
+   .style("fill", function(d, i) {return d.color})
+   .style("opacity", function(d, i) {return d.opacity})
+}
+
+var setBoth = function() {
+
+	wykres = d3.select("svg")
+	wykres.select("text")
+		.text("Wybrane kraje: Niemcy (do 1990), Polska (do 2014)")
+	wykres.selectAll("rect")
+	.data(data_migration)
+	.style("fill", function(d, i) {return d.color})
+	.style("opacity", function(d, i) {return d.opacity})
+  	.transition()
+  	.duration(3000)
+    	.attr("x", 0)
+    	.attr("y", function(d, i) {return d.y})
+    	.attr("width", function(d, i) {return fx(d.value)})
+    	.attr("height", 20)
+   .style("fill", function(d, i) {return d.color})
+   .style("opacity", function(d, i) {return d.opacity})
+}
+
+svg.select("text")
+	.style("font-size", "18px")
+
+svg.selectAll("rect")
+	.data(data_migration)
+	.style("fill", function(d, i) {return d.color})
+	.style("opacity", function(d, i) {return d.opacity})
+  	.transition()
+  	.duration(3000)
+    	.attr("x", 0)
+    	.attr("y", function(d, i) {return d.y})
+    	.attr("width", function(d, i) {return fx(d.value)})
+    	.attr("height", 20)
+   .style("fill", function(d, i) {return d.color})
+   .style("opacity", function(d, i) {return d.opacity})
+   
+svg.selectAll("rect")
+	.on('mouseover', function(d, i){ 
+          d3.select(this).style({stroke: 'black'}).attr("stroke-width", 0).style("opacity", 1);
+          div.transition()    
+                .duration(200)    
+                .style("opacity", 1);
+         div.html("<b>" + d.geo + "</b>: " + d.sex_age + "<br/>" +
+					"<b>Populacja</b>: " + d.value + " mln")  
+                .style("left", (d3.event.pageX + 10) + "px")   
+                .style("top", (d3.event.pageY + 10) + "px");  
+        })
+	.on('mouseout', function(d, i){ 
+          d3.select(this).style({stroke: 'white'}).attr("stroke-width", 0).style("opacity", d.opacity); 
+          div.transition()    
+                .duration(500)    
+                .style("opacity", 0);
+              })
+
+</script>
+
+</body>
+</html>

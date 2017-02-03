@@ -1,0 +1,1 @@
+Pliki z dwoma wykresami

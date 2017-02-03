@@ -1,0 +1,135 @@
+---
+title: "main.rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+script.dir <- "H:/TechnikiWizualizacjiDanych/MINI_2016/Projekty/Projekt03/faza1/Dyszynski"
+okwest = as.data.frame(read.csv(paste(script.dir, "dane_kwestionariuszowe.csv", sep="/"), fileEncoding = "UTF-8"))
+obser = as.data.frame(read.csv(paste(script.dir, "dane_obserwacyjne.csv", sep="/"), fileEncoding = "UTF-8"))
+
+#kwest = okwest[which(okwest$Plec==1),]
+kwest = okwest
+
+kwest["s"] = (kwest["oceM"] - 1 + kwest["oceP"] - 1) / (2 * kwest["oceJP"] - 2)
+kwest["oceW"] = kwest["oceM"] + kwest["oceP"] + kwest["oceJP"]
+
+kwest_female = kwest[kwest$Plec == 1,]
+kwest_male = kwest[kwest$Plec == 2,]
+
+obs_times = obser %>%
+  group_by_(.dots=names(.)[c(2, 4)]) %>%
+  summarise(czas_w_sek = sum(czas_w_sek))
+
+obs_times_sum = obs_times %>%
+  group_by(ID) %>%
+  summarise(czas_w_sek = sum(czas_w_sek))
+obs_times_s = merge(obs_times_sum, kwest[, c("ID", "s", "Plec", "oceW")], by="ID")
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+  
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+  
+  numPlots = length(plots)
+  
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                     ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+  
+  if (numPlots==1) {
+    print(plots[[1]])
+    
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+    
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+      
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+## Histogram: czas obserwacji zjawiska
+
+W skali logarytmicznej, rozkład ~normalny
+
+```{r obs, echo=FALSE, warning=FALSE}
+ggplot(data=obs_times, aes(czas_w_sek)) + geom_histogram(binwidth = 0.1) + scale_x_log10(breaks = c(10, 20, 30, 50, 100, 1000))
+```
+
+## Histogram: czas obserwacji przez dziecko
+
+```{r obs_s, echo=FALSE, warning=FALSE}
+obs_times_total = obs_times %>%
+  group_by(ekspot) %>%
+  summarise(czas_w_sek = sum(czas_w_sek))
+
+ggplot(data=obs_times_total, aes(czas_w_sek)) + geom_histogram(binwidth = 0.1) +
+  scale_x_log10(breaks = c(10, 100, 1000, 1500, 10000))
+```
+
+## Histogram: czas obserwacji przez dziecko a ocena
+
+```{r obs_sum_ocena, echo=FALSE, warning=FALSE}
+cfs = coef(lm(czas_w_sek ~ oceW, data = obs_times_s))
+both = ggplot(obs_times_s, aes(x = s, y = czas_w_sek)) +
+  geom_point() + geom_abline(intercept = cfs[1], slope = cfs[2]) +
+  ylim(min(obs_times_s$czas_w_sek), max(obs_times_s$czas_w_sek))
+cfs = coef(lm(czas_w_sek ~ oceW, data = obs_times_s[obs_times_s$Plec == 1,]))
+female = ggplot(obs_times_s[obs_times_s$Plec == 1,], aes(x = s, y = czas_w_sek)) +
+  geom_point() + geom_abline(intercept = cfs[1], slope = cfs[2]) +
+  ylim(min(obs_times_s$czas_w_sek), max(obs_times_s$czas_w_sek))
+cfs = coef(lm(czas_w_sek ~ oceW, data = obs_times_s[obs_times_s$Plec == 2,]))
+male = ggplot(obs_times_s[obs_times_s$Plec == 2,], aes(x = s, y = czas_w_sek)) +
+  geom_point() + geom_abline(intercept = cfs[1], slope = cfs[2]) +
+  ylim(min(obs_times_s$czas_w_sek), max(obs_times_s$czas_w_sek))
+multiplot(both, female, male, cols = 3)
+```
+
+## "S"
+
+
+```{r s, echo=FALSE, warning=FALSE}
+slims = xlim(c(0.5, 3.11))
+both = ggplot(data = kwest, aes(s)) + geom_histogram(binwidth = 0.1) + slims
+female = ggplot(data = kwest_female, aes(s)) + geom_histogram(binwidth = 0.1) + slims
+male = ggplot(data = kwest_male, aes(s)) + geom_histogram(binwidth = 0.1) + slims
+multiplot(both, female, male, cols = 3)
+```
+
+## Histogram: czas obserwacji przez dziecko a "s"
+
+```{r obs_sum, echo=FALSE, warning=FALSE}
+cfs = coef(lm(czas_w_sek ~ s, data = obs_times_s))
+lims = ylim(min(obs_times_s$czas_w_sek), max(obs_times_s$czas_w_sek))
+both = ggplot(obs_times_s, aes(x = s, y = czas_w_sek)) +
+  geom_point() + geom_abline(intercept = cfs[1], slope = cfs[2]) +
+  lims + slims
+cfs = coef(lm(czas_w_sek ~ s, data = obs_times_s))
+female = ggplot(obs_times_s[obs_times_s$Plec == 1,], aes(x = s, y = czas_w_sek)) +
+  geom_point() + geom_abline(intercept = cfs[1], slope = cfs[2]) +
+  lims + slims
+cfs = coef(lm(czas_w_sek ~ s, data = obs_times_s))
+male = ggplot(obs_times_s[obs_times_s$Plec == 2,], aes(x = s, y = czas_w_sek)) +
+  geom_point() + geom_abline(intercept = cfs[1], slope = cfs[2]) +
+  lims + slims
+multiplot(both, female, male, cols = 3)
+```

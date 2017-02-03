@@ -1,0 +1,825 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js' charset='utf-8'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js' charset='utf-8'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.js' charset='utf-8'></script>
+
+<h1>
+Sumaryczna liczba zdobyczy punktowych zebrana przez kluby w sezonach od 2011 do 2016
+</h1>
+
+<div id = 'inline' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawinline()
+    });
+    function drawinline(){  
+      var opts = {
+ "dom": "inline",
+"width":   1300,
+"height":    600,
+"x": "Team",
+"y": "TotalPoints",
+"group": "Year",
+"type": "multiBarHorizontalChart",
+"id": "inline" 
+},
+        data = [
+ {
+ "Team": "ATL",
+"Year": "11-12",
+"TotalPoints": 6369 
+},
+{
+ "Team": "BOS",
+"Year": "11-12",
+"TotalPoints": 6140 
+},
+{
+ "Team": "CHA",
+"Year": "11-12",
+"TotalPoints": 5467 
+},
+{
+ "Team": "CHI",
+"Year": "11-12",
+"TotalPoints": 6359 
+},
+{
+ "Team": "CLE",
+"Year": "11-12",
+"TotalPoints": 5290 
+},
+{
+ "Team": "DAL",
+"Year": "11-12",
+"TotalPoints": 6293 
+},
+{
+ "Team": "DEN",
+"Year": "11-12",
+"TotalPoints": 6970 
+},
+{
+ "Team": "DET",
+"Year": "11-12",
+"TotalPoints": 5997 
+},
+{
+ "Team": "GSW",
+"Year": "11-12",
+"TotalPoints": 5730 
+},
+{
+ "Team": "HOU",
+"Year": "11-12",
+"TotalPoints": 6063 
+},
+{
+ "Team": "IND",
+"Year": "11-12",
+"TotalPoints": 6961 
+},
+{
+ "Team": "LAC",
+"Year": "11-12",
+"TotalPoints": 7049 
+},
+{
+ "Team": "LAL",
+"Year": "11-12",
+"TotalPoints": 6758 
+},
+{
+ "Team": "MIA",
+"Year": "11-12",
+"TotalPoints": 6504 
+},
+{
+ "Team": "MIL",
+"Year": "11-12",
+"TotalPoints": 6942 
+},
+{
+ "Team": "MIN",
+"Year": "11-12",
+"TotalPoints": 6464 
+},
+{
+ "Team": "NYK",
+"Year": "11-12",
+"TotalPoints": 6458 
+},
+{
+ "Team": "ORL",
+"Year": "11-12",
+"TotalPoints": 6170 
+},
+{
+ "Team": "PHI",
+"Year": "11-12",
+"TotalPoints": 6254 
+},
+{
+ "Team": "PHO",
+"Year": "11-12",
+"TotalPoints": 6492 
+},
+{
+ "Team": "POR",
+"Year": "11-12",
+"TotalPoints": 5716 
+},
+{
+ "Team": "SAC",
+"Year": "11-12",
+"TotalPoints": 6405 
+},
+{
+ "Team": "SAN",
+"Year": "11-12",
+"TotalPoints": 7004 
+},
+{
+ "Team": "TOR",
+"Year": "11-12",
+"TotalPoints": 5375 
+},
+{
+ "Team": "UTA",
+"Year": "11-12",
+"TotalPoints": 6482 
+},
+{
+ "Team": "WAS",
+"Year": "11-12",
+"TotalPoints": 5430 
+},
+{
+ "Team": "MEM",
+"Year": "11-12",
+"TotalPoints": 6186 
+},
+{
+ "Team": "NOR",
+"Year": "11-12",
+"TotalPoints": 5820 
+},
+{
+ "Team": "OKC",
+"Year": "11-12",
+"TotalPoints": 7054 
+},
+{
+ "Team": "BRO",
+"Year": "11-12",
+"TotalPoints": 6656 
+},
+{
+ "Team": "ATL",
+"Year": "12-13",
+"TotalPoints": 8107 
+},
+{
+ "Team": "BOS",
+"Year": "12-13",
+"TotalPoints": 8336 
+},
+{
+ "Team": "CHA",
+"Year": "12-13",
+"TotalPoints": 7686 
+},
+{
+ "Team": "CHI",
+"Year": "12-13",
+"TotalPoints": 7699 
+},
+{
+ "Team": "CLE",
+"Year": "12-13",
+"TotalPoints": 8157 
+},
+{
+ "Team": "DAL",
+"Year": "12-13",
+"TotalPoints": 8167 
+},
+{
+ "Team": "DEN",
+"Year": "12-13",
+"TotalPoints": 8704 
+},
+{
+ "Team": "DET",
+"Year": "12-13",
+"TotalPoints": 7629 
+},
+{
+ "Team": "GSW",
+"Year": "12-13",
+"TotalPoints": 8190 
+},
+{
+ "Team": "HOU",
+"Year": "12-13",
+"TotalPoints": 8028 
+},
+{
+ "Team": "IND",
+"Year": "12-13",
+"TotalPoints": 7725 
+},
+{
+ "Team": "LAC",
+"Year": "12-13",
+"TotalPoints": 8343 
+},
+{
+ "Team": "LAL",
+"Year": "12-13",
+"TotalPoints": 8381 
+},
+{
+ "Team": "MIA",
+"Year": "12-13",
+"TotalPoints": 8426 
+},
+{
+ "Team": "MIL",
+"Year": "12-13",
+"TotalPoints": 8625 
+},
+{
+ "Team": "MIN",
+"Year": "12-13",
+"TotalPoints": 7819 
+},
+{
+ "Team": "NYK",
+"Year": "12-13",
+"TotalPoints": 8019 
+},
+{
+ "Team": "ORL",
+"Year": "12-13",
+"TotalPoints": 7241 
+},
+{
+ "Team": "PHI",
+"Year": "12-13",
+"TotalPoints": 7861 
+},
+{
+ "Team": "PHO",
+"Year": "12-13",
+"TotalPoints": 8010 
+},
+{
+ "Team": "POR",
+"Year": "12-13",
+"TotalPoints": 8099 
+},
+{
+ "Team": "SAC",
+"Year": "12-13",
+"TotalPoints": 8393 
+},
+{
+ "Team": "SAN",
+"Year": "12-13",
+"TotalPoints": 8414 
+},
+{
+ "Team": "TOR",
+"Year": "12-13",
+"TotalPoints": 7999 
+},
+{
+ "Team": "UTA",
+"Year": "12-13",
+"TotalPoints": 8040 
+},
+{
+ "Team": "WAS",
+"Year": "12-13",
+"TotalPoints": 6964 
+},
+{
+ "Team": "MEM",
+"Year": "12-13",
+"TotalPoints": 7556 
+},
+{
+ "Team": "NOR",
+"Year": "12-13",
+"TotalPoints": 7809 
+},
+{
+ "Team": "OKC",
+"Year": "12-13",
+"TotalPoints": 8808 
+},
+{
+ "Team": "BRO",
+"Year": "12-13",
+"TotalPoints": 7951 
+},
+{
+ "Team": "ATL",
+"Year": "13-14",
+"TotalPoints": 7948 
+},
+{
+ "Team": "BOS",
+"Year": "13-14",
+"TotalPoints": 7360 
+},
+{
+ "Team": "CHA",
+"Year": "13-14",
+"TotalPoints": 7840 
+},
+{
+ "Team": "CHI",
+"Year": "13-14",
+"TotalPoints": 7567 
+},
+{
+ "Team": "CLE",
+"Year": "13-14",
+"TotalPoints": 8703 
+},
+{
+ "Team": "DAL",
+"Year": "13-14",
+"TotalPoints": 8597 
+},
+{
+ "Team": "DEN",
+"Year": "13-14",
+"TotalPoints": 8520 
+},
+{
+ "Team": "DET",
+"Year": "13-14",
+"TotalPoints": 8286 
+},
+{
+ "Team": "GSW",
+"Year": "13-14",
+"TotalPoints": 9138 
+},
+{
+ "Team": "HOU",
+"Year": "13-14",
+"TotalPoints": 8789 
+},
+{
+ "Team": "IND",
+"Year": "13-14",
+"TotalPoints": 9004 
+},
+{
+ "Team": "LAC",
+"Year": "13-14",
+"TotalPoints": 9561 
+},
+{
+ "Team": "LAL",
+"Year": "13-14",
+"TotalPoints": 8331 
+},
+{
+ "Team": "MIA",
+"Year": "13-14",
+"TotalPoints": 8234 
+},
+{
+ "Team": "MIL",
+"Year": "13-14",
+"TotalPoints": 7583 
+},
+{
+ "Team": "MIN",
+"Year": "13-14",
+"TotalPoints": 8752 
+},
+{
+ "Team": "NYK",
+"Year": "13-14",
+"TotalPoints": 8168 
+},
+{
+ "Team": "ORL",
+"Year": "13-14",
+"TotalPoints": 7400 
+},
+{
+ "Team": "PHI",
+"Year": "13-14",
+"TotalPoints": 6289 
+},
+{
+ "Team": "PHO",
+"Year": "13-14",
+"TotalPoints": 8629 
+},
+{
+ "Team": "POR",
+"Year": "13-14",
+"TotalPoints": 8753 
+},
+{
+ "Team": "SAC",
+"Year": "13-14",
+"TotalPoints": 7747 
+},
+{
+ "Team": "SAN",
+"Year": "13-14",
+"TotalPoints": 8503 
+},
+{
+ "Team": "TOR",
+"Year": "13-14",
+"TotalPoints": 8446 
+},
+{
+ "Team": "UTA",
+"Year": "13-14",
+"TotalPoints": 7793 
+},
+{
+ "Team": "WAS",
+"Year": "13-14",
+"TotalPoints": 8274 
+},
+{
+ "Team": "MEM",
+"Year": "13-14",
+"TotalPoints": 8119 
+},
+{
+ "Team": "NOR",
+"Year": "13-14",
+"TotalPoints": 8136 
+},
+{
+ "Team": "OKC",
+"Year": "13-14",
+"TotalPoints": 9079 
+},
+{
+ "Team": "BRO",
+"Year": "13-14",
+"TotalPoints": 8401 
+},
+{
+ "Team": "ATL",
+"Year": "14-15",
+"TotalPoints": 8507 
+},
+{
+ "Team": "BOS",
+"Year": "14-15",
+"TotalPoints": 8121 
+},
+{
+ "Team": "CHA",
+"Year": "14-15",
+"TotalPoints": 7906 
+},
+{
+ "Team": "CHI",
+"Year": "14-15",
+"TotalPoints": 8265 
+},
+{
+ "Team": "CLE",
+"Year": "14-15",
+"TotalPoints": 8796 
+},
+{
+ "Team": "DAL",
+"Year": "14-15",
+"TotalPoints": 8998 
+},
+{
+ "Team": "DEN",
+"Year": "14-15",
+"TotalPoints": 7110 
+},
+{
+ "Team": "DET",
+"Year": "14-15",
+"TotalPoints": 7795 
+},
+{
+ "Team": "GSW",
+"Year": "14-15",
+"TotalPoints": 9016 
+},
+{
+ "Team": "HOU",
+"Year": "14-15",
+"TotalPoints": 9483 
+},
+{
+ "Team": "IND",
+"Year": "14-15",
+"TotalPoints": 7876 
+},
+{
+ "Team": "LAC",
+"Year": "14-15",
+"TotalPoints": 9117 
+},
+{
+ "Team": "LAL",
+"Year": "14-15",
+"TotalPoints": 8178 
+},
+{
+ "Team": "MIA",
+"Year": "14-15",
+"TotalPoints": 7960 
+},
+{
+ "Team": "MIL",
+"Year": "14-15",
+"TotalPoints": 7929 
+},
+{
+ "Team": "MIN",
+"Year": "14-15",
+"TotalPoints": 7270 
+},
+{
+ "Team": "NYK",
+"Year": "14-15",
+"TotalPoints": 6740 
+},
+{
+ "Team": "ORL",
+"Year": "14-15",
+"TotalPoints": 7847 
+},
+{
+ "Team": "PHI",
+"Year": "14-15",
+"TotalPoints": 6477 
+},
+{
+ "Team": "PHO",
+"Year": "14-15",
+"TotalPoints": 8220 
+},
+{
+ "Team": "POR",
+"Year": "14-15",
+"TotalPoints": 9219 
+},
+{
+ "Team": "SAC",
+"Year": "14-15",
+"TotalPoints": 8280 
+},
+{
+ "Team": "SAN",
+"Year": "14-15",
+"TotalPoints": 8350 
+},
+{
+ "Team": "TOR",
+"Year": "14-15",
+"TotalPoints": 8525 
+},
+{
+ "Team": "UTA",
+"Year": "14-15",
+"TotalPoints": 7105 
+},
+{
+ "Team": "WAS",
+"Year": "14-15",
+"TotalPoints": 8093 
+},
+{
+ "Team": "MEM",
+"Year": "14-15",
+"TotalPoints": 8331 
+},
+{
+ "Team": "NOR",
+"Year": "14-15",
+"TotalPoints": 8375 
+},
+{
+ "Team": "OKC",
+"Year": "14-15",
+"TotalPoints": 9554 
+},
+{
+ "Team": "BRO",
+"Year": "14-15",
+"TotalPoints": 8537 
+},
+{
+ "Team": "ATL",
+"Year": "15-16",
+"TotalPoints": 8618 
+},
+{
+ "Team": "BOS",
+"Year": "15-16",
+"TotalPoints": 8455 
+},
+{
+ "Team": "CHA",
+"Year": "15-16",
+"TotalPoints": 7798 
+},
+{
+ "Team": "CHI",
+"Year": "15-16",
+"TotalPoints": 8266 
+},
+{
+ "Team": "CLE",
+"Year": "15-16",
+"TotalPoints": 8637 
+},
+{
+ "Team": "DAL",
+"Year": "15-16",
+"TotalPoints": 8533 
+},
+{
+ "Team": "DEN",
+"Year": "15-16",
+"TotalPoints": 8250 
+},
+{
+ "Team": "DET",
+"Year": "15-16",
+"TotalPoints": 8284 
+},
+{
+ "Team": "GSW",
+"Year": "15-16",
+"TotalPoints": 9441 
+},
+{
+ "Team": "HOU",
+"Year": "15-16",
+"TotalPoints": 8137 
+},
+{
+ "Team": "IND",
+"Year": "15-16",
+"TotalPoints": 8470 
+},
+{
+ "Team": "LAC",
+"Year": "15-16",
+"TotalPoints": 8822 
+},
+{
+ "Team": "LAL",
+"Year": "15-16",
+"TotalPoints": 7982 
+},
+{
+ "Team": "MIA",
+"Year": "15-16",
+"TotalPoints": 8898 
+},
+{
+ "Team": "MIL",
+"Year": "15-16",
+"TotalPoints": 8243 
+},
+{
+ "Team": "MIN",
+"Year": "15-16",
+"TotalPoints": 7895 
+},
+{
+ "Team": "NYK",
+"Year": "15-16",
+"TotalPoints": 8053 
+},
+{
+ "Team": "ORL",
+"Year": "15-16",
+"TotalPoints": 8217 
+},
+{
+ "Team": "PHI",
+"Year": "15-16",
+"TotalPoints": 8022 
+},
+{
+ "Team": "PHO",
+"Year": "15-16",
+"TotalPoints": 8003 
+},
+{
+ "Team": "POR",
+"Year": "15-16",
+"TotalPoints": 8716 
+},
+{
+ "Team": "SAC",
+"Year": "15-16",
+"TotalPoints": 8740 
+},
+{
+ "Team": "SAN",
+"Year": "15-16",
+"TotalPoints": 8925 
+},
+{
+ "Team": "TOR",
+"Year": "15-16",
+"TotalPoints": 8482 
+},
+{
+ "Team": "UTA",
+"Year": "15-16",
+"TotalPoints": 8103 
+},
+{
+ "Team": "WAS",
+"Year": "15-16",
+"TotalPoints": 9385 
+},
+{
+ "Team": "MEM",
+"Year": "15-16",
+"TotalPoints": 7495 
+},
+{
+ "Team": "NOR",
+"Year": "15-16",
+"TotalPoints": 9016 
+},
+{
+ "Team": "OKC",
+"Year": "15-16",
+"TotalPoints": 9202 
+},
+{
+ "Team": "BRO",
+"Year": "15-16",
+"TotalPoints": 7445 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
